@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journals Processing - Summit Installments</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .stat-card h3 {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .value {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.2s;
+            margin-right: 10px;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .button-danger {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .file-label {
+            display: inline-block;
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        
+        .file-label:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .journals-list {
+            margin-top: 20px;
+        }
+        
+        .journal-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .journal-info {
+            flex: 1;
+        }
+        
+        .journal-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .journal-stats {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border-left: 4px solid #17a2b8;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/journal-preparation" class="back-link">← Back to Journal Preparation</a>
+        
+        <h1>📊 Journals Processing</h1>
+        <p class="subtitle">Simplified Summit Installments Workflow</p>
+        <div style="background: #e3f2fd; padding: 10px 15px; border-radius: 6px; margin-bottom: 20px; border-left: 4px solid #2196F3;">
+            <strong>📌 Current Context:</strong> Job ID: <span style="color: #1976D2;">{{ job_id }}</span> | Subsidiary ID: <span style="color: #1976D2;">{{ subsidiary_id }}</span>
+        </div>
+        
+        <div class="dashboard">
+            <div class="stat-card">
+                <h3>Original Journals</h3>
+                <div class="value" id="original-count">-</div>
+                <div style="font-size: 14px; margin-top: 5px;" id="original-total">$0.00</div>
+            </div>
+            <div class="stat-card">
+                <h3>Summit Uploaded</h3>
+                <div class="value" id="summit-count">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Processing Status</h3>
+                <div class="value" style="font-size: 20px;" id="processing-status">Not Started</div>
+            </div>
+        </div>
+        
+        <div id="alert-container"></div>
+        
+        <!-- Step 0: Upload Original Journals -->
+        <div class="section">
+            <h2>Step 0: Upload Original Journals</h2>
+            <p style="margin-bottom: 15px; color: #666;">Upload Main, POA, and Cross-Subsidiary journal files</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 15px;">
+                <!-- Main Journal -->
+                <div>
+                    <label style="font-weight: 600; display: block; margin-bottom: 8px;">
+                        Main Journal <span id="main-status" class="status-badge status-warning" style="display: none;">✓ Uploaded</span>
+                    </label>
+                    <input type="file" id="main-file" class="file-input" accept=".csv">
+                    <label for="main-file" class="file-label">Choose File</label>
+                    <div id="main-info" style="margin-top: 5px; font-size: 12px; color: #666;"></div>
+                </div>
+                
+                <!-- POA Journal -->
+                <div>
+                    <label style="font-weight: 600; display: block; margin-bottom: 8px;">
+                        POA Journal <span id="poa-status" class="status-badge status-warning" style="display: none;">✓ Uploaded</span>
+                    </label>
+                    <input type="file" id="poa-file" class="file-input" accept=".csv">
+                    <label for="poa-file" class="file-label">Choose File</label>
+                    <div id="poa-info" style="margin-top: 5px; font-size: 12px; color: #666;"></div>
+                </div>
+                
+                <!-- Cross-Subsidiary Journal -->
+                <div>
+                    <label style="font-weight: 600; display: block; margin-bottom: 8px;">
+                        Cross-Subsidiary <span id="cross-status" class="status-badge status-warning" style="display: none;">✓ Uploaded</span>
+                    </label>
+                    <input type="file" id="cross-file" class="file-input" accept=".csv">
+                    <label for="cross-file" class="file-label">Choose File</label>
+                    <div id="cross-info" style="margin-top: 5px; font-size: 12px; color: #666;"></div>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <button class="button" id="view-data-btn" onclick="viewCombinedData()" disabled>
+                    <i class="fas fa-table"></i> View Combined Data
+                </button>
+                <button class="button button-danger" onclick="clearJournals()">Clear Journals</button>
+                <div id="upload-summary" style="margin-left: 20px; font-size: 14px; color: #666;"></div>
+            </div>
+        </div>
+        
+        <!-- Step 1: Upload Summit -->
+        <div class="section">
+            <h2>Step 1: Upload Summit Installments</h2>
+            <p style="margin-bottom: 15px; color: #666;">Upload the salon summit CSV file (OAK ID, Region, Amount)</p>
+            
+            <input type="file" id="summit-file" class="file-input" accept=".csv">
+            <label for="summit-file" class="file-label" id="summit-file-label">Choose Summit CSV</label>
+            <span id="summit-file-name" style="margin-left: 10px; color: #666;"></span>
+            
+            <div style="margin-top: 15px; display: flex; gap: 10px; align-items: center;">
+                <button class="button" id="upload-summit-btn" onclick="uploadSummit()" disabled>Upload Summit Data</button>
+                <button class="button" id="match-summit-btn" onclick="matchSummit()" disabled>🎯 Match Clients</button>
+                <button class="button" id="view-results-btn" onclick="viewMatchResults()" disabled style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);">📊 View Match Results</button>
+                <button class="button button-danger" id="clear-summit-btn" onclick="clearAll()">Clear All Data</button>
+            </div>
+            
+            <div id="match-summary" style="margin-top: 15px; padding: 15px; background: white; border-radius: 6px; display: none;">
+                <h4 style="margin-bottom: 10px;">Matching Summary</h4>
+                <div id="match-stats"></div>
+            </div>
+        </div>
+        
+        <!-- Step 2: Generate Journals -->
+        <div class="section">
+            <h2>Step 2: Generate Split Journals</h2>
+            <p style="margin-bottom: 15px; color: #666;">Generate 4 journals from matched results</p>
+            
+            <button class="button" id="generate-btn" onclick="generateJournals()" disabled>📄 Generate Journals</button>
+            
+            <div id="generation-result" class="hidden" style="margin-top: 20px;">
+                <div style="background: white; padding: 20px; border-radius: 6px;">
+                    <h3 style="margin-bottom: 15px;">✅ Journals Generated</h3>
+                    
+                    <!-- Reconciliation Table -->
+                    <div id="reconciliation-table" style="margin-top: 20px;"></div>
+                    
+                    <!-- Download Links -->
+                    <div id="download-links" style="margin-top: 20px;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Step 3: Download -->
+        <div class="section">
+            <h2>Step 3: Download Processed Journals</h2>
+            <p style="margin-bottom: 15px; color: #666;">Download all processed journal files</p>
+            
+            <div id="journals-list" class="journals-list"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Get job_id and subsidiary_id from template variables (passed from Flask)
+        const JOB_ID = {{ job_id }};
+        const SUBSIDIARY_ID = {{ subsidiary_id }};
+        
+        // Load status on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadStatus();
+            loadJournalsUploadStatus();
+            
+            // Journal file input listeners
+            document.getElementById('main-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'Main'));
+            document.getElementById('poa-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'POA'));
+            document.getElementById('cross-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'Cross_Subsidiary'));
+            
+            // Summit file input listener
+            document.getElementById('summit-file').addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    document.getElementById('summit-file-name').textContent = file.name;
+                    document.getElementById('upload-summit-btn').disabled = false;
+                } else {
+                    document.getElementById('summit-file-name').textContent = '';
+                    document.getElementById('upload-summit-btn').disabled = true;
+                }
+            });
+        });
+        
+        async function loadStatus() {
+            try {
+                const response = await fetch(`/journals/api/status/${JOB_ID}/${SUBSIDIARY_ID}`);
+                const data = await response.json();
+                
+                if (!data.success) {
+                    console.error('Status load failed:', data.error);
+                    return;
+                }
+                
+                // Update dashboard (only if elements exist)
+                const origCountEl = document.getElementById('original-count');
+                const origTotalEl = document.getElementById('original-total');
+                const summitCountEl = document.getElementById('summit-count');
+                const statusEl = document.getElementById('processing-status');
+                
+                if (origCountEl) origCountEl.textContent = data.original_journals.count;
+                if (origTotalEl) origTotalEl.textContent = `$${data.original_journals.total.toLocaleString()}`;
+                if (summitCountEl) summitCountEl.textContent = data.summit_uploaded ? data.summit_count : 'Not uploaded';
+                
+                // Update status text
+                if (statusEl) {
+                    if (data.processing_complete) {
+                        statusEl.textContent = '✅ Complete';
+                    } else if (data.summit_uploaded) {
+                        statusEl.textContent = '⏳ Ready';
+                    } else {
+                        statusEl.textContent = 'Not Started';
+                    }
+                }
+                
+                // Update button states based on actual data state
+                const uploadSummitBtn = document.getElementById('upload-summit-btn');
+                const matchBtn = document.getElementById('match-summit-btn');
+                const viewResultsBtn = document.getElementById('view-results-btn');
+                const generateBtn = document.getElementById('generate-btn');
+                const clearBtn = document.getElementById('clear-summit-btn');
+                const summitFileName = document.getElementById('summit-file-name');
+                
+                // Upload button - enable if no summit data uploaded yet
+                if (uploadSummitBtn) {
+                    uploadSummitBtn.disabled = data.summit_uploaded;
+                }
+                
+                // Show filename indicator if already uploaded
+                if (summitFileName && data.summit_uploaded) {
+                    summitFileName.textContent = `✅ ${data.summit_count} installments uploaded`;
+                    summitFileName.style.color = '#4CAF50';
+                }
+                
+                // Match button - enable if summit uploaded
+                if (matchBtn) {
+                    matchBtn.disabled = !data.summit_uploaded;
+                }
+                
+                // View Results button - enable if matching is complete
+                if (viewResultsBtn) {
+                    viewResultsBtn.disabled = !data.match_complete;
+                }
+                
+                // Generate button - enable if matching is complete
+                if (generateBtn) {
+                    generateBtn.disabled = !data.match_complete;
+                }
+                
+                // Clear button - always enabled
+                if (clearBtn) {
+                    clearBtn.disabled = false;
+                }
+                
+                // Show match summary if matches exist
+                if (data.match_complete && data.match_count > 0) {
+                    const matchSummary = document.getElementById('match-summary');
+                    if (matchSummary) {
+                        matchSummary.style.display = 'block';
+                        // Optionally load match stats here
+                    }
+                }
+                
+            } catch (error) {
+                console.error('Failed to load status:', error);
+            }
+        }
+        
+        async function uploadSummit() {
+            const fileInput = document.getElementById('summit-file');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                showAlert('error', 'Please select a CSV file');
+                return;
+            }
+            
+            try {
+                showAlert('info', 'Parsing CSV file...');
+                
+                const text = await file.text();
+                const lines = text.split('\n');
+                const summit_data = [];
+                
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line) continue;
+                    
+                    // Use proper CSV parsing to handle quoted values with commas
+                    const parts = parseCSVLine(line);
+                    if (parts.length >= 3) {
+                        const oak_id = parts[0].trim();
+                        const region = parts[1].trim();
+                        // Remove commas from amount string (e.g., "1,739.84" -> "1739.84")
+                        const amount_str = parts[2].replace(/,/g, '').trim();
+                        const amount = parseFloat(amount_str) || 0;
+                        
+                        if (oak_id && amount !== 0) {
+                            summit_data.push({
+                                oak_id: oak_id,
+                                region: region,
+                                installment_amount: amount
+                            });
+                        }
+                    }
+                }
+                
+                if (summit_data.length === 0) {
+                    showAlert('error', 'No valid data found in CSV');
+                    return;
+                }
+                
+                showAlert('info', `Uploading ${summit_data.length} installments...`);
+                
+                const response = await fetch(`/journals/api/upload-summit/${JOB_ID}/${SUBSIDIARY_ID}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ summit_data })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert('success', `✅ Uploaded ${result.uploaded_count} summit installments`);
+                    document.getElementById('match-summit-btn').disabled = false;
+                    document.getElementById('clear-summit-btn').disabled = false;
+                    loadStatus();
+                } else if (response.status === 409) {
+                    // Data already exists - offer to clear and re-upload
+                    if (confirm('Summit data already uploaded. Clear and re-upload?')) {
+                        await clearAll();
+                        // Retry upload
+                        setTimeout(() => {
+                            document.getElementById('summit-file').click();
+                        }, 500);
+                    }
+                } else {
+                    showAlert('error', result.error || 'Upload failed');
+                }
+                
+            } catch (error) {
+                showAlert('error', 'Upload failed: ' + error.message);
+            }
+        }
+        
+        async function matchSummit() {
+            if (!confirm('Match summit clients with uploaded journals?')) {
+                return;
+            }
+            
+            try {
+                showAlert('info', 'Matching clients...');
+                
+                const response = await fetch(`/journals/api/match-summit/${JOB_ID}/${SUBSIDIARY_ID}`, {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert('success', result.message);
+                    
+                    // Show matching summary
+                    const summaryHTML = `
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 24px; font-weight: bold; color: #28a745;">${result.matched_count}</div>
+                                <div style="font-size: 12px; color: #666;">Matched</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 24px; font-weight: bold; color: #ffc107;">${result.insufficient_count}</div>
+                                <div style="font-size: 12px; color: #666;">Insufficient</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 24px; font-weight: bold; color: #dc3545;">${result.unmatched_count}</div>
+                                <div style="font-size: 12px; color: #666;">Unmatched</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 24px; font-weight: bold; color: #667eea;">${result.total_processed}</div>
+                                <div style="font-size: 12px; color: #666;">Total</div>
+                            </div>
+                        </div>
+                    `;
+                    document.getElementById('match-stats').innerHTML = summaryHTML;
+                    document.getElementById('match-summary').style.display = 'block';
+                    
+                    // Enable view results button and generate button
+                    document.getElementById('view-results-btn').disabled = false;
+                    document.getElementById('generate-btn').disabled = false;
+                    
+                } else if (response.status === 409) {
+                    // Already matched - offer to clear and re-match
+                    if (confirm('Summit already matched. Clear existing matches and re-match?')) {
+                        await clearMatches();
+                        // Retry matching
+                        await matchSummit();
+                    }
+                } else {
+                    showAlert('error', result.error || 'Matching failed');
+                }
+                
+            } catch (error) {
+                showAlert('error', 'Matching failed: ' + error.message);
+            }
+        }
+        
+        async function clearMatches() {
+            try {
+                const response = await fetch(`/journals/api/clear-matches/${JOB_ID}/${SUBSIDIARY_ID}`, {
+                    method: 'DELETE'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    document.getElementById('match-summary').style.display = 'none';
+                    document.getElementById('view-results-btn').disabled = true;
+                    showAlert('success', 'Match results cleared');
+                } else {
+                    showAlert('error', result.error || 'Clear failed');
+                }
+            } catch (error) {
+                showAlert('error', 'Clear failed: ' + error.message);
+            }
+        }
+        
+        function viewMatchResults() {
+            window.open(`/journals/match-results/${JOB_ID}/${SUBSIDIARY_ID}`, '_blank');
+        }
+        
+        async function generateJournals() {
+            if (!confirm('Generate split journals from matched results?')) {
+                return;
+            }
+            
+            try {
+                showAlert('info', 'Generating journals...');
+                
+                const response = await fetch(`/journals/api/generate-journals/${JOB_ID}/${SUBSIDIARY_ID}`, {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert('success', result.message);
+                    
+                    // Show reconciliation table
+                    const recon = result.reconciliation;
+                    const reconHTML = `
+                        <h4 style="margin-bottom: 15px;">📊 Reconciliation</h4>
+                        <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                            <thead>
+                                <tr style="background: #667eea; color: white;">
+                                    <th style="padding: 10px; border: 1px solid #ddd;">Journal Type</th>
+                                    <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">Original Amount</th>
+                                    <th style="padding: 10px; border: 1px solid #ddd; text-align: right;">New Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${Object.keys(recon.original_totals).map(type => `
+                                    <tr>
+                                        <td style="padding: 8px; border: 1px solid #ddd;">${type}</td>
+                                        <td style="padding: 8px; border: 1px solid #ddd; text-align: right;">$${recon.original_totals[type].toLocaleString()}</td>
+                                        <td style="padding: 8px; border: 1px solid #ddd; text-align: right;">$${(recon.new_totals[type] || 0).toLocaleString()}</td>
+                                    </tr>
+                                `).join('')}
+                                ${recon.new_totals.Salon_Summit_Installments ? `
+                                    <tr style="background: #d4edda;">
+                                        <td style="padding: 8px; border: 1px solid #ddd;"><strong>Salon Summit Installments</strong></td>
+                                        <td style="padding: 8px; border: 1px solid #ddd; text-align: right;">-</td>
+                                        <td style="padding: 8px; border: 1px solid #ddd; text-align: right;"><strong>$${recon.new_totals.Salon_Summit_Installments.toLocaleString()}</strong></td>
+                                    </tr>
+                                ` : ''}
+                                <tr style="background: #f0f0f0; font-weight: bold;">
+                                    <td style="padding: 10px; border: 1px solid #ddd;">TOTAL</td>
+                                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">$${recon.original_grand_total.toLocaleString()}</td>
+                                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">$${recon.new_grand_total.toLocaleString()}</td>
+                                </tr>
+                                <tr style="background: ${recon.balanced ? '#d4edda' : '#f8d7da'};">
+                                    <td style="padding: 10px; border: 1px solid #ddd;"><strong>Difference</strong></td>
+                                    <td colspan="2" style="padding: 10px; border: 1px solid #ddd; text-align: center;">
+                                        <strong>${recon.balanced ? '✅' : '❌'} $${Math.abs(recon.difference).toLocaleString()}</strong>
+                                        ${recon.balanced ? ' (Balanced)' : ' (Not Balanced)'}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `;
+                    document.getElementById('reconciliation-table').innerHTML = reconHTML;
+                    
+                    // Show download links
+                    const downloadHTML = `
+                        <h4 style="margin-bottom: 15px;">📥 Download Generated Journals</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                            ${result.generated_files.map(file => `
+                                <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; border-left: 4px solid #667eea;">
+                                    <div style="font-weight: 600; margin-bottom: 5px;">${file.journal_type}</div>
+                                    <div style="font-size: 12px; color: #666; margin-bottom: 10px;">
+                                        ${file.row_count} rows | $${file.total_amount.toLocaleString()}
+                                    </div>
+                                    <button class="button" style="font-size: 12px; padding: 6px 12px;" onclick="window.location.href='/journals/api/download/${JOB_ID}/${SUBSIDIARY_ID}/${file.journal_type}'">
+                                        Download CSV
+                                    </button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                    document.getElementById('download-links').innerHTML = downloadHTML;
+                    
+                    // Show the result section
+                    document.getElementById('generation-result').classList.remove('hidden');
+                    
+                } else {
+                    showAlert('error', result.error || 'Generation failed');
+                }
+                
+            } catch (error) {
+                showAlert('error', 'Generation failed: ' + error.message);
+            }
+        }
+        
+        async function processSummit() {
+            if (!confirm('Process summit installments? This will split the journals and create the summit journal.')) {
+                return;
+            }
+            
+            try {
+                showAlert('info', 'Processing summit installments...');
+                
+                const response = await fetch(`/journals/api/process/${JOB_ID}/${SUBSIDIARY_ID}`, {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    const verificationIcon = result.verification_passed ? '✅' : '❌';
+                    
+                    const details = `
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                            <div><strong>Matched Clients:</strong> ${result.matched_count}</div>
+                            <div><strong>Summit Amount:</strong> $${result.total_summit_amount.toLocaleString()}</div>
+                            <div><strong>Unmatched:</strong> ${result.unmatched_count}</div>
+                            <div><strong>Unmatched Total:</strong> $${result.unmatched_summit_total.toLocaleString()}</div>
+                            <div><strong>Original Total:</strong> $${result.original_total.toLocaleString()}</div>
+                            <div><strong>Processed Total:</strong> $${result.processed_total.toLocaleString()}</div>
+                            <div style="grid-column: span 2;"><strong>Verification:</strong> ${verificationIcon} ${result.verification_passed ? 'Totals match!' : 'Totals do not match'}</div>
+                        </div>
+                    `;
+                    
+                    const processDetails = document.getElementById('process-details');
+                    const processResult = document.getElementById('process-result');
+                    if (processDetails) processDetails.innerHTML = details;
+                    if (processResult) processResult.classList.remove('hidden');
+                    
+                    showAlert('success', result.message);
+                    loadStatus();
+                } else {
+                    showAlert('error', result.error || 'Processing failed');
+                }
+                
+            } catch (error) {
+                showAlert('error', 'Processing failed: ' + error.message);
+            }
+        }
+        
+        async function clearAll() {
+            if (!confirm('Clear ALL summit data, matches, and generated journals?\n\nThis will:\n• Delete summit upload\n• Delete match results\n• Delete generated journals\n\nOriginal uploaded journals will remain intact.')) {
+                return;
+            }
+            
+            try {
+                showAlert('info', 'Clearing all data...');
+                
+                // Clear summit data and processed journals
+                const clearResponse = await fetch(`/journals/api/clear/${JOB_ID}/${SUBSIDIARY_ID}`, {
+                    method: 'DELETE'
+                });
+                
+                // Clear match results
+                const matchClearResponse = await fetch(`/journals/api/clear-matches/${JOB_ID}/${SUBSIDIARY_ID}`, {
+                    method: 'DELETE'
+                });
+                
+                const result = await clearResponse.json();
+                
+                if (result.success) {
+                    showAlert('success', '✅ All data cleared! You can now re-upload summit file.');
+                    
+                    // Reset all UI elements
+                    const summitFile = document.getElementById('summit-file');
+                    const summitFileName = document.getElementById('summit-file-name');
+                    const matchSummary = document.getElementById('match-summary');
+                    const generationResult = document.getElementById('generation-result');
+                    const processResult = document.getElementById('process-result');
+                    const journalsList = document.getElementById('journals-list');
+                    
+                    if (summitFile) summitFile.value = '';
+                    if (summitFileName) summitFileName.textContent = '';
+                    if (matchSummary) matchSummary.style.display = 'none';
+                    if (generationResult) generationResult.classList.add('hidden');
+                    if (processResult) processResult.classList.add('hidden');
+                    if (journalsList) journalsList.innerHTML = '';
+                    
+                    // Reset button states
+                    document.getElementById('upload-summit-btn').disabled = true;
+                    document.getElementById('match-summit-btn').disabled = true;
+                    document.getElementById('view-results-btn').disabled = true;
+                    document.getElementById('generate-btn').disabled = true;
+                    document.getElementById('clear-summit-btn').disabled = false;
+                    
+                    loadStatus();
+                } else {
+                    showAlert('error', result.error || 'Clear failed');
+                }
+                
+            } catch (error) {
+                showAlert('error', 'Clear failed: ' + error.message);
+            }
+        }
+        
+        async function loadJournals() {
+            try {
+                const response = await fetch(`/journals/api/list-journals/${JOB_ID}/${SUBSIDIARY_ID}`);
+                const data = await response.json();
+                
+                if (!data.success || !data.journals || data.journals.length === 0) {
+                    document.getElementById('journals-list').innerHTML = '<p style="color: #666;">No processed journals available</p>';
+                    return;
+                }
+                
+                const html = data.journals.map(j => `
+                    <div class="journal-item">
+                        <div class="journal-info">
+                            <div class="journal-name">${j.journal_type}</div>
+                            <div class="journal-stats">${j.count} rows | Total: $${j.total.toLocaleString()}</div>
+                        </div>
+                        <button class="button" onclick="downloadJournal('${j.journal_type}')">Download CSV</button>
+                    </div>
+                `).join('');
+                
+                document.getElementById('journals-list').innerHTML = html;
+                
+            } catch (error) {
+                console.error('Failed to load journals:', error);
+            }
+        }
+        
+        async function downloadJournal(journalType) {
+            window.location.href = `/journals/api/download/${JOB_ID}/${SUBSIDIARY_ID}/${journalType}`;
+        }
+        
+        function showAlert(type, message) {
+            const container = document.getElementById('alert-container');
+            const alertClass = type === 'success' ? 'alert-success' : type === 'error' ? 'alert-error' : 'alert-info';
+            
+            container.innerHTML = `<div class="alert ${alertClass}">${message}</div>`;
+            
+            setTimeout(() => {
+                container.innerHTML = '';
+            }, 5000);
+        }
+        
+        // ==== JOURNAL UPLOAD FUNCTIONS ====
+        
+        async function loadJournalsUploadStatus() {
+            try {
+                const response = await fetch(`/journals/api/journals-upload-status/${JOB_ID}/${SUBSIDIARY_ID}`);
+                const data = await response.json();
+                
+                if (!data.success) return;
+                
+                // Update upload status badges
+                ['Main', 'POA', 'Cross_Subsidiary'].forEach(type => {
+                    const key = type === 'Cross_Subsidiary' ? 'cross' : type.toLowerCase();
+                    const statusEl = document.getElementById(`${key}-status`);
+                    const infoEl = document.getElementById(`${key}-info`);
+                    
+                    if (data.uploaded[type]) {
+                        statusEl.style.display = 'inline-block';
+                        statusEl.className = 'status-badge status-success';
+                        infoEl.textContent = `${data.counts[type]} rows | $${data.totals[type].toLocaleString()}`;
+                    } else {
+                        statusEl.style.display = 'none';
+                        infoEl.textContent = '';
+                    }
+                });
+                
+                // Update view data button
+                document.getElementById('view-data-btn').disabled = !data.all_uploaded;
+                
+                // Update summary
+                if (data.all_uploaded) {
+                    const totalCount = data.counts.Main + data.counts.POA + data.counts.Cross_Subsidiary;
+                    const totalAmount = data.totals.Main + data.totals.POA + data.totals.Cross_Subsidiary;
+                    document.getElementById('upload-summary').innerHTML = 
+                        `<strong>✅ All journals uploaded</strong> | ${totalCount} total rows | $${totalAmount.toLocaleString()}`;
+                } else {
+                    document.getElementById('upload-summary').textContent = 'Upload all 3 journals to continue';
+                }
+                
+            } catch (error) {
+                console.error('Failed to load journal upload status:', error);
+            }
+        }
+        
+        async function handleJournalFileSelect(event, journalType) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            showAlert('info', `Parsing ${journalType} journal...`);
+            
+            try {
+                const text = await file.text();
+                const lines = text.split('\n');
+                
+                if (lines.length < 2) {
+                    showAlert('error', 'CSV file is empty or invalid');
+                    return;
+                }
+                
+                // Parse header
+                const headerLine = lines[0].trim();
+                const headers = headerLine.split(',').map(h => h.replace(/"/g, '').trim());
+                
+                // Parse rows
+                const rows = [];
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line) continue;
+                    
+                    const values = parseCSVLine(line);
+                    if (values.length < headers.length) continue;
+                    
+                    const row = {};
+                    headers.forEach((header, idx) => {
+                        row[header] = values[idx] || '';
+                    });
+                    rows.push(row);
+                }
+                
+                if (rows.length === 0) {
+                    showAlert('error', 'No valid rows found in CSV');
+                    return;
+                }
+                
+                showAlert('info', `Uploading ${rows.length} rows...`);
+                
+                // Upload to server
+                const response = await fetch(`/journals/api/upload-journals/${JOB_ID}/${SUBSIDIARY_ID}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        journal_type: journalType,
+                        filename: file.name,
+                        rows: rows
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert('success', `✅ ${journalType} journal uploaded: ${result.created} rows`);
+                    loadJournalsUploadStatus();
+                    loadStatus();
+                } else {
+                    showAlert('error', result.error || 'Upload failed');
+                    event.target.value = ''; // Reset file input
+                }
+                
+            } catch (error) {
+                showAlert('error', `Upload failed: ${error.message}`);
+                event.target.value = ''; // Reset file input
+            }
+        }
+        
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current.trim());
+            
+            return result.map(v => v.replace(/^"|"$/g, ''));
+        }
+        
+        function viewCombinedData() {
+            window.open(`/journals/view-data/${JOB_ID}/${SUBSIDIARY_ID}`, '_blank');
+        }
+        
+        async function clearJournals() {
+            if (!confirm('Clear all uploaded journals? This will also clear any summit processing data.')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/journals/api/clear-journals/${JOB_ID}/${SUBSIDIARY_ID}`, {
+                    method: 'DELETE'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert('success', result.message);
+                    
+                    // Reset file inputs
+                    document.getElementById('main-file').value = '';
+                    document.getElementById('poa-file').value = '';
+                    document.getElementById('cross-file').value = '';
+                    document.getElementById('summit-file').value = '';
+                    document.getElementById('summit-file-name').textContent = '';
+                    
+                    // Reload status
+                    loadJournalsUploadStatus();
+                    loadStatus();
+                    
+                    // Hide processing result (if exists)
+                    const processResult = document.getElementById('process-result');
+                    const journalsList = document.getElementById('journals-list');
+                    if (processResult) processResult.classList.add('hidden');
+                    if (journalsList) journalsList.innerHTML = '';
+                } else {
+                    showAlert('error', result.error || 'Clear failed');
+                }
+                
+            } catch (error) {
+                showAlert('error', `Clear failed: ${error.message}`);
+            }
+        }
+    </script>
+</body>
+</html>
+

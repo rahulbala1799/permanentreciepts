@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FP Data Viewer - Job {{ job_id }} | Subsidiary {{ subsidiary_id }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <style>
+        .dashboard-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .data-table {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .table-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .amount-positive { color: #27ae60; font-weight: bold; }
+        .amount-negative { color: #e74c3c; font-weight: bold; }
+        .journal-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .journal-main { background: #e3f2fd; color: #1976d2; }
+        .journal-poa { background: #f3e5f5; color: #7b1fa2; }
+        .journal-cross { background: #e8f5e8; color: #388e3c; }
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container-fluid py-4">
+        <!-- Header -->
+        <div class="dashboard-card">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="mb-2"><i class="fas fa-database me-2"></i>FP Data Viewer</h1>
+                    <p class="mb-0">Job {{ job_id }} | Subsidiary {{ subsidiary_id }} | <span id="data-source-badge" class="badge bg-light text-dark">Loading...</span></p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <button class="btn btn-light me-2" onclick="refreshData()">
+                        <i class="fas fa-sync-alt me-1"></i> Refresh
+                    </button>
+                    <button class="btn btn-outline-light" onclick="window.close()">
+                        <i class="fas fa-times me-1"></i> Close
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="row" id="dashboard-stats">
+            <div class="col-md-3">
+                <div class="stat-card text-center">
+                    <div class="stat-number" id="total-rows">-</div>
+                    <div class="stat-label">Total Rows</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card text-center">
+                    <div class="stat-number" id="total-amount">$-</div>
+                    <div class="stat-label">Total Amount</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card text-center">
+                    <div class="stat-number" id="unique-clients">-</div>
+                    <div class="stat-label">Unique Clients</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card text-center">
+                    <div class="stat-number" id="journal-types">-</div>
+                    <div class="stat-label">Journal Types</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="data-table">
+            <div class="table-header">
+                <h5 class="mb-0"><i class="fas fa-table me-2"></i>Data Table</h5>
+                <small class="text-muted" id="table-info">Loading data...</small>
+            </div>
+            <div class="p-3">
+                <div id="loading-spinner" class="loading-spinner">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div id="data-table-container" style="display: none;">
+                    <table id="dataTable" class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Journal Type</th>
+                                <th>Client ID</th>
+                                <th>Invoice Number</th>
+                                <th>Billing Entity</th>
+                                <th>AR Account</th>
+                                <th>Currency</th>
+                                <th>Exchange Rate</th>
+                                <th>Amount</th>
+                                <th>Account</th>
+                                <th>Location</th>
+                                <th>Trans Type</th>
+                                <th>Comment</th>
+                                <th>Card Reference</th>
+                                <th>Reason Code</th>
+                                <th>SEPA Provider</th>
+                                <th>Invoice Hash</th>
+                                <th>Payment Hash</th>
+                                <th>Memo</th>
+                                <th>Payment Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        const jobId = {{ job_id }};
+        const subsidiaryId = {{ subsidiary_id }};
+        let dataTable = null;
+
+        function formatCurrency(amount) {
+            if (amount === null || amount === undefined) return '-';
+            const num = parseFloat(amount);
+            if (isNaN(num)) return '-';
+            return '$' + num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        function getJournalBadgeClass(journalType) {
+            switch(journalType) {
+                case 'Main': return 'journal-main';
+                case 'POA': return 'journal-poa';
+                case 'Cross_Subsidiary': return 'journal-cross';
+                default: return 'bg-secondary text-white';
+            }
+        }
+
+        function refreshData() {
+            $('#loading-spinner').show();
+            $('#data-table-container').hide();
+            
+            // Show loading message for large datasets
+            const loadingText = document.querySelector('#loading-spinner .spinner-border');
+            if (loadingText) {
+                loadingText.parentElement.innerHTML = '<div class="spinner-border text-primary me-2" role="status"></div>Loading data...';
+            }
+            
+            fetch(`/api/fp/data/${jobId}/${subsidiaryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.success) {
+                        alert('Error loading data: ' + (data.error || 'Unknown error'));
+                        return;
+                    }
+                    
+                    updateDashboard(data);
+                    updateDataTable(data.rows);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error loading data: ' + error.message);
+                });
+        }
+
+        function updateDashboard(data) {
+            const totals = data.totals || {};
+            const source = data.source || 'none';
+            
+            // Update source badge
+            const sourceText = source === 'working' ? 'Combined Dataset' : 
+                              source === 'uploaded' ? 'Uploaded Data' : 'No Data';
+            const sourceClass = source === 'working' ? 'bg-success' : 
+                               source === 'uploaded' ? 'bg-warning' : 'bg-secondary';
+            $('#data-source-badge').removeClass().addClass('badge ' + sourceClass).text(sourceText);
+            
+            // Update stats
+            $('#total-rows').text(totals.count || 0);
+            $('#total-amount').text(formatCurrency(totals.amount || 0));
+            
+            // Calculate additional stats from rows
+            const rows = data.rows || [];
+            const uniqueClients = new Set(rows.map(r => r.client_id).filter(id => id)).size;
+            const journalTypes = new Set(rows.map(r => r.journal_type || r.source_journal_type).filter(t => t)).size;
+            
+            $('#unique-clients').text(uniqueClients);
+            $('#journal-types').text(journalTypes);
+        }
+
+        function updateDataTable(rows) {
+            const tbody = $('#dataTableBody');
+            tbody.empty();
+            
+            if (rows.length === 0) {
+                tbody.html('<tr><td colspan="19" class="text-center text-muted">No data available</td></tr>');
+            } else {
+                rows.forEach(row => {
+                    const journalType = row.journal_type || row.source_journal_type || '';
+                    const badgeClass = getJournalBadgeClass(journalType);
+                    const amount = parseFloat(row.amount || 0);
+                    const amountClass = amount >= 0 ? 'amount-positive' : 'amount-negative';
+                    
+                    const tr = $(`
+                        <tr>
+                            <td><span class="journal-badge ${badgeClass}">${journalType}</span></td>
+                            <td>${row.client_id || ''}</td>
+                            <td>${row.invoice_number || ''}</td>
+                            <td>${row.billing_entity || ''}</td>
+                            <td>${row.ar_account || ''}</td>
+                            <td>${row.currency || ''}</td>
+                            <td>${row.exchange_rate || ''}</td>
+                            <td class="${amountClass}">${formatCurrency(amount)}</td>
+                            <td>${row.account || ''}</td>
+                            <td>${row.location || ''}</td>
+                            <td>${row.transtype || ''}</td>
+                            <td>${row.comment || ''}</td>
+                            <td>${row.card_reference || ''}</td>
+                            <td>${row.reasoncode || ''}</td>
+                            <td>${row.sepaprovider || ''}</td>
+                            <td>${row.invoice_hash || ''}</td>
+                            <td>${row.payment_hash || ''}</td>
+                            <td>${row.memo || ''}</td>
+                            <td>${row.payment_date || ''}</td>
+                        </tr>
+                    `);
+                    tbody.append(tr);
+                });
+            }
+            
+            // Initialize or reinitialize DataTable
+            if (dataTable) {
+                dataTable.destroy();
+            }
+            
+            dataTable = $('#dataTable').DataTable({
+                pageLength: 50,
+                lengthMenu: [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]],
+                order: [[7, 'desc']], // Sort by amount descending
+                columnDefs: [
+                    { targets: [7], type: 'num' }, // Amount column
+                    { targets: [0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], orderable: true }
+                ],
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                scrollX: true,
+                scrollCollapse: true,
+                fixedColumns: {
+                    leftColumns: 3
+                }
+            });
+            
+            $('#loading-spinner').hide();
+            $('#data-table-container').show();
+            $('#table-info').text(`Loaded ${rows.length.toLocaleString()} rows - Use pagination controls below to navigate`);
+        }
+
+        // Load data on page load
+        $(document).ready(function() {
+            refreshData();
+        });
+    </script>
+</body>
+</html>

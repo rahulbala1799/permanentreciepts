@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ process_name.title() }} Results - Receipts Automation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Receipts Automation</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ url_for('index') }}">Dashboard</a>
+                <a class="nav-link" href="{{ url_for('receipts_page') }}">Reconciliation Jobs</a>
+                <a class="nav-link" href="#" onclick="goBackToProcess()">Back to Process</a>
+                <a class="nav-link active" href="#">{{ process_name.title() }} Results</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h1><i class="fas fa-chart-bar text-success"></i> {{ process_name.title() }} Detailed Results</h1>
+                        <p class="lead" id="process-info">Loading...</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-secondary" onclick="goBackToProcess()">
+                            <i class="fas fa-arrow-left"></i> Back to Process
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Summary Cards -->
+                <div class="row mb-4" id="summary-cards">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+
+                <!-- Tabs for different result types -->
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="results-tabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="perfect-matches-tab" data-bs-toggle="tab" data-bs-target="#perfect-matches" type="button" role="tab">
+                                    <i class="fas fa-check-circle text-success"></i> Perfect Matches
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="unmatched-stripe-tab" data-bs-toggle="tab" data-bs-target="#unmatched-stripe" type="button" role="tab">
+                                    <i class="fas fa-exclamation-triangle text-warning"></i> Unmatched Stripe
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="unmatched-cashbook-tab" data-bs-toggle="tab" data-bs-target="#unmatched-cashbook" type="button" role="tab">
+                                    <i class="fas fa-info-circle text-info"></i> Unmatched Cashbook
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="out-of-cutoff-tab" data-bs-toggle="tab" data-bs-target="#out-of-cutoff" type="button" role="tab">
+                                    <i class="fas fa-clock text-secondary"></i> Out of Cutoff
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="results-tab-content">
+                            <!-- Perfect Matches Tab -->
+                            <div class="tab-pane fade show active" id="perfect-matches" role="tabpanel">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5>Perfect Matches</h5>
+                                    <div class="btn-group">
+                                        <button class="btn btn-outline-success btn-sm" onclick="downloadMatchedTransactions()">
+                                            <i class="fas fa-download"></i> Download Excel
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-responsive" style="max-height: 600px; overflow: auto;">
+                                    <table class="table table-striped table-hover table-sm" id="perfect-matches-table" style="font-size: 0.85rem;">
+                                        <thead class="table-success sticky-top">
+                                            <tr>
+                                                <th colspan="8" class="text-center bg-primary text-white">CASHBOOK DATA</th>
+                                                <th colspan="8" class="text-center bg-info text-white">STRIPE DATA</th>
+                                                <th colspan="2" class="text-center bg-secondary text-white">MATCH INFO</th>
+                                            </tr>
+                                            <tr>
+                                                <!-- Cashbook columns -->
+                                                <th class="text-nowrap">CB Payment Date</th>
+                                                <th class="text-nowrap">CB Client ID</th>
+                                                <th class="text-nowrap">CB Invoice #</th>
+                                                <th class="text-nowrap">CB Billing Entity</th>
+                                                <th class="text-nowrap">CB Currency</th>
+                                                <th class="text-nowrap">CB Amount</th>
+                                                <th class="text-nowrap">CB Account</th>
+                                                <th class="text-nowrap">CB Location</th>
+                                                <!-- Stripe columns -->
+                                                <th class="text-nowrap">Stripe Created</th>
+                                                <th class="text-nowrap">Stripe Client #</th>
+                                                <th class="text-nowrap">Stripe Type</th>
+                                                <th class="text-nowrap">Stripe Description</th>
+                                                <th class="text-nowrap">Stripe Currency</th>
+                                                <th class="text-nowrap">Stripe Amount</th>
+                                                <th class="text-nowrap">Stripe Fees</th>
+                                                <th class="text-nowrap">Stripe Net</th>
+                                                <!-- Match info -->
+                                                <th class="text-nowrap">Match Type</th>
+                                                <th class="text-nowrap">Process</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="perfect-matches-tbody">
+                                            <!-- Will be populated by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Unmatched Stripe Tab -->
+                            <div class="tab-pane fade" id="unmatched-stripe" role="tabpanel">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5>Unmatched Stripe Transactions (Charges & Refunds Only)</h5>
+                                    <div class="btn-group">
+                                        <button class="btn btn-outline-success btn-sm" onclick="downloadUnmatchedStripe()">
+                                            <i class="fas fa-download"></i> Download Excel
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-responsive" style="max-height: 600px; overflow: auto;">
+                                    <table class="table table-striped table-hover table-sm" id="unmatched-stripe-table" style="font-size: 0.85rem;">
+                                        <thead class="table-warning sticky-top">
+                                            <tr>
+                                                <th class="text-nowrap">Stripe ID</th>
+                                                <th class="text-nowrap">Client Number</th>
+                                                <th class="text-nowrap">Date</th>
+                                                <th class="text-nowrap">Type</th>
+                                                <th class="text-nowrap">Amount</th>
+                                                <th class="text-nowrap">Currency</th>
+                                                <th class="text-nowrap">Fees</th>
+                                                <th class="text-nowrap">Net</th>
+                                                <th class="text-nowrap">Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="unmatched-stripe-tbody">
+                                            <!-- Will be populated by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Unmatched Cashbook Tab -->
+                            <div class="tab-pane fade" id="unmatched-cashbook" role="tabpanel">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5>Unmatched Cashbook Transactions (Within Cutoff)</h5>
+                                    <div class="btn-group">
+                                        <button class="btn btn-outline-success btn-sm" onclick="downloadUnmatchedCashbook()">
+                                            <i class="fas fa-download"></i> Download Excel
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-responsive" style="max-height: 600px; overflow: auto;">
+                                    <table class="table table-striped table-hover table-sm" id="unmatched-cashbook-table" style="font-size: 0.85rem;">
+                                        <thead class="table-info sticky-top">
+                                            <tr>
+                                                <th class="text-nowrap">Cashbook ID</th>
+                                                <th class="text-nowrap">Client ID</th>
+                                                <th class="text-nowrap">Date</th>
+                                                <th class="text-nowrap">Invoice #</th>
+                                                <th class="text-nowrap">Billing Entity</th>
+                                                <th class="text-nowrap">Amount</th>
+                                                <th class="text-nowrap">Currency</th>
+                                                <th class="text-nowrap">Account</th>
+                                                <th class="text-nowrap">Location</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="unmatched-cashbook-tbody">
+                                            <!-- Will be populated by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Out of Cutoff Tab -->
+                            <div class="tab-pane fade" id="out-of-cutoff" role="tabpanel">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5>Out of Cutoff Cashbook Transactions</h5>
+                                    <div class="btn-group">
+                                        <button class="btn btn-outline-success btn-sm" onclick="downloadOutOfCutoff()">
+                                            <i class="fas fa-download"></i> Download Excel
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover" id="out-of-cutoff-table">
+                                        <thead class="table-secondary">
+                                            <tr>
+                                                <th>Client ID</th>
+                                                <th>Date</th>
+                                                <th>Amount</th>
+                                                <th>Cashbook ID</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="out-of-cutoff-tbody">
+                                            <!-- Will be populated by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Get job and subsidiary IDs from URL
+        const pathParts = window.location.pathname.split('/');
+        const jobId = parseInt(pathParts[2]);
+        const subsidiaryId = parseInt(pathParts[3]);
+        const processName = pathParts[4]; // Get process name from URL
+
+        // Load page data
+        document.addEventListener('DOMContentLoaded', function() {
+            loadJobDetails();
+            loadProcessResults();
+        });
+
+        function loadJobDetails() {
+            fetch(`/api/jobs/${jobId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('process-info').textContent = `Detailed results for ${data.job_name}`;
+                })
+                .catch(error => {
+                    console.error('Error loading job details:', error);
+                });
+        }
+
+        function loadProcessResults() {
+            // Call the appropriate API based on process name
+            let apiEndpoint;
+            if (processName === 'process1') {
+                apiEndpoint = `/api/process1-match/${jobId}/${subsidiaryId}`;
+            } else if (processName === 'process2') {
+                apiEndpoint = `/api/process2-match/${jobId}/${subsidiaryId}`;
+            } else if (processName === 'process3') {
+                apiEndpoint = `/api/process3-match/${jobId}/${subsidiaryId}`;
+            } else {
+                console.error('Unknown process name:', processName);
+                return;
+            }
+            
+            fetch(apiEndpoint, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(`Error: ${data.error}`);
+                    return;
+                }
+                
+                if (processName === 'process3') {
+                    // Process 3 has different data structure
+                    populateProcess3SummaryCards(data.analysis_results);
+                    populateProcess3Tables(data.analysis_results);
+                } else {
+                    // Process 1 and 2 have matching_results structure
+                    console.log('Process results:', data.matching_results);
+                    console.log('Summary:', data.matching_results.summary);
+                    console.log('Has process2_new_matches?', data.matching_results.hasOwnProperty('process2_new_matches'));
+                    displaySummaryCards(data.matching_results);
+                    populateTables(data.matching_results);
+                }
+            })
+            .catch(error => {
+                console.error(`Error loading ${processName} results:`, error);
+                alert(`Error loading results: ${error.message}`);
+            });
+        }
+
+        function displaySummaryCards(results) {
+            const summaryCards = document.getElementById('summary-cards');
+            
+            // Check if this is Process 2 (has process2_new_matches)
+            const isProcess2 = results.hasOwnProperty('process2_new_matches');
+            console.log('displaySummaryCards - isProcess2:', isProcess2);
+            console.log('displaySummaryCards - results.summary:', results.summary);
+            
+            if (isProcess2) {
+                // Process 2: Total Matches (P1+P2), New Matches (P2 only), Unmatched Stripe, Unmatched Cashbook
+                summaryCards.innerHTML = `
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title text-success">${results.summary.perfect_matches || 0}</h5>
+                                <p class="card-text">Total Matches (P1+P2)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">${results.summary.process2_new_matches || 0}</h5>
+                                <p class="card-text">New P2 Matches</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title text-warning">${results.summary.unmatched_stripe || 0}</h5>
+                                <p class="card-text">Unmatched Stripe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title text-info">${results.summary.unmatched_cashbook || 0}</h5>
+                                <p class="card-text">Unmatched Cashbook</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Process 1: Perfect Matches, Unmatched Stripe, Unmatched Cashbook, Out of Cutoff
+                summaryCards.innerHTML = `
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title text-success">${results.summary.perfect_matches || 0}</h5>
+                                <p class="card-text">Perfect Matches</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title text-warning">${results.summary.unmatched_stripe || 0}</h5>
+                                <p class="card-text">Unmatched Stripe</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title text-info">${results.summary.unmatched_cashbook || 0}</h5>
+                                <p class="card-text">Unmatched Cashbook</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title text-secondary">${results.summary.out_of_cutoff_cashbook || 0}</h5>
+                                <p class="card-text">Out of Cutoff</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function populateTables(results) {
+            // Check if this is Process 2 (has process2_new_matches)
+            const isProcess2 = results.hasOwnProperty('process2_new_matches');
+            
+            // Update table headers and tab labels for Process 2
+            if (isProcess2) {
+                // Update tab label
+                document.querySelector('#perfect-matches-tab').innerHTML = '<i class="fas fa-sync text-success"></i> Updated Matches';
+                
+                // Update table headers
+                const perfectMatchesTable = document.getElementById('perfect-matches-table');
+                const headerRow = perfectMatchesTable.querySelector('thead tr');
+                headerRow.innerHTML = `
+                    <th>Stripe Client</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Client ID Change</th>
+                    <th>Stripe ID</th>
+                    <th>Cashbook ID</th>
+                `;
+                
+                // Update section title
+                document.querySelector('#perfect-matches h5').textContent = 'Updated Matches';
+            }
+            
+            // Fetch and populate Perfect Matches with FULL data from both files
+            const perfectMatchesTbody = document.getElementById('perfect-matches-tbody');
+            
+            // Fetch full matched transaction data
+            fetch(`/api/matched-transactions-full/${jobId}/${subsidiaryId}`)
+                .then(response => response.json())
+                .then(fullData => {
+                    if (fullData.transactions && fullData.transactions.length > 0) {
+                        perfectMatchesTbody.innerHTML = fullData.transactions.map(match => `
+                            <tr>
+                                <!-- Cashbook columns -->
+                                <td class="text-nowrap">${match.cb_payment_date || 'N/A'}</td>
+                                <td>${match.cb_client_id || 'N/A'}</td>
+                                <td class="text-nowrap">${match.cb_invoice_number || 'N/A'}</td>
+                                <td class="text-nowrap" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;" title="${match.cb_billing_entity || ''}">${match.cb_billing_entity || 'N/A'}</td>
+                                <td>${match.cb_currency || 'N/A'}</td>
+                                <td class="text-end">$${match.cb_amount ? match.cb_amount.toFixed(2) : 'N/A'}</td>
+                                <td class="text-nowrap" style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;" title="${match.cb_account || ''}">${match.cb_account || 'N/A'}</td>
+                                <td class="text-nowrap">${match.cb_location || 'N/A'}</td>
+                                <!-- Stripe columns -->
+                                <td class="text-nowrap">${match.stripe_created || 'N/A'}</td>
+                                <td>${match.stripe_client_number || 'N/A'}</td>
+                                <td class="text-nowrap">${match.stripe_type || 'N/A'}</td>
+                                <td class="text-nowrap" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;" title="${match.stripe_description || ''}">${match.stripe_description || 'N/A'}</td>
+                                <td>${match.stripe_currency || 'N/A'}</td>
+                                <td class="text-end">$${match.stripe_amount ? match.stripe_amount.toFixed(2) : 'N/A'}</td>
+                                <td class="text-end">$${match.stripe_fees ? match.stripe_fees.toFixed(2) : 'N/A'}</td>
+                                <td class="text-end">$${match.stripe_net ? match.stripe_net.toFixed(2) : 'N/A'}</td>
+                                <!-- Match info -->
+                                <td class="text-nowrap"><span class="badge bg-success">${match.match_type || 'N/A'}</span></td>
+                                <td class="text-center"><span class="badge bg-info">P${match.process_number || 'N/A'}</span></td>
+                            </tr>
+                        `).join('');
+                    } else {
+                        perfectMatchesTbody.innerHTML = '<tr><td colspan="18" class="text-center">No matches found</td></tr>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching full matched data:', error);
+                    perfectMatchesTbody.innerHTML = '<tr><td colspan="18" class="text-center text-danger">Error loading data</td></tr>';
+                });
+
+            // Populate Unmatched Stripe table with full data (only charge and refund types)
+            const unmatchedStripeTbody = document.getElementById('unmatched-stripe-tbody');
+            if (results.unmatched_stripe && results.unmatched_stripe.transactions && results.unmatched_stripe.transactions.length > 0) {
+                // Fetch full Stripe data for unmatched transactions
+                fetch(`/api/stripe-transactions/${jobId}/${subsidiaryId}`)
+                    .then(response => response.json())
+                    .then(stripeData => {
+                        const unmatchedIds = results.unmatched_stripe.transactions.map(tx => tx.id);
+                        // Filter for only charge and refund types (case-insensitive)
+                        const unmatchedStripeData = stripeData.filter(tx => {
+                            const txType = (tx.type || '').toLowerCase();
+                            return unmatchedIds.includes(tx.id) && 
+                                   (txType === 'charge' || txType === 'refund');
+                        });
+                        
+                        if (unmatchedStripeData.length > 0) {
+                            unmatchedStripeTbody.innerHTML = unmatchedStripeData.map(tx => {
+                                const txType = (tx.type || '').toLowerCase();
+                                const badgeColor = txType === 'charge' ? 'bg-success' : 'bg-warning';
+                                return `
+                                    <tr>
+                                        <td>${tx.id || 'N/A'}</td>
+                                        <td>${tx.client_number || 'N/A'}</td>
+                                        <td class="text-nowrap">${tx.created || 'N/A'}</td>
+                                        <td class="text-nowrap"><span class="badge ${badgeColor}">${tx.type || 'N/A'}</span></td>
+                                        <td class="text-end">$${tx.amount ? tx.amount.toFixed(2) : 'N/A'}</td>
+                                        <td>${tx.currency || 'N/A'}</td>
+                                        <td class="text-end">$${tx.fees ? tx.fees.toFixed(2) : 'N/A'}</td>
+                                        <td class="text-end">$${tx.net ? tx.net.toFixed(2) : 'N/A'}</td>
+                                        <td class="text-nowrap" style="max-width: 250px; overflow: hidden; text-overflow: ellipsis;" title="${tx.description || ''}">${tx.description || 'N/A'}</td>
+                                    </tr>
+                                `;
+                            }).join('');
+                        } else {
+                            unmatchedStripeTbody.innerHTML = '<tr><td colspan="9" class="text-center">No unmatched charge/refund transactions</td></tr>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching Stripe data:', error);
+                        unmatchedStripeTbody.innerHTML = '<tr><td colspan="9" class="text-center text-danger">Error loading data</td></tr>';
+                    });
+            } else {
+                unmatchedStripeTbody.innerHTML = '<tr><td colspan="9" class="text-center">No unmatched Stripe transactions</td></tr>';
+            }
+
+            // Populate Unmatched Cashbook table with full data
+            const unmatchedCashbookTbody = document.getElementById('unmatched-cashbook-tbody');
+            if (results.unmatched_cashbook && results.unmatched_cashbook.transactions && results.unmatched_cashbook.transactions.length > 0) {
+                // Fetch full Cashbook data for unmatched transactions
+                fetch(`/api/cashbook-transactions/${jobId}/${subsidiaryId}`)
+                    .then(response => response.json())
+                    .then(cashbookData => {
+                        const unmatchedIds = results.unmatched_cashbook.transactions.map(tx => tx.id);
+                        const unmatchedCashbookData = cashbookData.filter(tx => unmatchedIds.includes(tx.id));
+                        
+                        unmatchedCashbookTbody.innerHTML = unmatchedCashbookData.map(tx => `
+                            <tr>
+                                <td>${tx.id || 'N/A'}</td>
+                                <td>${tx.client_id || 'N/A'}</td>
+                                <td class="text-nowrap">${tx.payment_date || 'N/A'}</td>
+                                <td class="text-nowrap">${tx.invoice_number || 'N/A'}</td>
+                                <td class="text-nowrap" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;" title="${tx.billing_entity || ''}">${tx.billing_entity || 'N/A'}</td>
+                                <td class="text-end">$${tx.amount ? tx.amount.toFixed(2) : 'N/A'}</td>
+                                <td>${tx.currency || 'N/A'}</td>
+                                <td class="text-nowrap" style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;" title="${tx.account || ''}">${tx.account || 'N/A'}</td>
+                                <td class="text-nowrap">${tx.location || 'N/A'}</td>
+                            </tr>
+                        `).join('');
+                    })
+                    .catch(error => {
+                        console.error('Error fetching Cashbook data:', error);
+                        unmatchedCashbookTbody.innerHTML = '<tr><td colspan="9" class="text-center text-danger">Error loading data</td></tr>';
+                    });
+            } else {
+                unmatchedCashbookTbody.innerHTML = '<tr><td colspan="9" class="text-center">No unmatched cashbook transactions</td></tr>';
+            }
+
+            // Populate Out of Cutoff table (only for Process 1)
+            const outOfCutoffTbody = document.getElementById('out-of-cutoff-tbody');
+            if (!isProcess2 && results.out_of_cutoff_cashbook && results.out_of_cutoff_cashbook.transactions) {
+                outOfCutoffTbody.innerHTML = results.out_of_cutoff_cashbook.transactions.map(tx => `
+                    <tr>
+                        <td>${tx.client_id || 'N/A'}</td>
+                        <td>${tx.date || 'N/A'}</td>
+                        <td>$${tx.amount || 'N/A'}</td>
+                        <td>${tx.id || 'N/A'}</td>
+                    </tr>
+                `).join('');
+            } else if (isProcess2) {
+                outOfCutoffTbody.innerHTML = '<tr><td colspan="4">Process 2 does not use cutoff dates</td></tr>';
+            } else {
+                outOfCutoffTbody.innerHTML = '<tr><td colspan="4">No out of cutoff transactions</td></tr>';
+            }
+        }
+
+        function populateProcess3SummaryCards(results) {
+            const summaryCards = document.getElementById('summary-cards');
+            summaryCards.innerHTML = `
+                <div class="col-md-2">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">${results.fees.count}</h5>
+                            <p class="card-text">Fees</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title text-danger">${results.refunds.count}</h5>
+                            <p class="card-text">Refunds</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title text-info">${results.cross_subsidiary.count}</h5>
+                            <p class="card-text">Cross-Subsidiary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title text-success">${results.near_matches.count}</h5>
+                            <p class="card-text">Near-Matches</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">${results.unmatched_stripe.count}</h5>
+                            <p class="card-text">Unmatched Stripe</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title text-secondary">${results.unmatched_cashbook.count}</h5>
+                            <p class="card-text">Unmatched Cashbook</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function populateProcess3Tables(results) {
+            // Update tab labels for Process 3
+            document.getElementById('perfect-matches-tab').innerHTML = '<i class="fas fa-exclamation-triangle text-warning"></i> Fees';
+            document.getElementById('unmatched-stripe-tab').innerHTML = '<i class="fas fa-undo text-danger"></i> Refunds';
+            document.getElementById('unmatched-cashbook-tab').innerHTML = '<i class="fas fa-exchange-alt text-info"></i> Cross-Subsidiary';
+            document.getElementById('out-of-cutoff-tab').innerHTML = '<i class="fas fa-file-invoice text-primary"></i> Unmatched Stripe';
+            
+            // Add a 5th tab for Unmatched Cashbook
+            const tabContainer = document.querySelector('#results-tabs');
+            const existingTabs = tabContainer.querySelectorAll('.nav-item');
+            if (existingTabs.length === 4) {
+                // Add 5th tab
+                const fifthTab = document.createElement('li');
+                fifthTab.className = 'nav-item';
+                fifthTab.innerHTML = `
+                    <button class="nav-link" id="unmatched-cashbook-tab-2" data-bs-toggle="tab" data-bs-target="#unmatched-cashbook-2" type="button" role="tab">
+                        <i class="fas fa-database text-secondary"></i> Unmatched Cashbook
+                    </button>
+                `;
+                tabContainer.appendChild(fifthTab);
+                
+                // Add corresponding tab content
+                const tabContent = document.querySelector('.tab-content');
+                const fifthTabContent = document.createElement('div');
+                fifthTabContent.className = 'tab-pane fade';
+                fifthTabContent.id = 'unmatched-cashbook-2';
+                fifthTabContent.innerHTML = `
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Client ID</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Billing Entity</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody id="unmatched-cashbook-tbody-2">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-outline-primary" onclick="exportToExcel('unmatched-cashbook')">
+                            <i class="fas fa-download"></i> Export to Excel
+                        </button>
+                    </div>
+                `;
+                tabContent.appendChild(fifthTabContent);
+            }
+
+            // Populate Fees table
+            const feesTbody = document.getElementById('perfect-matches-tbody');
+            feesTbody.innerHTML = results.fees.transactions.map(tx => `
+                <tr>
+                    <td>${tx.id}</td>
+                    <td>${tx.client_number}</td>
+                    <td>${tx.date}</td>
+                    <td>$${tx.amount}</td>
+                    <td>${tx.type}</td>
+                    <td>${tx.reason}</td>
+                </tr>
+            `).join('');
+
+            // Populate Refunds table
+            const refundsTbody = document.getElementById('unmatched-stripe-tbody');
+            refundsTbody.innerHTML = results.refunds.transactions.map(tx => `
+                <tr>
+                    <td>${tx.id}</td>
+                    <td>${tx.client_number}</td>
+                    <td>${tx.date}</td>
+                    <td>$${tx.amount}</td>
+                    <td>${tx.type}</td>
+                    <td>${tx.reason}</td>
+                </tr>
+            `).join('');
+
+            // Populate Cross-Subsidiary table
+            const crossSubTbody = document.getElementById('unmatched-cashbook-tbody');
+            crossSubTbody.innerHTML = results.cross_subsidiary.transactions.map(tx => `
+                <tr>
+                    <td>${tx.id}</td>
+                    <td>${tx.client_number}</td>
+                    <td>${tx.date}</td>
+                    <td>$${tx.amount}</td>
+                    <td>${tx.type}</td>
+                    <td>${tx.reason}</td>
+                </tr>
+            `).join('');
+
+            // Populate Unmatched Stripe table
+            const unmatchedStripeTbody = document.getElementById('out-of-cutoff-tbody');
+            unmatchedStripeTbody.innerHTML = results.unmatched_stripe.transactions.map(tx => `
+                <tr>
+                    <td>${tx.id}</td>
+                    <td>${tx.client_number}</td>
+                    <td>${tx.date}</td>
+                    <td>$${tx.amount}</td>
+                    <td>${tx.type}</td>
+                    <td>${tx.reason}</td>
+                </tr>
+            `).join('');
+
+            // Populate Unmatched Cashbook table
+            const unmatchedCashbookTbody = document.getElementById('unmatched-cashbook-tbody-2');
+            if (unmatchedCashbookTbody) {
+                unmatchedCashbookTbody.innerHTML = results.unmatched_cashbook.transactions.map(tx => `
+                    <tr>
+                        <td>${tx.id}</td>
+                        <td>${tx.client_id}</td>
+                        <td>${tx.date}</td>
+                        <td>$${tx.amount}</td>
+                        <td>${tx.billing_entity}</td>
+                        <td>${tx.reason}</td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function downloadMatchedTransactions() {
+            window.location.href = `/api/download-matched-transactions/${jobId}/${subsidiaryId}`;
+        }
+
+        function downloadUnmatchedStripe() {
+            window.location.href = `/api/download-unmatched-stripe/${jobId}/${subsidiaryId}`;
+        }
+
+        function downloadUnmatchedCashbook() {
+            window.location.href = `/api/download-unmatched-cashbook/${jobId}/${subsidiaryId}`;
+        }
+
+        function downloadOutOfCutoff() {
+            window.location.href = `/api/download-out-of-cutoff/${jobId}/${subsidiaryId}`;
+        }
+
+        function exportToExcel(tableType) {
+            alert(`Export ${tableType} to Excel functionality will be implemented.`);
+        }
+
+        function resolveMultipleMatch(stripeId, cashbookId, jobId, subsidiaryId) {
+            if (!confirm('Are you sure you want to match this Stripe transaction with the selected Cashbook transaction?')) {
+                return;
+            }
+            
+            fetch('/api/resolve-multiple-match', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    stripe_id: stripeId,
+                    selected_cashbook_id: cashbookId,
+                    job_id: parseInt(jobId),
+                    subsidiary_id: parseInt(subsidiaryId)
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(`Error: ${data.error}`);
+                } else {
+                    alert('Match resolved successfully! The page will refresh to show updated results.');
+                    // Reload the page to show updated results
+                    window.location.reload();
+                }
+            })
+            .catch(error => {
+                console.error('Error resolving multiple match:', error);
+                alert(`Error resolving match: ${error.message}`);
+            });
+        }
+
+        function goBackToProcess() {
+            window.location.href = `/reconciliation-process/${jobId}/${subsidiaryId}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+/* Custom CSS for Receipts Automation Dashboard */
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    font-weight: 600;
+}
+
+.status-badge {
+    font-size: 0.875rem;
+}
+
+.receipt-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.receipt-item:last-child {
+    border-bottom: none;
+}
+
+.job-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.job-item:last-child {
+    border-bottom: none;
+}
+
+.upload-area {
+    border: 2px dashed #dee2e6;
+    border-radius: 0.375rem;
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.upload-area:hover {
+    border-color: #0d6efd;
+    background-color: #e7f1ff;
+}
+
+.progress-container {
+    margin-top: 1rem;
+}
+
+#system-status .badge {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Menu Cards */
+.menu-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border-color: #0d6efd;
+    background: linear-gradient(135deg, #e7f1ff 0%, #d1ecf1 100%);
+}
+
+.menu-card:active {
+    transform: translateY(-2px);
+}
+
+.menu-icon {
+    margin-bottom: 1rem;
+}
+
+.menu-card .card-title {
+    color: #495057;
+    font-weight: 600;
+}
+
+.menu-card .card-text {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.menu-card:hover .card-title {
+    color: #0d6efd;
+}
+
+.menu-card:hover .card-text {
+    color: #495057;
+}
+
+/* Subsidiary cards */
+.subsidiary-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.subsidiary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #007bff;
+}
+
+.subsidiary-card .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.subsidiary-card .mt-auto {
+    margin-top: auto;
+}
+
+/* File preparation area */
+.file-validation-area {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.375rem;
+    border: 1px solid #dee2e6;
+}
+
+.file-validation-area h6 {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.btn-group-vertical .btn {
+    margin-bottom: 0.25rem;
+}
+
+.btn-group-vertical .btn:last-child {
+    margin-bottom: 0;
+}
+
+/* Preparation status */
+#preparation-status .alert {
+    border-left: 4px solid #0d6efd;
+}
+
+/* Uploaded files table */
+#uploaded-files-section .table {
+    margin-bottom: 0;
+}
+
+#uploaded-files-section .table th {
+    background-color: #f8f9fa;
+    border-top: none;
+    font-weight: 600;
+    color: #495057;
+}
+
+/* Conversion options */
+.conversion-option {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.conversion-option:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-color: #007bff;
+}
+
+.conversion-option.border-primary {
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.conversion-option .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.conversion-option .mt-auto {
+    margin-top: auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .menu-card {
+        margin-bottom: 1rem;
+    }
+    
+    .subsidiary-card {
+        margin-bottom: 1rem;
+    }
+}

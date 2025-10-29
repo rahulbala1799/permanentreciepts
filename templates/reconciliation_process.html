@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reconciliation Process - Receipts Automation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Receipts Automation</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ url_for('index') }}">Dashboard</a>
+                <a class="nav-link" href="{{ url_for('receipts_page') }}">Reconciliation Jobs</a>
+                <a class="nav-link" href="#" onclick="goBackToSubsidiary()">Back to Subsidiary</a>
+                <a class="nav-link active" href="#">Reconciliation Process</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h1><i class="fas fa-calculator text-primary"></i> Reconciliation Process</h1>
+                        <p class="lead" id="process-info">Loading...</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-secondary" onclick="goBackToSubsidiary()">
+                            <i class="fas fa-arrow-left"></i> Back to Subsidiary
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fee Calculation Results -->
+                <div class="card mb-4" id="fee-results-card" style="display: none;">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0"><i class="fas fa-calculator"></i> Fee Calculation Results</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="text-center p-4 border rounded">
+                                    <h6 class="text-muted mb-2">Column I Fees</h6>
+                                    <h3 class="text-success mb-1" id="column-i-fees">$0.00</h3>
+                                    <small class="text-muted" id="column-i-count">0 transactions</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-center p-4 border rounded">
+                                    <h6 class="text-muted mb-2">Network Cost & Stripe Fee</h6>
+                                    <h3 class="text-success mb-1" id="network-stripe-fees">$0.00</h3>
+                                    <small class="text-muted" id="network-stripe-count">0 transactions</small>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <h4 class="text-primary mb-0">Total Fees: <span id="total-fees">$0.00</span></h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Steps -->
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-play"></i> Process Steps</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center">
+                            <button class="btn btn-success btn-lg" onclick="startProcess1()" id="start-process-btn" disabled>
+                                <i class="fas fa-play"></i> Start Process 1
+                            </button>
+                            <p class="text-muted mt-2">Match Stripe transactions with Cashbook transactions based on client_id and amount</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Get job and subsidiary IDs from URL
+        const pathParts = window.location.pathname.split('/');
+        const jobId = parseInt(pathParts[2]);
+        const subsidiaryId = parseInt(pathParts[3]);
+
+        // Load page data
+        document.addEventListener('DOMContentLoaded', function() {
+            loadJobDetails();
+            calculateFees();
+            loadPersistentResults();
+        });
+
+        function loadJobDetails() {
+            fetch(`/api/jobs/${jobId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('process-info').textContent = `Reconciliation process for ${data.job_name}`;
+                })
+                .catch(error => {
+                    console.error('Error loading job details:', error);
+                });
+        }
+
+        function loadPersistentResults() {
+            // Only load Process 1 results automatically - Process 2 and 3 should be user-triggered
+            console.log('Loading persistent results for job:', jobId, 'subsidiary:', subsidiaryId);
+            fetch(`/api/matched-transactions-results/${jobId}/${subsidiaryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Persistent results loaded:', data);
+                    
+                    // Only show Process 1 results automatically (it's the first step)
+                    if (data.summary.process1_matches > 0) {
+                        displayMatchingResults({
+                            matching_results: {
+                                perfect_matches: data.perfect_matches,
+                                unmatched_stripe: { 
+                                    count: data.metadata.process1.unmatched_stripe_count, 
+                                    transactions: [] // We don't store these persistently
+                                },
+                                unmatched_cashbook: { 
+                                    count: data.metadata.process1.unmatched_cashbook_count, 
+                                    transactions: [] // We don't store these persistently
+                                },
+                                out_of_cutoff_cashbook: { 
+                                    count: data.metadata.process1.out_of_cutoff_count, 
+                                    transactions: [] // We don't store these persistently
+                                },
+                                summary: {
+                                    perfect_matches: data.perfect_matches.count,
+                                    unmatched_stripe: data.metadata.process1.unmatched_stripe_count,
+                                    unmatched_cashbook: data.metadata.process1.unmatched_cashbook_count,
+                                    out_of_cutoff_cashbook: data.metadata.process1.out_of_cutoff_count
+                                }
+                            },
+                            cutoff_date: data.metadata.process1.cutoff_date || 'N/A'
+                        });
+
+                        // Update Process 1 button state
+                        const process1Btn = document.getElementById('process1-btn');
+                        if (process1Btn) {
+                            process1Btn.innerHTML = '<i class="fas fa-check"></i> Process 1 Completed';
+                            process1Btn.disabled = true;
+                            process1Btn.classList.remove('btn-primary');
+                            process1Btn.classList.add('btn-success');
+                        }
+                    }
+                    
+                    // Process 2 and 3 results will only be shown when user clicks their respective buttons
+                    // This prevents automatic execution and ensures user control
+                })
+                .catch(error => {
+                    console.error('Error loading persistent results:', error);
+                });
+        }
+
+        function calculateFees() {
+            // Show loading state
+            const feeCard = document.getElementById('fee-results-card');
+            feeCard.style.display = 'block';
+            feeCard.innerHTML = `
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="fas fa-calculator"></i> Fee Calculation Results</h5>
+                </div>
+                <div class="card-body text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Calculating fees...</p>
+                </div>
+            `;
+
+            // Call the reconciliation API to calculate fees
+            fetch(`/api/start-reconciliation/${jobId}/${subsidiaryId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    feeCard.innerHTML = `
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Error</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-danger">${data.error}</div>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Display fee calculation results
+                displayFeeResults(data.fees_calculation);
+                
+                // Enable the Start Process 1 button
+                document.getElementById('start-process-btn').disabled = false;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                feeCard.innerHTML = `
+                    <div class="card-header bg-danger text-white">
+                        <h5 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Error</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-danger">Error calculating fees: ${error.message}</div>
+                    </div>
+                `;
+            });
+        }
+
+        function displayFeeResults(fees) {
+            const feeCard = document.getElementById('fee-results-card');
+            feeCard.innerHTML = `
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="fas fa-calculator"></i> Fee Calculation Results</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="text-center p-4 border rounded">
+                                <h6 class="text-muted mb-2">Column I Fees</h6>
+                                <h3 class="text-success mb-1">$${fees.column_i_fees.total}</h3>
+                                <small class="text-muted">${fees.column_i_fees.count} transactions</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center p-4 border rounded">
+                                <h6 class="text-muted mb-2">Network Cost & Stripe Fee</h6>
+                                <h3 class="text-success mb-1">$${fees.total_network_stripe_fees}</h3>
+                                <small class="text-muted">${fees.network_cost_fees.count + fees.stripe_fee_fees.count} transactions</small>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <h4 class="text-primary mb-0">Total Fees: $${fees.total_all_fees}</h4>
+                    </div>
+                </div>
+            `;
+        }
+
+        function startProcess1() {
+            // Show loading state
+            const button = document.getElementById('start-process-btn');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Matching Transactions...';
+            button.disabled = true;
+            
+            // Call the Process 1 matching API
+            fetch(`/api/process1-match/${jobId}/${subsidiaryId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(`Error: ${data.error}`);
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    return;
+                }
+                
+                // Display matching results
+                displayMatchingResults(data);
+                
+                // Reset button
+                button.innerHTML = originalText;
+                button.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert(`Error in Process 1: ${error.message}`);
+                button.innerHTML = originalText;
+                button.disabled = false;
+            });
+        }
+
+        function displayMatchingResults(data) {
+            const results = data.matching_results;
+            
+            // Create matching results section that appears underneath the Process 1 button
+            const resultsSection = document.createElement('div');
+            resultsSection.id = 'process1-results-section';
+            resultsSection.className = 'card mt-3';
+            resultsSection.innerHTML = `
+                <div class="card-header bg-success text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0"><i class="fas fa-check-circle"></i> Process 1 Results</h6>
+                        <div>
+                            <button class="btn btn-light btn-sm me-2" onclick="viewProcess1Results()">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn btn-outline-light btn-sm" onclick="deleteProcess1Results()">
+                                <i class="fas fa-trash"></i> Delete Results
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <h6><strong>Cutoff Date:</strong> ${data.cutoff_date}</h6>
+                            <p class="text-muted">Cashbook transactions after this date are considered out of cutoff</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="text-center p-2 border rounded bg-light">
+                                <h6 class="text-success mb-1">Perfect Matches</h6>
+                                <h5 class="text-success mb-1">${results.summary.perfect_matches}</h5>
+                                <small class="text-muted">Stripe ↔ Cashbook</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center p-2 border rounded bg-light">
+                                <h6 class="text-warning mb-1">Unmatched Stripe</h6>
+                                <h5 class="text-warning mb-1">${results.summary.unmatched_stripe}</h5>
+                                <small class="text-muted">No Cashbook match</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center p-2 border rounded bg-light">
+                                <h6 class="text-info mb-1">Unmatched Cashbook</h6>
+                                <h5 class="text-info mb-1">${results.summary.unmatched_cashbook}</h5>
+                                <small class="text-muted">Within cutoff</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center p-2 border rounded bg-light">
+                                <h6 class="text-secondary mb-1">Out of Cutoff</h6>
+                                <h5 class="text-secondary mb-1">${results.summary.out_of_cutoff_cashbook}</h5>
+                                <small class="text-muted">After cutoff date</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-3">
+                        <button class="btn btn-primary" onclick="startProcess2()" id="process2-btn">
+                            <i class="fas fa-play"></i> Start Process 2
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Insert right after the Process Steps card
+            const processCard = document.querySelector('.card');
+            const existingResults = document.getElementById('process1-results-section');
+            if (existingResults) {
+                existingResults.remove();
+            }
+            processCard.parentNode.insertBefore(resultsSection, processCard.nextSibling);
+        }
+
+        function viewProcess1Results() {
+            // Navigate to detailed results page
+            window.location.href = `/reconciliation-results/${jobId}/${subsidiaryId}/process1`;
+        }
+
+        function startProcess2() {
+            // Show loading state
+            const button = document.querySelector('button[onclick="startProcess2()"]');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            button.disabled = true;
+            
+            // Call the Process 2 matching API
+            fetch(`/api/process2-match/${jobId}/${subsidiaryId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(`Error: ${data.error}`);
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    return;
+                }
+                
+                // Display Process 2 results underneath Process 1
+                displayProcess2Results(data);
+                
+                // Disable Process 2 button (mark as completed)
+                button.innerHTML = '<i class="fas fa-check"></i> Process 2 Completed';
+                button.disabled = true;
+                button.classList.remove('btn-primary');
+                button.classList.add('btn-success');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert(`Error in Process 2: ${error.message}`);
+                button.innerHTML = originalText;
+                button.disabled = false;
+            });
+        }
+
+        function displayProcess2Results(data) {
+            const results = data.matching_results;
+            
+            // Create Process 2 results section that appears underneath Process 1
+            const resultsSection = document.createElement('div');
+            resultsSection.id = 'process2-results-section';
+            resultsSection.className = 'card mt-3';
+            resultsSection.innerHTML = `
+                <div class="card-header bg-info text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0"><i class="fas fa-search"></i> Process 2 Results (Advanced Matching)</h6>
+                        <div>
+                            <button class="btn btn-light btn-sm me-2" onclick="viewProcess2Results()">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn btn-outline-light btn-sm" onclick="deleteProcess2Results()">
+                                <i class="fas fa-trash"></i> Delete Results
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="text-center p-2 border rounded bg-light">
+                                <h6 class="text-success mb-1">Total Matches (P1+P2)</h6>
+                                <h5 class="text-success mb-1">${results.summary.perfect_matches || 0}</h5>
+                                <small class="text-muted">Cumulative matches</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center p-2 border rounded bg-light">
+                                <h6 class="text-primary mb-1">New P2 Matches</h6>
+                                <h5 class="text-primary mb-1">${results.summary.process2_new_matches || 0}</h5>
+                                <small class="text-muted">Found in Process 2</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center p-2 border rounded bg-light">
+                                <h6 class="text-warning mb-1">Unmatched Stripe</h6>
+                                <h5 class="text-warning mb-1">${results.summary.unmatched_stripe || 0}</h5>
+                                <small class="text-muted">Charges & Refunds</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center p-2 border rounded bg-light">
+                                <h6 class="text-info mb-1">Unmatched Cashbook</h6>
+                                <h5 class="text-info mb-1">${results.summary.unmatched_cashbook || 0}</h5>
+                                <small class="text-muted">Within cutoff</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-3">
+                        <button class="btn btn-primary" onclick="startProcess3()" id="process3-btn">
+                            <i class="fas fa-play"></i> Start Process 3
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Insert after Process 1 results
+            const process1Results = document.getElementById('process1-results-section');
+            const existingProcess2Results = document.getElementById('process2-results-section');
+            if (existingProcess2Results) {
+                existingProcess2Results.remove();
+            }
+            process1Results.parentNode.insertBefore(resultsSection, process1Results.nextSibling);
+        }
+
+        function viewProcess2Results() {
+            // Navigate to detailed Process 2 results page
+            window.location.href = `/reconciliation-results/${jobId}/${subsidiaryId}/process2`;
+        }
+
+        function deleteProcess1Results() {
+            if (confirm('Are you sure you want to delete ALL reconciliation results (Process 1, 2, and 3)? This cannot be undone.')) {
+                // Call backend to delete all matches from database
+                fetch(`/api/delete-all-matches/${jobId}/${subsidiaryId}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(`Error: ${data.error}`);
+                    } else {
+                        alert(`Successfully deleted ${data.matched_transactions_deleted} matched transactions and ${data.reconciliation_results_deleted} result records.`);
+                        // Reload the page to refresh
+                        window.location.reload();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting results:', error);
+                    alert(`Error deleting results: ${error.message}`);
+                });
+            }
+        }
+
+        function deleteProcess2Results() {
+            if (confirm('Are you sure you want to delete Process 2 and Process 3 results? Process 1 will be kept.')) {
+                // Remove UI elements
+                const process2Results = document.getElementById('process2-results-section');
+                if (process2Results) {
+                    process2Results.remove();
+                }
+                const process3Results = document.getElementById('process3-results-section');
+                if (process3Results) {
+                    process3Results.remove();
+                }
+                
+                // Call backend to delete Process 2 and 3 matches from database
+                fetch(`/api/delete-process-matches/${jobId}/${subsidiaryId}/2`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(`Error: ${data.error}`);
+                    } else {
+                        // Reset Process 2 button
+                        const process2Button = document.getElementById('process2-btn');
+                        if (process2Button) {
+                            process2Button.innerHTML = '<i class="fas fa-play"></i> Start Process 2';
+                            process2Button.disabled = false;
+                            process2Button.classList.remove('btn-success');
+                            process2Button.classList.add('btn-primary');
+                        }
+                        
+                        alert(`Successfully deleted Process 2 and 3 results.`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting results:', error);
+                    alert(`Error deleting results: ${error.message}`);
+                });
+            }
+        }
+
+        function resolveMultipleMatches() {
+            alert('Multiple match resolution interface will be implemented. This will allow users to choose the correct match for each transaction.');
+        }
+
+        function startProcess3() {
+            const button = document.getElementById('process3-btn');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            button.disabled = true;
+            
+            fetch(`/api/process3-match/${jobId}/${subsidiaryId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(`Error: ${data.error}`);
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    return;
+                }
+                
+                displayProcess3Results(data);
+                
+                button.innerHTML = '<i class="fas fa-check"></i> Process 3 Completed';
+                button.disabled = true;
+                button.classList.remove('btn-primary');
+                button.classList.add('btn-success');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert(`Error in Process 3: ${error.message}`);
+                button.innerHTML = originalText;
+                button.disabled = false;
+            });
+        }
+
+        function displayProcess3Results(data) {
+            const results = data.analysis_results;
+            
+            // Create Process 3 results section
+            const resultsSection = document.createElement('div');
+            resultsSection.id = 'process3-results-section';
+            resultsSection.className = 'card mt-3';
+            resultsSection.innerHTML = `
+                <div class="card-header bg-warning text-dark">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0"><i class="fas fa-search"></i> Process 3 Results (Fee & Refund Analysis)</h6>
+                        <div>
+                            <button class="btn btn-light btn-sm me-2" onclick="viewProcess3Results()">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn btn-outline-light btn-sm" onclick="deleteProcess3Results()">
+                                <i class="fas fa-trash"></i> Delete Results
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-2">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-warning">${results.fees.count}</h5>
+                                    <p class="card-text">Fees<br><small class="text-muted">Client # = 0</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-danger">${results.refunds.count}</h5>
+                                    <p class="card-text">Refunds<br><small class="text-muted">Negative amounts</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-info">${results.cross_subsidiary.count}</h5>
+                                    <p class="card-text">Cross-Subsidiary<br><small class="text-muted">Different bank payout</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-success">${results.near_matches.count}</h5>
+                                    <p class="card-text">Near-Matches<br><small class="text-muted">Date tolerance ±2 days</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-primary">${results.unmatched_stripe.count}</h5>
+                                    <p class="card-text">Unmatched Stripe<br><small class="text-muted">From Stripe file</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title text-secondary">${results.unmatched_cashbook.count}</h5>
+                                    <p class="card-text">Unmatched Cashbook<br><small class="text-muted">From Cashbook file</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-3">
+                        <button class="btn btn-success me-2" onclick="goToJournalPreparation()">
+                            <i class="fas fa-file-invoice"></i> Go to Journal Preparation
+                        </button>
+                        <button class="btn btn-primary" onclick="startProcess4()" disabled>
+                            <i class="fas fa-play"></i> Start Process 4 (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Insert after Process 2 results
+            const process2Results = document.getElementById('process2-results-section');
+            if (process2Results) {
+                process2Results.insertAdjacentElement('afterend', resultsSection);
+            } else {
+                // If Process 2 results don't exist, insert after Process 1 results
+                const process1Results = document.getElementById('process1-results-section');
+                if (process1Results) {
+                    process1Results.insertAdjacentElement('afterend', resultsSection);
+                }
+            }
+        }
+
+        function viewProcess3Results() {
+            window.location.href = `/reconciliation-results/${jobId}/${subsidiaryId}/process3`;
+        }
+
+        function deleteProcess3Results() {
+            if (confirm('Are you sure you want to delete Process 3 results?')) {
+                const resultsSection = document.getElementById('process3-results-section');
+                if (resultsSection) {
+                    resultsSection.remove();
+                }
+                
+                // Reset Process 3 button
+                const process3Btn = document.getElementById('process3-btn');
+                if (process3Btn) {
+                    process3Btn.innerHTML = '<i class="fas fa-play"></i> Start Process 3';
+                    process3Btn.disabled = false;
+                    process3Btn.classList.remove('btn-success');
+                    process3Btn.classList.add('btn-primary');
+                }
+            }
+        }
+
+        function goToJournalPreparation() {
+            window.location.href = `/journal-preparation/${jobId}/${subsidiaryId}`;
+        }
+
+        function goBackToSubsidiary() {
+            window.location.href = `/reconciliation/${jobId}/${subsidiaryId}`;
+        }
+    </script>
+</body>
+</html>

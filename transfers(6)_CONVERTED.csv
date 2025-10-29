@@ -1,0 +1,1075 @@
+0,Type,ID,Created,Description,Amount,Currency,Converted Amount,Fees,Net,Converted Currency,Details,Customer ID,Customer Email,Customer Name,purpose (metadata),phorest_client_id (metadata)
+57766,Charge,ch_3S90HgLrnBTnlT7b1JfFvZzJ,19/09/2025 09:07,57766:Skin By Sarah Hudson,417.1,aud,417.1,0,417.1,aud,57766_for_stripe,cus_Rd6USPbz1WH15R,,,addnewcard,57766
+57769,Charge,ch_3S90HiLrnBTnlT7b1sbLbcQZ,19/09/2025 09:07,57769:Modern Skin & Beauty,190.52,aud,190.52,0,190.52,aud,57769_for_stripe,cus_PgEVGQF9lFsscq,,,addnewcard,57769
+61865,Charge,ch_3S90HuLrnBTnlT7b1lOIAlrI,19/09/2025 09:07,61865:Colada & Co.,448.8,aud,448.8,0,448.8,aud,61865_for_stripe,cus_Rqa60q9coDqMYR,,,addnewcard,61865
+80563,Charge,ch_3S90IKLrnBTnlT7b1XsvpAg6,19/09/2025 09:07,80563:Brazilian Butterfly - Rowville,372.27,aud,372.27,0,372.27,aud,80563_for_stripe,cus_S1X4uetDp77E9S,,,addnewcard,80563
+80564,Charge,ch_3S90IMLrnBTnlT7b12adcyDl,19/09/2025 09:07,80564:Brazilian Butterfly - Werribee,354.33,aud,354.33,0,354.33,aud,80564_for_stripe,cus_S1X5ZX6O3CtXjd,,,addnewcard,80564
+90016,Charge,ch_3S90IfLrnBTnlT7b0LMsfnkH,19/09/2025 09:08,90016:Rival Hairdressing Studio,537.76,aud,537.76,0,537.76,aud,90016_for_stripe,cus_Sh52cMCKzY7XV6,,,addnewcard,90016
+86586,Charge,ch_3S9dtvLrnBTnlT7b0vfgR5O1,21/09/2025 03:25,86586:Hayley Jayne Hair at Bowden,205.61,aud,205.61,0,205.61,aud,86586_for_stripe,cus_T5pZBB1u0oAfQj,,,addnewcard,86586
+90980,Charge,ch_3S9dxjLrnBTnlT7b1Ywkk0Qb,21/09/2025 03:29,90980:Aesthetic Beauty Spot,433.17,aud,433.17,0,433.17,aud,90980_for_stripe,cus_T5pcJqdsl2Ah0r,,,addnewcard,90980
+90470,Charge,ch_3S9fBiLrnBTnlT7b1cSwsRX2,21/09/2025 04:47,90470:Cursed Canvas,297.32,aud,297.32,0,297.32,aud,,,,,,
+31174,Charge,ch_3S9foFLrnBTnlT7b0UMOQy4M,21/09/2025 05:27,31174:Super natural hair and body clinic,467.02,aud,467.02,0,467.02,aud,31174_for_stripe,cus_T5rXsr0Moj8SDA,,,addnewcard,31174
+61044,Charge,ch_3S9gIWLrnBTnlT7b02spAJFH,21/09/2025 05:58,61044:Britt Parker Hair Stylist & Evolve Hair Extensions,310.79,aud,310.79,0,310.79,aud,61044_for_stripe,cus_T5s2zWyJ9KRDu8,,,addnewcard,61044
+39997,Charge,ch_3S9l9OLrnBTnlT7b0UJTJhZ7,21/09/2025 11:09,39997:Tranquil Essence Brisbane,317.9,aud,317.9,0,317.9,aud,39997_for_stripe,cus_T5x3EGS4ZwOO01,,,addnewcard,39997
+40499,Charge,ch_3S9v1ELrnBTnlT7b1zUsX1C5,21/09/2025 21:42,40499:Inigo Cosmetic,421.69,aud,421.69,0,421.69,aud,40499_for_stripe,cus_T67FdZcRAXSv2J,,,addnewcard,40499
+60103,Charge,ch_3S9vpRLrnBTnlT7b1pHWKVoa,21/09/2025 22:33,60103:Mane Concept,578.38,aud,578.38,0,578.38,aud,60103_for_stripe,cus_T685g12FYTJQ5Z,,,addnewcard,60103
+38459,Charge,ch_3S9wN7LrnBTnlT7b0DpsSle0,21/09/2025 23:08,38459:Australian Laser & Skin,449.76,aud,449.76,0,449.76,aud,38459_for_stripe,cus_T68emZNlCoeqpJ,,,addnewcard,38459
+21557,Charge,ch_3S9xDsLrnBTnlT7b02kTkBjh,22/09/2025 00:03,21557:Skin Deep Beauty Therapy,375.64,aud,375.64,0,375.64,aud,21557_for_stripe,cus_T69WBYaXYvAZi2,,,addnewcard,21557
+77467,Charge,ch_3S9xFMLrnBTnlT7b0uUx5o2r,22/09/2025 00:04,77467:House of Harlow Beauty Therapy,410.28,aud,410.28,0,410.28,aud,,,,,,
+72167,Charge,ch_3S9y2wLrnBTnlT7b0s9afu8k,22/09/2025 00:56,72167:Le Salon,185.9,aud,185.9,0,185.9,aud,72167_for_stripe,cus_T6AN03wRSKghNp,,,addnewcard,72167
+98653,Charge,ch_3S9zJ9LrnBTnlT7b1DcJsxgO,22/09/2025 02:16,98653:HAIR PHASE (JJPHAZE PTY LTD),382.25,aud,382.25,0,382.25,aud,98653_for_stripe,cus_T6BgOmOfOSwr43,,,addnewcard,98653
+87337,Charge,ch_3S9zppLrnBTnlT7b06PAMh9e,22/09/2025 02:50,87337:LUX HAIR,482.31,aud,482.31,0,482.31,aud,87337_for_stripe,cus_T6CESStWmUv7UL,,,addnewcard,87337
+32005,Charge,ch_3SA1VCLrnBTnlT7b0D0L60yw,22/09/2025 04:37,32005:Serene Hair & Body,442.71,aud,442.71,0,442.71,aud,,,,,,
+58809,Charge,ch_3SA1YJLrnBTnlT7b1JcM8mxy,22/09/2025 04:40,58809:Saabi Collective,575.3,aud,575.3,0,575.3,aud,58809_for_stripe,cus_T6E0LNVjPJQcX6,,,addnewcard,58809
+80461,Charge,ch_3SA32TLrnBTnlT7b1qA9KG0l,22/09/2025 06:15,80461:Curated Skin Aesthetics,674,aud,674,0,674,aud,,,,,,
+39475,Charge,ch_3SA4GcLrnBTnlT7b1EFvpitO,22/09/2025 07:34,39475:Peachy Skin Clinic,502.19,aud,502.19,0,502.19,aud,39475_for_stripe,cus_T6GoMtbqa4xdjj,,,addnewcard,39475
+26229,Charge,ch_3SA5JRLrnBTnlT7b0hV1VUL3,22/09/2025 08:41,CASHBOOK,324.5,aud,324.5,0,324.5,aud,26229_for_stripe,cus_Lx6Aj5YV3wqvwN,,,addnewcard,26229
+80158,Charge,ch_3SA86kLrnBTnlT7b1agLCrR9,22/09/2025 11:40,80158:Halo Hair & Beauty Salon,336.6,aud,336.6,0,336.6,aud,80158_for_stripe,cus_T6KmlE4MirsIio,,,addnewcard,80158
+79084,Charge,ch_3SAD3bLrnBTnlT7b1JiAmmH6,22/09/2025 16:57,79084:Zen Hair Skin & Body,465.3,aud,465.3,0,465.3,aud,79084_for_stripe,cus_T6PtvFu5yVRNYQ,,,addnewcard,79084
+60709,Charge,ch_3SAD58LrnBTnlT7b0Rcvqayb,22/09/2025 16:59,60709:Saint + Bridge,465.3,aud,465.3,0,465.3,aud,60709_for_stripe,cus_T6PuCVqPeeAtzD,,,addnewcard,60709
+61019,Charge,ch_3SAJqkLrnBTnlT7b043oJ1yl,23/09/2025 00:12,61019:Ardor Organics,573.82,aud,573.82,0,573.82,aud,61019_for_stripe,cus_T6WuY55lqjNRYi,,,addnewcard,61019
+35501,Charge,ch_3SAKRzLrnBTnlT7b0ElxUJ0B,23/09/2025 00:51,35501:Seb Did This Hair,340.53,aud,340.53,0,340.53,aud,35501_for_stripe,cus_T6XXB9JYdR3SXS,,,addnewcard,35501
+46211,Charge,ch_3SAKcBLrnBTnlT7b0EmcLIqR,23/09/2025 01:01,46211:Blush Boutique ACT Pty Ltd,600.24,aud,600.24,0,600.24,aud,46211_for_stripe,cus_T6XhsjoBk5DN94,,,addnewcard,46211
+19065,Charge,ch_3SAKhBLrnBTnlT7b0H5aXVj8,23/09/2025 01:07,19065:Lucinda's Hair & Beauty,491.7,aud,491.7,0,491.7,aud,19065_for_stripe,cus_T6XmaaWqIf91jF,,,addnewcard,19065
+33438,Charge,ch_3SALhSLrnBTnlT7b1kHkd2kv,23/09/2025 02:11,33438:Goldilocks Hair,281.38,aud,281.38,0,281.38,aud,33438_for_stripe,cus_T6Yp2LVwYKI8hE,,,addnewcard,33438
+80773,Charge,ch_3SAMgtLrnBTnlT7b0proeSKP,23/09/2025 03:14,80773:Honey Honey Salon,372.99,aud,372.99,0,372.99,aud,80773_for_stripe,cus_T6Zq1HR1tvZ5a6,,,addnewcard,80773
+82814,Charge,ch_3SAMlULrnBTnlT7b1s2iIGRN,23/09/2025 03:19,82814:Dermé Aesthetic Clinic,238.53,aud,238.53,0,238.53,aud,82814_for_stripe,cus_T6ZvKeqx7OYeDG,,,addnewcard,82814
+68144,Charge,ch_3SAMttLrnBTnlT7b1zhLVFcB,23/09/2025 03:28,68144:Wink Newcastle,366.06,aud,366.06,0,366.06,aud,68144_for_stripe,cus_T6a4ScplVHZxDq,,,addnewcard,68144
+79580,Charge,ch_3SAMzTLrnBTnlT7b1sfHPd8K,23/09/2025 03:34,79580:Bonnie Aesthetics,409.83,aud,409.83,0,409.83,aud,79580_for_stripe,cus_T6a9RxRTfYNnxJ,,,addnewcard,79580
+90279,Charge,ch_3SANWdLrnBTnlT7b0s5FtjOQ,23/09/2025 04:08,90279:Macquarie Medi Spa,280.53,aud,280.53,0,280.53,aud,90279_for_stripe,cus_T6ain9ukfdbTs2,,,addnewcard,90279
+80910,Charge,ch_3SASRBLrnBTnlT7b0HITVfxq,23/09/2025 09:23,80910:Eva Mercedes Studio,522.91,aud,522.91,0,522.91,aud,80910_for_stripe,cus_T6fmxczKtLtPuy,,,addnewcard,80910
+26006,Charge,ch_3SAibjLrnBTnlT7b178OWA02,24/09/2025 02:39,26006:Ursk Medispa,255.82,aud,255.82,0,255.82,aud,26006_for_stripe,cus_T6wUSB3262OWKL,,,addnewcard,26006
+73770,Charge,ch_3SAl5pLrnBTnlT7b0Ghp1yDV,24/09/2025 05:18,73770:Coast & Crown The Salon ,1389.67,aud,1389.67,0,1389.67,aud,73770_for_stripe,cus_T6z3WOz1u6v0yg,,,addnewcard,73770
+37818,Charge,ch_3SAqe8LrnBTnlT7b1DJ29kRU,24/09/2025 11:14,37818:Amoura Hair,243.8,aud,243.8,0,243.8,aud,37818_for_stripe,cus_T74n4DoNTO6hIE,,,addnewcard,37818
+31831,Charge,ch_3SB3oqLrnBTnlT7b0q4iS85T,25/09/2025 01:18,31831:Nuovo Skin and Health,889.85,aud,889.85,0,889.85,aud,31831_for_stripe,cus_T7IPExPxNZO6J1,,,addnewcard,31831
+58623,Charge,ch_3SB3rdLrnBTnlT7b1IiYdk62,25/09/2025 01:20,58623:Indie Sky + Co,551.53,aud,551.53,0,551.53,aud,58623_for_stripe,cus_T7IS0seEc48pcr,,,addnewcard,58623
+29217,Charge,ch_3SB6iRLrnBTnlT7b0MDBuIr0,25/09/2025 04:23,29217:Maurice Meade Subiaco,15606.73,aud,15606.73,0,15606.73,aud,,,,,,
+30513,Charge,ch_3SB6jILrnBTnlT7b0z0yIvJU,25/09/2025 04:24,30513:Me by Maurice Meade Morley,412.96,aud,412.96,0,412.96,aud,,,,,,
+64351,Charge,ch_3SB6jZLrnBTnlT7b1W88J8jc,25/09/2025 04:24,64351:Maurice Meade Carousel,417.56,aud,417.56,0,417.56,aud,,,,,,
+32202,Charge,ch_3SB6joLrnBTnlT7b1PVCTuBq,25/09/2025 04:25,32202:Maurice Meade Academy,82.5,aud,82.5,0,82.5,aud,,,,,,
+85541,Charge,ch_3SBAMSLrnBTnlT7b18dTTVas,25/09/2025 08:17,85541:Body Cosmetics,459.8,aud,459.8,0,459.8,aud,85541_for_stripe,cus_T7PAJMrPmnafBz,,,addnewcard,85541
+18835,Charge,ch_3SBB2WLrnBTnlT7b1FeXmZbG,25/09/2025 09:00,18835:Haus Of Aveda Paddington,519.3,aud,519.3,0,519.3,aud,18835_for_stripe,cus_T7PszLrzNJFooe,,,addnewcard,18835
+67029,Charge,ch_3SBBaqLrnBTnlT7b0iFJSBzv,25/09/2025 09:36,67029:Studio Tuesday,393.84,aud,393.84,0,393.84,aud,67029_for_stripe,cus_T7QRJHTgxecn9q,,,addnewcard,67029
+72656,Charge,ch_3SBGUILrnBTnlT7b0ldZlN0Y,25/09/2025 14:49,72656:Doll Empire Clinic,492.8,aud,492.8,0,492.8,aud,72656_for_stripe,cus_T7VV2aKJIUqKoY,,,addnewcard,72656
+86606,Charge,ch_3SBHHBLrnBTnlT7b1QaPrOsV,25/09/2025 15:40,86606:Tommaso Hair,232.43,aud,232.43,0,232.43,aud,86606_for_stripe,cus_T7WJ012MaLXyfe,,,addnewcard,86606
+48909,Charge,ch_3SBQjaLrnBTnlT7b1byUb5RP,26/09/2025 01:46,48909:Ardour Brows & Lashes,334.08,aud,334.08,0,334.08,aud,48909_for_stripe,cus_T7g5maaJsXVEFT,,,addnewcard,48909
+22095,Charge,ch_3SBQk1LrnBTnlT7b1D3GJpae,26/09/2025 01:46,22095:Ardour - Brighton,350.44,aud,350.44,0,350.44,aud,22095_for_stripe,cus_T7g6jpV4ShliId,,,addnewcard,22095
+22073,Charge,ch_3SBQkKLrnBTnlT7b0RQFVHQE,26/09/2025 01:46,22073:Ardour - South Yarra,338.76,aud,338.76,0,338.76,aud,22073_for_stripe,cus_T7g6n1Lm0vJ9Oy,,,addnewcard,22073
+51835,Charge,ch_3SBTSbLrnBTnlT7b0bZfd2Jg,26/09/2025 04:40,51835:Urban Skin Clinic,428.51,aud,428.51,0,428.51,aud,51835_for_stripe,cus_T7iu0wAmFwGRg5,,,addnewcard,51835
+33768,Charge,ch_3SBbPALrnBTnlT7b1PfPRTIj,26/09/2025 13:09,33768:Laneway Hair,97.9,aud,97.9,0,97.9,aud,33768_for_stripe,cus_T7r7hAHGoL4CdZ,,,addnewcard,33768
+99216,Charge,ch_3SCVqsLrnBTnlT7b02cuAIxe,29/09/2025 01:26,99216:Jessica Bollington,382.25,aud,382.25,0,382.25,aud,99216_for_stripe,cus_T8nRF2xhb7eIqc,,,addnewcard,99216
+99354,Charge,ch_3SCtmMLrnBTnlT7b0jYUdlZ5,30/09/2025 02:59,99354:Launceston College,217.25,aud,217.25,0,217.25,aud,99354_for_stripe,cus_T9CAk8SPRfb1mY,,,addnewcard,99354
+51268,Charge,ch_3SD3DxLrnBTnlT7b0P6aBiFJ,30/09/2025 13:04,51268:SHE Skin Health Energy Clinic,1147.23,aud,1147.23,0,1147.23,aud,51268_for_stripe,cus_T9LvEfXQ69ORxU,,,addnewcard,51268
+99538,Charge,ch_3SDE9mLrnBTnlT7b0FiWV6hG,01/10/2025 00:44,99538:Organic Beauty by Kessie,382.25,aud,382.25,0,382.25,aud,99538_for_stripe,cus_T9XEjrSKPEaIGD,,,addnewcard,99538
+99543,Charge,ch_3SDG8ALrnBTnlT7b08VGLz1U,01/10/2025 02:51,99543:Me by Maurice Meade Joondalup,382.25,aud,382.25,0,382.25,aud,99543_for_stripe,cus_T9ZGWpcdO6ccfO,,,addnewcard,99543
+99562,Charge,ch_3SDKETLrnBTnlT7b0xSTBEi7,01/10/2025 07:13,99562:Sube Hair,382.25,aud,382.25,0,382.25,aud,99562_for_stripe,cus_T9dVIQV59UxAm8,,,addnewcard,99562
+100046,Charge,ch_3SE6WkLrnBTnlT7b081OyMfr,03/10/2025 10:47,100046:Ora Skin + Beauty,382.25,aud,382.25,0,382.25,aud,100046_for_stripe,cus_TARPcTozSffbSj,,,addnewcard,100046
+100261,Charge,ch_3SF4qBLrnBTnlT7b0J1lQp5J,06/10/2025 03:11,100261:Glow by Airlie&Co (At House of Airlie),382.25,aud,382.25,0,382.25,aud,100261_for_stripe,cus_TBRjWw7JFHQDxX,,,addnewcard,100261
+92706,Charge,ch_3SFQJpLrnBTnlT7b0pC6XWzW,07/10/2025 02:08,CASHBOOK,54.45,aud,54.45,0,54.45,aud,92706_for_stripe,cus_SqnD16ajkaJcCY,,,addnewcard,92706
+51135,Charge,ch_3SFpfJLrnBTnlT7b1rFBgRqF,08/10/2025 05:11,CASHBOOK,108.9,aud,108.9,0,108.9,aud,51135_for_stripe,cus_SuDvLn0kdaj0DM,,,addnewcard,51135
+51134,Charge,ch_3SFpflLrnBTnlT7b15qGtfUr,08/10/2025 05:12,CASHBOOK,108.9,aud,108.9,0,108.9,aud,51134_for_stripe,cus_SuDyphgP0RQDcB,,,addnewcard,51134
+51353,Charge,ch_3SFpklLrnBTnlT7b1xMGZQXV,08/10/2025 05:17,CASHBOOK,54.45,aud,54.45,0,54.45,aud,51353_for_stripe,cus_O9oVYY6DJj0mAu,,,paysignupbycard1,51353
+58731,Charge,ch_3SFplWLrnBTnlT7b0GZAU0Sp,08/10/2025 05:18,CASHBOOK,54.45,aud,54.45,0,54.45,aud,58731_for_stripe,cus_Pjce6gICsuy6ar,,,paysignupbycard1,58731
+94922,Charge,ch_3SG9hULrnBTnlT7b0vBkFJ3m,09/10/2025 02:35,94922:Shine Skin and Body,108.9,aud,108.9,0,108.9,aud,,,,,,
+100910,Charge,ch_3SGsbzLrnBTnlT7b0UJLR4vj,11/10/2025 02:32,100910:Natural Health and Beauty with Endermologie,382.25,aud,382.25,0,382.25,aud,100910_for_stripe,cus_TDJE3hQxpBW2Dw,,,addnewcard,100910
+100967,Charge,ch_3SHZfxLrnBTnlT7b0T5JpOLY,13/10/2025 00:31,100967:South Metropolitan Tafe Murdoch,217.25,aud,217.25,0,217.25,aud,100967_for_stripe,cus_TE1jIzl7kQrFYj,,,addnewcard,100967
+100970,Charge,ch_3SHaoXLrnBTnlT7b0TYJnnlF,13/10/2025 01:44,100970:South Metropolitan TAFE Mandurah Campus,217.25,aud,217.25,0,217.25,aud,100970_for_stripe,cus_TE2uYyXsiL734e,,,addnewcard,100970
+100977,Charge,ch_3SHcqVLrnBTnlT7b1fwEQeNO,13/10/2025 03:54,100977:Christopher John Salon,272.25,aud,272.25,0,272.25,aud,100977_for_stripe,cus_TE501ObtH1nSyl,,,addnewcard,100977
+100980,Charge,ch_3SHi4VLrnBTnlT7b1I3oz2fF,13/10/2025 09:29,100980:Skin Ethos,382.25,aud,382.25,0,382.25,aud,100980_for_stripe,cus_TEAPatRDHp2bUP,,,addnewcard,100980
+101054,Charge,ch_3SHsteLrnBTnlT7b1aTHRkHg,13/10/2025 21:03,101054:Shelley and Co,382.25,aud,382.25,0,382.25,aud,101054_for_stripe,cus_TELaxw5NvMYKJ5,,,addnewcard,101054
+100046,Charge,ch_3SHu4CLrnBTnlT7b0c8kFdWR,13/10/2025 22:18,CASHBOOK,108.9,aud,108.9,0,108.9,aud,100046_for_stripe,cus_TARPcTozSffbSj,,,addnewcard,100046
+96495,Charge,ch_3SHu4iLrnBTnlT7b1AHU1oRV,13/10/2025 22:18,CASHBOOK,108.9,aud,108.9,0,108.9,aud,96495_for_stripe,cus_T1P38Bk46raJy8,,,addnewcard,96495
+71654,Charge,ch_3SHucqLrnBTnlT7b0oqaBOwn,13/10/2025 22:53,CASHBOOK,108.9,aud,108.9,0,108.9,aud,71654_for_stripe,cus_RpDeY6icP6stz5,,,addnewcard,71654
+100968,Charge,ch_3SI2twLrnBTnlT7b1K9w3kOw,14/10/2025 07:44,100968:The Brow Connection,382.25,aud,382.25,0,382.25,aud,100968_for_stripe,cus_TEVvgHwJ8sYYPQ,,,addnewcard,100968
+101061,Charge,ch_3SI606LrnBTnlT7b0qkUB1oD,14/10/2025 11:03,101061:The Bodyy Shape Aesthetic Pty Ltd,382.25,aud,382.25,0,382.25,aud,101061_for_stripe,cus_TEZ89IW72YpTcZ,,,addnewcard,101061
+21587,Charge,ch_3SI9nbLrnBTnlT7b13x10cKv,14/10/2025 15:06,21587:Zienna Hair & Co.,377.65,aud,377.65,0,377.65,aud,21587_for_stripe,cus_SuJIxCsOlRYmGF,,,addnewcard,21587
+27750,Charge,ch_3SI9ndLrnBTnlT7b02kI0Vx7,14/10/2025 15:06,27750:Iris Skin & Beauty,587.83,aud,587.83,0,587.83,aud,27750_for_stripe,cus_SY8WeQRxbu9dz1,,,addnewcard,27750
+44934,Charge,ch_3SI9nrLrnBTnlT7b0P3UfvMA,14/10/2025 15:06,44934:Clay and Co Hair Design,425.13,aud,425.13,0,425.13,aud,44934_for_stripe,cus_Oq5pgqoplfvtTt,,,addnewcard,44934
+51134,Charge,ch_3SI9nuLrnBTnlT7b1coHFlds,14/10/2025 15:06,51134:EMP Collective pty ltd,338.47,aud,338.47,0,338.47,aud,51134_for_stripe,cus_SuDyphgP0RQDcB,,,addnewcard,51134
+51135,Charge,ch_3SI9nwLrnBTnlT7b11tJHSGG,14/10/2025 15:06,51135:EMP Collective pty ltd,340.07,aud,340.07,0,340.07,aud,51135_for_stripe,cus_SuDvLn0kdaj0DM,,,addnewcard,51135
+51353,Charge,ch_3SI9nyLrnBTnlT7b1LswerzN,14/10/2025 15:06,51353:Elle Studio Australia,441.97,aud,441.97,0,441.97,aud,51353_for_stripe,cus_O9oVYY6DJj0mAu,,,paysignupbycard1,51353
+56700,Charge,ch_3SI9o1LrnBTnlT7b1iD1HhVT,14/10/2025 15:06,56700:Untangled Hairstylists,390.08,aud,390.08,0,390.08,aud,56700_for_stripe,cus_P7fGCH8HwRuQgg,,,paysignupbycard1,56700
+57571,Charge,ch_3SI9o6LrnBTnlT7b1GMHgTdp,14/10/2025 15:06,57571:Envy Aesthetics,382.8,aud,382.8,0,382.8,aud,57571_for_stripe,cus_PRAucUiqdNyBxd,,,paysignupbycard1,57571
+58731,Charge,ch_3SI9o9LrnBTnlT7b01PwnUkR,14/10/2025 15:06,58731:Belledonne,475.5,aud,475.5,0,475.5,aud,58731_for_stripe,cus_Pjce6gICsuy6ar,,,paysignupbycard1,58731
+62080,Charge,ch_3SI9oELrnBTnlT7b1Sjawcf3,14/10/2025 15:06,62080:ASRI Hair Studio Pty Ltd,337.7,aud,337.7,0,337.7,aud,62080_for_stripe,cus_R24pmf9FvomdFw,,,addnewcard,62080
+71654,Charge,ch_3SI9oGLrnBTnlT7b0l7LaFRP,14/10/2025 15:06,71654:PAUSE Cosmetic Skin Clinic,1430.23,aud,1430.23,0,1430.23,aud,71654_for_stripe,cus_RpDeY6icP6stz5,,,addnewcard,71654
+83821,Charge,ch_3SI9oLLrnBTnlT7b0NCB2hoH,14/10/2025 15:06,83821:MediPedi North Adelaide,434.05,aud,434.05,0,434.05,aud,83821_for_stripe,cus_SJ7TCfSIzuYm7k,,,addnewcard,83821
+92706,Charge,ch_3SI9oNLrnBTnlT7b04gicBQl,14/10/2025 15:06,92706:Blue Lagoon Float and Spa,378.9,aud,378.9,0,378.9,aud,92706_for_stripe,cus_SqnD16ajkaJcCY,,,addnewcard,92706
+92712,Charge,ch_3SI9oQLrnBTnlT7b0usEOAGO,14/10/2025 15:06,92712:Roxbury Salon,696.05,aud,696.05,0,696.05,aud,92712_for_stripe,cus_SqrtgZuWgLM2mN,,,addnewcard,92712
+94825,Charge,ch_3SI9oaLrnBTnlT7b0ochdO7m,14/10/2025 15:07,94825:SkinSpirit Day Spa,42.9,aud,42.9,0,42.9,aud,94825_for_stripe,cus_SyLXtiVaTvb1OT,,,addnewcard,94825
+97763,Charge,ch_3SI9odLrnBTnlT7b0BjEDOrx,14/10/2025 15:07,97763:Globar,151.8,aud,151.8,0,151.8,aud,97763_for_stripe,cus_T3YeoC2RVk4jkd,,,addnewcard,97763
+51826,Charge,ch_3SI9ofLrnBTnlT7b0BAHx3yk,14/10/2025 15:07,51826:Enchanted Skin & Beauty,1.78,aud,1.78,0,1.78,aud,51826_for_stripe,cus_RdakMfPKJ2ryut,,,addnewcard,51826
+17580,Charge,ch_3SI9okLrnBTnlT7b0Pz9N23N,14/10/2025 15:07,17580:Skindeep Mullaloo,396.06,aud,396.06,0,396.06,aud,17580_for_stripe,cus_QWa6L3OoOAlpOC,,,addnewcard,17580
+17581,Charge,ch_3SI9omLrnBTnlT7b06iCl34s,14/10/2025 15:07,17581:Studio Skin and Beauty,369.95,aud,369.95,0,369.95,aud,17581_for_stripe,cus_LUE8xvFNUqbLmP,,,addnewcard,17581
+17582,Charge,ch_3SI9opLrnBTnlT7b0KuaStjk,14/10/2025 15:07,17582:SD Medispa PTY trading as Skindeep Floreat,396.06,aud,396.06,0,396.06,aud,17582_for_stripe,cus_QTzXey2NZYfXrI,,,addnewcard,17582
+17961,Charge,ch_3SI9orLrnBTnlT7b1lXP86Gl,14/10/2025 15:07,17961:Mia Bella,387.09,aud,387.09,0,387.09,aud,17961_for_stripe,cus_NdvzuqqW5XZD8A,,,addnewcard,17961
+17969,Charge,ch_3SI9otLrnBTnlT7b0gP5R8dy,14/10/2025 15:07,17969:Orb Hair Beauty,1086.95,aud,1086.95,0,1086.95,aud,17969_for_stripe,cus_NwGvfJQzW1iCwu,,,addnewcard,17969
+18281,Charge,ch_3SI9owLrnBTnlT7b1th18u2w,14/10/2025 15:07,18281:Blush Professional Beauty Touch,663.28,aud,663.28,0,663.28,aud,18281_for_stripe,cus_Se50PsaEIKOcNp,,,addnewcard,18281
+18284,Charge,ch_3SI9oyLrnBTnlT7b0xkiNaH7,14/10/2025 15:07,18284:Pure Skin Retreat,369.8,aud,369.8,0,369.8,aud,18284_for_stripe,cus_K5htbIabwHN17B,,,addnewcard,18284
+18302,Charge,ch_3SI9p0LrnBTnlT7b0aa1bnhC,14/10/2025 15:07,18302:The Skin Clinic,427.67,aud,427.67,0,427.67,aud,18302_for_stripe,cus_J23bi2J2TXzAcC,info+18302_S616HDW6@phorest.com,,addnewcard,18302
+18401,Charge,ch_3SI9p6LrnBTnlT7b1n2q8B1R,14/10/2025 15:07,18401:La Bella Skin & Body,367.31,aud,367.31,0,367.31,aud,18401_for_stripe,cus_KQMCjhLmrm5Cru,,,addnewcard,18401
+18695,Charge,ch_3SI9p8LrnBTnlT7b1ZD00dAV,14/10/2025 15:07,18695:Eve and Co Hair,334.64,aud,334.64,0,334.64,aud,18695_for_stripe,cus_Qhtkp4OCyTnTmz,,,addnewcard,18695
+18753,Charge,ch_3SI9pBLrnBTnlT7b1hR3Dt64,14/10/2025 15:07,18753:Dermalogica QVB,441.62,aud,441.62,0,441.62,aud,18753_for_stripe,cus_QPu7fIph7FCFeN,,,addnewcard,18753
+18829,Charge,ch_3SI9pDLrnBTnlT7b0OgzeHVX,14/10/2025 15:07,18829:Chumba Concept Salon,257,aud,257,0,257,aud,18829_for_stripe,cus_QMAMb0WUNFS3sM,,,addnewcard,18829
+18832,Charge,ch_3SI9pFLrnBTnlT7b1aNDX7Eq,14/10/2025 15:07,18832:Chumba Concept Salon - Windsor,286.74,aud,286.74,0,286.74,aud,18832_for_stripe,cus_QKfuQVo3jJOOgD,,,addnewcard,18832
+18838,Charge,ch_3SI9pKLrnBTnlT7b0L2iQ5KK,14/10/2025 15:07,18838:Beauty at rivoli,462.26,aud,462.26,0,462.26,aud,18838_for_stripe,cus_SuFqiMSuCvz9zX,,,addnewcard,18838
+18901,Charge,ch_3SI9pNLrnBTnlT7b0KTvZ3yq,14/10/2025 15:07,18901:Mien Salon Spa,416.9,aud,416.9,0,416.9,aud,18901_for_stripe,cus_GDFgcDq1RvxJGh,info+18901_11FXHG6U@phorest.com,,addnewcard,18901
+18927,Charge,ch_3SI9pQLrnBTnlT7b1tFcj2nV,14/10/2025 15:07,18927:Togninis,788.95,aud,788.95,0,788.95,aud,18927_for_stripe,cus_NbgXPVDmFk4T4G,,,addnewcard,18927
+18976,Charge,ch_3SI9pZLrnBTnlT7b0pnsMonK,14/10/2025 15:08,18976:MediPedi Norwood,334.4,aud,334.4,0,334.4,aud,18976_for_stripe,cus_MVWmVMWgr2Ein7,,,addnewcard,18976
+18977,Charge,ch_3SI9pcLrnBTnlT7b0zlcSoxt,14/10/2025 15:08,18977:MediPedi Goodwood,334.4,aud,334.4,0,334.4,aud,18977_for_stripe,cus_LFF8uvq4BZ3hhf,,,addnewcard,18977
+19008,Charge,ch_3SI9peLrnBTnlT7b1IxmnT6l,14/10/2025 15:08,19008:Stratford As You Like It Hair & Beauty,349.04,aud,349.04,0,349.04,aud,19008_for_stripe,cus_Pyusf3PTEYCAIh,,,addnewcard,19008
+19012,Charge,ch_3SI9pgLrnBTnlT7b0vmvqO2u,14/10/2025 15:08,19012:GiGi Instyle,318.34,aud,318.34,0,318.34,aud,19012_for_stripe,cus_OQC9gM5CgebAea,,,addnewcard,19012
+19045,Charge,ch_3SI9piLrnBTnlT7b1Ji0FGHY,14/10/2025 15:08,19045:Elements Skin Clinic,200.99,aud,200.99,0,200.99,aud,19045_for_stripe,cus_RoQngmFcIyApRP,,,addnewcard,19045
+19047,Charge,ch_3SI9plLrnBTnlT7b1v8spF9V,14/10/2025 15:08,19047:Annasha Day Spa Retreat,336.41,aud,336.41,0,336.41,aud,Signup:19047:Annasha Day Spa Retreat,cus_DXca8Uyd5GqMbj,anna.murphy@annashadayspa.com.au,,,
+19064,Charge,ch_3SI9pnLrnBTnlT7b0zMLpoYI,14/10/2025 15:08,19064:Element - Haus of Aveda - Perth,317.9,aud,317.9,0,317.9,aud,19064_for_stripe,cus_Sp7RdDhlECQ5Vq,,,addnewcard,19064
+19065,Charge,ch_3SI9ppLrnBTnlT7b1LMNj2SF,14/10/2025 15:08,19065:Lucinda's Hair & Beauty,484.51,aud,484.51,0,484.51,aud,19065_for_stripe,cus_T6XmaaWqIf91jF,,,addnewcard,19065
+19269,Charge,ch_3SI9psLrnBTnlT7b04Tus0US,14/10/2025 15:08,19269:Sanctum Medi Spa Retreat,347.55,aud,347.55,0,347.55,aud,19269_for_stripe,cus_SMVocjgrg6m3gK,,,addnewcard,19269
+19274,Charge,ch_3SI9puLrnBTnlT7b0YMT1wgy,14/10/2025 15:08,19274:Air Hair Studio,499.29,aud,499.29,0,499.29,aud,19274_for_stripe,cus_MgPoaiZN1Xsspv,,,addnewcard,19274
+19386,Charge,ch_3SI9pwLrnBTnlT7b10mLec38,14/10/2025 15:08,19386:Port Macquarie Day Spa,348.38,aud,348.38,0,348.38,aud,19386_for_stripe,cus_MvOGxc2ytXcVzk,,,addnewcard,19386
+19811,Charge,ch_3SI9pzLrnBTnlT7b0sC6ZWx9,14/10/2025 15:08,19811:Tranquil Essence,318.19,aud,318.19,0,318.19,aud,19811_for_stripe,cus_RyufQS7RJqgNh9,,,addnewcard,19811
+19868,Charge,ch_3SI9q2LrnBTnlT7b1GgKsmpx,14/10/2025 15:08,19868:Front Room Hair,251.66,aud,251.66,0,251.66,aud,19868_for_stripe,cus_NvyWFhAShxp9UR,,,addnewcard,19868
+19951,Charge,ch_3SI9q4LrnBTnlT7b0QRVvzPd,14/10/2025 15:08,19951:VC Dermal Clinics - Berwick,594.7,aud,594.7,0,594.7,aud,19951_for_stripe,cus_HTxAxJYjQZpDqq,info+19951_18040K68@phorest.com,,addnewcard,19951
+20118,Charge,ch_3SI9q6LrnBTnlT7b1pI74MXx,14/10/2025 15:08,20118:Sage Hair,260.13,aud,260.13,0,260.13,aud,20118:Hair Desir,cus_EJ89iyEXnwCsBP,tori.leetham@hotmail.com,,,
+20555,Charge,ch_3SI9q8LrnBTnlT7b0Tr6IAQM,14/10/2025 15:08,20555:Simply Laser,543.87,aud,543.87,0,543.87,aud,20555_for_stripe,cus_SjhWaO18e6m4Dl,,,addnewcard,20555
+20728,Charge,ch_3SI9qBLrnBTnlT7b1IRoOwVi,14/10/2025 15:08,20728:Bach Hair - Paddington,317.9,aud,317.9,0,317.9,aud,20728_for_stripe,cus_LkbUqgrV8ze3ey,,,addnewcard,20728
+20962,Charge,ch_3SI9qDLrnBTnlT7b1jSdwZy8,14/10/2025 15:08,20962:Simply Divine Beauty,356.15,aud,356.15,0,356.15,aud,20962_for_stripe,cus_MfhRH6B0E3rEl2,,,addnewcard,20962
+21131,Charge,ch_3SI9qFLrnBTnlT7b1TEn0dbx,14/10/2025 15:08,21131:HB Beauty,457.67,aud,457.67,0,457.67,aud,21131_for_stripe,cus_OvhzSETZPL11oL,,,addnewcard,21131
+21460,Charge,ch_3SI9qILrnBTnlT7b1welEEiQ,14/10/2025 15:08,21460:Hair Ego Pty Ltd,185.9,aud,185.9,0,185.9,aud,21460_for_stripe,cus_ReNhe4iFmS9YdQ,,,addnewcard,21460
+21581,Charge,ch_3SI9qPLrnBTnlT7b1Je9MkPw,14/10/2025 15:08,21581:Noosa Body and Skin Care,309.36,aud,309.36,0,309.36,aud,21581_for_stripe,cus_G0lYVt2d3ceQrx,info+21581_J3OB90R6@phorest.com,,addnewcard,21581
+21807,Charge,ch_3SI9qRLrnBTnlT7b0yPJsG1e,14/10/2025 15:08,21807:LaserSkin Specialist,362.51,aud,362.51,0,362.51,aud,21807_for_stripe,cus_Rl1qZH4LjkXXp7,,,addnewcard,21807
+22064,Charge,ch_3SI9qTLrnBTnlT7b0ptwOc6F,14/10/2025 15:09,22064:TNF & Co Pty Ltd ,424.22,aud,424.22,0,424.22,aud,22064_for_stripe,cus_Ss2UPNYPXP2HgS,,,addnewcard,22064
+22363,Charge,ch_3SI9qbLrnBTnlT7b1QO5pwHN,14/10/2025 15:09,22363:Bella Spazio,831.85,aud,831.85,0,831.85,aud,22363_for_stripe,cus_N1m6JrE3QgG9iE,,,addnewcard,22363
+22378,Charge,ch_3SI9qdLrnBTnlT7b0v7udl1j,14/10/2025 15:09,22378:The Brow Bar - Paddington,395.88,aud,395.88,0,395.88,aud,22378_for_stripe,cus_SjKRTcS746YmjW,,,addnewcard,22378
+22485,Charge,ch_3SI9qgLrnBTnlT7b05CiB7fU,14/10/2025 15:09,22485:Hot Hair Works,225.02,aud,225.02,0,225.02,aud,22485_for_stripe,cus_SYmh5b9LHSxGLD,,,addnewcard,22485
+22544,Charge,ch_3SI9qiLrnBTnlT7b1UD7Lzss,14/10/2025 15:09,22544:The Brow Bar - Ascot,356.33,aud,356.33,0,356.33,aud,22544_for_stripe,cus_SihMomjcjEOedb,,,addnewcard,22544
+22689,Charge,ch_3SI9qkLrnBTnlT7b0eZYzQtB,14/10/2025 15:09,22689:Golden Tips Hair and Beauty,224.09,aud,224.09,0,224.09,aud,22689_for_stripe,cus_NvvOb3utlmXqJv,,,addnewcard,22689
+22804,Charge,ch_3SI9qnLrnBTnlT7b07MJBleC,14/10/2025 15:09,22804:The Lash Spa,1260.83,aud,1260.83,0,1260.83,aud,22804_for_stripe,cus_O7ZcSoHqkVWbBr,,,addnewcard,22804
+22916,Charge,ch_3SI9qqLrnBTnlT7b0DCuVIiW,14/10/2025 15:09,22916:Analog Hair,337.45,aud,337.45,0,337.45,aud,22916_for_stripe,cus_SuE5raoHjLFmtO,,,addnewcard,22916
+22990,Charge,ch_3SI9qsLrnBTnlT7b0w8Wy73t,14/10/2025 15:09,22990:SJ Establishment,457.29,aud,457.29,0,457.29,aud,22990:SJ Establishment,cus_FHbqaZBPCW4w7E,hello@sjestablishment.com,,,
+23137,Charge,ch_3SI9quLrnBTnlT7b1UFr6S6p,14/10/2025 15:09,23137:Sugar + Stone,97.9,aud,97.9,0,97.9,aud,Signup:23137:Sugar + Stone,cus_EtXFlthN7EV2UI,anitabrown@live.com,,,
+23264,Charge,ch_3SI9qxLrnBTnlT7b0LU9qiXa,14/10/2025 15:09,23264:The Goddess Beauty & Aromatherapy Salon,380.36,aud,380.36,0,380.36,aud,23264_for_stripe,cus_Kmmpf61xkbpC31,,,addnewcard,23264
+23367,Charge,ch_3SI9qzLrnBTnlT7b1rjKmxMO,14/10/2025 15:09,23367:Rubi Hair Malvern,437.68,aud,437.68,0,437.68,aud,23367_for_stripe,cus_NDkEbRPwTD6gax,,,addnewcard,23367
+23615,Charge,ch_3SI9r1LrnBTnlT7b1vCUBIdz,14/10/2025 15:09,23615:Soho Nails Oakleigh Pty Ltd,281.38,aud,281.38,0,281.38,aud,23615_for_stripe,cus_QWcPtAzwbpcYUQ,,,addnewcard,23615
+23862,Charge,ch_3SI9r4LrnBTnlT7b0R4fkrvD,14/10/2025 15:09,23862:Perfectly Smooth,348.48,aud,348.48,0,348.48,aud,23862_for_stripe,cus_JVH4B54hzqwQFY,info+23862_8DRJORV9@phorest.com,,addnewcard,23862
+23937,Charge,ch_3SI9r6LrnBTnlT7b0b583jbd,14/10/2025 15:09,23937:Pawsum,181.9,aud,181.9,0,181.9,aud,23937_for_stripe,cus_LkjYsG6G31LGA5,,,addnewcard,23937
+23965,Charge,ch_3SI9r8LrnBTnlT7b0Id9fnLw,14/10/2025 15:09,23965:Quietspace,273.31,aud,273.31,0,273.31,aud,Signup:23965:Quietspace,cus_FCGxVNiWGN8EeT,Alex.feher7@gmail.com,,,
+24052,Charge,ch_3SI9rBLrnBTnlT7b0IhrApCF,14/10/2025 15:09,24052:Skin on Ocean,517.37,aud,517.37,0,517.37,aud,24052_for_stripe,cus_QnUhymqCYhQCbR,,,addnewcard,24052
+24053,Charge,ch_3SI9rDLrnBTnlT7b1AbQQxfT,14/10/2025 15:09,24053:Hair Today,185.9,aud,185.9,0,185.9,aud,Signup:24053:Hair Today,cus_FFEJsjGHvHV54O,hairtoday@y7mail.com,,,
+24090,Charge,ch_3SI9rGLrnBTnlT7b1HTv9j3R,14/10/2025 15:09,24090:Agencie,362.03,aud,362.03,0,362.03,aud,24090_for_stripe,cus_J87RgHFlWWmVAT,info+24090_2T1HP5R8@phorest.com,,addnewcard,24090
+24102,Charge,ch_3SI9rILrnBTnlT7b0eaWyqJC,14/10/2025 15:09,24102:Sueshel Hair & Beauty,333.28,aud,333.28,0,333.28,aud,24102_for_stripe,cus_Sb7QSuaPs7FtiT,,,addnewcard,24102
+24242,Charge,ch_3SI9rKLrnBTnlT7b1GEbIKuZ,14/10/2025 15:09,24242:Cocomousse Hair,322.83,aud,322.83,0,322.83,aud,24242_for_stripe,cus_Rd6ompVyOzoJUc,,,addnewcard,24242
+24275,Charge,ch_3SI9rPLrnBTnlT7b1vWCVCnt,14/10/2025 15:10,24275:Bin's Hair Hut,190.52,aud,190.52,0,190.52,aud,Signup:24275:Bin's Hair Hut,cus_FKxv8QsBhlBYdK,waynewilson71@hotmail.com,,,
+24382,Charge,ch_3SI9rWLrnBTnlT7b1AqFSM8Q,14/10/2025 15:10,24382:PROFESSIONAIL RHODES,190.37,aud,190.37,0,190.37,aud,24382_for_stripe,cus_Rf1HXqJ8wBAMWZ,,,addnewcard,24382
+24401,Charge,ch_3SI9rYLrnBTnlT7b0H57nXNl,14/10/2025 15:10,24401:ReDefine Skin & Beauty Salon,422.25,aud,422.25,0,422.25,aud,24401_for_stripe,cus_RCylwSWZX4ovUU,,,addnewcard,24401
+24501,Charge,ch_3SI9rbLrnBTnlT7b0jCYC9YF,14/10/2025 15:10,24501:Summer Jade Hair Salon,185.9,aud,185.9,0,185.9,aud,Signup:24501:Summer Jade Hair Salon,cus_FfP9jOf2I9APdj,info+_7IXGE4WM@phorest.com,,,
+24521,Charge,ch_3SI9rdLrnBTnlT7b0fwDA2wR,14/10/2025 15:10,24521:Sally's Hair Design,207.46,aud,207.46,0,207.46,aud,Signup:24521:Sally's Hair Design,cus_FSJlcMkQhLr9FS,shd112017@gmail.com,,,
+24572,Charge,ch_3SI9rfLrnBTnlT7b1C70zDnr,14/10/2025 15:10,24572:Phd Hair pty ltd,317.9,aud,317.9,0,317.9,aud,24572_for_stripe,cus_NkxOQQxGNECv7c,,,addnewcard,24572
+24625,Charge,ch_3SI9rhLrnBTnlT7b0yuD2tON,14/10/2025 15:10,24625:Hawthorne Skin & Beauty,380.27,aud,380.27,0,380.27,aud,24625_for_stripe,cus_SXOGHwKzk2aSgg,,,addnewcard,24625
+24792,Charge,ch_3SI9rmLrnBTnlT7b1t2TKtwE,14/10/2025 15:10,24792:OJ's Hairdressing,239.8,aud,239.8,0,239.8,aud,24792_for_stripe,cus_PqyjElsH11WwQv,,,addnewcard,24792
+24856,Charge,ch_3SI9rrLrnBTnlT7b1zuqRNNN,14/10/2025 15:10,24856:Era Hair,461.81,aud,461.81,0,461.81,aud,24856_for_stripe,cus_SrEN3pfqca6fGQ,,,addnewcard,24856
+24899,Charge,ch_3SI9rtLrnBTnlT7b0QSdCUAJ,14/10/2025 15:10,24899:Panache Hair Design,317.9,aud,317.9,0,317.9,aud,24899_for_stripe,cus_KoLESJIi7J7KAw,,,addnewcard,24899
+24908,Charge,ch_3SI9rwLrnBTnlT7b0iKWHdni,14/10/2025 15:10,24908:Soho Nails,213,aud,213,0,213,aud,24908_for_stripe,cus_Lv8sac9tf1VsFr,,,addnewcard,24908
+25050,Charge,ch_3SI9rzLrnBTnlT7b0kzQVJvt,14/10/2025 15:10,25050:The Spa At Salt,407,aud,407,0,407,aud,25050_for_stripe,cus_SLntUyMzKJl8RM,,,addnewcard,25050
+25053,Charge,ch_3SI9s1LrnBTnlT7b0nF8kjJ0,14/10/2025 15:10,25053:Glamour-X Hair Studio,212.23,aud,212.23,0,212.23,aud,25053_for_stripe,cus_QxZ14zaaGEH71E,,,addnewcard,25053
+25070,Charge,ch_3SI9s3LrnBTnlT7b1upiiOr9,14/10/2025 15:10,25070:Salon Bronze,223.78,aud,223.78,0,223.78,aud,25070_for_stripe,cus_K3kgAk5vRHRMcY,,,addnewcard,25070
+25126,Charge,ch_3SI9s6LrnBTnlT7b0QvQ3gGU,14/10/2025 15:10,25126:FACE MEDISKIN,365.67,aud,365.67,0,365.67,aud,25126_for_stripe,cus_R26PcaN9NTOum7,,,addnewcard,25126
+25233,Charge,ch_3SI9s8LrnBTnlT7b1PVASWZL,14/10/2025 15:10,25233:Satori Hair,234.41,aud,234.41,0,234.41,aud,25233_for_stripe,cus_SicuqEF9dDXOE9,,,addnewcard,25233
+25237,Charge,ch_3SI9sALrnBTnlT7b1k3VIwHs,14/10/2025 15:10,25237:HYPOXI NEWSTEAD PTY LTD ATF HYPOXI NEWSTEAD TRUST,185.9,aud,185.9,0,185.9,aud,25237_for_stripe,cus_PUEvJUd3J7dams,,,addnewcard,25237
+25297,Charge,ch_3SI9sDLrnBTnlT7b0b8LUHB5,14/10/2025 15:10,25297:The Beauty Bar By Alexandra Montford,442.73,aud,442.73,0,442.73,aud,25297_for_stripe,cus_LC9Pg44gtYrVCJ,,,addnewcard,25297
+25451,Charge,ch_3SI9sFLrnBTnlT7b0Ux8B7h7,14/10/2025 15:10,25451:MediPedi Glenelg,334.4,aud,334.4,0,334.4,aud,25451_for_stripe,cus_K3RW76TdcJDkyQ,,,addnewcard,25451
+25545,Charge,ch_3SI9sILrnBTnlT7b1V6yRgpL,14/10/2025 15:10,25545:Relief Hair Salon,428.79,aud,428.79,0,428.79,aud,25545_for_stripe,cus_RyuMT9ngDNp5qh,,,addnewcard,25545
+25831,Charge,ch_3SI9sKLrnBTnlT7b1589vDmE,14/10/2025 15:10,25831:Sandhu Family Trust,347.73,aud,347.73,0,347.73,aud,25831_for_stripe,cus_StA4Q0nvjuKWfO,,,addnewcard,25831
+25893,Charge,ch_3SI9sNLrnBTnlT7b1mfSDty7,14/10/2025 15:10,25893:All About You Skin Clinic,294.78,aud,294.78,0,294.78,aud,25893_for_stripe,cus_JfwHdnQX8fJ0wb,,,addnewcard,25893
+25998,Charge,ch_3SI9sPLrnBTnlT7b1zHtVXJd,14/10/2025 15:11,25998:Beauty by Beck,317.9,aud,317.9,0,317.9,aud,25998_for_stripe,cus_KcEk3JAz8uRoXM,,,addnewcard,25998
+26229,Charge,ch_3SI9sULrnBTnlT7b1gLnfk6f,14/10/2025 15:11,26229:Hutch & Co Hair Bar,132.7,aud,132.7,0,132.7,aud,26229_for_stripe,cus_Lx6Aj5YV3wqvwN,,,addnewcard,26229
+26290,Charge,ch_3SI9sWLrnBTnlT7b0bK8Sllj,14/10/2025 15:11,26290:Cosmetic Aesthetics Victoria,317.9,aud,317.9,0,317.9,aud,26290_for_stripe,cus_NdyxBkUwWVEZK8,,,addnewcard,26290
+26505,Charge,ch_3SI9sZLrnBTnlT7b1rFDIHrQ,14/10/2025 15:11,26505:The Skin Agencie,339.13,aud,339.13,0,339.13,aud,26505_for_stripe,cus_JO9uc9tRe9kdqE,info+26505_026H6498@phorest.com,,addnewcard,26505
+26520,Charge,ch_3SI9sbLrnBTnlT7b0KsnIfeU,14/10/2025 15:11,26520:Richmond Skin & Laser Clinic,3342.9,aud,3342.9,0,3342.9,aud,26520_for_stripe,cus_HIvKgB2nOK08OL,info+26520_QP0V3C4O@phorest.com,,addnewcard,26520
+26523,Charge,ch_3SI9seLrnBTnlT7b0hdVj4St,14/10/2025 15:11,26523:Temple Skincare & Spa,576.5,aud,576.5,0,576.5,aud,26523_for_stripe,cus_MgnheQUyjF3Eae,,,addnewcard,26523
+26580,Charge,ch_3SI9siLrnBTnlT7b1a2AhICy,14/10/2025 15:11,26580:Lulu & Kit,357.27,aud,357.27,0,357.27,aud,26580_for_stripe,cus_Sb9ZO6486FqCzd,,,addnewcard,26580
+26645,Charge,ch_3SI9slLrnBTnlT7b0j6SgrVD,14/10/2025 15:11,26645:H&S HAIR&SOUL,282.83,aud,282.83,0,282.83,aud,26645_for_stripe,cus_LVE7qcaSgXa1id,,,addnewcard,26645
+26755,Charge,ch_3SI9snLrnBTnlT7b0EUnsqMW,14/10/2025 15:11,26755:My Laser Therapy,200.84,aud,200.84,0,200.84,aud,26755_for_stripe,cus_NlUngjFyqy2rf0,,,addnewcard,26755
+26806,Charge,ch_3SI9spLrnBTnlT7b0eodj6Dn,14/10/2025 15:11,26806:Violet Spectrum Ltd.,262.9,aud,262.9,0,262.9,aud,26806_for_stripe,cus_REuFxfq0rLLQea,,,addnewcard,26806
+26845,Charge,ch_3SI9ssLrnBTnlT7b0QBNzoBy,14/10/2025 15:11,26845:Laser Therapeutics,412.13,aud,412.13,0,412.13,aud,26845_for_stripe,cus_RqJexeMp0qlrUe,,,addnewcard,26845
+26894,Charge,ch_3SI9suLrnBTnlT7b0xcbMjZb,14/10/2025 15:11,26894:Black Velvet Hair Studio Pty Ltd,307.87,aud,307.87,0,307.87,aud,26894_for_stripe,cus_GAv662VThoIJOm,info+26894_3SB61R7F@phorest.com,,paysignupbycard1,26894
+26964,Charge,ch_3SI9sxLrnBTnlT7b1Ge5R8rY,14/10/2025 15:11,26964:Kiddly Winx,376.24,aud,376.24,0,376.24,aud,26964_for_stripe,cus_MIMXk0Pn9uK0Fo,,,addnewcard,26964
+27047,Charge,ch_3SI9szLrnBTnlT7b1mVAACMB,14/10/2025 15:11,27047:Liberty Hair Design Noosa,387.19,aud,387.19,0,387.19,aud,27047_for_stripe,cus_JLK1x7yHLa4Rbr,info+27047_75K6W24Y@phorest.com,,addnewcard,27047
+27048,Charge,ch_3SI9t1LrnBTnlT7b0hlG0A7X,14/10/2025 15:11,27048:Liberty Hair Design Kawana,385.22,aud,385.22,0,385.22,aud,27048_for_stripe,cus_JLK0ZbV5fY2v59,info+27048_0TS37VSU@phorest.com,,addnewcard,27048
+27049,Charge,ch_3SI9t4LrnBTnlT7b0D0IxgoT,14/10/2025 15:11,27049:Liberty Hair Design Maroochydore,403.36,aud,403.36,0,403.36,aud,27049_for_stripe,cus_JLJzoy1UxBidbR,info+27049_ZISYEA2T@phorest.com,,addnewcard,27049
+27051,Charge,ch_3SI9t6LrnBTnlT7b1mwGazEt,14/10/2025 15:11,27051:Infiniti Hair Design,416.45,aud,416.45,0,416.45,aud,27051_for_stripe,cus_JJgvET17TDQHj3,info+27051_0495QU5F@phorest.com,,addnewcard,27051
+27074,Charge,ch_3SI9t8LrnBTnlT7b1X7xKvv9,14/10/2025 15:11,27074:Mansion Jolie Aesthetic,186.67,aud,186.67,0,186.67,aud,27074_for_stripe,cus_OsOVjHE5AcSdgL,,,addnewcard,27074
+27363,Charge,ch_3SI9tBLrnBTnlT7b0OXZ7p7q,14/10/2025 15:11,27363:Shaggahs Hair Studio,348.94,aud,348.94,0,348.94,aud,27363_for_stripe,cus_QMZkfiNg7vZh8A,,,addnewcard,27363
+27524,Charge,ch_3SI9tDLrnBTnlT7b0EgegL6N,14/10/2025 15:11,27524:Chilli Couture,377.93,aud,377.93,0,377.93,aud,27524_for_stripe,cus_OrEpVoOzc285mC,,,addnewcard,27524
+27659,Charge,ch_3SI9tFLrnBTnlT7b1zziv2J6,14/10/2025 15:11,27659:Natural Body and Beauty Clinic,185.9,aud,185.9,0,185.9,aud,27659_for_stripe,cus_GTGQqgcULUlqT6,info+27659_AWJ737M1@phorest.com,,paysignupbycard1,27659
+27850,Charge,ch_3SI9tILrnBTnlT7b0quQNWJJ,14/10/2025 15:11,27850:Nanora Hair,385.43,aud,385.43,0,385.43,aud,27850_for_stripe,cus_RRToB55jYLMBzm,,,addnewcard,27850
+27891,Charge,ch_3SI9tKLrnBTnlT7b1AkMH7ab,14/10/2025 15:11,27891:Vivente,355.03,aud,355.03,0,355.03,aud,27891_for_stripe,cus_NwaacgbzNJRi98,,,addnewcard,27891
+28001,Charge,ch_3SI9tMLrnBTnlT7b0AmdsKJM,14/10/2025 15:12,28001:Dirty Little Secret Hair Salon,463.11,aud,463.11,0,463.11,aud,28001_for_stripe,cus_IzRaSW7jTpnRbO,info+28001_8CAU2601@phorest.com,,addnewcard,28001
+28826,Charge,ch_3SI9tSLrnBTnlT7b0ADKFOU0,14/10/2025 15:12,28826:White Sage Aesthetics,443.61,aud,443.61,0,443.61,aud,28826_for_stripe,cus_NwD7AJsNFFMMsk,,,addnewcard,28826
+28871,Charge,ch_3SI9tVLrnBTnlT7b0AaBCbHX,14/10/2025 15:12,28871:Hair Rocks,345.16,aud,345.16,0,345.16,aud,28871_for_stripe,cus_GlB3X2nkzbarR0,info+28871_9K850X34@phorest.com,,paysignupbycard1,28871
+28875,Charge,ch_3SI9tXLrnBTnlT7b02ZD4rTm,14/10/2025 15:12,28875:Body Beautiful Retreat,435.8,aud,435.8,0,435.8,aud,28875_for_stripe,cus_SXN04Wy6blMsoR,,,addnewcard,28875
+28988,Charge,ch_3SI9tZLrnBTnlT7b1j9obGB9,14/10/2025 15:12,28988:Glow Skin & Spa,400.28,aud,400.28,0,400.28,aud,28988_for_stripe,cus_P2sB4Ob93XTamk,,,addnewcard,28988
+28991,Charge,ch_3SI9tcLrnBTnlT7b0jzRq0sH,14/10/2025 15:12,28991:Highlight Hair Salon,338.67,aud,338.67,0,338.67,aud,28991_for_stripe,cus_SArVH7mJ3erVwO,,,addnewcard,28991
+29259,Charge,ch_3SI9tjLrnBTnlT7b1LX7Jxfu,14/10/2025 15:12,29259:Estetiko Skin and Laser,368.1,aud,368.1,0,368.1,aud,29259_for_stripe,cus_PEmk0REing2Xwr,,,addnewcard,29259
+29313,Charge,ch_3SI9tmLrnBTnlT7b1YDw3xsN,14/10/2025 15:12,29313:Blondes to Brunettes Melbourne,389.06,aud,389.06,0,389.06,aud,29313_for_stripe,cus_GtYbYjYuAQvJQt,info+29313_054JRTZM@phorest.com,,paysignupbycard1,29313
+29817,Charge,ch_3SI9toLrnBTnlT7b0BVkyMYH,14/10/2025 15:12,29817:Annas Salon,217.16,aud,217.16,0,217.16,aud,29817_for_stripe,cus_HGICNi4TpHfBcD,info+29817_R1444NU6@phorest.com,,paysignupbycard1,29817
+29957,Charge,ch_3SI9trLrnBTnlT7b0sIItTXS,14/10/2025 15:12,29957:Serendipity Medi Spa,4329.78,aud,4329.78,0,4329.78,aud,29957_for_stripe,cus_OMYQrYoUBDb9Um,,,addnewcard,29957
+29979,Charge,ch_3SI9ttLrnBTnlT7b0dNKLyP7,14/10/2025 15:12,29979:HOLI COLORISTE VISAGISTE,166.45,aud,166.45,0,166.45,aud,29979_for_stripe,cus_Qq1HIj461tZoto,,,addnewcard,29979
+29999,Charge,ch_3SI9tvLrnBTnlT7b0uLDUypb,14/10/2025 15:12,29999:Gypsy Hair Pty Ltd,326.19,aud,326.19,0,326.19,aud,29999_for_stripe,cus_QWcccysnP1yhI9,,,addnewcard,29999
+30184,Charge,ch_3SI9txLrnBTnlT7b18AQFNZv,14/10/2025 15:12,30184:Loop Hair Salon ,753.54,aud,753.54,0,753.54,aud,30184_for_stripe,cus_Svh3J71iMdKbul,,,addnewcard,30184
+30500,Charge,ch_3SI9u3LrnBTnlT7b0fD6Vpg1,14/10/2025 15:12,30500:Naturally SAS Hair & Beauty,377.37,aud,377.37,0,377.37,aud,30500_for_stripe,cus_Sic0C7yYy9spMM,,,addnewcard,30500
+30657,Charge,ch_3SI9uOLrnBTnlT7b1pkK8ZnY,14/10/2025 15:13,30657:KOKO NAILS,320.19,aud,320.19,0,320.19,aud,30657_for_stripe,cus_QodCHMtL0hHQMw,,,addnewcard,30657
+30683,Charge,ch_3SI9uQLrnBTnlT7b0qMoi7DT,14/10/2025 15:13,30683:Deco Salon,359.89,aud,359.89,0,359.89,aud,30683_for_stripe,cus_O9lXniM8bYlNTd,,,addnewcard,30683
+30724,Charge,ch_3SI9uTLrnBTnlT7b1zujfaGG,14/10/2025 15:13,30724:Dh BeautyBox,338.76,aud,338.76,0,338.76,aud,30724_for_stripe,cus_LXxhYPytQSVZSV,,,addnewcard,30724
+31091,Charge,ch_3SI9uVLrnBTnlT7b0yoP9IUY,14/10/2025 15:13,31091:Urban Miss Beauty Bar,1666.54,aud,1666.54,0,1666.54,aud,31091_for_stripe,cus_HT36JDK3zXbTD3,info+31091_X85ZAUWO@phorest.com,,paysignupbycard1,31091
+31093,Charge,ch_3SI9uXLrnBTnlT7b12wsVgtd,14/10/2025 15:13,31093:North Metropolitan TAFE Balga,168.83,aud,168.83,0,168.83,aud,31093_for_stripe,cus_O051YQGguzJD2g,,,addnewcard,31093
+31094,Charge,ch_3SI9uZLrnBTnlT7b1qbcGRF2,14/10/2025 15:13,31094:North Metropolitan TAFE Midland,165,aud,165,0,165,aud,31094_for_stripe,cus_O055DBl7w3UGKj,,,addnewcard,31094
+31095,Charge,ch_3SI9ucLrnBTnlT7b0MreaYiQ,14/10/2025 15:13,31095:North Metropolitan TAFE Joondalup,195.4,aud,195.4,0,195.4,aud,31095_for_stripe,cus_O056I7wgXJGSu1,,,addnewcard,31095
+31096,Charge,ch_3SI9ueLrnBTnlT7b0P0HXf6j,14/10/2025 15:13,31096:North Metropolitan TAFE Northbridge,165.13,aud,165.13,0,165.13,aud,31096_for_stripe,cus_O052zKYzDYvFgT,,,addnewcard,31096
+31479,Charge,ch_3SI9ujLrnBTnlT7b0j9bEPi1,14/10/2025 15:13,31479:That Good Hair Place,372.98,aud,372.98,0,372.98,aud,31479_for_stripe,cus_KURHlhZ0kFEGOi,,,addnewcard,31479
+31606,Charge,ch_3SI9uoLrnBTnlT7b1OTN8VOA,14/10/2025 15:13,31606:Etcher,528.94,aud,528.94,0,528.94,aud,31606_for_stripe,cus_HZ3ZXqyJgRKswk,info+31606_440246D0@phorest.com,,paysignupbycard1,31606
+31806,Charge,ch_3SI9uqLrnBTnlT7b0LD1o4QE,14/10/2025 15:13,31806:Brooklyn & Ki Hair & Beauty Bar,325.29,aud,325.29,0,325.29,aud,31806_for_stripe,cus_LN7NIJ2Qs1qxUM,,,addnewcard,31806
+31831,Charge,ch_3SI9utLrnBTnlT7b1d9ZGSzy,14/10/2025 15:13,31831:Nuovo Skin and Health,367.46,aud,367.46,0,367.46,aud,31831_for_stripe,cus_T7IPExPxNZO6J1,,,addnewcard,31831
+31928,Charge,ch_3SI9uxLrnBTnlT7b0VFfayLV,14/10/2025 15:13,31928:Maiden Hair - Nowra,425.43,aud,425.43,0,425.43,aud,31928_for_stripe,cus_O7XCrxejgtWEey,,,addnewcard,31928
+31956,Charge,ch_3SI9v0LrnBTnlT7b1ea7n9v0,14/10/2025 15:13,31956:Blade Hair Design Pty Ltd,223.78,aud,223.78,0,223.78,aud,31956_for_stripe,cus_RoQwB3U532TjjC,,,addnewcard,31956
+32183,Charge,ch_3SI9v5LrnBTnlT7b0M0GpvoN,14/10/2025 15:13,32183:Bliss Day Spa,808.61,aud,808.61,0,808.61,aud,32183_for_stripe,cus_Q9M81ODRM51rQV,,,addnewcard,32183
+32214,Charge,ch_3SI9vALrnBTnlT7b0gIVGysb,14/10/2025 15:13,32214:P N Nails Pty Ltd trustee for Chua Family Trust,375.87,aud,375.87,0,375.87,aud,32214_for_stripe,cus_QksEcSvhkDowdr,,,addnewcard,32214
+32282,Charge,ch_3SI9vCLrnBTnlT7b1zx2sj4o,14/10/2025 15:13,32282:Velvet Skin Concepts,227.72,aud,227.72,0,227.72,aud,32282_for_stripe,cus_RoQ8xICyIH8iZq,,,addnewcard,32282
+32360,Charge,ch_3SI9vELrnBTnlT7b1l7Jv8Er,14/10/2025 15:13,32360:Vlushe Lounge,978.76,aud,978.76,0,978.76,aud,32360_for_stripe,cus_OfzTWoKCiteOZ8,,,addnewcard,32360
+32404,Charge,ch_3SI9vGLrnBTnlT7b04fpPoIv,14/10/2025 15:13,32404:Beautify Skin Boutique,329.03,aud,329.03,0,329.03,aud,32404_for_stripe,cus_OV7n48ZE3udjD2,,,addnewcard,32404
+32446,Charge,ch_3SI9vLLrnBTnlT7b0IZchVd6,14/10/2025 15:14,32446:FOM Trading Pty Ltd (t/a Face of Man),466.4,aud,466.4,0,466.4,aud,32446_for_stripe,cus_SibVnyPgJvl5o8,,,addnewcard,32446
+32475,Charge,ch_3SI9vOLrnBTnlT7b1qVndciH,14/10/2025 15:14,32475:Sakura Lounge,317.9,aud,317.9,0,317.9,aud,32475_for_stripe,cus_SXPegB5s4eAmAV,,,addnewcard,32475
+32476,Charge,ch_3SI9vQLrnBTnlT7b0iFj7E6n,14/10/2025 15:14,32476:Sensu Spa,317.9,aud,317.9,0,317.9,aud,32476_for_stripe,cus_SXPd9M5csSEFD5,,,addnewcard,32476
+32520,Charge,ch_3SI9vVLrnBTnlT7b0BiOmDeq,14/10/2025 15:14,32520:DIMATTIA & CO,433.4,aud,433.4,0,433.4,aud,32520_for_stripe,cus_SJuUId2JkDc0rd,,,addnewcard,32520
+32554,Charge,ch_3SI9vXLrnBTnlT7b1FyNBy3V,14/10/2025 15:14,32554:Lotus Wellbeing and Beauty,317.9,aud,317.9,0,317.9,aud,32554_for_stripe,cus_ScGzgRC18sVD0t,,,addnewcard,32554
+32555,Charge,ch_3SI9vaLrnBTnlT7b0DP3TXyH,14/10/2025 15:14,32555:Skintech Adelaide,185.9,aud,185.9,0,185.9,aud,32555_for_stripe,cus_P11nhkHpCCZErS,,,addnewcard,32555
+32573,Charge,ch_3SI9vcLrnBTnlT7b1ZhQHhPa,14/10/2025 15:14,32573:Ms Arch Rival,379.05,aud,379.05,0,379.05,aud,32573_for_stripe,cus_T4HTTpmq8G1DXT,,,addnewcard,32573
+32610,Charge,ch_3SI9veLrnBTnlT7b0qrykCek,14/10/2025 15:14,32610:Dirty Little Secret Hair Salon,317.9,aud,317.9,0,317.9,aud,32610_for_stripe,cus_M94ALOaEzMPVF8,,,addnewcard,32610
+32690,Charge,ch_3SI9vgLrnBTnlT7b1BFqLjgZ,14/10/2025 15:14,32690:Salon V'Darra,266.75,aud,266.75,0,266.75,aud,32690_for_stripe,cus_Hw0ajpDWtnIcBi,info+32690_5U35JH38@phorest.com,,paysignupbycard1,32690
+32831,Charge,ch_3SI9vjLrnBTnlT7b1uxZb3FN,14/10/2025 15:14,32831:Amira Investments T/A  SkinFit New Farm ,335.76,aud,335.76,0,335.76,aud,32831_for_stripe,cus_QiB264XGTOGwY3,,,addnewcard,32831
+33051,Charge,ch_3SI9vlLrnBTnlT7b1KecrZSX,14/10/2025 15:14,33051:Salon Renaissance Mosman,364.09,aud,364.09,0,364.09,aud,33051_for_stripe,cus_QhULQMNUqC2cDZ,,,addnewcard,33051
+33118,Charge,ch_3SI9voLrnBTnlT7b0XtyTFbo,14/10/2025 15:14,33118:Euphoria Hair Lounge,322.76,aud,322.76,0,322.76,aud,33118_for_stripe,cus_RpzSXTrNgpwQsu,,,addnewcard,33118
+33204,Charge,ch_3SI9vqLrnBTnlT7b1OquEWhw,14/10/2025 15:14,33204:Finnesse Hair,674.61,aud,674.61,0,674.61,aud,33204_for_stripe,cus_I7KC4zVug9xhkt,info+33204_QM33GYIJ@phorest.com,,paysignupbycard1,33204
+33416,Charge,ch_3SI9vsLrnBTnlT7b1n5eNLlS,14/10/2025 15:14,33416:Indra Beauty + Lashes,333.98,aud,333.98,0,333.98,aud,33416_for_stripe,cus_M4s1Msb2bkpU2W,,,addnewcard,33416
+33438,Charge,ch_3SI9vvLrnBTnlT7b1w3Lrmad,14/10/2025 15:14,33438:Goldilocks Hair,290.77,aud,290.77,0,290.77,aud,33438_for_stripe,cus_T6Yp2LVwYKI8hE,,,addnewcard,33438
+33443,Charge,ch_3SI9vxLrnBTnlT7b1mqSiPkh,14/10/2025 15:14,33443:The Lounge Beauty Co. ,82.5,aud,82.5,0,82.5,aud,33443_for_stripe,cus_NwJBkkRoFQXSwr,,,addnewcard,33443
+33498,Charge,ch_3SI9vzLrnBTnlT7b1XzyxmYf,14/10/2025 15:14,33498:Jc's Hair Artistry,172.7,aud,172.7,0,172.7,aud,33498_for_stripe,cus_RGGA97nLQAZkN2,,,addnewcard,33498
+33500,Charge,ch_3SI9w2LrnBTnlT7b1548q8hK,14/10/2025 15:14,33500:Satori Hair,223.32,aud,223.32,0,223.32,aud,33500_for_stripe,cus_Sicuza525LGINu,,,addnewcard,33500
+33722,Charge,ch_3SI9w4LrnBTnlT7b1DNuw1Ri,14/10/2025 15:14,33722:Beauty Science,416.9,aud,416.9,0,416.9,aud,33722_for_stripe,cus_Su9BLjoIq0A34O,,,addnewcard,33722
+33765,Charge,ch_3SI9w6LrnBTnlT7b1f09ukrs,14/10/2025 15:14,33765:The Freddie Blows co.,97.9,aud,97.9,0,97.9,aud,33765_for_stripe,cus_JHmsRBgiDOBkyM,info+33765_AW32H870@phorest.com,,addnewcard,33765
+33768,Charge,ch_3SI9w9LrnBTnlT7b0H6bulwX,14/10/2025 15:14,33768:Laneway Hair,97.9,aud,97.9,0,97.9,aud,33768_for_stripe,cus_T7r7hAHGoL4CdZ,,,addnewcard,33768
+33792,Charge,ch_3SI9wBLrnBTnlT7b0EietIsA,14/10/2025 15:14,33792:Kalsum Hair Studio,205.15,aud,205.15,0,205.15,aud,33792_for_stripe,cus_Q9mQEar2una2xS,,,addnewcard,33792
+33793,Charge,ch_3SI9wDLrnBTnlT7b07nVVTVl,14/10/2025 15:14,33793:Elements Hair Room,262.59,aud,262.59,0,262.59,aud,33793_for_stripe,cus_RdUZh0Ym2On8jS,,,addnewcard,33793
+33878,Charge,ch_3SI9wFLrnBTnlT7b0qBIQpfK,14/10/2025 15:15,33878:Lazer Erazer,288.24,aud,288.24,0,288.24,aud,33878_for_stripe,cus_PyYvVzcQr949Na,,,addnewcard,33878
+33971,Charge,ch_3SI9wJLrnBTnlT7b08lGp2Wj,14/10/2025 15:15,33971:Hey Hair,369.05,aud,369.05,0,369.05,aud,33971_for_stripe,cus_JKTODX30MJEr3Z,info+33971_000CTY70@phorest.com,,addnewcard,33971
+34057,Charge,ch_3SI9wMLrnBTnlT7b0H8XTttt,14/10/2025 15:15,34057:Daphne Salon,417.48,aud,417.48,0,417.48,aud,34057_for_stripe,cus_MsSUP6inyyxmzM,,,addnewcard,34057
+34147,Charge,ch_3SI9wOLrnBTnlT7b09Dat0lk,14/10/2025 15:15,34147:Face On,323.27,aud,323.27,0,323.27,aud,34147_for_stripe,cus_IR2vOtMeRqhroM,info+34147_L66A7632@phorest.com,,paysignupbycard1,34147
+34315,Charge,ch_3SI9wQLrnBTnlT7b0efspuhl,14/10/2025 15:15,34315:Adam & Eve Laser & Beauty Clinic,246.11,aud,246.11,0,246.11,aud,34315_for_stripe,cus_N240wOr1CtpKom,,,addnewcard,34315
+34499,Charge,ch_3SI9wTLrnBTnlT7b15sA2BRE,14/10/2025 15:15,34499:Holland & Co Hair,214.08,aud,214.08,0,214.08,aud,34499_for_stripe,cus_NmIOL8uJikLPNv,,,addnewcard,34499
+34572,Charge,ch_3SI9wVLrnBTnlT7b0eCjnsoK,14/10/2025 15:15,34572:The Injectables Queen,339.9,aud,339.9,0,339.9,aud,34572_for_stripe,cus_NkySiWIg9OQB3K,,,addnewcard,34572
+34617,Charge,ch_3SI9wXLrnBTnlT7b1mpi6f4B,14/10/2025 15:15,34617:Blue Ocean Beauty & Skincare,423.18,aud,423.18,0,423.18,aud,34617_for_stripe,cus_Ik9CcIvVIeLXeA,info+34617_518C1W75@phorest.com,,paysignupbycard1,34617
+34721,Charge,ch_3SI9wZLrnBTnlT7b11gAEw1e,14/10/2025 15:15,34721:Touch Body & Soul,212.54,aud,212.54,0,212.54,aud,34721_for_stripe,cus_TAeljV5pREMMnV,,,addnewcard,34721
+34922,Charge,ch_3SI9weLrnBTnlT7b15u0Gm2S,14/10/2025 15:15,34922:Lady Lash Newtown,478.16,aud,478.16,0,478.16,aud,34922_for_stripe,cus_PmAmkKEdG387zf,,,addnewcard,34922
+34938,Charge,ch_3SI9whLrnBTnlT7b0kp1vEtM,14/10/2025 15:15,34938:Lady Lash Parramatta,390.46,aud,390.46,0,390.46,aud,34938_for_stripe,cus_PmAlxWvqMOnexL,,,addnewcard,34938
+34940,Charge,ch_3SI9wjLrnBTnlT7b1duoQox2,14/10/2025 15:15,34940:Be Pure Hair & Beauty,234.72,aud,234.72,0,234.72,aud,34940_for_stripe,cus_RHk259eUdlBtUW,,,addnewcard,34940
+35185,Charge,ch_3SI9wlLrnBTnlT7b09lzX87W,14/10/2025 15:15,35185:The Brow Bar - Noosa,341,aud,341,0,341,aud,35185_for_stripe,cus_NrQGsOnFWo33Ta,,,addnewcard,35185
+35186,Charge,ch_3SI9woLrnBTnlT7b0xLCw7zC,14/10/2025 15:15,35186:Hotlocks by Rachael,185.9,aud,185.9,0,185.9,aud,35186_for_stripe,cus_MNf3s778iFJAhL,,,addnewcard,35186
+35450,Charge,ch_3SI9wqLrnBTnlT7b1PkEaIPG,14/10/2025 15:15,35450:Mani Pedi Nail Salon,346.42,aud,346.42,0,346.42,aud,35450_for_stripe,cus_SueBZQanqAvbXu,,,addnewcard,35450
+35517,Charge,ch_3SI9wvLrnBTnlT7b1htSqoXz,14/10/2025 15:15,35517:Australian Laser & Skin,383.9,aud,383.9,0,383.9,aud,35517_for_stripe,cus_QmuRiTGSSh8wpS,,,addnewcard,35517
+37699,Charge,ch_3SI9wyLrnBTnlT7b11h6dsYI,14/10/2025 15:15,37699:The Lounge Beauty Co - The Glen Shopping Centre,192.68,aud,192.68,0,192.68,aud,37699_for_stripe,cus_NwJACMDKwyQaJB,,,addnewcard,37699
+37829,Charge,ch_3SI9x3LrnBTnlT7b1HpTha67,14/10/2025 15:15,37829:NEA - Natalie Everett Aesthetics,224.55,aud,224.55,0,224.55,aud,37829_for_stripe,cus_KQEGhxAH2P6a1U,,,addnewcard,37829
+37852,Charge,ch_3SI9x6LrnBTnlT7b1YZ5Zr5V,14/10/2025 15:15,37852:Zanik Hair Design,362.08,aud,362.08,0,362.08,aud,37852_for_stripe,cus_QkWf8Xlx3k9KIN,,,addnewcard,37852
+37966,Charge,ch_3SI9x8LrnBTnlT7b0eHJEHxr,14/10/2025 15:15,37966:Caledonia Beauty Studio,254.83,aud,254.83,0,254.83,aud,37966_for_stripe,cus_QUsoKmpThBks89,,,addnewcard,37966
+38089,Charge,ch_3SI9xALrnBTnlT7b0AovkSpx,14/10/2025 15:15,38089:Bixie Colour Caringbah,494.9,aud,494.9,0,494.9,aud,38089_for_stripe,cus_Rom5JIP8nXFq0C,,,addnewcard,38089
+35873,Charge,ch_3SI9xFLrnBTnlT7b0okRJ4Em,14/10/2025 15:16,35873:CitySlim,375.12,aud,375.12,0,375.12,aud,35873_for_stripe,cus_K3lzf44RALpUvC,,,addnewcard,35873
+35975,Charge,ch_3SI9xILrnBTnlT7b0qlEHeFd,14/10/2025 15:16,35975:Femina Hair & Beauty Pty Ltd,195.14,aud,195.14,0,195.14,aud,35975_for_stripe,cus_SvjtPAyGACeWu9,,,addnewcard,35975
+36117,Charge,ch_3SI9xKLrnBTnlT7b0761Z9FD,14/10/2025 15:16,36117:Bliss Beauty and Body,545.85,aud,545.85,0,545.85,aud,36117_for_stripe,cus_LdBZySxdRjsA1B,,,addnewcard,36117
+36180,Charge,ch_3SI9xNLrnBTnlT7b0aE8WskF,14/10/2025 15:16,36180:HER on Oxford,430.87,aud,430.87,0,430.87,aud,36180_for_stripe,cus_NPPyus273fcpnC,,,addnewcard,36180
+36309,Charge,ch_3SI9xPLrnBTnlT7b0OTsRGIY,14/10/2025 15:16,36309:The Artistry Sydney,266.57,aud,266.57,0,266.57,aud,36309_for_stripe,cus_SjJs0JBeuB9vDr,,,addnewcard,36309
+36968,Charge,ch_3SI9xbLrnBTnlT7b1LDTNV9Y,14/10/2025 15:16,36968:Adora Haus,429.64,aud,429.64,0,429.64,aud,36968_for_stripe,cus_SjMLJarqGSrZkd,,,addnewcard,36968
+36969,Charge,ch_3SI9xeLrnBTnlT7b0UZlNIpE,14/10/2025 15:16,36969:Garbo & Kelly,382.7,aud,382.7,0,382.7,aud,36969_for_stripe,cus_JRDi2DkxzuhIu9,info+36969_5P192Z24@phorest.com,,paysignupbycard1,36969
+37082,Charge,ch_3SI9xgLrnBTnlT7b0tcs4Dja,14/10/2025 15:16,37082:Brush Hair And Body,370.26,aud,370.26,0,370.26,aud,37082_for_stripe,cus_JTSrpXy7J0JWJk,info+37082_X6752THS@phorest.com,,paysignupbycard1,37082
+37268,Charge,ch_3SI9xiLrnBTnlT7b0rCmVBBr,14/10/2025 15:16,37268:FCB Canberra,393.8,aud,393.8,0,393.8,aud,37268_for_stripe,cus_SDpNXl1sSprdWI,,,addnewcard,37268
+37269,Charge,ch_3SI9xlLrnBTnlT7b0EuVfut8,14/10/2025 15:16,37269:About Face Salon and Spa,365.77,aud,365.77,0,365.77,aud,37269_for_stripe,cus_JWSFf2glp0zN79,info+37269_XWL5IB62@phorest.com,,paysignupbycard1,37269
+37290,Charge,ch_3SI9xnLrnBTnlT7b0tsjKnMm,14/10/2025 15:16,37290:Zhen Skin Clinic,411.13,aud,411.13,0,411.13,aud,37290_for_stripe,cus_RRBmGQ4XkiYz0T,,,addnewcard,37290
+37381,Charge,ch_3SI9xqLrnBTnlT7b1KOYgsmg,14/10/2025 15:16,37381:Eco Village Hair,250.73,aud,250.73,0,250.73,aud,37381_for_stripe,cus_SQKABacn6u1Gmr,,,addnewcard,37381
+37407,Charge,ch_3SI9xsLrnBTnlT7b17OCbKJj,14/10/2025 15:16,37407:Narrogin Beauty Clinic,305.4,aud,305.4,0,305.4,aud,37407_for_stripe,cus_PPlMegS9qiu0Lq,,,addnewcard,37407
+37593,Charge,ch_3SI9xxLrnBTnlT7b05ut9Uci,14/10/2025 15:16,37593:Judena Hair,448.99,aud,448.99,0,448.99,aud,37593_for_stripe,cus_Je0LUAX0eA5eLV,,,paysignupbycard1,37593
+37595,Charge,ch_3SI9xzLrnBTnlT7b1m5y0zYS,14/10/2025 15:16,37595:Sheshwarz Hair Body & Beauty,535.57,aud,535.57,0,535.57,aud,37595_for_stripe,cus_Je10tvjFXWaobp,,,paysignupbycard1,37595
+37613,Charge,ch_3SI9y2LrnBTnlT7b0JTT3GNt,14/10/2025 15:16,37613:The Disco,457.85,aud,457.85,0,457.85,aud,37613_for_stripe,cus_JeGBe3U0C08yWw,,,paysignupbycard1,37613
+37615,Charge,ch_3SI9y4LrnBTnlT7b1NsYCZm8,14/10/2025 15:16,37615:FACEFIT ON MAIN,430.46,aud,430.46,0,430.46,aud,37615_for_stripe,cus_SickbPdQgFCgNO,,,addnewcard,37615
+37698,Charge,ch_3SI9y6LrnBTnlT7b1WjXnbyr,14/10/2025 15:16,37698:The Lounge Beauty Co - Melbourne Central Shopping Centre,202.38,aud,202.38,0,202.38,aud,37698_for_stripe,cus_NwG5CtyAGcqqQ3,,,addnewcard,37698
+38094,Charge,ch_3SI9y9LrnBTnlT7b0PpB3F4v,14/10/2025 15:16,38094:Bespoke Beauty By Liana,97.9,aud,97.9,0,97.9,aud,38094_for_stripe,cus_KbrrBTsFulM1dC,,,addnewcard,38094
+38097,Charge,ch_3SI9yBLrnBTnlT7b0tBlT5Oj,14/10/2025 15:16,38097:Indulgence Salon and Spa,339.9,aud,339.9,0,339.9,aud,38097_for_stripe,cus_RRDms9PzIThqK5,,,addnewcard,38097
+38440,Charge,ch_3SI9yILrnBTnlT7b0JBZ8yyg,14/10/2025 15:17,38440:Australian Laser & Skin,383.9,aud,383.9,0,383.9,aud,38440_for_stripe,cus_QwTV17qmNYALff,,,addnewcard,38440
+38444,Charge,ch_3SI9yKLrnBTnlT7b1ZQXKGCe,14/10/2025 15:17,38444:Australian Laser & Skin,383.9,aud,383.9,0,383.9,aud,38444_for_stripe,cus_QvLbvodvToQlJX,,,addnewcard,38444
+38447,Charge,ch_3SI9yMLrnBTnlT7b0hTIoeCK,14/10/2025 15:17,38447:Teeda Skin Health and Beauty Pty Ltd,498.44,aud,498.44,0,498.44,aud,38447_for_stripe,cus_RFaHUEYNX1xY2h,,,addnewcard,38447
+38531,Charge,ch_3SI9yaLrnBTnlT7b1GQHUc8D,14/10/2025 15:17,38531:Australian Laser & Skin,383.9,aud,383.9,0,383.9,aud,38531_for_stripe,cus_QmuPbFmUkYCVGU,,,addnewcard,38531
+38582,Charge,ch_3SI9ycLrnBTnlT7b10oMuZot,14/10/2025 15:17,38582:interlocks hair face body,356.24,aud,356.24,0,356.24,aud,38582_for_stripe,cus_SicS8mrvdoal41,,,addnewcard,38582
+38704,Charge,ch_3SI9yfLrnBTnlT7b0bKFklBh,14/10/2025 15:17,38704:Parlour O,546.29,aud,546.29,0,546.29,aud,38704_for_stripe,cus_T4QtMP0nzNQdGa,,,addnewcard,38704
+38889,Charge,ch_3SI9yhLrnBTnlT7b0Tp7dIHF,14/10/2025 15:17,38889:OC Skin,353.62,aud,353.62,0,353.62,aud,38889_for_stripe,cus_MtxDkfscu3Sv7Z,,,addnewcard,38889
+38916,Charge,ch_3SI9ykLrnBTnlT7b1ZNnhbSs,14/10/2025 15:17,38916:Shampoo Avenue,216.39,aud,216.39,0,216.39,aud,38916_for_stripe,cus_Kd0SQL7OgzXZBR,,,addnewcard,38916
+39096,Charge,ch_3SI9ymLrnBTnlT7b0swgRq83,14/10/2025 15:17,39096:Bauhaus Hair Design,317.9,aud,317.9,0,317.9,aud,39096_for_stripe,cus_SAomtriEICQtw4,,,addnewcard,39096
+39101,Charge,ch_3SI9ypLrnBTnlT7b1qxXYnmG,14/10/2025 15:17,39101:Mani Pedi Nail Salon,339.9,aud,339.9,0,339.9,aud,39101_for_stripe,cus_P4H7eVpx9DGN0L,,,addnewcard,39101
+39124,Charge,ch_3SI9yrLrnBTnlT7b0ewDINpD,14/10/2025 15:17,39124:Hair Co Beauty Lounge,211,aud,211,0,211,aud,39124_for_stripe,cus_PewRb4pzNgnH6Y,,,addnewcard,39124
+39128,Charge,ch_3SI9ytLrnBTnlT7b1d3EJrB6,14/10/2025 15:17,39128:Complete Skin & Beauty Springfield Central,433.4,aud,433.4,0,433.4,aud,39128_for_stripe,cus_KE2t5jMdpmMM9u,,,paysignupbycard1,39128
+39129,Charge,ch_3SI9ywLrnBTnlT7b1TGCC1Zs,14/10/2025 15:17,39129:Face Clinik,317.9,aud,317.9,0,317.9,aud,39129_for_stripe,cus_SubXjMCWRq3ZX9,,,addnewcard,39129
+39210,Charge,ch_3SI9yyLrnBTnlT7b0uB2YQxD,14/10/2025 15:17,39210:The LaserDerm Clinic,317.9,aud,317.9,0,317.9,aud,39210_for_stripe,cus_QxLa1qNOAzj1vy,,,addnewcard,39210
+39233,Charge,ch_3SI9z0LrnBTnlT7b0bxDosHA,14/10/2025 15:17,39233:Edward McMillan Hairdressing,387.84,aud,387.84,0,387.84,aud,39233_for_stripe,cus_SjLVcCDHrGTMTY,,,addnewcard,39233
+39239,Charge,ch_3SI9z3LrnBTnlT7b0ZVtceGE,14/10/2025 15:17,39239:You Beauty,458.46,aud,458.46,0,458.46,aud,39239_for_stripe,cus_R4LdgRrxWelhKO,,,addnewcard,39239
+39287,Charge,ch_3SI9z5LrnBTnlT7b159kralI,14/10/2025 15:17,39287:MOE & Co. Batemens Bay,185.9,aud,185.9,0,185.9,aud,39287_for_stripe,cus_KHMl2bvb9Lgf4H,,,paysignupbycard1,39287
+39325,Charge,ch_3SI9z7LrnBTnlT7b0c6beobw,14/10/2025 15:17,39325:Advanced Skin and Beauty Clinic,334.92,aud,334.92,0,334.92,aud,39325_for_stripe,cus_RGiq9mVXpcqNOd,,,addnewcard,39325
+39472,Charge,ch_3SI9zALrnBTnlT7b10dJJfCo,14/10/2025 15:18,39472:Blue Moon Wellness Spa,156.02,aud,156.02,0,156.02,aud,39472_for_stripe,cus_PR87vi47Ie6Tr5,,,addnewcard,39472
+39620,Charge,ch_3SI9zJLrnBTnlT7b1Lb0abyD,14/10/2025 15:18,39620:My Body Vibes,317.9,aud,317.9,0,317.9,aud,39620_for_stripe,cus_SibzrTEHNtg6ZY,,,addnewcard,39620
+39621,Charge,ch_3SI9zLLrnBTnlT7b0Bjs9s6D,14/10/2025 15:18,39621:My Body Vibes,317.9,aud,317.9,0,317.9,aud,39621_for_stripe,cus_SibzE7REF5d9va,,,addnewcard,39621
+39635,Charge,ch_3SI9zNLrnBTnlT7b1LPljAdU,14/10/2025 15:18,39635:Ellie Dunne Collective Pty Ltd,317.9,aud,317.9,0,317.9,aud,39635_for_stripe,cus_OfzdLV6TeyAEFv,,,addnewcard,39635
+39679,Charge,ch_3SI9zQLrnBTnlT7b18HPOXYh,14/10/2025 15:18,39679:Maison Jacquet,342.68,aud,342.68,0,342.68,aud,39679_for_stripe,cus_NaUlgDbUE83qGA,,,addnewcard,39679
+39693,Charge,ch_3SI9zTLrnBTnlT7b1mTHZD7O,14/10/2025 15:18,39693:Grand Royal Thai Massage & Thai Royal Massage,317.9,aud,317.9,0,317.9,aud,39693_for_stripe,cus_NZd6foN2ahsXRq,,,addnewcard,39693
+39733,Charge,ch_3SI9zVLrnBTnlT7b0XF029aY,14/10/2025 15:18,39733:Coil Hair Studio,501.72,aud,501.72,0,501.72,aud,39733_for_stripe,cus_PmDCdlDFIIJzHj,,,addnewcard,39733
+39758,Charge,ch_3SI9zXLrnBTnlT7b1O0YVIqo,14/10/2025 15:18,39758:The Mane Attic,97.9,aud,97.9,0,97.9,aud,39758_for_stripe,cus_Q9nkzQFHAuL6uW,,,addnewcard,39758
+39759,Charge,ch_3SI9zaLrnBTnlT7b1zL2gEi1,14/10/2025 15:18,39759:Rocaverde,396.73,aud,396.73,0,396.73,aud,39759_for_stripe,cus_KS4bHIsL2FofJE,,,paysignupbycard1,39759
+39786,Charge,ch_3SI9zcLrnBTnlT7b1lvK9xJR,14/10/2025 15:18,39786:Grand Sydney Thai Massage,317.9,aud,317.9,0,317.9,aud,39786_for_stripe,cus_NiNH8YKEufBTxZ,,,addnewcard,39786
+39822,Charge,ch_3SI9zeLrnBTnlT7b0rqZNZSL,14/10/2025 15:18,39822:CULT COSMETICA,277.69,aud,277.69,0,277.69,aud,39822_for_stripe,cus_N1j0Iy3RKHqu94,,,addnewcard,39822
+39997,Charge,ch_3SI9zhLrnBTnlT7b1bI9kThV,14/10/2025 15:18,39997:Tranquil Essence Brisbane,317.9,aud,317.9,0,317.9,aud,39997_for_stripe,cus_T5x3EGS4ZwOO01,,,addnewcard,39997
+40014,Charge,ch_3SI9zjLrnBTnlT7b0sH5mB2x,14/10/2025 15:18,40014:HIP Hair Studios,278.15,aud,278.15,0,278.15,aud,40014_for_stripe,cus_O7qCJHqYTU8p4X,,,addnewcard,40014
+40292,Charge,ch_3SI9zoLrnBTnlT7b0PGNz7sO,14/10/2025 15:18,40292:Infinity Hair and Beauty,207.77,aud,207.77,0,207.77,aud,40292_for_stripe,cus_LpDKWMf3ntBUXd,,,addnewcard,40292
+40437,Charge,ch_3SI9zqLrnBTnlT7b1BiYnqiO,14/10/2025 15:18,40437:MOE & Co. Belconnen,229.79,aud,229.79,0,229.79,aud,40437_for_stripe,cus_L8yAhSpCy8IX5V,,,addnewcard,40437
+40498,Charge,ch_3SI9ztLrnBTnlT7b16XNh1DU,14/10/2025 15:18,40498:Hause of Hair,317.9,aud,317.9,0,317.9,aud,40498_for_stripe,cus_KepVFQVWTkFRcW,,,paysignupbycard1,40498
+40499,Charge,ch_3SI9zvLrnBTnlT7b08zxPOnX,14/10/2025 15:18,40499:Inigo Cosmetic,434.78,aud,434.78,0,434.78,aud,40499_for_stripe,cus_T67FdZcRAXSv2J,,,addnewcard,40499
+40634,Charge,ch_3SI9zxLrnBTnlT7b1zS7M8Sz,14/10/2025 15:18,40634:Jackie Lash Co,402.8,aud,402.8,0,402.8,aud,40634_for_stripe,cus_O7pfyMUIja55wC,,,addnewcard,40634
+40644,Charge,ch_3SI9zzLrnBTnlT7b0XuM1ifW,14/10/2025 15:18,40644:Coco Parlé Hair Gallery,353.06,aud,353.06,0,353.06,aud,40644_for_stripe,cus_QVxwMiTyMRyHkJ,,,addnewcard,40644
+40765,Charge,ch_3SIA07LrnBTnlT7b1MEQQx0E,14/10/2025 15:18,40765:Sculpt Hair and Body,481.25,aud,481.25,0,481.25,aud,40765_for_stripe,cus_KljZL45UMl2T50,,,paysignupbycard1,40765
+40820,Charge,ch_3SIA09LrnBTnlT7b1oWzS6ZF,14/10/2025 15:19,40820:Bramis Facial Rejuvenation Clinic,408.13,aud,408.13,0,408.13,aud,40820_for_stripe,cus_Pf5D53u6JaFnpy,,,addnewcard,40820
+40823,Charge,ch_3SIA0CLrnBTnlT7b1WxyspUL,14/10/2025 15:19,40823:Bramis Facial Rejuvenation Clinic,442.44,aud,442.44,0,442.44,aud,40823_for_stripe,cus_Pf5F888Uu7igMP,,,addnewcard,40823
+40828,Charge,ch_3SIA0ELrnBTnlT7b0xEi9stC,14/10/2025 15:19,40828:Bramis Facial Rejuvenation Clinic,524.82,aud,524.82,0,524.82,aud,40828_for_stripe,cus_NwFRgR6rIeVaPH,,,addnewcard,40828
+40920,Charge,ch_3SIA0HLrnBTnlT7b1IfdZAJH,14/10/2025 15:19,40920:SOL + SOMA Salon,627.67,aud,627.67,0,627.67,aud,40920_for_stripe,cus_SBFdpZz7N1M4cB,,,addnewcard,40920
+40932,Charge,ch_3SIA0JLrnBTnlT7b1NyxTf15,14/10/2025 15:19,40932:Mira Image Australia Pty Ltd,382.33,aud,382.33,0,382.33,aud,40932_for_stripe,cus_Q91nctnF4sjTBA,,,addnewcard,40932
+41010,Charge,ch_3SIA0LLrnBTnlT7b1og8bWoP,14/10/2025 15:19,41010:Samson & Delilah,375.03,aud,375.03,0,375.03,aud,41010_for_stripe,cus_Nr1v3mdNSMh90P,,,addnewcard,41010
+41129,Charge,ch_3SIA0OLrnBTnlT7b0ScG5peu,14/10/2025 15:19,41129:Serendipity Hair,390.46,aud,390.46,0,390.46,aud,41129_for_stripe,cus_PVmTH09aDuW1h0,,,addnewcard,41129
+41243,Charge,ch_3SIA0QLrnBTnlT7b1qADk22r,14/10/2025 15:19,41243:Holly Garvey,1009.53,aud,1009.53,0,1009.53,aud,41243_for_stripe,cus_QksOXcdA5oQFhy,,,addnewcard,41243
+41286,Charge,ch_3SIA0TLrnBTnlT7b02Ek2Ips,14/10/2025 15:19,41286:Hair De Paris by Michele,207,aud,207,0,207,aud,41286_for_stripe,cus_SLnK16P1V4kdl5,,,addnewcard,41286
+41435,Charge,ch_3SIA0XLrnBTnlT7b04oHZjiQ,14/10/2025 15:19,41435:Cosmic Mana,97.9,aud,97.9,0,97.9,aud,41435_for_stripe,cus_Nwe14QVNB3RL1j,,,addnewcard,41435
+41441,Charge,ch_3SIA0aLrnBTnlT7b1hT6q2vW,14/10/2025 15:19,41441:Salon C Boutique,413.64,aud,413.64,0,413.64,aud,41441_for_stripe,cus_P3dUchT71TUUI5,,,addnewcard,41441
+41477,Charge,ch_3SIA0cLrnBTnlT7b1erOVlN5,14/10/2025 15:19,41477:Radiance By Lara,97.9,aud,97.9,0,97.9,aud,41477_for_stripe,cus_QhUH5zEMiYTPh8,,,addnewcard,41477
+41478,Charge,ch_3SIA0eLrnBTnlT7b0l9ejAFq,14/10/2025 15:19,41478:Evolve Skin Rejuvenation Clinic,422.8,aud,422.8,0,422.8,aud,41478_for_stripe,cus_SBjma8mt8GLovx,,,addnewcard,41478
+41602,Charge,ch_3SIA0hLrnBTnlT7b0rCdn1zp,14/10/2025 15:19,41602:The Injectables Queen,339.9,aud,339.9,0,339.9,aud,41602_for_stripe,cus_Q17bc3DPzdXvVy,,,addnewcard,41602
+41807,Charge,ch_3SIA0jLrnBTnlT7b15wD3PXL,14/10/2025 15:19,41807:Three Seventy,561.17,aud,561.17,0,561.17,aud,41807_for_stripe,cus_Ory0sXxUr9HvCO,,,addnewcard,41807
+41813,Charge,ch_3SIA0lLrnBTnlT7b0myGa4kd,14/10/2025 15:19,41813:Project Hair,339.9,aud,339.9,0,339.9,aud,41813_for_stripe,cus_SwQZvF5HKB14fr,,,addnewcard,41813
+41817,Charge,ch_3SIA0oLrnBTnlT7b0GLtA7zY,14/10/2025 15:19,41817:Rokstar Salon,409.53,aud,409.53,0,409.53,aud,41817_for_stripe,cus_OgN9xfJJJvVzrU,,,addnewcard,41817
+41994,Charge,ch_3SIA0qLrnBTnlT7b0XXbPi0F,14/10/2025 15:19,41994:Pure Bliss Beautique,97.9,aud,97.9,0,97.9,aud,41994_for_stripe,cus_LCAXc03OPx04hx,,,paysignupbycard1,41994
+41997,Charge,ch_3SIA0tLrnBTnlT7b0JTaCj6k,14/10/2025 15:19,41997:Self the Salon,384.01,aud,384.01,0,384.01,aud,41997_for_stripe,cus_PnnIXPkmUI6TvS,,,addnewcard,41997
+42016,Charge,ch_3SIA0vLrnBTnlT7b1aBFQzEY,14/10/2025 15:19,42016:Will and Peta Skin Clinic,228.87,aud,228.87,0,228.87,aud,42016_for_stripe,cus_LCbT7Tw2Z5vZFt,,,paysignupbycard1,42016
+42069,Charge,ch_3SIA0yLrnBTnlT7b0nBgmV76,14/10/2025 15:19,42069:Exhilarate Hair & Body,353.9,aud,353.9,0,353.9,aud,42069_for_stripe,cus_LDcM9c3nwmuER5,,,paysignupbycard1,42069
+42207,Charge,ch_3SIA13LrnBTnlT7b0AUs5DPf,14/10/2025 15:19,42207:Tsiknaris Hair,455.28,aud,455.28,0,455.28,aud,42207_for_stripe,cus_LGHaD2x2MriZbP,,,paysignupbycard1,42207
+42289,Charge,ch_3SIA15LrnBTnlT7b0FYiHlrN,14/10/2025 15:19,42289:The Cosmetic Hub,479.51,aud,479.51,0,479.51,aud,42289_for_stripe,cus_RPFhi3KOFl47FZ,,,addnewcard,42289
+42331,Charge,ch_3SIA17LrnBTnlT7b0BMDtFDg,14/10/2025 15:20,42331:Zest Hair Bundaberg,566.5,aud,566.5,0,566.5,aud,42331_for_stripe,cus_SLkpc1ffoUe6Nx,,,addnewcard,42331
+42382,Charge,ch_3SIA1ALrnBTnlT7b1t9MCfQ5,14/10/2025 15:20,42382:Dermalogica Chatswood,447.23,aud,447.23,0,447.23,aud,42382_for_stripe,cus_QPu8brXeBVatq3,,,addnewcard,42382
+42527,Charge,ch_3SIA1DLrnBTnlT7b0DfD0hjt,14/10/2025 15:20,42527:Koz Style Pty Ltd Trading As Milk Hair,437.7,aud,437.7,0,437.7,aud,42527_for_stripe,cus_MuFa1pkgVZB7Im,,,addnewcard,42527
+42586,Charge,ch_3SIA1FLrnBTnlT7b1SfMsTul,14/10/2025 15:20,42586:Body Freedom Urban Spa & Clinic,380.66,aud,380.66,0,380.66,aud,42586_for_stripe,cus_LNOZwPESZnuXDi,,,paysignupbycard1,42586
+42702,Charge,ch_3SIA1HLrnBTnlT7b13U6j2lw,14/10/2025 15:20,42702:Joint Hair Pty Ltd ,436.74,aud,436.74,0,436.74,aud,42702_for_stripe,cus_SspLxxO5Wc4pXk,,,addnewcard,42702
+42703,Charge,ch_3SIA1KLrnBTnlT7b1UGqxD2Y,14/10/2025 15:20,42703:Pulse Laser at The Chookpen Spa,366.33,aud,366.33,0,366.33,aud,42703_for_stripe,cus_RHs1SeucNsjfHG,,,addnewcard,42703
+42711,Charge,ch_3SIA1MLrnBTnlT7b1R7veaEQ,14/10/2025 15:20,42711:Bespoke Facial & Body Clinic,381.29,aud,381.29,0,381.29,aud,42711_for_stripe,cus_LQ8zJpV5UkA9z3,,,paysignupbycard1,42711
+43218,Charge,ch_3SIA1PLrnBTnlT7b1cc0JD42,14/10/2025 15:20,43218:DIMATTIA & CO,334.4,aud,334.4,0,334.4,aud,43218_for_stripe,cus_LaegTfqvt2Ri23,,,paysignupbycard1,43218
+43235,Charge,ch_3SIA1RLrnBTnlT7b0qy23hvz,14/10/2025 15:20,43235:Helens Eyelashes,125.4,aud,125.4,0,125.4,aud,43235_for_stripe,cus_M3RTd8rdvnC2ku,,,addnewcard,43235
+43301,Charge,ch_3SIA1TLrnBTnlT7b0sFHtKgv,14/10/2025 15:20,43301:Refresh & Rejuvenate Skin Spa Beauty,341.36,aud,341.36,0,341.36,aud,43301_for_stripe,cus_Lcu0SNt3xTVWiU,,,paysignupbycard1,43301
+43363,Charge,ch_3SIA1WLrnBTnlT7b1mD1dKMA,14/10/2025 15:20,43363:OMBRE BEAUTY PTY LTD,325.29,aud,325.29,0,325.29,aud,43363_for_stripe,cus_MIR9OQVunPW6nL,,,addnewcard,43363
+43374,Charge,ch_3SIA1YLrnBTnlT7b1ssRhAuO,14/10/2025 15:20,43374:Palm Beach Currumbin Cosmetic Nurse,97.9,aud,97.9,0,97.9,aud,43374_for_stripe,cus_SLlH9wSgsDoPrL,,,addnewcard,43374
+43414,Charge,ch_3SIA1aLrnBTnlT7b1cDT92kj,14/10/2025 15:20,43414:Hair Boutique with Tegan NSW Pty Ltd,97.9,aud,97.9,0,97.9,aud,43414_for_stripe,cus_RtHYcwAiWvC9Jh,,,addnewcard,43414
+43603,Charge,ch_3SIA1dLrnBTnlT7b0bYdYFGi,14/10/2025 15:20,43603:Atelier Hair,337.45,aud,337.45,0,337.45,aud,43603_for_stripe,cus_RdBoBgXseE79zR,,,addnewcard,43603
+43634,Charge,ch_3SIA1fLrnBTnlT7b1bO429w8,14/10/2025 15:20,43634:QUE Colour,395.13,aud,395.13,0,395.13,aud,43634_for_stripe,cus_SLmk661vTuIcN7,,,addnewcard,43634
+43670,Charge,ch_3SIA1iLrnBTnlT7b11rBZHPu,14/10/2025 15:20,43670:MediPedi Clinics,393.8,aud,393.8,0,393.8,aud,43670_for_stripe,cus_LipKnf8v2fhWDh,,,paysignupbycard1,43670
+43726,Charge,ch_3SIA1kLrnBTnlT7b0shDpc4e,14/10/2025 15:20,43726:Bramis Facial Rejuvenation Clinic,82.5,aud,82.5,0,82.5,aud,43726_for_stripe,cus_NwFSce06GHRWRN,,,addnewcard,43726
+43779,Charge,ch_3SIA1mLrnBTnlT7b1frC6ptM,14/10/2025 15:20,43779:Ultimate Indulgence,416.9,aud,416.9,0,416.9,aud,43779_for_stripe,cus_RytzXPyZnsWb5W,,,addnewcard,43779
+43873,Charge,ch_3SIA1pLrnBTnlT7b1LBHJzkt,14/10/2025 15:20,43873:BoBlonde,317.9,aud,317.9,0,317.9,aud,43873_for_stripe,cus_MgQuD04KtTXAGW,,,addnewcard,43873
+43875,Charge,ch_3SIA1rLrnBTnlT7b1hWPOsyn,14/10/2025 15:20,43875:BoBlonde,317.9,aud,317.9,0,317.9,aud,43875_for_stripe,cus_MgQwlUrRUJ0HRb,,,addnewcard,43875
+43948,Charge,ch_3SIA1tLrnBTnlT7b0aVnDA7Z,14/10/2025 15:20,43948:The Beauty Spot  Swan Hill,763.13,aud,763.13,0,763.13,aud,43948_for_stripe,cus_LmrF6jBOgodvv8,,,paysignupbycard1,43948
+43952,Charge,ch_3SIA1vLrnBTnlT7b0gaUWPVd,14/10/2025 15:20,43952:Glow Beauty Therapy,356.05,aud,356.05,0,356.05,aud,43952_for_stripe,cus_Nw3j8sjLtFfcU7,,,addnewcard,43952
+43953,Charge,ch_3SIA1yLrnBTnlT7b1pOvtZ0G,14/10/2025 15:20,43953:Verdouw Hair,97.9,aud,97.9,0,97.9,aud,43953_for_stripe,cus_Ln19W75HHRk4y8,,,paysignupbycard1,43953
+43977,Charge,ch_3SIA23LrnBTnlT7b0QGuPEpd,14/10/2025 15:20,43977:Eco Beauty Lounge,382.14,aud,382.14,0,382.14,aud,43977_for_stripe,cus_LnQ3t4byxVjyJ2,,,paysignupbycard1,43977
+43986,Charge,ch_3SIA26LrnBTnlT7b1CDK62zI,14/10/2025 15:21,43986:Skinfit Body & Beauty,317.9,aud,317.9,0,317.9,aud,43986_for_stripe,cus_OJAWxVAxQFQG1m,,,addnewcard,43986
+44079,Charge,ch_3SIA2BLrnBTnlT7b1AtKQr4R,14/10/2025 15:21,44079:Melt Hair.Makeup.Beauty,458.62,aud,458.62,0,458.62,aud,44079_for_stripe,cus_QOiHUOVgxoOSJm,,,addnewcard,44079
+44090,Charge,ch_3SIA2DLrnBTnlT7b1se71lK6,14/10/2025 15:21,44090:LMH Hair,446.82,aud,446.82,0,446.82,aud,44090_for_stripe,cus_QIRLD6alQYzk5T,,,addnewcard,44090
+44093,Charge,ch_3SIA2FLrnBTnlT7b0fcXVqpd,14/10/2025 15:21,44093:Show Off Hair Extensions,353.8,aud,353.8,0,353.8,aud,44093_for_stripe,cus_PqgSRnXFZVsHqD,,,addnewcard,44093
+44096,Charge,ch_3SIA2ILrnBTnlT7b1x9cPxvS,14/10/2025 15:21,44096:La'Vie Hair & Beauty,317.9,aud,317.9,0,317.9,aud,44096_for_stripe,cus_SXRMFJEm8NOrsQ,,,addnewcard,44096
+44162,Charge,ch_3SIA2KLrnBTnlT7b0f7TXJ2C,14/10/2025 15:21,44162:Lazer Erazer,163.94,aud,163.94,0,163.94,aud,44162_for_stripe,cus_QCLpf4CHwrMpvv,,,addnewcard,44162
+44222,Charge,ch_3SIA2MLrnBTnlT7b0fBYY71H,14/10/2025 15:21,44222:Rowson O'Connor Hair Rocky Beach,317.9,aud,317.9,0,317.9,aud,44222_for_stripe,cus_LqioRjmpje1kdQ,,,paysignupbycard1,44222
+44264,Charge,ch_3SIA2OLrnBTnlT7b196q8NcJ,14/10/2025 15:21,44264:The Cut n Colour Bar,393.64,aud,393.64,0,393.64,aud,44264_for_stripe,cus_LsASCOQ3kTtri8,,,paysignupbycard1,44264
+44268,Charge,ch_3SIA2RLrnBTnlT7b0P99Pbm7,14/10/2025 15:21,44268:Bellus Studio,360.54,aud,360.54,0,360.54,aud,44268_for_stripe,cus_LsBFpQ21NjoXZl,,,paysignupbycard1,44268
+44298,Charge,ch_3SIA2TLrnBTnlT7b1HRD1tUR,14/10/2025 15:21,44298:Evalyn Parsons,1025.23,aud,1025.23,0,1025.23,aud,44298_for_stripe,cus_LsYxHEND4IM2xP,,,paysignupbycard1,44298
+44351,Charge,ch_3SIA2VLrnBTnlT7b19goeKuz,14/10/2025 15:21,44351:Tonic hair co.,97.9,aud,97.9,0,97.9,aud,44351_for_stripe,cus_SuFRPYdgtMbR5R,,,addnewcard,44351
+44353,Charge,ch_3SIA2YLrnBTnlT7b0qo8wKx5,14/10/2025 15:21,44353:Ame Studio,350.25,aud,350.25,0,350.25,aud,44353_for_stripe,cus_RRIqH4s3hRRVUm,,,addnewcard,44353
+44392,Charge,ch_3SIA2aLrnBTnlT7b1rdESnq8,14/10/2025 15:21,44392:G & E Laser Clinic PTY LTD,342.4,aud,342.4,0,342.4,aud,44392_for_stripe,cus_LvBFqliOi4OtCM,,,paysignupbycard1,44392
+44412,Charge,ch_3SIA2cLrnBTnlT7b0TxudCLC,14/10/2025 15:21,44412:Bailey & Co. Hair Salon,449.5,aud,449.5,0,449.5,aud,44412_for_stripe,cus_Lv9BEu696yiOmy,,,paysignupbycard1,44412
+44416,Charge,ch_3SIA2fLrnBTnlT7b0RAAmO44,14/10/2025 15:21,44416:Mopp Hair,859.53,aud,859.53,0,859.53,aud,44416_for_stripe,cus_QtvErUbDbKF9ct,,,addnewcard,44416
+44485,Charge,ch_3SIA2hLrnBTnlT7b01CAv4AE,14/10/2025 15:21,44485:Gold Society,343.62,aud,343.62,0,343.62,aud,44485_for_stripe,cus_REkLcVLISbEWc1,,,addnewcard,44485
+44486,Charge,ch_3SIA2jLrnBTnlT7b0PJxWcqa,14/10/2025 15:21,44486:You By Luke Perger,240.66,aud,240.66,0,240.66,aud,44486_for_stripe,cus_SXO2wCkdZ0C4d3,,,addnewcard,44486
+44524,Charge,ch_3SIA2mLrnBTnlT7b1GHa8NsB,14/10/2025 15:21,44524:InkedIn Beauty,125.4,aud,125.4,0,125.4,aud,44524_for_stripe,cus_QaiEB4yT83zTmi,,,addnewcard,44524
+44616,Charge,ch_3SIA2oLrnBTnlT7b0M1KUFAY,14/10/2025 15:21,44616:Elysium Hair Brisbane,615.62,aud,615.62,0,615.62,aud,44616_for_stripe,cus_Og11JpJHxXJBCH,,,addnewcard,44616
+44617,Charge,ch_3SIA2qLrnBTnlT7b0xkrRnoo,14/10/2025 15:21,44617:Hills Laser & Beauty,317.9,aud,317.9,0,317.9,aud,44617_for_stripe,cus_LyZyg54dLNUJjt,,,paysignupbycard1,44617
+44656,Charge,ch_3SIA2tLrnBTnlT7b1lMfIY15,14/10/2025 15:21,44656:Shine Hair Design,352.78,aud,352.78,0,352.78,aud,44656_for_stripe,cus_M05UR2wdlvh3kB,,,paysignupbycard1,44656
+44764,Charge,ch_3SIA2vLrnBTnlT7b1UDqDzjp,14/10/2025 15:21,44764:Elluca,494.27,aud,494.27,0,494.27,aud,44764_for_stripe,cus_Rct3c0HSRJIycQ,,,addnewcard,44764
+44774,Charge,ch_3SIA2xLrnBTnlT7b1UzWXTgX,14/10/2025 15:21,44774:The Land of Eternal Youth - Tir na nOg Skin & Body Therapy,390.27,aud,390.27,0,390.27,aud,44774_for_stripe,cus_M1YJH7D64eV3oq,,,paysignupbycard1,44774
+44801,Charge,ch_3SIA30LrnBTnlT7b1I170ChG,14/10/2025 15:21,44801:Little Hair Boutique,422.35,aud,422.35,0,422.35,aud,44801_for_stripe,cus_M2caPQsPFvrgMR,,,paysignupbycard1,44801
+44821,Charge,ch_3SIA32LrnBTnlT7b0tFqpvs6,14/10/2025 15:22,44821:My Rejuvenate,482.82,aud,482.82,0,482.82,aud,44821_for_stripe,cus_NZREzuibnxd6YW,,,addnewcard,44821
+44824,Charge,ch_3SIA35LrnBTnlT7b1ioPhkLq,14/10/2025 15:22,44824:Lux Laser & Aesthetics,922.38,aud,922.38,0,922.38,aud,44824_for_stripe,cus_R4KqDHXYkikWyh,,,addnewcard,44824
+44839,Charge,ch_3SIA38LrnBTnlT7b14BrOiae,14/10/2025 15:22,44839:Flory Radu Brows & Beauty,97.9,aud,97.9,0,97.9,aud,44839_for_stripe,cus_QKfutQYmm6lyrU,,,addnewcard,44839
+44892,Charge,ch_3SIA3ALrnBTnlT7b1MmrBHo9,14/10/2025 15:22,44892:Images Skin And Waxing Centre,314.12,aud,314.12,0,314.12,aud,44892_for_stripe,cus_M4rJd6qyHLUKPI,,,paysignupbycard1,44892
+44912,Charge,ch_3SIA3KLrnBTnlT7b17lIpqyE,14/10/2025 15:22,44912:Berry Lane Hair,386.44,aud,386.44,0,386.44,aud,44912_for_stripe,cus_N3zWHam6MWR6wX,,,addnewcard,44912
+44921,Charge,ch_3SIA3NLrnBTnlT7b1J6B33Fb,14/10/2025 15:22,44921:Dermal Philosophy,187.89,aud,187.89,0,187.89,aud,44921_for_stripe,cus_M5ifXKHbJNOB9M,,,paysignupbycard1,44921
+45023,Charge,ch_3SIA3PLrnBTnlT7b1KYvRGVP,14/10/2025 15:22,45023:Blonde Republic,428.52,aud,428.52,0,428.52,aud,45023_for_stripe,cus_SuHYwNlOP4XPoe,,,addnewcard,45023
+45071,Charge,ch_3SIA3SLrnBTnlT7b1wQqFUI7,14/10/2025 15:22,45071:LUNA Skin + Brow,640.57,aud,640.57,0,640.57,aud,45071_for_stripe,cus_Suay2BhBuI3G14,,,addnewcard,45071
+45149,Charge,ch_3SIA3ULrnBTnlT7b0Lxa7z6p,14/10/2025 15:22,45149:Agave hair,97.9,aud,97.9,0,97.9,aud,45149_for_stripe,cus_MBcQmIwjQ4AhNT,,,paysignupbycard1,45149
+45207,Charge,ch_3SIA3WLrnBTnlT7b0oOOpYHG,14/10/2025 15:22,45207:The Skin Studio by Emma James,536.43,aud,536.43,0,536.43,aud,45207_for_stripe,cus_OUhYmdz00SVE8U,,,addnewcard,45207
+45208,Charge,ch_3SIA3ZLrnBTnlT7b1BiEra4Y,14/10/2025 15:22,45208:Elite House Of Beauty,386.34,aud,386.34,0,386.34,aud,45208_for_stripe,cus_S1FunUCjUNje6w,,,addnewcard,45208
+45209,Charge,ch_3SIA3bLrnBTnlT7b1KtMqdfg,14/10/2025 15:22,45209:Enhance Skin Aesthetic Studio,389.52,aud,389.52,0,389.52,aud,45209_for_stripe,cus_NwGxmyBFWhansN,,,addnewcard,45209
+45267,Charge,ch_3SIA3eLrnBTnlT7b0WH7dgSF,14/10/2025 15:22,45267:Onje Hair,454.14,aud,454.14,0,454.14,aud,45267_for_stripe,cus_MDb6rFzMnA3yGD,,,paysignupbycard1,45267
+45352,Charge,ch_3SIA3gLrnBTnlT7b1BOy3FR7,14/10/2025 15:22,45352:K and K Management Pty Ltd,264.29,aud,264.29,0,264.29,aud,45352_for_stripe,cus_SAXNDkeNnxQxQf,,,addnewcard,45352
+45467,Charge,ch_3SIA3jLrnBTnlT7b1mY2914s,14/10/2025 15:22,45467:Beaute & Co,125.4,aud,125.4,0,125.4,aud,45467_for_stripe,cus_SXN11t3AO3Ft6a,,,addnewcard,45467
+45497,Charge,ch_3SIA3mLrnBTnlT7b0RoDfjCR,14/10/2025 15:22,45497:Sahara The Salon,516.52,aud,516.52,0,516.52,aud,45497_for_stripe,cus_PbZA0yI3JsNnep,,,addnewcard,45497
+45551,Charge,ch_3SIA3oLrnBTnlT7b0358gWpT,14/10/2025 15:22,45551:One Hair,442.52,aud,442.52,0,442.52,aud,45551_for_stripe,cus_RFzCVygKu7I3lj,,,addnewcard,45551
+45589,Charge,ch_3SIA3rLrnBTnlT7b19XgQ9gu,14/10/2025 15:22,45589:Beauty Worx Skin Studio ,420.77,aud,420.77,0,420.77,aud,45589_for_stripe,cus_RRrJIWr7eusB7i,,,addnewcard,45589
+45632,Charge,ch_3SIA3tLrnBTnlT7b0R3P1pau,14/10/2025 15:22,45632:MR.T SALON,317.9,aud,317.9,0,317.9,aud,45632_for_stripe,cus_R9XphqibAPwwNe,,,addnewcard,45632
+45761,Charge,ch_3SIA3vLrnBTnlT7b1KP6iXFV,14/10/2025 15:22,45761:Cobelle Creative,382.42,aud,382.42,0,382.42,aud,45761_for_stripe,cus_SAXGIOb8hcWYkQ,,,addnewcard,45761
+45790,Charge,ch_3SIA40LrnBTnlT7b0pFb5RRa,14/10/2025 15:23,45790:Cronulla Skin Sanctuary,547.69,aud,547.69,0,547.69,aud,45790_for_stripe,cus_RCfIjnlL5G3Kwp,,,addnewcard,45790
+45914,Charge,ch_3SIA46LrnBTnlT7b173WCGlG,14/10/2025 15:23,45914:CLM Hair Artistry,234.72,aud,234.72,0,234.72,aud,45914_for_stripe,cus_NQljYzJBrSjp19,,,addnewcard,45914
+45941,Charge,ch_3SIA48LrnBTnlT7b0ttBTEkP,14/10/2025 15:23,45941:Divine Beauty Mossman,317.9,aud,317.9,0,317.9,aud,45941_for_stripe,cus_MRNHM4arVBTWr3,,,paysignupbycard1,45941
+46049,Charge,ch_3SIA4BLrnBTnlT7b0M5LhEl6,14/10/2025 15:23,46049:Bang Bang Beauty Bar,317.9,aud,317.9,0,317.9,aud,46049_for_stripe,cus_PQOXq7Wl27WSh7,,,addnewcard,46049
+46155,Charge,ch_3SIA4DLrnBTnlT7b00lwE9Sb,14/10/2025 15:23,46155:The Painted Pony Skin Clinic,393.8,aud,393.8,0,393.8,aud,46155_for_stripe,cus_MWerpG6KfoCby5,,,paysignupbycard1,46155
+46181,Charge,ch_3SIA4FLrnBTnlT7b0KNgbNK7,14/10/2025 15:23,46181:Loxx Salon,423.37,aud,423.37,0,423.37,aud,46181_for_stripe,cus_MXUG3HJigezfCo,,,paysignupbycard1,46181
+46269,Charge,ch_3SIA4KLrnBTnlT7b0ppoVZv9,14/10/2025 15:23,46269:Skin Fit Aesthetics,97.9,aud,97.9,0,97.9,aud,46269_for_stripe,cus_MZAdyO1uAF6eJe,,,paysignupbycard1,46269
+46304,Charge,ch_3SIA4NLrnBTnlT7b0oy5Umlq,14/10/2025 15:23,46304:The Sanctuary Hobart,365.31,aud,365.31,0,365.31,aud,46304_for_stripe,cus_MaGFqTjWobBpJV,,,paysignupbycard1,46304
+46305,Charge,ch_3SIA4QLrnBTnlT7b1IFQjacV,14/10/2025 15:23,46305:Paper Rokk,653.33,aud,653.33,0,653.33,aud,46305_for_stripe,cus_RxlVUJ2HFB3Kxh,,,addnewcard,46305
+46330,Charge,ch_3SIA4SLrnBTnlT7b1tsKnV50,14/10/2025 15:23,46330:Kyannehair,275.76,aud,275.76,0,275.76,aud,46330_for_stripe,cus_TAM72ufwdJrX2S,,,addnewcard,46330
+46374,Charge,ch_3SIA4ULrnBTnlT7b0lOObZbu,14/10/2025 15:23,46374:Alcyon Hair & Beauty,348.48,aud,348.48,0,348.48,aud,46374_for_stripe,cus_MbR7cB06W06FeR,,,paysignupbycard1,46374
+46479,Charge,ch_3SIA4XLrnBTnlT7b0FuEED1v,14/10/2025 15:23,46479:IDesire Brows,125.4,aud,125.4,0,125.4,aud,46479_for_stripe,cus_RxQYG3uZlb92EN,,,addnewcard,46479
+46527,Charge,ch_3SIA4cLrnBTnlT7b0SeH4ux7,14/10/2025 15:23,46527:Rock Paper Scissors Hair Studio,994.19,aud,994.19,0,994.19,aud,46527_for_stripe,cus_MfiEjxIrGehKPv,,,paysignupbycard1,46527
+46555,Charge,ch_3SIA4eLrnBTnlT7b0Y2NN8OA,14/10/2025 15:23,46555:Frangipani Hair & Beauty Spa,208.85,aud,208.85,0,208.85,aud,46555_for_stripe,cus_NwhbShjP3ocqps,,,addnewcard,46555
+46603,Charge,ch_3SIA4gLrnBTnlT7b15IlHiyK,14/10/2025 15:23,46603:Enhance Aesthetics Coffs Harbour,402.42,aud,402.42,0,402.42,aud,46603_for_stripe,cus_RqI8EwkiVBasnA,,,addnewcard,46603
+46669,Charge,ch_3SIA4jLrnBTnlT7b1lssx7ah,14/10/2025 15:23,46669:MICHAL GABRIEL Beauty and Brow,331.28,aud,331.28,0,331.28,aud,46669_for_stripe,cus_Qt8fy5KkMUmQEm,,,addnewcard,46669
+46674,Charge,ch_3SIA4mLrnBTnlT7b0zHZnOrx,14/10/2025 15:23,46674:Agio Hair,83.88,aud,83.88,0,83.88,aud,46674_for_stripe,cus_N0wnzuxPnavUdp,,,addnewcard,46674
+46677,Charge,ch_3SIA4oLrnBTnlT7b0tcHXLCc,14/10/2025 15:23,46677:Full Spectrum Hair Concept,439.26,aud,439.26,0,439.26,aud,46677_for_stripe,cus_SFoFVIYHdRnGDg,,,addnewcard,46677
+46753,Charge,ch_3SIA4qLrnBTnlT7b1cxJsK5t,14/10/2025 15:23,46753:HeadHunters hair studio,464.77,aud,464.77,0,464.77,aud,46753_for_stripe,cus_PT4IFhYkanb86n,,,addnewcard,46753
+46824,Charge,ch_3SIA4sLrnBTnlT7b1UWHwno3,14/10/2025 15:23,46824:Studio C & Co,359.79,aud,359.79,0,359.79,aud,46824_for_stripe,cus_NZRCTdOfBM6Zdc,,,addnewcard,46824
+46905,Charge,ch_3SIA4vLrnBTnlT7b0HKNT3VN,14/10/2025 15:23,46905:Dermalogica,465.37,aud,465.37,0,465.37,aud,46905_for_stripe,cus_QPu92aKEdvYNci,,,addnewcard,46905
+46982,Charge,ch_3SIA4xLrnBTnlT7b1zl5in00,14/10/2025 15:23,46982:Groom Barbershop Rockhampton,532.25,aud,532.25,0,532.25,aud,46982_for_stripe,cus_Mnnn4cAi1FCMB8,,,paysignupbycard1,46982
+46983,Charge,ch_3SIA50LrnBTnlT7b12ORGtjU,14/10/2025 15:24,46983:Groom Barbershop Rockhampton,400.14,aud,400.14,0,400.14,aud,46983_for_stripe,cus_MnntiYy4TRHJsc,,,paysignupbycard1,46983
+47067,Charge,ch_3SIA56LrnBTnlT7b1iwCv8yw,14/10/2025 15:24,47067:Hope Beauty Caringbah trading as Facial Attraction,524.45,aud,524.45,0,524.45,aud,47067_for_stripe,cus_NlXSxgsBlMRNxB,,,addnewcard,47067
+47068,Charge,ch_3SIA58LrnBTnlT7b0GHNeJ7H,14/10/2025 15:24,47068:Cornerworks Hair,323.4,aud,323.4,0,323.4,aud,47068_for_stripe,cus_P2qbN7gYZxwOTN,,,addnewcard,47068
+47069,Charge,ch_3SIA5BLrnBTnlT7b0G8nOYTN,14/10/2025 15:24,47069:SK:N FOCUS,513.49,aud,513.49,0,513.49,aud,47069_for_stripe,cus_MpnkiaGmvNeAbh,,,paysignupbycard1,47069
+47155,Charge,ch_3SIA5DLrnBTnlT7b0mn3fKDH,14/10/2025 15:24,47155:My Body Vibes,317.9,aud,317.9,0,317.9,aud,47155_for_stripe,cus_RcnjDDS7HksdKZ,,,addnewcard,47155
+47404,Charge,ch_3SIA5GLrnBTnlT7b00Qqgk9H,14/10/2025 15:24,47404:Bespoke Skin Management,97.9,aud,97.9,0,97.9,aud,47404_for_stripe,cus_MwVyUUiYKMdbrF,,,paysignupbycard1,47404
+47503,Charge,ch_3SIA5PLrnBTnlT7b0A418frd,14/10/2025 15:24,47503:Claires Organic Hair,357.83,aud,357.83,0,357.83,aud,47503_for_stripe,cus_MypAxo4AyATOQl,,,paysignupbycard1,47503
+47682,Charge,ch_3SIA5SLrnBTnlT7b1cTZaHOr,14/10/2025 15:24,47682:Skin Ambitions,97.9,aud,97.9,0,97.9,aud,47682_for_stripe,cus_SjM2z6hQLpmtXR,,,addnewcard,47682
+47797,Charge,ch_3SIA5VLrnBTnlT7b0WpVFuze,14/10/2025 15:24,47797:A LOFT STORY,288.4,aud,288.4,0,288.4,aud,47797_for_stripe,cus_R4LbstwhjHnYia,,,addnewcard,47797
+47947,Charge,ch_3SIA5XLrnBTnlT7b1xwoX0Ud,14/10/2025 15:24,47947:Hair Off Main,228.87,aud,228.87,0,228.87,aud,47947_for_stripe,cus_NBQNhQVVy3SMW3,,,paysignupbycard1,47947
+47986,Charge,ch_3SIA5aLrnBTnlT7b0NmKRvl1,14/10/2025 15:24,47986:Pure Essence Skin Body & Tanning,394.94,aud,394.94,0,394.94,aud,47986_for_stripe,cus_PyRoj6OxmOcrP6,,,addnewcard,47986
+48080,Charge,ch_3SIA5cLrnBTnlT7b0KCJkwVC,14/10/2025 15:24,48080:My Body Vibes Bayside,317.9,aud,317.9,0,317.9,aud,48080_for_stripe,cus_QVySps7fS52zUn,,,addnewcard,48080
+48152,Charge,ch_3SIA5fLrnBTnlT7b0yNsk9zw,14/10/2025 15:24,48152:Scissor & Roc,373.35,aud,373.35,0,373.35,aud,48152_for_stripe,cus_NEt9lvBiCelSl0,,,paysignupbycard1,48152
+48213,Charge,ch_3SIA5kLrnBTnlT7b14lnIzfN,14/10/2025 15:24,48213:Agio Hair,196.06,aud,196.06,0,196.06,aud,48213_for_stripe,cus_NGJKd6TlCb4I4s,,,paysignupbycard1,48213
+48277,Charge,ch_3SIA5oLrnBTnlT7b1WaN5AyZ,14/10/2025 15:24,48277:Aldaco Aesthetics,339.32,aud,339.32,0,339.32,aud,48277_for_stripe,cus_NH4Vo2nI6hiDVh,,,paysignupbycard1,48277
+48311,Charge,ch_3SIA5qLrnBTnlT7b0JWpc3vx,14/10/2025 15:24,48311:MIMO Salon,222.4,aud,222.4,0,222.4,aud,48311_for_stripe,cus_NHU7YPIO2hQrb9,,,paysignupbycard1,48311
+48327,Charge,ch_3SIA5sLrnBTnlT7b1t8Ochlc,14/10/2025 15:24,48327:Yovanka Loria Salon,414.21,aud,414.21,0,414.21,aud,48327_for_stripe,cus_NHrTWWNWzeEdpK,,,paysignupbycard1,48327
+48351,Charge,ch_3SIA5uLrnBTnlT7b1ZRhyhBM,14/10/2025 15:24,48351:Serenity Skin  Nail & Body,546.14,aud,546.14,0,546.14,aud,48351_for_stripe,cus_NvxdUkA8N2xRZP,,,addnewcard,48351
+48358,Charge,ch_3SIA5xLrnBTnlT7b02AaU84W,14/10/2025 15:25,48358:Reskin Laser Clinic,379.98,aud,379.98,0,379.98,aud,48358_for_stripe,cus_QWc9EOGq7fLcfq,,,addnewcard,48358
+48367,Charge,ch_3SIA60LrnBTnlT7b01wUfHEJ,14/10/2025 15:25,48367:Prestige Skin & Body,467.04,aud,467.04,0,467.04,aud,48367_for_stripe,cus_NKP8eJHRPBkDOw,,,paysignupbycard1,48367
+48431,Charge,ch_3SIA62LrnBTnlT7b1c5nIKu8,14/10/2025 15:25,48431:Vic Laser & Skincare Clinic,185.9,aud,185.9,0,185.9,aud,48431_for_stripe,cus_NK69EAAplndQ6O,,,paysignupbycard1,48431
+48510,Charge,ch_3SIA65LrnBTnlT7b19OSzVRr,14/10/2025 15:25,48510:Pura Holistic Hair Studio,425.43,aud,425.43,0,425.43,aud,48510_for_stripe,cus_QhVlCltYE2QJri,,,addnewcard,48510
+48534,Charge,ch_3SIA67LrnBTnlT7b19LJu2xH,14/10/2025 15:25,48534:Skin Genetics,320.89,aud,320.89,0,320.89,aud,48534_for_stripe,cus_Qu7A0tG2sy3dvM,,,addnewcard,48534
+48560,Charge,ch_3SIA69LrnBTnlT7b0iUkySfC,14/10/2025 15:25,48560:Blue Beauty Pty Ltd T/As Skin Therapeia,382.51,aud,382.51,0,382.51,aud,48560_for_stripe,cus_RFx5cle3KUlDMF,,,addnewcard,48560
+48616,Charge,ch_3SIA6CLrnBTnlT7b1YoF7nr0,14/10/2025 15:25,48616:Haven Studio,97.9,aud,97.9,0,97.9,aud,48616_for_stripe,cus_NOCechC8evgzSG,,,paysignupbycard1,48616
+48711,Charge,ch_3SIA6ELrnBTnlT7b0xKBoDTa,14/10/2025 15:25,48711:Spa Sublime Pty Ltd,317.9,aud,317.9,0,317.9,aud,48711_for_stripe,cus_NPj7bDAaokv0hY,,,paysignupbycard1,48711
+48779,Charge,ch_3SIA6GLrnBTnlT7b0T8GmhxA,14/10/2025 15:25,48779:Stories of Hair,185.9,aud,185.9,0,185.9,aud,48779_for_stripe,cus_Pg6I43pXZHeSMD,,,addnewcard,48779
+48826,Charge,ch_3SIA6JLrnBTnlT7b0TUpEeeB,14/10/2025 15:25,48826:Parlor Hair Company,453.2,aud,453.2,0,453.2,aud,48826_for_stripe,cus_PLvjlRjh6KrywV,,,addnewcard,48826
+48884,Charge,ch_3SIA6LLrnBTnlT7b1h67s7iG,14/10/2025 15:25,48884:ONE CLINIC,484.04,aud,484.04,0,484.04,aud,48884_for_stripe,cus_OC29gfW8hg2Eny,,,addnewcard,48884
+48968,Charge,ch_3SIA6QLrnBTnlT7b12mXdOWb,14/10/2025 15:25,48968:Woohoo Salon,416.9,aud,416.9,0,416.9,aud,48968_for_stripe,cus_NU6xQJwaezfljC,,,paysignupbycard1,48968
+49168,Charge,ch_3SIA6SLrnBTnlT7b12Oqkj4F,14/10/2025 15:25,49168:Zohair,358.58,aud,358.58,0,358.58,aud,49168_for_stripe,cus_NYctvLLpsyIbbU,,,paysignupbycard1,49168
+49314,Charge,ch_3SIA6VLrnBTnlT7b0nlLBeut,14/10/2025 15:25,49314:Skin Mind Beauty & Hair,343.89,aud,343.89,0,343.89,aud,49314_for_stripe,cus_Nbg69CJLFaRzUr,,,paysignupbycard1,49314
+49319,Charge,ch_3SIA6XLrnBTnlT7b02SFhmne,14/10/2025 15:25,49319:Pura Holistic Studio,484.8,aud,484.8,0,484.8,aud,49319_for_stripe,cus_QhnbNpKVpurkRr,,,addnewcard,49319
+49332,Charge,ch_3SIA6ZLrnBTnlT7b1C91wJ12,14/10/2025 15:25,49332:Vogue Hair Pty Ltd,418.79,aud,418.79,0,418.79,aud,49332_for_stripe,cus_S0mZux9PwAiW3T,,,addnewcard,49332
+49344,Charge,ch_3SIA6cLrnBTnlT7b1ZFFiLMp,14/10/2025 15:25,49344:Newy Beauty Group Pty Ltd,318.19,aud,318.19,0,318.19,aud,49344_for_stripe,cus_T5zCGIuXFbIpiz,,,addnewcard,49344
+49406,Charge,ch_3SIA6eLrnBTnlT7b1YZVoTS9,14/10/2025 15:25,49406:Mouda laser & skin clinic,225.17,aud,225.17,0,225.17,aud,49406_for_stripe,cus_NdzZKWkcKjihpW,,,paysignupbycard1,49406
+49473,Charge,ch_3SIA6hLrnBTnlT7b08xseLEy,14/10/2025 15:25,49473:Brows by Beatrice,313.41,aud,313.41,0,313.41,aud,49473_for_stripe,cus_PE5wfMq5l9ZKzs,,,addnewcard,49473
+49616,Charge,ch_3SIA6kLrnBTnlT7b1Agh9qbN,14/10/2025 15:25,49616:In2skin & Brows,554.26,aud,554.26,0,554.26,aud,49616_for_stripe,cus_Nj6F1bH8oTgemh,,,paysignupbycard1,49616
+49772,Charge,ch_3SIA6mLrnBTnlT7b09HbKhVX,14/10/2025 15:25,49772:South West TAFE Warrnambool,185.9,aud,185.9,0,185.9,aud,49772_for_stripe,cus_OHfQV1P0rejywb,,,addnewcard,49772
+50084,Charge,ch_3SIA6oLrnBTnlT7b0cnQhQdt,14/10/2025 15:25,50084:Your Eyes Only,405.33,aud,405.33,0,405.33,aud,50084_for_stripe,cus_Ntiuc1N9HZxcAF,,,paysignupbycard1,50084
+50131,Charge,ch_3SIA6rLrnBTnlT7b0CIcNMBZ,14/10/2025 15:25,50131:Laser Clinic Katherine,383.64,aud,383.64,0,383.64,aud,50131_for_stripe,cus_RFx4nl9k9gWl4i,,,addnewcard,50131
+50221,Charge,ch_3SIA6tLrnBTnlT7b1QnAl3S0,14/10/2025 15:25,50221:Emerald Norwood,261.8,aud,261.8,0,261.8,aud,50221_for_stripe,cus_Nur05n5UHsWpXC,,,paysignupbycard1,50221
+50239,Charge,ch_3SIA6wLrnBTnlT7b1mDrSpIc,14/10/2025 15:26,50239:Rosewood Hair Face Body Pty Ltd ,360.84,aud,360.84,0,360.84,aud,50239_for_stripe,cus_PLqy1jqAWSw44J,,,addnewcard,50239
+50267,Charge,ch_3SIA6zLrnBTnlT7b027317uW,14/10/2025 15:26,50267:Contour Atelier,332.3,aud,332.3,0,332.3,aud,50267_for_stripe,cus_PxmnJJYxCecyYo,,,addnewcard,50267
+50351,Charge,ch_3SIA74LrnBTnlT7b0ffCRncE,14/10/2025 15:26,50351:THE LALA COLLECTIVE PTY LTD,435.6,aud,435.6,0,435.6,aud,50351_for_stripe,cus_Ovm2MS98LHCckc,,,addnewcard,50351
+50426,Charge,ch_3SIA76LrnBTnlT7b0EHgSzqC,14/10/2025 15:26,50426:Rixon Hairdressing,416.9,aud,416.9,0,416.9,aud,50426_for_stripe,cus_NyriX61TgDWtWu,,,paysignupbycard1,50426
+50576,Charge,ch_3SIA78LrnBTnlT7b12HXS1Eb,14/10/2025 15:26,50576:Seraphina Beauty,97.9,aud,97.9,0,97.9,aud,50576_for_stripe,cus_Ok8D2gY9nLaMdv,,,addnewcard,50576
+50579,Charge,ch_3SIA7BLrnBTnlT7b0ZFvYuhH,14/10/2025 15:26,50579:Escape Skin and Body,374.85,aud,374.85,0,374.85,aud,50579_for_stripe,cus_PbK6NZkcSE5JKu,,,addnewcard,50579
+51455,Charge,ch_3SIA7OLrnBTnlT7b1ZnmW4l7,14/10/2025 15:26,51455:By Adelle Hair,97.9,aud,97.9,0,97.9,aud,51455_for_stripe,cus_OAUPWnNzyxiCJQ,,,paysignupbycard1,51455
+51549,Charge,ch_3SIA7QLrnBTnlT7b133csyHo,14/10/2025 15:26,51549:Scene Hair,365.82,aud,365.82,0,365.82,aud,51549_for_stripe,cus_OBFZN4vlO9pDYl,,,paysignupbycard1,51549
+51555,Charge,ch_3SIA7TLrnBTnlT7b1Nud5cnz,14/10/2025 15:26,51555:The Facial Bar Pty Ltd,423.21,aud,423.21,0,423.21,aud,51555_for_stripe,cus_RcoH9p3iDRFcfg,,,addnewcard,51555
+51676,Charge,ch_3SIA7VLrnBTnlT7b0iveultX,14/10/2025 15:26,51676:Daylesford Day Spa,307,aud,307,0,307,aud,51676_for_stripe,cus_SXPea1n1SMwIKD,,,addnewcard,51676
+51835,Charge,ch_3SIA7XLrnBTnlT7b01kDTuWr,14/10/2025 15:26,51835:Urban Skin Clinic,425.89,aud,425.89,0,425.89,aud,51835_for_stripe,cus_T7iu0wAmFwGRg5,,,addnewcard,51835
+51878,Charge,ch_3SIA7dLrnBTnlT7b1niYRNuv,14/10/2025 15:26,51878:H&L Salon,460.85,aud,460.85,0,460.85,aud,51878_for_stripe,cus_Q91UnhF2IhFd5S,,,addnewcard,51878
+51885,Charge,ch_3SIA7iLrnBTnlT7b0rQtI34Q,14/10/2025 15:26,51885:Studio Desire Hair Design,518.03,aud,518.03,0,518.03,aud,51885_for_stripe,cus_OFie3QykslrTR3,,,paysignupbycard1,51885
+51964,Charge,ch_3SIA7kLrnBTnlT7b0U8m4Sl2,14/10/2025 15:26,51964:Blonde Republic,97.9,aud,97.9,0,97.9,aud,51964_for_stripe,cus_Og1CwuL0gTcM5d,,,addnewcard,51964
+51998,Charge,ch_3SIA7mLrnBTnlT7b10rWg4cU,14/10/2025 15:26,51998:Ravenshoe Hair & Beauty,280.32,aud,280.32,0,280.32,aud,51998_for_stripe,cus_Og1Eho8QSPA2bF,,,addnewcard,51998
+52460,Charge,ch_3SIA7pLrnBTnlT7b08XCdT2j,14/10/2025 15:26,52460:yokototalbeauty pty ltd,490.5,aud,490.5,0,490.5,aud,52460_for_stripe,cus_OLkPBsSLGsIHjv,,,paysignupbycard1,52460
+52461,Charge,ch_3SIA7rLrnBTnlT7b1vgCZFOQ,14/10/2025 15:26,52461:Tigerlamb King Street,414.7,aud,414.7,0,414.7,aud,52461_for_stripe,cus_ONCpbVupSezUiW,,,paysignupbycard1,52461
+52462,Charge,ch_3SIA7uLrnBTnlT7b1NDxaa58,14/10/2025 15:27,52462:Tigerlamb Coorparoo,414.7,aud,414.7,0,414.7,aud,52462_for_stripe,cus_PdC6mSwNy1KISj,,,addnewcard,52462
+50683,Charge,ch_3SIA7xLrnBTnlT7b1lLQd7o8,14/10/2025 15:27,50683:MOE & Co. Karingal,187.29,aud,187.29,0,187.29,aud,50683_for_stripe,cus_O03aCHZWGSAcNl,,,paysignupbycard1,50683
+50722,Charge,ch_3SIA7zLrnBTnlT7b0yrw5x8O,14/10/2025 15:27,50722:Jordanna Hair Studio,182.47,aud,182.47,0,182.47,aud,50722_for_stripe,cus_RzepOkNQKpCp0h,,,addnewcard,50722
+50778,Charge,ch_3SIA81LrnBTnlT7b1Q13AeNl,14/10/2025 15:27,50778:Diamond Dust Nails,316.49,aud,316.49,0,316.49,aud,50778_for_stripe,cus_RgYMyzpQVQMsx9,,,addnewcard,50778
+50895,Charge,ch_3SIA84LrnBTnlT7b1KVxVC1k,14/10/2025 15:27,50895:I Am Hair Wellness,399.75,aud,399.75,0,399.75,aud,50895_for_stripe,cus_O4UvYsVrAkpzSK,,,paysignupbycard1,50895
+50939,Charge,ch_3SIA86LrnBTnlT7b1aVtpjfH,14/10/2025 15:27,50939:La Premier Beauty,388.34,aud,388.34,0,388.34,aud,50939_for_stripe,cus_OsIVjHUt1IxNiR,,,addnewcard,50939
+51031,Charge,ch_3SIA88LrnBTnlT7b0rO6N31Z,14/10/2025 15:27,51031:Vanity Skin and Beauty,455.61,aud,455.61,0,455.61,aud,51031_for_stripe,cus_O6k8FsRJWK91P8,,,paysignupbycard1,51031
+51099,Charge,ch_3SIA8ALrnBTnlT7b0h4yWe2P,14/10/2025 15:27,51099:Fresh Skin,554.52,aud,554.52,0,554.52,aud,51099_for_stripe,cus_SLkoCGoudhB3b4,,,addnewcard,51099
+51138,Charge,ch_3SIA8ELrnBTnlT7b0dEMUScV,14/10/2025 15:27,51138:Breathe Skin Body Mind,443.3,aud,443.3,0,443.3,aud,51138_for_stripe,cus_SuEM5VXAw6BlOh,,,addnewcard,51138
+52467,Charge,ch_3SIA8GLrnBTnlT7b1QtkRh6Z,14/10/2025 15:27,52467:LaserALL Dermal Clinics Pty Ltd,505.63,aud,505.63,0,505.63,aud,52467_for_stripe,cus_S0qByTE7v3mTGR,,,addnewcard,52467
+52471,Charge,ch_3SIA8ILrnBTnlT7b1PfUiEvs,14/10/2025 15:27,52471:Tigerlamb West End,414.7,aud,414.7,0,414.7,aud,52471_for_stripe,cus_PyVkla3pOxbopm,,,addnewcard,52471
+52513,Charge,ch_3SIA8OLrnBTnlT7b1DroFQqh,14/10/2025 15:27,52513:Luna Hair Collective,230.87,aud,230.87,0,230.87,aud,52513_for_stripe,cus_R8PW4K3snDXySn,,,addnewcard,52513
+52515,Charge,ch_3SIA8QLrnBTnlT7b1wxllHgL,14/10/2025 15:27,52515:Cosmetic SA,306.9,aud,306.9,0,306.9,aud,52515_for_stripe,cus_RfNadLyfPEw820,,,addnewcard,52515
+52565,Charge,ch_3SIA8SLrnBTnlT7b0qRvYpYA,14/10/2025 15:27,52565:Younique Skin Clinic,125.4,aud,125.4,0,125.4,aud,52565_for_stripe,cus_SXPCCFr9cFHHhR,,,addnewcard,52565
+52599,Charge,ch_3SIA8VLrnBTnlT7b1schP5Qx,14/10/2025 15:27,52599:Beautique Hair Lounge and Beauty Bar,420.51,aud,420.51,0,420.51,aud,52599_for_stripe,cus_OhPww6lO2GqBKG,,,addnewcard,52599
+52632,Charge,ch_3SIA8XLrnBTnlT7b04dxZUem,14/10/2025 15:27,52632:Tigerlamb Portside,414.7,aud,414.7,0,414.7,aud,52632_for_stripe,cus_ONCyzl8yrswzde,,,paysignupbycard1,52632
+52982,Charge,ch_3SIA8aLrnBTnlT7b1sRWp2Vu,14/10/2025 15:27,52982:Iconix,432.1,aud,432.1,0,432.1,aud,52982_for_stripe,cus_Rp8jlg1ptuhnDp,,,addnewcard,52982
+53043,Charge,ch_3SIA8fLrnBTnlT7b1B9p7NTx,14/10/2025 15:27,53043:Hare and Fawn,451.88,aud,451.88,0,451.88,aud,53043_for_stripe,cus_OQg7Fdpf1q0BgT,,,paysignupbycard1,53043
+53163,Charge,ch_3SIA8hLrnBTnlT7b1t3vuksi,14/10/2025 15:27,53163:Mitch studio,399.47,aud,399.47,0,399.47,aud,53163_for_stripe,cus_OS6VCUaqbxOQFC,,,paysignupbycard1,53163
+53165,Charge,ch_3SIA8jLrnBTnlT7b0GnUGHZI,14/10/2025 15:27,53165:Vixen,347.55,aud,347.55,0,347.55,aud,53165_for_stripe,cus_Siwe8q2x5MHhhi,,,addnewcard,53165
+53219,Charge,ch_3SIA8mLrnBTnlT7b0DlGTkec,14/10/2025 15:27,53219:Vanity Skin and Beauty,546.84,aud,546.84,0,546.84,aud,53219_for_stripe,cus_OSUQWAFjmYX0os,,,paysignupbycard1,53219
+53330,Charge,ch_3SIA8tLrnBTnlT7b1dQFGfwS,14/10/2025 15:28,53330:Karizma Hair Kreations,97.9,aud,97.9,0,97.9,aud,53330_for_stripe,cus_OTJtsSrZMVHtfw,,,paysignupbycard1,53330
+53389,Charge,ch_3SIA8wLrnBTnlT7b1yMf2OgJ,14/10/2025 15:28,53389:Lash & Brow Exclusive,363.19,aud,363.19,0,363.19,aud,53389_for_stripe,cus_QR4ep7XbTXm56Y,,,addnewcard,53389
+53424,Charge,ch_3SIA8yLrnBTnlT7b0LkIPm7c,14/10/2025 15:28,53424:The Art of Skin & Beauty,415.73,aud,415.73,0,415.73,aud,53424_for_stripe,cus_Og2io72ijnvni9,,,addnewcard,53424
+53681,Charge,ch_3SIA91LrnBTnlT7b1puBtsXU,14/10/2025 15:28,53681:The Hair Chapel,543.24,aud,543.24,0,543.24,aud,53681_for_stripe,cus_SLmcvRKxIBahzU,,,addnewcard,53681
+53783,Charge,ch_3SIA93LrnBTnlT7b1m3yZoOw,14/10/2025 15:28,53783:Beauty By Vicky,240.9,aud,240.9,0,240.9,aud,53783_for_stripe,cus_StcZjaCoYcObVc,,,addnewcard,53783
+53883,Charge,ch_3SIA9ALrnBTnlT7b1RP7CS00,14/10/2025 15:28,53883:LITTLE BIRDIE HAIR CO,337.19,aud,337.19,0,337.19,aud,53883_for_stripe,cus_PLuxF11EOWoFAB,,,addnewcard,53883
+53884,Charge,ch_3SIA9DLrnBTnlT7b0WTi4DB8,14/10/2025 15:28,53884:LITTLE BIRDIE HAIR CO,306.9,aud,306.9,0,306.9,aud,53884_for_stripe,cus_PLuxmxaL1S59aZ,,,addnewcard,53884
+53887,Charge,ch_3SIA9FLrnBTnlT7b0z2VqFuq,14/10/2025 15:28,53887:GlamLo Lash & Brow,317.37,aud,317.37,0,317.37,aud,53887_for_stripe,cus_OYnauVyur0lEFB,,,paysignupbycard1,53887
+54132,Charge,ch_3SIA9HLrnBTnlT7b1rpyI9MM,14/10/2025 15:28,54132:Blue Lagoon Float and Spa,348.59,aud,348.59,0,348.59,aud,54132_for_stripe,cus_OalHplrZo1vhDl,,,paysignupbycard1,54132
+54292,Charge,ch_3SIA9KLrnBTnlT7b0VQ9b5ac,14/10/2025 15:28,54292:All About Skin,425.89,aud,425.89,0,425.89,aud,54292_for_stripe,cus_Oce8JBe7Apeg2L,,,paysignupbycard1,54292
+54371,Charge,ch_3SIA9MLrnBTnlT7b0csWjwB9,14/10/2025 15:28,54371:The Desert Skin and Beauty,317.9,aud,317.9,0,317.9,aud,54371_for_stripe,cus_OdH8APVz7wcKYS,,,paysignupbycard1,54371
+54509,Charge,ch_3SIA9OLrnBTnlT7b1MG5pX1L,14/10/2025 15:28,54509:Luxe Beauty Australia,319.53,aud,319.53,0,319.53,aud,54509_for_stripe,cus_RxLwk4ND4drf9w,,,addnewcard,54509
+54546,Charge,ch_3SIA9RLrnBTnlT7b0TsTXnyS,14/10/2025 15:28,54546:Ra Beauty,329.97,aud,329.97,0,329.97,aud,54546_for_stripe,cus_OfBtfU8ZeRfk3X,,,paysignupbycard1,54546
+54547,Charge,ch_3SIA9TLrnBTnlT7b1PJh9fLO,14/10/2025 15:28,54547:Talking Beauty,608.34,aud,608.34,0,608.34,aud,54547_for_stripe,cus_SApDF0VB9MEJC3,,,addnewcard,54547
+54673,Charge,ch_3SIA9VLrnBTnlT7b1VqcaC44,14/10/2025 15:28,54673:Brush and Comb Hair and Beauty Salon,204.6,aud,204.6,0,204.6,aud,54673_for_stripe,cus_R2uKxJp8Uzhjgs,,,addnewcard,54673
+54790,Charge,ch_3SIA9YLrnBTnlT7b1YICqeqv,14/10/2025 15:28,54790:Hair By Vizual,340.75,aud,340.75,0,340.75,aud,54790_for_stripe,cus_OgNOH7jsnSuOuc,,,paysignupbycard1,54790
+54797,Charge,ch_3SIA9aLrnBTnlT7b1AGqyn6G,14/10/2025 15:28,54797:Cullen Bay Day Spa,330.8,aud,330.8,0,330.8,aud,54797_for_stripe,cus_SuDmaDvRKTGWs8,,,addnewcard,54797
+55048,Charge,ch_3SIA9cLrnBTnlT7b1o6oQq8w,14/10/2025 15:28,55048:Tyco. Creative,359.36,aud,359.36,0,359.36,aud,55048_for_stripe,cus_P2mn9trd82SHTj,,,addnewcard,55048
+55209,Charge,ch_3SIA9fLrnBTnlT7b1gTTZUYR,14/10/2025 15:28,55209:Sculpt Body & Wellness Clinics,436.56,aud,436.56,0,436.56,aud,55209_for_stripe,cus_RnJf405LtPGvQv,,,addnewcard,55209
+55211,Charge,ch_3SIA9hLrnBTnlT7b0fVQUxb6,14/10/2025 15:28,55211:Authentix Beauty and Wellness,270.93,aud,270.93,0,270.93,aud,55211_for_stripe,cus_Oj2ZSsPyCN3bxN,,,paysignupbycard1,55211
+55489,Charge,ch_3SIA9jLrnBTnlT7b1U1i5pHI,14/10/2025 15:28,55489:SANDY the Salon,319.43,aud,319.43,0,319.43,aud,55489_for_stripe,cus_OlXw8i0NkLDjuS,,,paysignupbycard1,55489
+55491,Charge,ch_3SIA9mLrnBTnlT7b0QEhpFKI,14/10/2025 15:28,55491:Halo Hair,351.3,aud,351.3,0,351.3,aud,55491_for_stripe,cus_OlZHR7cSP9O4Q7,,,paysignupbycard1,55491
+55585,Charge,ch_3SIA9oLrnBTnlT7b1ECZNIFI,14/10/2025 15:29,55585:CosMedic Collective,469.15,aud,469.15,0,469.15,aud,55585_for_stripe,cus_RRCc0zFoUGIMuF,,,addnewcard,55585
+55691,Charge,ch_3SIA9rLrnBTnlT7b0gnmTY0y,14/10/2025 15:29,55691:MELBOURNE HAIR ORGANICS,97.9,aud,97.9,0,97.9,aud,55691_for_stripe,cus_Sbot8syqijgcHg,,,addnewcard,55691
+55735,Charge,ch_3SIA9tLrnBTnlT7b18Yfmbem,14/10/2025 15:29,55735:LadyGrace Aesthetics,306.9,aud,306.9,0,306.9,aud,55735_for_stripe,cus_Oq3Uvhry6zE9L8,,,paysignupbycard1,55735
+55803,Charge,ch_3SIA9wLrnBTnlT7b1nDvo8eP,14/10/2025 15:29,55803:Gloss Studios,306.9,aud,306.9,0,306.9,aud,55803_for_stripe,cus_Ryu2hBxgAeSsBo,,,addnewcard,55803
+55822,Charge,ch_3SIA9yLrnBTnlT7b1w6rfRK3,14/10/2025 15:29,55822:SIR FLETCHER,285.69,aud,285.69,0,285.69,aud,55822_for_stripe,cus_QijUAm0gUM1ZRu,,,addnewcard,55822
+55920,Charge,ch_3SIAA1LrnBTnlT7b1f3LXq4q,14/10/2025 15:29,55920:Therapie Skin and Beauty,407,aud,407,0,407,aud,55920_for_stripe,cus_RoSkBOk8LR4ABL,,,addnewcard,55920
+55928,Charge,ch_3SIAA4LrnBTnlT7b16AKJ5PY,14/10/2025 15:29,55928:Tempest HairDesign,471.47,aud,471.47,0,471.47,aud,55928_for_stripe,cus_PQ6Mr11DNyaYJc,,,addnewcard,55928
+56021,Charge,ch_3SIAA6LrnBTnlT7b0YztpqU8,14/10/2025 15:29,56021:Halo Hair,258.76,aud,258.76,0,258.76,aud,56021_for_stripe,cus_OuH4CP3Kp84l9e,,,paysignupbycard1,56021
+56023,Charge,ch_3SIAA9LrnBTnlT7b0qgym44r,14/10/2025 15:29,56023:Sustainable Hair and Body,266.82,aud,266.82,0,266.82,aud,56023_for_stripe,cus_OuKQeDY7dth9LY,,,paysignupbycard1,56023
+56198,Charge,ch_3SIAABLrnBTnlT7b1DNXDNCK,14/10/2025 15:29,56198:WOW LASH!,322.71,aud,322.71,0,322.71,aud,56198_for_stripe,cus_RXTYqxtreL2tL1,,,addnewcard,56198
+56420,Charge,ch_3SIAADLrnBTnlT7b1N4Ir6XJ,14/10/2025 15:29,56420:Lisa Jane Skin + Beauty,396.29,aud,396.29,0,396.29,aud,56420_for_stripe,cus_QuBZXwv4FmX5AP,,,addnewcard,56420
+56422,Charge,ch_3SIAAGLrnBTnlT7b0nS8HgaK,14/10/2025 15:29,56422:Blue Lagoon Float and Spa,427.5,aud,427.5,0,427.5,aud,56422_for_stripe,cus_P0vwYwp7Hksrva,,,paysignupbycard1,56422
+56429,Charge,ch_3SIAAILrnBTnlT7b19Y2YnPu,14/10/2025 15:29,56429:5th Avenue for Hair,194.61,aud,194.61,0,194.61,aud,56429_for_stripe,cus_P1KIOFgePrqIOD,,,paysignupbycard1,56429
+56544,Charge,ch_3SIAAKLrnBTnlT7b1tOOxZ0O,14/10/2025 15:29,56544:Carti Hair and Co,683.78,aud,683.78,0,683.78,aud,56544_for_stripe,cus_P3iU4yXGwkPAcw,,,paysignupbycard1,56544
+56554,Charge,ch_3SIAANLrnBTnlT7b1e52jMFs,14/10/2025 15:29,56554:The Lounge Beauty Co,176.79,aud,176.79,0,176.79,aud,56554_for_stripe,cus_P40RMIr2p2T1iU,,,paysignupbycard1,56554
+56589,Charge,ch_3SIAAPLrnBTnlT7b0naWJcYo,14/10/2025 15:29,56589:HairHeaven1,543.74,aud,543.74,0,543.74,aud,56589_for_stripe,cus_Q1vvCryPfigkZO,,,addnewcard,56589
+56609,Charge,ch_3SIAASLrnBTnlT7b1clDuguN,14/10/2025 15:29,56609:Switch Hair Room,343.09,aud,343.09,0,343.09,aud,56609_for_stripe,cus_Q9mpmVmplQYcdq,,,addnewcard,56609
+56644,Charge,ch_3SIAAULrnBTnlT7b1wTFZIiq,14/10/2025 15:29,56644:Amar Skin,269.27,aud,269.27,0,269.27,aud,56644_for_stripe,cus_QhVzZMKLCUnEd4,,,addnewcard,56644
+56648,Charge,ch_3SIAAXLrnBTnlT7b1fWnipWy,14/10/2025 15:29,56648:Red Salon,296.16,aud,296.16,0,296.16,aud,56648_for_stripe,cus_SXNhtgVIhy1w5q,,,addnewcard,56648
+56654,Charge,ch_3SIAAZLrnBTnlT7b0tCjG75i,14/10/2025 15:29,56654:James & Co. Hair,265.98,aud,265.98,0,265.98,aud,56654_for_stripe,cus_QxXDIYLOQjpPSx,,,addnewcard,56654
+56656,Charge,ch_3SIAAcLrnBTnlT7b0kf5t4xk,14/10/2025 15:29,56656:The Beauty Emporium,373.85,aud,373.85,0,373.85,aud,56656_for_stripe,cus_P6Lr1wTefQVcJs,,,paysignupbycard1,56656
+56674,Charge,ch_3SIAAeLrnBTnlT7b11sVJbMT,14/10/2025 15:29,56674:Skin Room,379.56,aud,379.56,0,379.56,aud,56674_for_stripe,cus_P6aTzEgSqFdcH3,,,paysignupbycard1,56674
+56676,Charge,ch_3SIAAgLrnBTnlT7b1uAn16t3,14/10/2025 15:29,56676:My House of Hair,129.8,aud,129.8,0,129.8,aud,56676_for_stripe,cus_PM0FfNFk9wZaNA,,,addnewcard,56676
+56848,Charge,ch_3SIAAiLrnBTnlT7b0o5Z4Fba,14/10/2025 15:29,56848:Salty Scissors,242.88,aud,242.88,0,242.88,aud,56848_for_stripe,cus_PB6oRR0MPgnjQY,,,paysignupbycard1,56848
+57015,Charge,ch_3SIAAqLrnBTnlT7b0nrqeSNa,14/10/2025 15:30,57015:Beautyologist,317.9,aud,317.9,0,317.9,aud,57015_for_stripe,cus_PG1e2tk5r3ygDD,,,paysignupbycard1,57015
+57282,Charge,ch_3SIAAwLrnBTnlT7b0YhQo3Yu,14/10/2025 15:30,57282:Xiang Hair - Greensborough,415.17,aud,415.17,0,415.17,aud,57282_for_stripe,cus_QbtNB1zEdIEv0O,,,addnewcard,57282
+57347,Charge,ch_3SIAAyLrnBTnlT7b0b9sbU2J,14/10/2025 15:30,57347:Be Naturally You,433.4,aud,433.4,0,433.4,aud,57347_for_stripe,cus_PNkakwi5xl3hHN,,,paysignupbycard1,57347
+57401,Charge,ch_3SIAB0LrnBTnlT7b1TZGigG2,14/10/2025 15:30,57401:The Hair Shack Tweed,304.7,aud,304.7,0,304.7,aud,57401_for_stripe,cus_PObNSeKlAfYJeI,,,paysignupbycard1,57401
+57432,Charge,ch_3SIAB3LrnBTnlT7b1ZqJZzdF,14/10/2025 15:30,57432:Falcone Salon,720.15,aud,720.15,0,720.15,aud,57432_for_stripe,cus_POxKznqwthwGGo,,,paysignupbycard1,57432
+57613,Charge,ch_3SIAB6LrnBTnlT7b0gBdEGra,14/10/2025 15:30,57613:ONE CLINIC,457.44,aud,457.44,0,457.44,aud,57613_for_stripe,cus_PRVcFQdAKHCvjp,,,paysignupbycard1,57613
+57634,Charge,ch_3SIAB8LrnBTnlT7b17uBAJw6,14/10/2025 15:30,57634:Pure Essence Skin Body & Tanning,172.7,aud,172.7,0,172.7,aud,57634_for_stripe,cus_PRqHJay4nVwDoD,,,paysignupbycard1,57634
+57766,Charge,ch_3SIABDLrnBTnlT7b1ReDm3Ps,14/10/2025 15:30,57766:Skin By Sarah Hudson,419.25,aud,419.25,0,419.25,aud,57766_for_stripe,cus_Rd6USPbz1WH15R,,,addnewcard,57766
+57769,Charge,ch_3SIABFLrnBTnlT7b0LTG9AdO,14/10/2025 15:30,57769:Modern Skin & Beauty,191.18,aud,191.18,0,191.18,aud,57769_for_stripe,cus_PgEVGQF9lFsscq,,,addnewcard,57769
+57823,Charge,ch_3SIABILrnBTnlT7b1QnB2zVz,14/10/2025 15:30,57823:Urban Vogue Skin and Wellness,808.07,aud,808.07,0,808.07,aud,57823_for_stripe,cus_QwnRBeT9Tj6cIG,,,addnewcard,57823
+57828,Charge,ch_3SIABKLrnBTnlT7b15Eh34it,14/10/2025 15:30,57828:Dirty Little Secret Hair Salon,371.7,aud,371.7,0,371.7,aud,57828_for_stripe,cus_PViClIs26uSrYD,,,paysignupbycard1,57828
+57977,Charge,ch_3SIABNLrnBTnlT7b0JmEKpun,14/10/2025 15:30,57977:ANGELSTAR AU PTY LTD,357.31,aud,357.31,0,357.31,aud,57977_for_stripe,cus_T4Rs9HVVTtQagg,,,addnewcard,57977
+58098,Charge,ch_3SIABPLrnBTnlT7b1THouA7O,14/10/2025 15:30,58098:Heavenly Oasis Laser Skin Beauty,306.9,aud,306.9,0,306.9,aud,58098_for_stripe,cus_PZTcBHYo1HqDYF,,,paysignupbycard1,58098
+58104,Charge,ch_3SIABRLrnBTnlT7b1QQvL8NM,14/10/2025 15:30,58104:Endless Solutions Bendigo,465.3,aud,465.3,0,465.3,aud,58104_for_stripe,cus_PZXrjL3eRcEPLX,,,paysignupbycard1,58104
+58130,Charge,ch_3SIABXLrnBTnlT7b0N0qglgW,14/10/2025 15:30,58130:The Blonde Spot,190.12,aud,190.12,0,190.12,aud,58130_for_stripe,cus_Sibrf3gakswUkM,,,addnewcard,58130
+58414,Charge,ch_3SIABcLrnBTnlT7b1I3S7j67,14/10/2025 15:30,58414:LOAM Hair Co,249.26,aud,249.26,0,249.26,aud,58414_for_stripe,cus_Q0vgi7PI2Q24Ri,,,addnewcard,58414
+58623,Charge,ch_3SIABfLrnBTnlT7b1eBfDNEj,14/10/2025 15:30,58623:Indie Sky + Co,556.95,aud,556.95,0,556.95,aud,58623_for_stripe,cus_T7IS0seEc48pcr,,,addnewcard,58623
+58643,Charge,ch_3SIABhLrnBTnlT7b1M9yG2Ql,14/10/2025 15:30,58643:Revival Health Labs,453.74,aud,453.74,0,453.74,aud,58643_for_stripe,cus_PiSg9GQFn3QU2W,,,paysignupbycard1,58643
+58684,Charge,ch_3SIABjLrnBTnlT7b1HDfxZw8,14/10/2025 15:31,58684:Cosmetic Injectables by Sam PTY LTD T/A Skin Solutions Canberra,439.81,aud,439.81,0,439.81,aud,58684_for_stripe,cus_Pips2IsffLrw2f,,,paysignupbycard1,58684
+58711,Charge,ch_3SIABnLrnBTnlT7b0BAK2RRB,14/10/2025 15:31,58711:So Sol Skin and Body,455.36,aud,455.36,0,455.36,aud,58711_for_stripe,cus_SY3TG5ErIVWtk1,,,addnewcard,58711
+58809,Charge,ch_3SIABqLrnBTnlT7b0JuX6Kep,14/10/2025 15:31,58809:Saabi Collective,635.61,aud,635.61,0,635.61,aud,58809_for_stripe,cus_T6E0LNVjPJQcX6,,,addnewcard,58809
+58847,Charge,ch_3SIABsLrnBTnlT7b1FYahj0h,14/10/2025 15:31,58847:KMHD Salon,526.97,aud,526.97,0,526.97,aud,58847_for_stripe,cus_Pli6HSDsf7MczE,,,paysignupbycard1,58847
+58881,Charge,ch_3SIABuLrnBTnlT7b0Usup5Be,14/10/2025 15:31,58881:Khayaam Hair Salon,433.55,aud,433.55,0,433.55,aud,58881_for_stripe,cus_Pm7LLtgWobjAug,,,paysignupbycard1,58881
+58958,Charge,ch_3SIABxLrnBTnlT7b0vEWVnso,14/10/2025 15:31,58958:Eltham Cosmetic Clinic,338.8,aud,338.8,0,338.8,aud,58958_for_stripe,cus_Pnedu2YdpPNUe4,,,paysignupbycard1,58958
+58978,Charge,ch_3SIABzLrnBTnlT7b1zYqj3oj,14/10/2025 15:31,58978:Bristle Hair,373.57,aud,373.57,0,373.57,aud,58978_for_stripe,cus_PnwkvLRrmDAHa4,,,paysignupbycard1,58978
+58980,Charge,ch_3SIAC1LrnBTnlT7b1OyRFVVp,14/10/2025 15:31,58980:BODHI Wellness Spa Retreat,366.3,aud,366.3,0,366.3,aud,58980_for_stripe,cus_Po51FTpMJNGmsG,,,paysignupbycard1,58980
+58981,Charge,ch_3SIAC4LrnBTnlT7b1RbxrXcW,14/10/2025 15:31,58981:BODHI Wellness Spa Retreat ,540.5,aud,540.5,0,540.5,aud,58981_for_stripe,cus_Po55542NMhNCPH,,,paysignupbycard1,58981
+58982,Charge,ch_3SIAC7LrnBTnlT7b19oc3Trg,14/10/2025 15:31,58982:BODHI Skin and Body,366.3,aud,366.3,0,366.3,aud,58982_for_stripe,cus_Po5FYc85wbL1Ki,,,paysignupbycard1,58982
+58983,Charge,ch_3SIAC9LrnBTnlT7b1gEzAKLd,14/10/2025 15:31,58983:BODHI Wellness Spa Retreat,366.3,aud,366.3,0,366.3,aud,58983_for_stripe,cus_Po5KMYSnE5FKaP,,,paysignupbycard1,58983
+58984,Charge,ch_3SIACCLrnBTnlT7b1kMKW6Ev,14/10/2025 15:31,58984:BODHI Wellness Spa Retreat ,366.3,aud,366.3,0,366.3,aud,58984_for_stripe,cus_RytzzJrMV4mCwd,,,addnewcard,58984
+58989,Charge,ch_3SIACELrnBTnlT7b1lJq9iYI,14/10/2025 15:31,58989:Nurse Naomi Skin,256.74,aud,256.74,0,256.74,aud,58989_for_stripe,cus_Po7Y5c1G61TNNP,,,paysignupbycard1,58989
+59107,Charge,ch_3SIACGLrnBTnlT7b0UeuLDIy,14/10/2025 15:31,59107:E-clips Hair Studio,306.02,aud,306.02,0,306.02,aud,59107_for_stripe,cus_PoiGkD0nwJhFwr,,,paysignupbycard1,59107
+59142,Charge,ch_3SIACJLrnBTnlT7b1zMLLZwd,14/10/2025 15:31,59142:Project Skin,306.9,aud,306.9,0,306.9,aud,59142_for_stripe,cus_PowjCrzONwnvl9,,,paysignupbycard1,59142
+59198,Charge,ch_3SIACLLrnBTnlT7b1mKjtbqd,14/10/2025 15:31,59198:The Fringe Collective,352.63,aud,352.63,0,352.63,aud,59198_for_stripe,cus_PqEJOIQjj8Fepr,,,paysignupbycard1,59198
+59199,Charge,ch_3SIACOLrnBTnlT7b0iilWbKN,14/10/2025 15:31,59199:Nail Parlour & Co.,267.85,aud,267.85,0,267.85,aud,59199_for_stripe,cus_QZZ1vyLukq5JMC,,,addnewcard,59199
+59202,Charge,ch_3SIACRLrnBTnlT7b197OTEPM,14/10/2025 15:31,59202:Gallo Hair,353.94,aud,353.94,0,353.94,aud,59202_for_stripe,cus_PqMeKICPdGEwri,,,paysignupbycard1,59202
+59203,Charge,ch_3SIACTLrnBTnlT7b0EnHfG9T,14/10/2025 15:31,59203:Koi hair co,361.98,aud,361.98,0,361.98,aud,59203_for_stripe,cus_PqNOr7FhLTbSt9,,,paysignupbycard1,59203
+59318,Charge,ch_3SIACYLrnBTnlT7b0C84WJWU,14/10/2025 15:31,59318:Dermalogica - Miranda,250.62,aud,250.62,0,250.62,aud,59318_for_stripe,cus_QPu9EXe3l2GzjV,,,addnewcard,59318
+59321,Charge,ch_3SIACbLrnBTnlT7b0GvE0lHH,14/10/2025 15:31,59321:Satori Hair,214.85,aud,214.85,0,214.85,aud,59321_for_stripe,cus_SibzQJhOiFhJqT,,,addnewcard,59321
+59837,Charge,ch_3SIACdLrnBTnlT7b0UGtg62s,14/10/2025 15:31,59837:Botanica Wellness Spa and Clinic,471.42,aud,471.42,0,471.42,aud,59837_for_stripe,cus_SGVM7koU8iPGUb,,,addnewcard,59837
+59843,Charge,ch_3SIACfLrnBTnlT7b0iPTf3kU,14/10/2025 15:31,59843:The Skyn Lounge,408.55,aud,408.55,0,408.55,aud,59843_for_stripe,cus_Q19NN5k1HRPPtj,,,paysignupbycard1,59843
+59955,Charge,ch_3SIAChLrnBTnlT7b0KnUHF16,14/10/2025 15:32,59955:The Place Hairdressing,376.43,aud,376.43,0,376.43,aud,59955_for_stripe,cus_SQwdUdtsvofyrP,,,addnewcard,59955
+59988,Charge,ch_3SIAClLrnBTnlT7b0lwkmrPg,14/10/2025 15:32,59988:ZHL LASER CLINIC,186.21,aud,186.21,0,186.21,aud,59988_for_stripe,cus_Q2dAHIl7FwqyiL,,,paysignupbycard1,59988
+60103,Charge,ch_3SIACnLrnBTnlT7b1v4EouMO,14/10/2025 15:32,60103:Mane Concept,519.85,aud,519.85,0,519.85,aud,60103_for_stripe,cus_T685g12FYTJQ5Z,,,addnewcard,60103
+60285,Charge,ch_3SIACtLrnBTnlT7b1nQDD2MJ,14/10/2025 15:32,60285:BLAKE & KWAN,416.9,aud,416.9,0,416.9,aud,60285_for_stripe,cus_Q6rozfHo003aOj,,,paysignupbycard1,60285
+60347,Charge,ch_3SIACvLrnBTnlT7b0zhsPotc,14/10/2025 15:32,60347:Bryoni's Hair Pty Ltd,484.51,aud,484.51,0,484.51,aud,60347_for_stripe,cus_Q7Gb2ujDNagXCx,,,paysignupbycard1,60347
+60384,Charge,ch_3SIACyLrnBTnlT7b02V9KTSK,14/10/2025 15:32,60384:Beauty by Beck,185.9,aud,185.9,0,185.9,aud,60384_for_stripe,cus_Q7YEliPgGww3w2,,,paysignupbycard1,60384
+60410,Charge,ch_3SIAD0LrnBTnlT7b1EkHsCxU,14/10/2025 15:32,60410:Belle Sorelle,181.38,aud,181.38,0,181.38,aud,60410_for_stripe,cus_SuP1iPNGqYwQwM,,,addnewcard,60410
+60411,Charge,ch_3SIAD3LrnBTnlT7b1BEuMyAr,14/10/2025 15:32,60411:Redefine Skin & Beauty Salon Coogee,414.49,aud,414.49,0,414.49,aud,60411_for_stripe,cus_RCymxXDeruwccJ,,,addnewcard,60411
+60435,Charge,ch_3SIAD5LrnBTnlT7b0wjkBXYn,14/10/2025 15:32,60435:Instyle Hair & Beauty NT,341.13,aud,341.13,0,341.13,aud,60435_for_stripe,cus_Q8yTGN5DUbSvW5,,,paysignupbycard1,60435
+60442,Charge,ch_3SIAD7LrnBTnlT7b10hKnrQs,14/10/2025 15:32,60442:The Brow and Body Bar,434.87,aud,434.87,0,434.87,aud,60442_for_stripe,cus_Q92HQXF3KxrzzQ,,,paysignupbycard1,60442
+60553,Charge,ch_3SIADCLrnBTnlT7b14cqiVC4,14/10/2025 15:32,60553:Morph hair and beauty,262.9,aud,262.9,0,262.9,aud,60553_for_stripe,cus_SXOFD24aYUlTn0,,,addnewcard,60553
+60578,Charge,ch_3SIADELrnBTnlT7b1xuUMLUx,14/10/2025 15:32,60578:Eden Hair Energy,604.46,aud,604.46,0,604.46,aud,60578_for_stripe,cus_QBJnvGkeqIH2CS,,,paysignupbycard1,60578
+60579,Charge,ch_3SIADHLrnBTnlT7b0op0FSy8,14/10/2025 15:32,60579:Ora Skin,448.32,aud,448.32,0,448.32,aud,60579_for_stripe,cus_QBL4Qkugkk6IG6,,,paysignupbycard1,60579
+60606,Charge,ch_3SIADKLrnBTnlT7b0LogouqQ,14/10/2025 15:32,60606:Hairevent,287.87,aud,287.87,0,287.87,aud,60606_for_stripe,cus_SuDVYff3Y3O2TX,,,addnewcard,60606
+60640,Charge,ch_3SIADMLrnBTnlT7b08ggpaGy,14/10/2025 15:32,60640:Brazil Wax Beauty Bar,368.68,aud,368.68,0,368.68,aud,60640_for_stripe,cus_QC6NV2kmsNlLfY,,,paysignupbycard1,60640
+60689,Charge,ch_3SIADPLrnBTnlT7b0ja30LJx,14/10/2025 15:32,60689:Moni Hair & Beauty Studio,185.9,aud,185.9,0,185.9,aud,60689_for_stripe,cus_QCZ3p4G0NVuktl,,,paysignupbycard1,60689
+60711,Charge,ch_3SIADVLrnBTnlT7b1uX8ht3A,14/10/2025 15:32,60711:SEED Cosmetics,447.01,aud,447.01,0,447.01,aud,60711_for_stripe,cus_QClCNhIwIUmKIE,,,paysignupbycard1,60711
+60765,Charge,ch_3SIADYLrnBTnlT7b0OuIFMLM,14/10/2025 15:32,60765:Saya Medispa,317.9,aud,317.9,0,317.9,aud,60765_for_stripe,cus_SXON6FluYcwRHK,,,addnewcard,60765
+60781,Charge,ch_3SIADaLrnBTnlT7b1eKzZ5YX,14/10/2025 15:32,60781:The Hair Artistry,185.9,aud,185.9,0,185.9,aud,60781_for_stripe,cus_QDsMsh2rUWfaKy,,,paysignupbycard1,60781
+60963,Charge,ch_3SIADcLrnBTnlT7b1g52hZQm,14/10/2025 15:32,60963:Glowing Skin and Laser Drouin,273.06,aud,273.06,0,273.06,aud,60963_for_stripe,cus_QWEvttrin09OqU,,,addnewcard,60963
+60965,Charge,ch_3SIADeLrnBTnlT7b08xCVQIS,14/10/2025 15:32,60965:Skin Societé Cottesloe,509.5,aud,509.5,0,509.5,aud,60965_for_stripe,cus_SuDlI8K8Bu82xb,,,addnewcard,60965
+60966,Charge,ch_3SIADhLrnBTnlT7b0fOxoue8,14/10/2025 15:33,60966:Skin Societé Rockingham,620.26,aud,620.26,0,620.26,aud,60966_for_stripe,cus_RyucCRbfao0Jth,,,addnewcard,60966
+61004,Charge,ch_3SIADjLrnBTnlT7b1TxBtG2u,14/10/2025 15:33,61004:Skin Societé Karrinyup,496.49,aud,496.49,0,496.49,aud,61004_for_stripe,cus_QFjuzgAnEyiipI,,,paysignupbycard1,61004
+61005,Charge,ch_3SIADlLrnBTnlT7b0YPx4fHX,14/10/2025 15:33,61005:Skin Societé Osborne Park,466.17,aud,466.17,0,466.17,aud,61005_for_stripe,cus_QFofwYwgvdmQMt,,,paysignupbycard1,61005
+61019,Charge,ch_3SIADoLrnBTnlT7b0UaYqPsJ,14/10/2025 15:33,61019:Ardor Organics,593.54,aud,593.54,0,593.54,aud,61019_for_stripe,cus_T6WuY55lqjNRYi,,,addnewcard,61019
+61044,Charge,ch_3SIADqLrnBTnlT7b0jbWwe2E,14/10/2025 15:33,61044:Blonderlust. The Salon & Evolve Hair Extensions,328.2,aud,328.2,0,328.2,aud,61044_for_stripe,cus_T5s2zWyJ9KRDu8,,,addnewcard,61044
+61060,Charge,ch_3SIADtLrnBTnlT7b1gxvEAYL,14/10/2025 15:33,61060:Skin Societé Ellenbrook,184.6,aud,184.6,0,184.6,aud,61060_for_stripe,cus_QH2b9jtAjNK3rh,,,paysignupbycard1,61060
+61131,Charge,ch_3SIADvLrnBTnlT7b1wrQVwSv,14/10/2025 15:33,61131:LOCO LONDON PTY LTD,210.69,aud,210.69,0,210.69,aud,61131_for_stripe,cus_SLnE33yyTAz4aR,,,addnewcard,61131
+61288,Charge,ch_3SIADyLrnBTnlT7b0Rw6alMe,14/10/2025 15:33,61288:HIP Hair Studios ACT,185.9,aud,185.9,0,185.9,aud,61288_for_stripe,cus_QJYTRViVDZPG7g,,,paysignupbycard1,61288
+61565,Charge,ch_3SIAE3LrnBTnlT7b0KeoSEVX,14/10/2025 15:33,61565:Kontour,443.1,aud,443.1,0,443.1,aud,61565_for_stripe,cus_QMsW8OWPhYT82D,,,paysignupbycard1,61565
+61566,Charge,ch_3SIAE5LrnBTnlT7b0iTRRiUN,14/10/2025 15:33,61566:Colour Studio By Ruwan,425.84,aud,425.84,0,425.84,aud,61566_for_stripe,cus_SBaZ9IXdw1T9VV,,,addnewcard,61566
+61682,Charge,ch_3SIAE8LrnBTnlT7b15U5QKnp,14/10/2025 15:33,61682:The Lounge Beauty Co.,185.9,aud,185.9,0,185.9,aud,61682_for_stripe,cus_QP7ygGOUCGgcP7,,,paysignupbycard1,61682
+61808,Charge,ch_3SIAEALrnBTnlT7b0gAo3IvR,14/10/2025 15:33,61808:Envy Hair Design and Spa,317.9,aud,317.9,0,317.9,aud,61808_for_stripe,cus_QRg2t5sEVVteT3,,,paysignupbycard1,61808
+61865,Charge,ch_3SIAECLrnBTnlT7b1zttTr2a,14/10/2025 15:33,61865:Colada & Co.,448.8,aud,448.8,0,448.8,aud,61865_for_stripe,cus_Rqa60q9coDqMYR,,,addnewcard,61865
+61878,Charge,ch_3SIAEFLrnBTnlT7b0jS3hknO,14/10/2025 15:33,61878:Bixie Colour Surry Hills,490.69,aud,490.69,0,490.69,aud,61878_for_stripe,cus_QuDyPrJNlQVZcA,,,addnewcard,61878
+61879,Charge,ch_3SIAEHLrnBTnlT7b0o0Ec9Fg,14/10/2025 15:33,61879:Blondie The Salon,454.07,aud,454.07,0,454.07,aud,61879_for_stripe,cus_Sibe2h8BdmuWGG,,,addnewcard,61879
+61912,Charge,ch_3SIAEJLrnBTnlT7b1lB6aQHI,14/10/2025 15:33,61912:Tamaras Hair Boutique,443.3,aud,443.3,0,443.3,aud,61912_for_stripe,cus_QTvv6oOxGRb9AM,,,paysignupbycard1,61912
+61978,Charge,ch_3SIAEMLrnBTnlT7b0EIeg3I6,14/10/2025 15:33,61978:Elyshia Jones Brow Studio,444.2,aud,444.2,0,444.2,aud,61978_for_stripe,cus_QUKGPq0tuQupIL,,,paysignupbycard1,61978
+62011,Charge,ch_3SIAEOLrnBTnlT7b0cp5iJnT,14/10/2025 15:33,62011:My Body Vibes - Eastland,317.9,aud,317.9,0,317.9,aud,62011_for_stripe,cus_SibvQCFZouTELW,,,addnewcard,62011
+62098,Charge,ch_3SIAEQLrnBTnlT7b1wCralyj,14/10/2025 15:33,62098:Frangipani Skin & Body,462.57,aud,462.57,0,462.57,aud,62098_for_stripe,cus_SzBo47ooGODHyg,,,addnewcard,62098
+62214,Charge,ch_3SIAEZLrnBTnlT7b0KrcIEVK,14/10/2025 15:33,62214:Nova Holistic Spa,441.12,aud,441.12,0,441.12,aud,62214_for_stripe,cus_QXnwyWocGOgo8v,,,paysignupbycard1,62214
+62288,Charge,ch_3SIAEfLrnBTnlT7b1wNu9k86,14/10/2025 15:34,62288:Aesthetics By Dr. Claire,318,aud,318,0,318,aud,62288_for_stripe,cus_QZadxqY3JHeUgH,,,paysignupbycard1,62288
+62338,Charge,ch_3SIAEhLrnBTnlT7b1RKu3Znl,14/10/2025 15:34,62338:E'Aesthetics Skin,444.3,aud,444.3,0,444.3,aud,62338_for_stripe,cus_QZybX1PfeRbnqM,,,paysignupbycard1,62338
+62425,Charge,ch_3SIAEjLrnBTnlT7b12sOWH49,14/10/2025 15:34,62425:E Salon Hair,487.77,aud,487.77,0,487.77,aud,62425_for_stripe,cus_QbuV5zbjI29sYe,,,paysignupbycard1,62425
+62515,Charge,ch_3SIAEmLrnBTnlT7b1BQ5XA8x,14/10/2025 15:34,62515:Same Same But Different Northcote,399.91,aud,399.91,0,399.91,aud,62515_for_stripe,cus_Qd03A6HKtDSiUV,,,paysignupbycard1,62515
+62543,Charge,ch_3SIAEoLrnBTnlT7b1Smru64N,14/10/2025 15:34,62543:Indah health and beauty spa,678.33,aud,678.33,0,678.33,aud,62543_for_stripe,cus_RRcutri5WMvuM7,,,addnewcard,62543
+62652,Charge,ch_3SIAErLrnBTnlT7b1atWeb8e,14/10/2025 15:34,62652:Amitra & CO.,416.9,aud,416.9,0,416.9,aud,62652_for_stripe,cus_Qfa0mU2RlJiQM4,,,paysignupbycard1,62652
+62666,Charge,ch_3SIAEuLrnBTnlT7b0WTxmTbi,14/10/2025 15:34,62666:Amitra & Co.,416.9,aud,416.9,0,416.9,aud,62666_for_stripe,cus_QfaWwW2WI9gKb2,,,paysignupbycard1,62666
+62777,Charge,ch_3SIAEwLrnBTnlT7b02VBkClM,14/10/2025 15:34,62777:It's Personal Hair . Skin . Beauty,416.9,aud,416.9,0,416.9,aud,62777_for_stripe,cus_Qhstvm7aHgFyfD,,,paysignupbycard1,62777
+62979,Charge,ch_3SIAEzLrnBTnlT7b12bOr8jI,14/10/2025 15:34,62979:Stellar Skin Body Spa,426.01,aud,426.01,0,426.01,aud,62979_for_stripe,cus_QkW3WL7SWfCZ9H,,,paysignupbycard1,62979
+63037,Charge,ch_3SIAF1LrnBTnlT7b0oUHMVaz,14/10/2025 15:34,63037:Alice's Ultimate Beauty,366.73,aud,366.73,0,366.73,aud,63037_for_stripe,cus_RtGOO9TIHQvtAl,,,addnewcard,63037
+63041,Charge,ch_3SIAF3LrnBTnlT7b1HSX5oFn,14/10/2025 15:34,63041:Reve Skin + Beauty,641.63,aud,641.63,0,641.63,aud,63041_for_stripe,cus_QkvCxzB8CuJQto,,,paysignupbycard1,63041
+63071,Charge,ch_3SIAF6LrnBTnlT7b11kVmJlL,14/10/2025 15:34,63071:Shape of You Perth,317.9,aud,317.9,0,317.9,aud,63071_for_stripe,cus_QlG3R3Ohbu8K5Y,,,paysignupbycard1,63071
+63098,Charge,ch_3SIAF8LrnBTnlT7b1hc8YX26,14/10/2025 15:34,63098:Vogue Beauty Clinic,566.23,aud,566.23,0,566.23,aud,63098_for_stripe,cus_Qlvhz5ua43bMFr,,,paysignupbycard1,63098
+63204,Charge,ch_3SIAFBLrnBTnlT7b1MenFErY,14/10/2025 15:34,63204:Beauty on Yorkes,425.7,aud,425.7,0,425.7,aud,63204_for_stripe,cus_QmHmfQUcLre5UH,,,paysignupbycard1,63204
+63670,Charge,ch_3SIAFDLrnBTnlT7b1m6Z4iXi,14/10/2025 15:34,63670:Arla Aesthetics,563.4,aud,563.4,0,563.4,aud,63670_for_stripe,cus_Qo8oNgz4hMmDT4,,,paysignupbycard1,63670
+63679,Charge,ch_3SIAFJLrnBTnlT7b1H8jjtly,14/10/2025 15:34,63679:Glow Bar,479.42,aud,479.42,0,479.42,aud,63679_for_stripe,cus_QoHi4NDbZHRDjx,,,paysignupbycard1,63679
+63680,Charge,ch_3SIAFMLrnBTnlT7b0KWgAxKJ,14/10/2025 15:34,63680:Glow Narrabeen,486.34,aud,486.34,0,486.34,aud,63680_for_stripe,cus_QoHo6UQtfJeQkF,,,paysignupbycard1,63680
+64008,Charge,ch_3SIAFOLrnBTnlT7b1DztrakM,14/10/2025 15:34,64008:Blonde Poetry,130.88,aud,130.88,0,130.88,aud,64008_for_stripe,cus_SuEZHKamhmgKpY,,,addnewcard,64008
+64016,Charge,ch_3SIAFRLrnBTnlT7b1845GO6B,14/10/2025 15:34,64016:Bassendean Beauty Salon,526.9,aud,526.9,0,526.9,aud,64016_for_stripe,cus_S0QPlUhR71cCWT,,,addnewcard,64016
+64084,Charge,ch_3SIAFTLrnBTnlT7b0EnkM63h,14/10/2025 15:34,64084:Skin Correctives,509.3,aud,509.3,0,509.3,aud,64084_for_stripe,cus_QpU3QEfWg5MFv5,,,paysignupbycard1,64084
+64146,Charge,ch_3SIAFVLrnBTnlT7b0B74SgLy,14/10/2025 15:34,64146:Hidden Minx Studio,416.9,aud,416.9,0,416.9,aud,64146_for_stripe,cus_QphF4ooco44UXx,,,paysignupbycard1,64146
+64341,Charge,ch_3SIAFYLrnBTnlT7b1538eRDF,14/10/2025 15:34,64341:Pose Hair Design,587.82,aud,587.82,0,587.82,aud,64341_for_stripe,cus_Qqschb1Pehx2p4,,,paysignupbycard1,64341
+65854,Charge,ch_3SIAFdLrnBTnlT7b0OKSN5vV,14/10/2025 15:35,65854:SKIN SOCIETY,433.46,aud,433.46,0,433.46,aud,65854_for_stripe,cus_Qto0KgX6fhjQCD,,,paysignupbycard1,65854
+66369,Charge,ch_3SIAFfLrnBTnlT7b1F9RKpWj,14/10/2025 15:35,66369:Bark Hair Pty Ltd,485.9,aud,485.9,0,485.9,aud,66369_for_stripe,cus_QuCRGTmhmGRLBl,,,paysignupbycard1,66369
+67024,Charge,ch_3SIAFiLrnBTnlT7b0ui2gmtT,14/10/2025 15:35,67024:Tempest and Bloom,434.67,aud,434.67,0,434.67,aud,67024_for_stripe,cus_QubCo7mghMf7Le,,,paysignupbycard1,67024
+67029,Charge,ch_3SIAFkLrnBTnlT7b0zifEHr0,14/10/2025 15:35,67029:Studio Tuesday,673.78,aud,673.78,0,673.78,aud,67029_for_stripe,cus_T7QRJHTgxecn9q,,,addnewcard,67029
+67329,Charge,ch_3SIAFmLrnBTnlT7b0cHU8GQ3,14/10/2025 15:35,67329:La Boutique,461.59,aud,461.59,0,461.59,aud,67329_for_stripe,cus_RbIiSCnv9bzJpH,,,addnewcard,67329
+67330,Charge,ch_3SIAFpLrnBTnlT7b1sIeaXIL,14/10/2025 15:35,67330:Mitch Studio Fairfield,380.46,aud,380.46,0,380.46,aud,67330_for_stripe,cus_Qv1Su5Qd6WTSbY,,,paysignupbycard1,67330
+67989,Charge,ch_3SIAFrLrnBTnlT7b0zwo2Gtm,14/10/2025 15:35,67989:Seasons 5 Resort & Spa,338.01,aud,338.01,0,338.01,aud,67989_for_stripe,cus_RyvQLaB1elz8Wo,,,addnewcard,67989
+68151,Charge,ch_3SIAFwLrnBTnlT7b1fV8Xmj9,14/10/2025 15:35,68151:Void hair design,237.64,aud,237.64,0,237.64,aud,68151_for_stripe,cus_QxDHUV3Oce6zoS,,,paysignupbycard1,68151
+69413,Charge,ch_3SIAFyLrnBTnlT7b1NYg34mJ,14/10/2025 15:35,69413:Victorias Hair And Beauty,351.56,aud,351.56,0,351.56,aud,69413_for_stripe,cus_QxsxTU3pOEi3RE,,,paysignupbycard1,69413
+69973,Charge,ch_3SIAG1LrnBTnlT7b0IYFk7sZ,14/10/2025 15:35,69973:Shimmer Health & Beauty,354.37,aud,354.37,0,354.37,aud,69973_for_stripe,cus_Qz2cSkRg9bcy8M,,,paysignupbycard1,69973
+70956,Charge,ch_3SIAG6LrnBTnlT7b0U9qjzyh,14/10/2025 15:35,70956:Beauty Bar Byford,433.4,aud,433.4,0,433.4,aud,70956_for_stripe,cus_RRBorAHZW0BnGx,,,addnewcard,70956
+71060,Charge,ch_3SIAG9LrnBTnlT7b1um2saUI,14/10/2025 15:35,71060:ELAMNT The Art of Hair,412.26,aud,412.26,0,412.26,aud,71060_for_stripe,cus_R36Wq3h8NeCihu,,,paysignupbycard1,71060
+71544,Charge,ch_3SIAGHLrnBTnlT7b0Gq4fK81,14/10/2025 15:35,71544:B'Me Hair,515.21,aud,515.21,0,515.21,aud,71544_for_stripe,cus_R53fbzrcozG8UW,,,paysignupbycard1,71544
+71656,Charge,ch_3SIAGJLrnBTnlT7b1tkjcnBo,14/10/2025 15:35,71656:Gold Coast Blondes ,205.46,aud,205.46,0,205.46,aud,71656_for_stripe,cus_R5bW4ZSeG70LHD,,,paysignupbycard1,71656
+71784,Charge,ch_3SIAGMLrnBTnlT7b1nYKZQNc,14/10/2025 15:35,71784:Stevie English Hair,534.19,aud,534.19,0,534.19,aud,71784_for_stripe,cus_SKzU6kqHKhfZnN,,,addnewcard,71784
+72001,Charge,ch_3SIAGOLrnBTnlT7b0SQMZMWp,14/10/2025 15:35,72001:The Lash Loft and Beauty Lounge,443.08,aud,443.08,0,443.08,aud,72001_for_stripe,cus_R7Ne5Upk71NBS3,,,paysignupbycard1,72001
+72167,Charge,ch_3SIAGRLrnBTnlT7b1QJJmwrs,14/10/2025 15:35,72167:Le Salon,185.9,aud,185.9,0,185.9,aud,72167_for_stripe,cus_T6AN03wRSKghNp,,,addnewcard,72167
+72297,Charge,ch_3SIAGTLrnBTnlT7b1LtxiDM6,14/10/2025 15:35,72297:Tina Roche Skin & Aesthetics,343.24,aud,343.24,0,343.24,aud,72297_for_stripe,cus_R8jtq7C46FUC87,,,paysignupbycard1,72297
+73008,Charge,ch_3SIAGdLrnBTnlT7b1Mh9zLeI,14/10/2025 15:36,73008:Sorelle of Hair Pty Ltd,185.9,aud,185.9,0,185.9,aud,73008_for_stripe,cus_SXOE9oQfg8uER8,,,addnewcard,73008
+73067,Charge,ch_3SIAGfLrnBTnlT7b1iXy0IU4,14/10/2025 15:36,73067:Hearts And Hues,428.32,aud,428.32,0,428.32,aud,73067_for_stripe,cus_RDno9XwRFwTgzj,,,paysignupbycard1,73067
+73068,Charge,ch_3SIAGiLrnBTnlT7b0PxeBQXj,14/10/2025 15:36,73068:Studio Contrast,472.08,aud,472.08,0,472.08,aud,73068_for_stripe,cus_RDnr6Rmurqs1Ci,,,paysignupbycard1,73068
+73214,Charge,ch_3SIAGkLrnBTnlT7b1lYBpgIq,14/10/2025 15:36,73214:Hashtag Hair Salon,317.9,aud,317.9,0,317.9,aud,73214_for_stripe,cus_REC0iAvwXpK4gC,,,paysignupbycard1,73214
+73287,Charge,ch_3SIAGmLrnBTnlT7b0lPLtCRM,14/10/2025 15:36,73287:Sculpt Body & Wellness Clinics,419.16,aud,419.16,0,419.16,aud,73287_for_stripe,cus_SLowETUcfoqlV9,,,addnewcard,73287
+73331,Charge,ch_3SIAGpLrnBTnlT7b0hjMeSUg,14/10/2025 15:36,73331:Central Coast Wellness T/A Wildfire Day Spa,447.33,aud,447.33,0,447.33,aud,73331_for_stripe,cus_RFEV3nNJy2TO5v,,,paysignupbycard1,73331
+73332,Charge,ch_3SIAGrLrnBTnlT7b1r1xhgfU,14/10/2025 15:36,73332:Pondaroma & Co Hair Boutique,390.37,aud,390.37,0,390.37,aud,73332_for_stripe,cus_RFEReBbUWPiCQy,,,paysignupbycard1,73332
+73333,Charge,ch_3SIAGtLrnBTnlT7b1g5ovqYM,14/10/2025 15:36,73333:CITRI,528.06,aud,528.06,0,528.06,aud,73333_for_stripe,cus_RFEzuh3vRdXMHr,,,paysignupbycard1,73333
+73843,Charge,ch_3SIAGwLrnBTnlT7b0jJVZuyw,14/10/2025 15:36,73843:Sleek Styles,379.15,aud,379.15,0,379.15,aud,73843_for_stripe,cus_RHxX5hjM2LJL2U,,,paysignupbycard1,73843
+73871,Charge,ch_3SIAGyLrnBTnlT7b18MiEd6S,14/10/2025 15:36,73871:Clara Emily Hair,262.9,aud,262.9,0,262.9,aud,73871_for_stripe,cus_T53bx4YtaOpqQh,,,addnewcard,73871
+74286,Charge,ch_3SIAH0LrnBTnlT7b0QffwAun,14/10/2025 15:36,74286:Hair by Jones,264.75,aud,264.75,0,264.75,aud,74286_for_stripe,cus_RiOi4mO2GJvV5t,,,addnewcard,74286
+74334,Charge,ch_3SIAH3LrnBTnlT7b1ySO4Sg5,14/10/2025 15:36,74334:The Studio Beauty Clinic,349.32,aud,349.32,0,349.32,aud,74334_for_stripe,cus_RMh1a97aCbxXrS,,,paysignupbycard1,74334
+74455,Charge,ch_3SIAH5LrnBTnlT7b1ZaaXSfG,14/10/2025 15:36,74455:Serenity Face & Body,274.91,aud,274.91,0,274.91,aud,74455_for_stripe,cus_RXfZCG25WakfK1,,,addnewcard,74455
+74512,Charge,ch_3SIAH7LrnBTnlT7b0OKNz6sr,14/10/2025 15:36,74512:4U Skin and Laser Cosmetic Clinic Pty Ltd,346.7,aud,346.7,0,346.7,aud,74512_for_stripe,cus_RMkTeoAcQJWQMi,,,paysignupbycard1,74512
+75207,Charge,ch_3SIAHFLrnBTnlT7b1viVUKXI,14/10/2025 15:36,75207:Hair Affair,485.16,aud,485.16,0,485.16,aud,75207_for_stripe,cus_SastvQea4wrYUx,,,addnewcard,75207
+75466,Charge,ch_3SIAHILrnBTnlT7b0g0aNGSd,14/10/2025 15:36,75466:Jonathan Ward Hairdressing,417.95,aud,417.95,0,417.95,aud,75466_for_stripe,cus_RWB0diPTLhkFPa,,,paysignupbycard1,75466
+75644,Charge,ch_3SIAHKLrnBTnlT7b1D5Mngk7,14/10/2025 15:36,75644:Silken Skin Spa Studio,360.91,aud,360.91,0,360.91,aud,75644_for_stripe,cus_RX8IfNTOJPgCD4,,,addnewcard,75644
+75968,Charge,ch_3SIAHMLrnBTnlT7b0FPj1XRN,14/10/2025 15:36,75968:Bramis Beauty Studio,344.45,aud,344.45,0,344.45,aud,75968_for_stripe,cus_RYK4OdEk1Rz3Md,,,addnewcard,75968
+76161,Charge,ch_3SIAHPLrnBTnlT7b1DHI0AVX,14/10/2025 15:36,76161:Aesthē,416.9,aud,416.9,0,416.9,aud,76161_for_stripe,cus_RaCA0r0UxkFwGO,,,addnewcard,76161
+76210,Charge,ch_3SIAHSLrnBTnlT7b0VkX3lwc,14/10/2025 15:36,76210:Tangled Hair and Beauty Salon,604,aud,604,0,604,aud,76210_for_stripe,cus_RaX0mCFdqUeKX5,,,addnewcard,76210
+76343,Charge,ch_3SIAHULrnBTnlT7b1EAd5LQ3,14/10/2025 15:36,76343:Etcher,296.78,aud,296.78,0,296.78,aud,76343_for_stripe,cus_RbEiElE2gpz2PH,,,addnewcard,76343
+76447,Charge,ch_3SIAHWLrnBTnlT7b0Tp4cjVG,14/10/2025 15:36,76447:Missy & Me Hair,338.01,aud,338.01,0,338.01,aud,76447_for_stripe,cus_RcB7neZH5mg2hA,,,addnewcard,76447
+76455,Charge,ch_3SIAHZLrnBTnlT7b0aPzbZCp,14/10/2025 15:37,76455:Organic Ministry,539.57,aud,539.57,0,539.57,aud,76455_for_stripe,cus_RcRTki0vOOYOBa,,,addnewcard,76455
+76459,Charge,ch_3SIAHbLrnBTnlT7b0bFGH7bA,14/10/2025 15:37,76459:Ebony Aesthetics,500.02,aud,500.02,0,500.02,aud,76459_for_stripe,cus_RcOGarpYj1Lpnc,,,addnewcard,76459
+76466,Charge,ch_3SIAHeLrnBTnlT7b0klYPTrH,14/10/2025 15:37,76466:Cosmetic Quarter,463.19,aud,463.19,0,463.19,aud,76466_for_stripe,cus_RcWCE7JAupKBp0,,,addnewcard,76466
+76507,Charge,ch_3SIAHhLrnBTnlT7b0F4koiAM,14/10/2025 15:37,76507:Abundent Beauty Therapy,344.45,aud,344.45,0,344.45,aud,76507_for_stripe,cus_RctprWgC8qjZmB,,,addnewcard,76507
+73336,Charge,ch_3SIAHjLrnBTnlT7b1cO6Yd7z,14/10/2025 15:37,73336:The Beauty Nurse,555.38,aud,555.38,0,555.38,aud,73336_for_stripe,cus_RFUd2CUPrjSW18,,,paysignupbycard1,73336
+73407,Charge,ch_3SIAHlLrnBTnlT7b09MeRQqO,14/10/2025 15:37,73407:Lash Avenue Pro,229.94,aud,229.94,0,229.94,aud,73407_for_stripe,cus_RFRvS6n71J7rw1,,,paysignupbycard1,73407
+73428,Charge,ch_3SIAHoLrnBTnlT7b1kiR7Mui,14/10/2025 15:37,73428:Smooth Beauty and Wellness,343.71,aud,343.71,0,343.71,aud,73428_for_stripe,cus_RXWASvsV7OSNO2,,,addnewcard,73428
+73431,Charge,ch_3SIAHqLrnBTnlT7b0FZJqRMr,14/10/2025 15:37,73431:Silk Hair Lounge,469.93,aud,469.93,0,469.93,aud,73431_for_stripe,cus_RFdxLHJSC3Gjsx,,,paysignupbycard1,73431
+73539,Charge,ch_3SIAHsLrnBTnlT7b1eekuZmn,14/10/2025 15:37,73539:Hair Sanctuary,368.25,aud,368.25,0,368.25,aud,73539_for_stripe,cus_RG0vcLdy6IRwNB,,,paysignupbycard1,73539
+73767,Charge,ch_3SIAHvLrnBTnlT7b0NiGYUbp,14/10/2025 15:37,73767:Donna Bella the beautiful woman,358.11,aud,358.11,0,358.11,aud,73767_for_stripe,cus_RH683XsGnBb0y1,,,paysignupbycard1,73767
+76575,Charge,ch_3SIAI1LrnBTnlT7b1dcmWZhK,14/10/2025 15:37,76575:George & Ivy,418.87,aud,418.87,0,418.87,aud,76575_for_stripe,cus_Rd9mlOcT2ijY7J,,,addnewcard,76575
+76765,Charge,ch_3SIAI3LrnBTnlT7b1kXpW3JU,14/10/2025 15:37,76765:ICONIX Boutique,202.38,aud,202.38,0,202.38,aud,76765_for_stripe,cus_SD94Vn8nIThBKi,,,addnewcard,76765
+76850,Charge,ch_3SIAIALrnBTnlT7b1ZH0YFX2,14/10/2025 15:37,76850:Sage Hair & Beauty Co,403.46,aud,403.46,0,403.46,aud,76850_for_stripe,cus_RfWXUng0JLLSJs,,,addnewcard,76850
+77232,Charge,ch_3SIAICLrnBTnlT7b1ULTdNB4,14/10/2025 15:37,77232:Wyld Mane,367.93,aud,367.93,0,367.93,aud,77232_for_stripe,cus_SjIKZWBALCmGug,,,addnewcard,77232
+77467,Charge,ch_3SIAIFLrnBTnlT7b1LcPEWrs,14/10/2025 15:37,77467:House of Harlow Beauty Therapy,395.98,aud,395.98,0,395.98,aud,77467_for_stripe,cus_Rj7lVvIxgIcxXT,,,addnewcard,77467
+77471,Charge,ch_3SIAIHLrnBTnlT7b1VPEiWNL,14/10/2025 15:37,77471:Koko Blue Karratha,457.67,aud,457.67,0,457.67,aud,77471_for_stripe,cus_RjFYQaJpyPMedo,,,addnewcard,77471
+77583,Charge,ch_3SIAIJLrnBTnlT7b1DHyYh4L,14/10/2025 15:37,77583:Soho Nails,346.06,aud,346.06,0,346.06,aud,77583_for_stripe,cus_RkKteiOvsMaHZL,,,addnewcard,77583
+77653,Charge,ch_3SIAIMLrnBTnlT7b1cxScA0C,14/10/2025 15:37,77653:Masquerade Beauty,367.83,aud,367.83,0,367.83,aud,77653_for_stripe,cus_SlHbg8BL31sz2M,,,addnewcard,77653
+77663,Charge,ch_3SIAIRLrnBTnlT7b1iIcrnjh,14/10/2025 15:37,77663:Laser Lounge Warrnambool,327.72,aud,327.72,0,327.72,aud,77663_for_stripe,cus_Sn3aHufpPVhLcx,,,addnewcard,77663
+77727,Charge,ch_3SIAITLrnBTnlT7b0KgNrJOS,14/10/2025 15:37,77727:Empress Makeup Skin & Beauty,538.53,aud,538.53,0,538.53,aud,77727_for_stripe,cus_SLOuinDDpZ2Gz6,,,addnewcard,77727
+77868,Charge,ch_3SIAIWLrnBTnlT7b1I88gBD3,14/10/2025 15:38,77868:Beauty and Laser by Yona,551.56,aud,551.56,0,551.56,aud,77868_for_stripe,cus_RlSBQKDUyPjO1c,,,addnewcard,77868
+77973,Charge,ch_3SIAIZLrnBTnlT7b0mOPolVB,14/10/2025 15:38,77973:The Wellness Path Day Spa,458.7,aud,458.7,0,458.7,aud,77973_for_stripe,cus_RlkEexivBIYvKS,,,addnewcard,77973
+77978,Charge,ch_3SIAIbLrnBTnlT7b1I768Yba,14/10/2025 15:38,77978:Californian Blonde,416.9,aud,416.9,0,416.9,aud,77978_for_stripe,cus_Rln5pVKq28bFWy,,,addnewcard,77978
+78039,Charge,ch_3SIAIdLrnBTnlT7b0jmOCLnR,14/10/2025 15:38,78039:Calm Organic Massage and Spa,185.9,aud,185.9,0,185.9,aud,78039_for_stripe,cus_RmTnoCXxwRp6BS,,,addnewcard,78039
+78041,Charge,ch_3SIAIgLrnBTnlT7b0gmD12z1,14/10/2025 15:38,78041:Maytopia at White Hills,317.9,aud,317.9,0,317.9,aud,78041_for_stripe,cus_RmUN9Skedg0HoJ,,,addnewcard,78041
+78043,Charge,ch_3SIAIiLrnBTnlT7b01r16XIn,14/10/2025 15:38,78043:Calmtopia Organic Massage,185.9,aud,185.9,0,185.9,aud,78043_for_stripe,cus_RmYdoBnpj8Athq,,,addnewcard,78043
+78051,Charge,ch_3SIAIlLrnBTnlT7b0t5nzHOM,14/10/2025 15:38,78051:Hair Envie,336.41,aud,336.41,0,336.41,aud,78051_for_stripe,cus_SjNLNwCLC6Nqys,,,addnewcard,78051
+78160,Charge,ch_3SIAInLrnBTnlT7b1CuP5qUo,14/10/2025 15:38,78160:La Vita Hairdressing,262.9,aud,262.9,0,262.9,aud,78160_for_stripe,cus_RnaW5koaOmsy1J,,,addnewcard,78160
+78171,Charge,ch_3SIAIqLrnBTnlT7b1ZZJlsoP,14/10/2025 15:38,78171:AW Hair Studios,108.9,aud,108.9,0,108.9,aud,78171_for_stripe,cus_RnhqSBRXh4T4OU,,,addnewcard,78171
+78465,Charge,ch_3SIAIsLrnBTnlT7b0hBtJfeU,14/10/2025 15:38,78465:Revive HAIR SKIN BODY,310.02,aud,310.02,0,310.02,aud,78465_for_stripe,cus_RpWe9H3K6EnxYc,,,addnewcard,78465
+78467,Charge,ch_3SIAIuLrnBTnlT7b1dWjm984,14/10/2025 15:38,78467:Mundijong Hair,335.02,aud,335.02,0,335.02,aud,78467_for_stripe,cus_RpbPyiujm0x8lH,,,addnewcard,78467
+78480,Charge,ch_3SIAIwLrnBTnlT7b1FDPsAPE,14/10/2025 15:38,78480:Natalie Packer Hair Studio,390.46,aud,390.46,0,390.46,aud,78480_for_stripe,cus_Rq1cPCSdSzYGfD,,,addnewcard,78480
+78553,Charge,ch_3SIAIzLrnBTnlT7b0A1Cei30,14/10/2025 15:38,78553:Union Jacks Hair,390.29,aud,390.29,0,390.29,aud,78553_for_stripe,cus_SicVSDJEe3bFgM,,,addnewcard,78553
+78738,Charge,ch_3SIAJ1LrnBTnlT7b0HlcsExA,14/10/2025 15:38,78738:Figtree Dayspa,405.53,aud,405.53,0,405.53,aud,78738_for_stripe,cus_RqeMU3v0JCd2DG,,,addnewcard,78738
+78799,Charge,ch_3SIAJ4LrnBTnlT7b0APqIeL0,14/10/2025 15:38,78799:Empire Hair and Body,455.05,aud,455.05,0,455.05,aud,78799_for_stripe,cus_Rr0IdBxRlTcg5h,,,addnewcard,78799
+78992,Charge,ch_3SIAJ6LrnBTnlT7b0dygPHcN,14/10/2025 15:38,78992:Cooper & Co Hairdressing,451.04,aud,451.04,0,451.04,aud,78992_for_stripe,cus_RsTjkZ1oyx6Sph,,,addnewcard,78992
+79083,Charge,ch_3SIAJ8LrnBTnlT7b16mBMYel,14/10/2025 15:38,79083:Salon Sojourn,517.83,aud,517.83,0,517.83,aud,79083_for_stripe,cus_SNdQa9hgd5FdKs,,,addnewcard,79083
+79199,Charge,ch_3SIAJELrnBTnlT7b1fbU9Yvx,14/10/2025 15:38,79199:Colour Bar Hair & Beauty,407.21,aud,407.21,0,407.21,aud,79199_for_stripe,cus_RtIkg5EeDgNeg7,,,addnewcard,79199
+79754,Charge,ch_3SIAJJLrnBTnlT7b1NHWRMyW,14/10/2025 15:38,79754:Eley Hooper Facialist,185.9,aud,185.9,0,185.9,aud,79754_for_stripe,cus_SAXdeeAbavlxYR,,,addnewcard,79754
+79869,Charge,ch_3SIAJLLrnBTnlT7b0EkCkF0R,14/10/2025 15:38,79869:The Salon By Ash Croker,448.8,aud,448.8,0,448.8,aud,79869_for_stripe,cus_Rxmybyuuak8vVn,,,addnewcard,79869
+79985,Charge,ch_3SIAJOLrnBTnlT7b0gqXFxrB,14/10/2025 15:38,79985:La Bimbi Salons,356.39,aud,356.39,0,356.39,aud,79985_for_stripe,cus_SieNqEwWcQdeC8,,,addnewcard,79985
+79987,Charge,ch_3SIAJQLrnBTnlT7b1BEn4dSn,14/10/2025 15:38,79987:Eden Hair Collective,339.69,aud,339.69,0,339.69,aud,79987_for_stripe,cus_RyZ8xAjwMflqWY,,,addnewcard,79987
+80118,Charge,ch_3SIAJSLrnBTnlT7b0eXdbqkM,14/10/2025 15:38,80118:Signature Cosmetic & Beauty,416.9,aud,416.9,0,416.9,aud,80118_for_stripe,cus_RzChqI8UxQl6vc,,,addnewcard,80118
+80217,Charge,ch_3SIAJYLrnBTnlT7b0pCUPewD,14/10/2025 15:39,80217:The Nest Hair Boutique,595.3,aud,595.3,0,595.3,aud,80217_for_stripe,cus_S0OGMdZKkVGpg4,,,addnewcard,80217
+80389,Charge,ch_3SIAJaLrnBTnlT7b0116PqOQ,14/10/2025 15:39,80389:Skindeep Swan Valley,416.9,aud,416.9,0,416.9,aud,80389_for_stripe,cus_SM5Vg7vIljH9cc,,,addnewcard,80389
+80459,Charge,ch_3SIAJcLrnBTnlT7b1N8FjGQg,14/10/2025 15:39,80459:Brazilian Butterfly - Fremantle,380.01,aud,380.01,0,380.01,aud,80459_for_stripe,cus_S16CYH5l0vppPW,,,addnewcard,80459
+80464,Charge,ch_3SIAJiLrnBTnlT7b0r7uQf0D,14/10/2025 15:39,80464:HIP Springfield,188.06,aud,188.06,0,188.06,aud,80464_for_stripe,cus_S18fQlISfrA8MZ,,,addnewcard,80464
+80465,Charge,ch_3SIAJkLrnBTnlT7b1VwEC42R,14/10/2025 15:39,80465:SANA Skin Clinic,448.8,aud,448.8,0,448.8,aud,80465_for_stripe,cus_S1DJWvAN8NBmRG,,,addnewcard,80465
+80544,Charge,ch_3SIAJmLrnBTnlT7b1KU5vV1q,14/10/2025 15:39,80544:Brazilian Butterfly - Knox ,382.07,aud,382.07,0,382.07,aud,80544_for_stripe,cus_S1TKFTXliefdkM,,,addnewcard,80544
+80545,Charge,ch_3SIAJpLrnBTnlT7b1TZxRG9U,14/10/2025 15:39,80545:Brazilian Butterfly - Canberra,418.83,aud,418.83,0,418.83,aud,80545_for_stripe,cus_S1TOMENIRHVOOe,,,addnewcard,80545
+80546,Charge,ch_3SIAJsLrnBTnlT7b0zpfWyuJ,14/10/2025 15:39,80546:Brazilian Butterfly - Robina,344.1,aud,344.1,0,344.1,aud,80546_for_stripe,cus_S1TRtQjNFAOTv5,,,addnewcard,80546
+80547,Charge,ch_3SIAJuLrnBTnlT7b15xP4AUP,14/10/2025 15:39,80547:Brazilian Butterfly - Ashmore,343.24,aud,343.24,0,343.24,aud,80547_for_stripe,cus_S1TUudMq8F3FKz,,,addnewcard,80547
+80550,Charge,ch_3SIAJxLrnBTnlT7b0mdhm3AX,14/10/2025 15:39,80550:Brazilian Butterfly - Armadale,490.47,aud,490.47,0,490.47,aud,80550_for_stripe,cus_S1WKe3bZEOXvqF,,,addnewcard,80550
+80551,Charge,ch_3SIAK0LrnBTnlT7b0EpVS2JE,14/10/2025 15:39,80551:Brazilian Butterfly - Camberwell,380.28,aud,380.28,0,380.28,aud,80551_for_stripe,cus_S1WOE9JOaWBMPN,,,addnewcard,80551
+80552,Charge,ch_3SIAK3LrnBTnlT7b1spoQa5u,14/10/2025 15:39,80552:Brazilian Butterfly - Carlton,392.72,aud,392.72,0,392.72,aud,80552_for_stripe,cus_S1WR9UBmMeAhP5,,,addnewcard,80552
+80553,Charge,ch_3SIAK5LrnBTnlT7b0PezWciF,14/10/2025 15:39,80553:Brazilian Butterfly - Caroline Springs,349.33,aud,349.33,0,349.33,aud,80553_for_stripe,cus_S1WUyaR2qXvY7w,,,addnewcard,80553
+80554,Charge,ch_3SIAK8LrnBTnlT7b1jB9r5X4,14/10/2025 15:39,80554:Brazilian Butterfly - Epping,382.79,aud,382.79,0,382.79,aud,80554_for_stripe,cus_S1WX2Gt8cRdKPB,,,addnewcard,80554
+80555,Charge,ch_3SIAKBLrnBTnlT7b0kPfJzyP,14/10/2025 15:39,80555:Brazilian Butterfly - Essendon,393.72,aud,393.72,0,393.72,aud,80555_for_stripe,cus_S1WZjvQbHMIx8y,,,addnewcard,80555
+80556,Charge,ch_3SIAKELrnBTnlT7b0jOqdkv0,14/10/2025 15:39,80556:Brazilian Butterfly - Frankston,344.1,aud,344.1,0,344.1,aud,80556_for_stripe,cus_S1WcxYhms8k7Mh,,,addnewcard,80556
+80557,Charge,ch_3SIAKGLrnBTnlT7b0Az6xKiZ,14/10/2025 15:39,80557:Brazilian Butterfly - Greensborough,375.07,aud,375.07,0,375.07,aud,80557_for_stripe,cus_S1WfvQ6dFHkycO,,,addnewcard,80557
+80558,Charge,ch_3SIAKJLrnBTnlT7b0A3pxLBx,14/10/2025 15:39,80558:Brazilian Butterfly - Hampton,371.7,aud,371.7,0,371.7,aud,80558_for_stripe,cus_S1WhXHj7YJ9MRV,,,addnewcard,80558
+80560,Charge,ch_3SIAKMLrnBTnlT7b1AWAYIn0,14/10/2025 15:39,80560:Brazilian Butterfly - Richmond,396.95,aud,396.95,0,396.95,aud,80560_for_stripe,cus_S1WmPN6eqFPfij,,,addnewcard,80560
+80561,Charge,ch_3SIAKOLrnBTnlT7b0vcbC1Qa,14/10/2025 15:39,80561:Brazilian Butterfly - Ringwood North,393.37,aud,393.37,0,393.37,aud,80561_for_stripe,cus_S1WvClfqLB48CJ,,,addnewcard,80561
+80563,Charge,ch_3SIAKRLrnBTnlT7b0uWKn3E9,14/10/2025 15:39,80563:Brazilian Butterfly - Rowville,344.89,aud,344.89,0,344.89,aud,80563_for_stripe,cus_S1X4uetDp77E9S,,,addnewcard,80563
+80564,Charge,ch_3SIAKVLrnBTnlT7b0z56Nua5,14/10/2025 15:40,80564:Brazilian Butterfly - Werribee,342.24,aud,342.24,0,342.24,aud,80564_for_stripe,cus_S1X5ZX6O3CtXjd,,,addnewcard,80564
+80699,Charge,ch_3SIAKYLrnBTnlT7b1vi7Xqtu,14/10/2025 15:40,80699:Onje Hair Wembley,350.25,aud,350.25,0,350.25,aud,80699_for_stripe,cus_S2is9MCdbKDQvF,,,addnewcard,80699
+80722,Charge,ch_3SIAKaLrnBTnlT7b1XfGdbWl,14/10/2025 15:40,80722:leMYNK Hair,362.13,aud,362.13,0,362.13,aud,80722_for_stripe,cus_S2lpcEcVvjVVzm,,,addnewcard,80722
+80773,Charge,ch_3SIAKdLrnBTnlT7b0EfQeaF5,14/10/2025 15:40,80773:Honey Honey Salon,351.48,aud,351.48,0,351.48,aud,80773_for_stripe,cus_T6Zq1HR1tvZ5a6,,,addnewcard,80773
+80908,Charge,ch_3SIAKfLrnBTnlT7b0xcdGYzD,14/10/2025 15:40,80908:Headquarterz Hair,418.06,aud,418.06,0,418.06,aud,80908_for_stripe,cus_Sym9YSTVrGY3W6,,,addnewcard,80908
+80910,Charge,ch_3SIAKhLrnBTnlT7b0RZXsdWb,14/10/2025 15:40,80910:Eva Mercedes Studio,511.69,aud,511.69,0,511.69,aud,80910_for_stripe,cus_T6fmxczKtLtPuy,,,addnewcard,80910
+81293,Charge,ch_3SIAKnLrnBTnlT7b0Lz3MXAI,14/10/2025 15:40,81293:Salon by Vogue Nationale,461.41,aud,461.41,0,461.41,aud,81293_for_stripe,cus_S5dgg2jghFhWXJ,,,addnewcard,81293
+81408,Charge,ch_3SIAKpLrnBTnlT7b1FnOGnI9,14/10/2025 15:40,81408:Remi Aesthetics PTY LTD,429.33,aud,429.33,0,429.33,aud,81408_for_stripe,cus_S61l9lQ0PWBtR5,,,addnewcard,81408
+81409,Charge,ch_3SIAKrLrnBTnlT7b1lUByJ0H,14/10/2025 15:40,81409:Energy Hair Co,371.67,aud,371.67,0,371.67,aud,81409_for_stripe,cus_S62ipb3B5Gyi0Z,,,addnewcard,81409
+81412,Charge,ch_3SIAKuLrnBTnlT7b1e89Nxc6,14/10/2025 15:40,81412:Winter & Co. Hair and Beauty,249.7,aud,249.7,0,249.7,aud,81412_for_stripe,cus_TBypI7joAlT3OX,,,addnewcard,81412
+81747,Charge,ch_3SIAKwLrnBTnlT7b0YbmIx9t,14/10/2025 15:40,81747:Skora | Skin,145.51,aud,145.51,0,145.51,aud,81747_for_stripe,cus_S7dKIxjmmIF7ZX,,,addnewcard,81747
+81923,Charge,ch_3SIAKyLrnBTnlT7b0WuNanQx,14/10/2025 15:40,81923:Skora | Skin,80.86,aud,80.86,0,80.86,aud,81923_for_stripe,cus_S8g5ZQxHl4pMdS,,,addnewcard,81923
+81925,Charge,ch_3SIAL3LrnBTnlT7b0hpbDmCv,14/10/2025 15:40,81925:Skora | Skin,78.89,aud,78.89,0,78.89,aud,81925_for_stripe,cus_S8gHWIzbmN2hnN,,,addnewcard,81925
+81958,Charge,ch_3SIAL6LrnBTnlT7b1alDFZKi,14/10/2025 15:40,81958:Upper Skin Clinic,113.11,aud,113.11,0,113.11,aud,81958_for_stripe,cus_S8mrKhvlohWNAa,,,addnewcard,81958
+82432,Charge,ch_3SIAL8LrnBTnlT7b09mPYeQE,14/10/2025 15:40,82432:Rok Paper Scissors Hair Studio,506.77,aud,506.77,0,506.77,aud,82432_for_stripe,cus_SBdxRlukMXg6km,,,addnewcard,82432
+82654,Charge,ch_3SIALALrnBTnlT7b0xpf0uzu,14/10/2025 15:40,82654:Nano Aesthetics Pty Ltd,187.75,aud,187.75,0,187.75,aud,82654_for_stripe,cus_SD7RGxcntec8pc,,,addnewcard,82654
+82722,Charge,ch_3SIALCLrnBTnlT7b1cGqqYfZ,14/10/2025 15:40,82722:Maytopia at Bendigo CBD,396.17,aud,396.17,0,396.17,aud,82722_for_stripe,cus_SDW0AUSQclxdMK,,,addnewcard,82722
+82725,Charge,ch_3SIALHLrnBTnlT7b0fZxr5RV,14/10/2025 15:40,82725:Blonde Poetry,30.33,aud,30.33,0,30.33,aud,82725_for_stripe,cus_SuDfyfmTdyvvST,,,addnewcard,82725
+82814,Charge,ch_3SIALKLrnBTnlT7b1vZDW6Nc,14/10/2025 15:40,82814:Dermé Aesthetic Clinic,948.19,aud,948.19,0,948.19,aud,82814_for_stripe,cus_T6ZvKeqx7OYeDG,,,addnewcard,82814
+83047,Charge,ch_3SIALPLrnBTnlT7b1zYAmBQ5,14/10/2025 15:40,83047:Brazilian Butterfly - Berwick,458.51,aud,458.51,0,458.51,aud,83047_for_stripe,cus_SR6RFE9zUk5j5x,,,addnewcard,83047
+83048,Charge,ch_3SIALSLrnBTnlT7b1ahXLRXK,14/10/2025 15:41,83048:Brazilian Butterfly - Fairfield,444.5,aud,444.5,0,444.5,aud,83048_for_stripe,cus_SVsX8f06YknD8Q,,,addnewcard,83048
+83050,Charge,ch_3SIALXLrnBTnlT7b0belBnbW,14/10/2025 15:41,83050:Brazilian Butterfly - Port Melbourne,515,aud,515,0,515,aud,83050_for_stripe,cus_SWdxCamuNb8fjP,,,addnewcard,83050
+83167,Charge,ch_3SIALaLrnBTnlT7b0EIZeZgz,14/10/2025 15:41,83167:Lox Society,416.9,aud,416.9,0,416.9,aud,83167_for_stripe,cus_SF6Y2Fnp98ch1v,,,addnewcard,83167
+83236,Charge,ch_3SIALcLrnBTnlT7b1l0yZ1Ev,14/10/2025 15:41,83236:Bare Skin and Beauty,477.64,aud,477.64,0,477.64,aud,83236_for_stripe,cus_Sih22dUalf2LuR,,,addnewcard,83236
+83237,Charge,ch_3SIALfLrnBTnlT7b0LcYx0QR,14/10/2025 15:41,83237:Bare Skin and Beauty,412.19,aud,412.19,0,412.19,aud,83237_for_stripe,cus_SvJxZKl0Nha8SP,,,addnewcard,83237
+83406,Charge,ch_3SIALhLrnBTnlT7b02Ww4OLy,14/10/2025 15:41,83406:Salon May,2140.77,aud,2140.77,0,2140.77,aud,83406_for_stripe,cus_SGaUz7ikwP1bms,,,addnewcard,83406
+83464,Charge,ch_3SIALjLrnBTnlT7b14LWPYrT,14/10/2025 15:41,83464:Si Organics,433.4,aud,433.4,0,433.4,aud,83464_for_stripe,cus_SGpSkclpBjchyn,,,addnewcard,83464
+83659,Charge,ch_3SIALmLrnBTnlT7b1vk8B8Dj,14/10/2025 15:41,83659:Ainslie Hair Inn,262.9,aud,262.9,0,262.9,aud,83659_for_stripe,cus_SI7mgAyPUMBQqU,,,addnewcard,83659
+83667,Charge,ch_3SIALoLrnBTnlT7b0qbG3mVD,14/10/2025 15:41,83667:Hair Creations,480.11,aud,480.11,0,480.11,aud,83667_for_stripe,cus_SIMi7vgGXHlvCa,,,addnewcard,83667
+83745,Charge,ch_3SIALrLrnBTnlT7b1dar89pI,14/10/2025 15:41,83745:Vive Hair & Beauty,384.87,aud,384.87,0,384.87,aud,83745_for_stripe,cus_SIrmBMSpd6jTfF,,,addnewcard,83745
+83952,Charge,ch_3SIALtLrnBTnlT7b11pHxEVN,14/10/2025 15:41,83952:SODA THE SALON,433.4,aud,433.4,0,433.4,aud,83952_for_stripe,cus_SJTh7iki8zWB1n,,,addnewcard,83952
+84256,Charge,ch_3SIALvLrnBTnlT7b0o8WXlaJ,14/10/2025 15:41,84256:George & Ivy,417.84,aud,417.84,0,417.84,aud,84256_for_stripe,cus_SLLwUHTNx8zoTJ,,,addnewcard,84256
+84362,Charge,ch_3SIALyLrnBTnlT7b13dWroG3,14/10/2025 15:41,84362:JPS Hair & Beauty Kallangur,488.52,aud,488.52,0,488.52,aud,84362_for_stripe,cus_SLm8RCYZ4nPQ7I,,,addnewcard,84362
+84372,Charge,ch_3SIAM0LrnBTnlT7b0mSgVAy1,14/10/2025 15:41,84372:JPS Hair & Beauty Morayfield,555.94,aud,555.94,0,555.94,aud,84372_for_stripe,cus_SLmiGbGayvLFLm,,,addnewcard,84372
+84416,Charge,ch_3SIAM2LrnBTnlT7b1omFOgyR,14/10/2025 15:41,84416:HAVANA HAIR & BEAUTY,584.98,aud,584.98,0,584.98,aud,84416_for_stripe,cus_Siwb5GkrOuARX9,,,addnewcard,84416
+84818,Charge,ch_3SIAM8LrnBTnlT7b03jqh3Kw,14/10/2025 15:41,84818:Hair Avenue,325.6,aud,325.6,0,325.6,aud,84818_for_stripe,cus_SNJ5JFAsFEGK8M,,,addnewcard,84818
+85065,Charge,ch_3SIAMALrnBTnlT7b03hFgxjr,14/10/2025 15:41,85065:White Ivy 2.0,561.89,aud,561.89,0,561.89,aud,85065_for_stripe,cus_SOSwaeiUK3TV3N,,,addnewcard,85065
+85081,Charge,ch_3SIAMDLrnBTnlT7b0HB5uhRQ,14/10/2025 15:41,85081:Skin Reveal,699.97,aud,699.97,0,699.97,aud,85081_for_stripe,cus_SOVdqYafS6xkPv,,,addnewcard,85081
+85400,Charge,ch_3SIAMFLrnBTnlT7b03ebkjWG,14/10/2025 15:41,85400:Blonde Baby,428.49,aud,428.49,0,428.49,aud,85400_for_stripe,cus_SPrl1ti73sK9XD,,,addnewcard,85400
+86139,Charge,ch_3SIAMILrnBTnlT7b1uBTMhxD,14/10/2025 15:41,86139:BARE.the salon,357.46,aud,357.46,0,357.46,aud,86139_for_stripe,cus_Sb5NCKi69IcJsu,,,addnewcard,86139
+86364,Charge,ch_3SIAMKLrnBTnlT7b1bEqi0lz,14/10/2025 15:41,86364:The Hair Pin,597.51,aud,597.51,0,597.51,aud,86364_for_stripe,cus_STyRA0HoruhU6i,,,addnewcard,86364
+86389,Charge,ch_3SIAMMLrnBTnlT7b0FezPXOI,14/10/2025 15:41,86389:Casa Bella Aesthetics,416.9,aud,416.9,0,416.9,aud,86389_for_stripe,cus_SU7kJUnIorQMsy,,,addnewcard,86389
+86586,Charge,ch_3SIAMPLrnBTnlT7b1AmUTUno,14/10/2025 15:42,86586:Hayley Jayne Hair at Bowden,203.76,aud,203.76,0,203.76,aud,86586_for_stripe,cus_T5pZBB1u0oAfQj,,,addnewcard,86586
+86606,Charge,ch_3SIAMRLrnBTnlT7b1nOxSwmd,14/10/2025 15:42,86606:Tommaso Hair,236.13,aud,236.13,0,236.13,aud,86606_for_stripe,cus_T7WJ012MaLXyfe,,,addnewcard,86606
+86614,Charge,ch_3SIAMTLrnBTnlT7b1NTfbXOz,14/10/2025 15:42,86614:Allure Salon and Spa,492.31,aud,492.31,0,492.31,aud,86614_for_stripe,cus_SVXmopxwmRQvbA,,,addnewcard,86614
+86615,Charge,ch_3SIAMWLrnBTnlT7b03tibony,14/10/2025 15:42,86615:VELOUR Beauty Parlour,454.97,aud,454.97,0,454.97,aud,86615_for_stripe,cus_SVXgqq4mXyQuFc,,,addnewcard,86615
+86726,Charge,ch_3SIAMYLrnBTnlT7b0LAaNXwP,14/10/2025 15:42,86726:J Society,487.87,aud,487.87,0,487.87,aud,86726_for_stripe,cus_SVqsMdtz3ifNmJ,,,addnewcard,86726
+86733,Charge,ch_3SIAMaLrnBTnlT7b1li3Xnhf,14/10/2025 15:42,86733:Farrago Skin & Body,836.41,aud,836.41,0,836.41,aud,86733_for_stripe,cus_SVxCOVqwqO04JH,,,addnewcard,86733
+87178,Charge,ch_3SIAMiLrnBTnlT7b1GptvBFm,14/10/2025 15:42,87178:Jacky Boy Studio,132.95,aud,132.95,0,132.95,aud,87178_for_stripe,cus_SXPseYAueiRwMv,,,addnewcard,87178
+87616,Charge,ch_3SIAMnLrnBTnlT7b0gGXB52J,14/10/2025 15:42,87616:Beauty Science Bentleigh East,185.9,aud,185.9,0,185.9,aud,87616_for_stripe,cus_Su9CAwPN4UTfB8,,,addnewcard,87616
+87769,Charge,ch_3SIAMpLrnBTnlT7b1fn6poTg,14/10/2025 15:42,87769:Scissor & Stone,598.26,aud,598.26,0,598.26,aud,87769_for_stripe,cus_SZDqG4GWWre5YQ,,,addnewcard,87769
+87918,Charge,ch_3SIAMwLrnBTnlT7b1IpLmIM7,14/10/2025 15:42,87918:Primavera Clinic,185.9,aud,185.9,0,185.9,aud,87918_for_stripe,cus_SZeYX4rx2ADf3l,,,addnewcard,87918
+87926,Charge,ch_3SIAMzLrnBTnlT7b05TXgh70,14/10/2025 15:42,87926:Primavera Clinic,416.9,aud,416.9,0,416.9,aud,87926_for_stripe,cus_SZeh4na68Og1pH,,,addnewcard,87926
+88180,Charge,ch_3SIAN1LrnBTnlT7b1xKqpFXW,14/10/2025 15:42,88180:Rosie & Co,194.52,aud,194.52,0,194.52,aud,88180_for_stripe,cus_San06Hy2FRI2YN,,,addnewcard,88180
+88614,Charge,ch_3SIAN3LrnBTnlT7b008AWPpf,14/10/2025 15:42,88614:FSHC PTY LTD,82.5,aud,82.5,0,82.5,aud,88614_for_stripe,cus_SbR4Vr6igOcT5l,,,addnewcard,88614
+88827,Charge,ch_3SIAN5LrnBTnlT7b0i6TsDmx,14/10/2025 15:42,88827:My Body Vibes,347.26,aud,347.26,0,347.26,aud,88827_for_stripe,cus_Sbq3jqP9AIpLGv,,,addnewcard,88827
+89022,Charge,ch_3SIAN8LrnBTnlT7b1dTwvmCw,14/10/2025 15:42,89022:Salty Kisses on Channon,425.45,aud,425.45,0,425.45,aud,89022_for_stripe,cus_SdNBw7RX6fDbRg,,,addnewcard,89022
+89356,Charge,ch_3SIANALrnBTnlT7b17Q5ffjs,14/10/2025 15:42,89356:Hair Synergy,420.23,aud,420.23,0,420.23,aud,89356_for_stripe,cus_SeO7MXPtxBRlDJ,,,addnewcard,89356
+89639,Charge,ch_3SIANCLrnBTnlT7b0wvQEITY,14/10/2025 15:42,89639:Anna cosmetics 3D,86.96,aud,86.96,0,86.96,aud,89639_for_stripe,cus_SgIKEz2ofH5bZ1,,,addnewcard,89639
+89728,Charge,ch_3SIANHLrnBTnlT7b1FVaoTHX,14/10/2025 15:42,89728:New You Beauty,457.25,aud,457.25,0,457.25,aud,89728_for_stripe,cus_SgRodaOhtm5nVT,,,addnewcard,89728
+89735,Charge,ch_3SIANKLrnBTnlT7b0IZayJMB,14/10/2025 15:42,89735:Allure Skin and Beauty,427.38,aud,427.38,0,427.38,aud,89735_for_stripe,cus_SgSWdou1n6M4Oa,,,addnewcard,89735
+90016,Charge,ch_3SIANMLrnBTnlT7b0AJRHE2h,14/10/2025 15:43,90016:Rival Hairdressing Studio,334.4,aud,334.4,0,334.4,aud,90016_for_stripe,cus_Sh52cMCKzY7XV6,,,addnewcard,90016
+90018,Charge,ch_3SIANPLrnBTnlT7b1PWr8M3I,14/10/2025 15:43,90018:Derma Glow South Yarra,382.15,aud,382.15,0,382.15,aud,90018_for_stripe,cus_Sh7oQBOsCOgtDn,,,addnewcard,90018
+90261,Charge,ch_3SIANSLrnBTnlT7b00pa9LyM,14/10/2025 15:43,90261:Atico Beauty,317.9,aud,317.9,0,317.9,aud,90261_for_stripe,cus_SiAGXVoAFeoT70,,,addnewcard,90261
+90275,Charge,ch_3SIANULrnBTnlT7b1ABS4vU7,14/10/2025 15:43,90275:Jarahs Hair Salon,366.75,aud,366.75,0,366.75,aud,90275_for_stripe,cus_SiYlQ7bQV6j4ML,,,addnewcard,90275
+90279,Charge,ch_3SIANXLrnBTnlT7b0VH0cOvI,14/10/2025 15:43,90279:Macquarie Medi Spa,275.12,aud,275.12,0,275.12,aud,90279_for_stripe,cus_T6ain9ukfdbTs2,,,addnewcard,90279
+90360,Charge,ch_3SIANZLrnBTnlT7b14JFrCnf,14/10/2025 15:43,90360:The Skin Bar Laser Clinic,732.93,aud,732.93,0,732.93,aud,90360_for_stripe,cus_SiyZSxk8OLB228,,,addnewcard,90360
+90362,Charge,ch_3SIANbLrnBTnlT7b0CIJ4kko,14/10/2025 15:43,90362:The Boutique Skin Clinic,354.32,aud,354.32,0,354.32,aud,90362_for_stripe,cus_SizWY70IOxmbEC,,,addnewcard,90362
+90447,Charge,ch_3SIANdLrnBTnlT7b09b95CS7,14/10/2025 15:43,90447:Miss Arlo,317.9,aud,317.9,0,317.9,aud,90447_for_stripe,cus_SjI5mcqPvT6Zck,,,addnewcard,90447
+90452,Charge,ch_3SIANgLrnBTnlT7b1KBzHC5G,14/10/2025 15:43,90452:Stevie C Hair,416.9,aud,416.9,0,416.9,aud,90452_for_stripe,cus_SjM4djLiI47D5I,,,addnewcard,90452
+90539,Charge,ch_3SIANlLrnBTnlT7b0Jwz9A3Z,14/10/2025 15:43,90539:Beautify Hair Design,457.24,aud,457.24,0,457.24,aud,90539_for_stripe,cus_Sjhn7pC667q46z,,,addnewcard,90539
+90542,Charge,ch_3SIANnLrnBTnlT7b1vNVoksF,14/10/2025 15:43,90542:Renew Laser and Skin Clinic,373.81,aud,373.81,0,373.81,aud,90542_for_stripe,cus_SlBSbizIexu7sg,,,addnewcard,90542
+90868,Charge,ch_3SIANpLrnBTnlT7b1yJEtJWv,14/10/2025 15:43,90868:Skin Co By Amy,199.45,aud,199.45,0,199.45,aud,90868_for_stripe,cus_SlfIxRfIAFuSz6,,,addnewcard,90868
+90980,Charge,ch_3SIANsLrnBTnlT7b0o8Ox6ci,14/10/2025 15:43,90980:Aesthetic Beauty Spot,357.46,aud,357.46,0,357.46,aud,90980_for_stripe,cus_T5pcJqdsl2Ah0r,,,addnewcard,90980
+91163,Charge,ch_3SIAO0LrnBTnlT7b0sK1OUZG,14/10/2025 15:43,91163:LilliBella Hair,1068.38,aud,1068.38,0,1068.38,aud,91163_for_stripe,cus_Sm4EypNu15ZLEs,,,addnewcard,91163
+91947,Charge,ch_3SIAOALrnBTnlT7b0yGe4dGu,14/10/2025 15:43,91947:The Confessional Hair Karratha,436.7,aud,436.7,0,436.7,aud,91947_for_stripe,cus_SoIE49VvVUiI36,,,addnewcard,91947
+92067,Charge,ch_3SIAOCLrnBTnlT7b16NT14m8,14/10/2025 15:43,92067:The Woods Clinic,416.9,aud,416.9,0,416.9,aud,92067_for_stripe,cus_SoZ1SKPYTIPBiB,,,addnewcard,92067
+92273,Charge,ch_3SIAOELrnBTnlT7b0JXTUoz6,14/10/2025 15:43,92273:Plum Studio,646.5,aud,646.5,0,646.5,aud,92273_for_stripe,cus_SoxXCDxAiBBDzj,,,addnewcard,92273
+92278,Charge,ch_3SIAOHLrnBTnlT7b0uv14uUd,14/10/2025 15:43,92278:Dermality,561.59,aud,561.59,0,561.59,aud,92278_for_stripe,cus_Sp1mbhGq1V4X0Y,,,addnewcard,92278
+92594,Charge,ch_3SIAOJLrnBTnlT7b0MHIFlKM,14/10/2025 15:43,92594:Skn and Bod,625.6,aud,625.6,0,625.6,aud,92594_for_stripe,cus_SzmltgfqZyTqB1,,,addnewcard,92594
+92595,Charge,ch_3SIAOLLrnBTnlT7b0Imzmykp,14/10/2025 15:44,92595:Indigo Cut & Colour,473.97,aud,473.97,0,473.97,aud,92595_for_stripe,cus_StAtmcDLS0DzdZ,,,addnewcard,92595
+92714,Charge,ch_3SIAOOLrnBTnlT7b1YqAWIEg,14/10/2025 15:44,92714:Shar by Tiffany,480.34,aud,480.34,0,480.34,aud,92714_for_stripe,cus_SqtO8263vYWdds,,,addnewcard,92714
+93275,Charge,ch_3SIAOQLrnBTnlT7b1hu6iIUL,14/10/2025 15:44,93275:Banks Hair,755.07,aud,755.07,0,755.07,aud,93275_for_stripe,cus_St6rGGlZSMOUab,,,addnewcard,93275
+93691,Charge,ch_3SIAOVLrnBTnlT7b1bG2qnHP,14/10/2025 15:44,93691:The Loft Hair Salon,694.84,aud,694.84,0,694.84,aud,93691_for_stripe,cus_SuAynp7R9J5TbD,,,addnewcard,93691
+94437,Charge,ch_3SIAOYLrnBTnlT7b0zCXmChA,14/10/2025 15:44,94437:Zhen skin clinic  Pty Ltd,42.9,aud,42.9,0,42.9,aud,94437_for_stripe,cus_SwqSYTZGZGzI9f,,,addnewcard,94437
+94582,Charge,ch_3SIAOaLrnBTnlT7b1eq1qB8R,14/10/2025 15:44,94582:Vital Effect Skin + Health,181.3,aud,181.3,0,181.3,aud,94582_for_stripe,cus_SxDWeT7RqzjfD0,,,addnewcard,94582
+94822,Charge,ch_3SIAOfLrnBTnlT7b0T5eN0Ew,14/10/2025 15:44,94822:SJ Nails Studio,250.14,aud,250.14,0,250.14,aud,94822_for_stripe,cus_SyIMPqQevf27NB,,,addnewcard,94822
+94923,Charge,ch_3SIAOhLrnBTnlT7b03b3TvVJ,14/10/2025 15:44,94923:Lush Day Spa,390.69,aud,390.69,0,390.69,aud,94923_for_stripe,cus_SylfFSK9NXLFak,,,addnewcard,94923
+95064,Charge,ch_3SIAOjLrnBTnlT7b0OKW9itE,14/10/2025 15:44,95064:Upper Skin Clinic,43.21,aud,43.21,0,43.21,aud,95064_for_stripe,cus_Sz4XzrMoSDB6Rw,,,addnewcard,95064
+95079,Charge,ch_3SIAOmLrnBTnlT7b1fejPGxD,14/10/2025 15:44,95079:Dermè Aesthetic Clinic,42.9,aud,42.9,0,42.9,aud,95079_for_stripe,cus_Sz8wD9XcP2kpcL,,,addnewcard,95079
+96351,Charge,ch_3SIAOsLrnBTnlT7b05pjzPaH,14/10/2025 15:44,96351:Derma Glow South Yarra,42.9,aud,42.9,0,42.9,aud,96351_for_stripe,cus_T0x1e0vOosV9G3,,,addnewcard,96351
+101196,Charge,ch_3SIMLMLrnBTnlT7b1OKv39hC,15/10/2025 04:29,101196:SKINTHESIS RESERVOIR,764.5,aud,764.5,0,764.5,aud,101196_for_stripe,cus_TEq10c1eJxo7b9,,,addnewcard,101196
+101198,Charge,ch_3SIOTuLrnBTnlT7b0M6QfgaW,15/10/2025 06:46,101198:Suat & Co Hair Studio,382.25,aud,382.25,0,382.25,aud,101198_for_stripe,cus_TEsE4VMT91hjpW,,,addnewcard,101198
+93579,Charge,ch_3SIQzMLrnBTnlT7b0oti1PFt,15/10/2025 09:27,93579:Tree House Salon,840,aud,840,0,840,aud,93579_for_stripe,cus_StrMtwACAoLAvN,,,addnewcard,93579
+17560,Charge,ch_3SIQzRLrnBTnlT7b1NLaZHeQ,15/10/2025 09:27,17560:Skindeep Central,3421.06,aud,3421.06,0,3421.06,aud,17560_for_stripe,cus_Rpt2tuZKCvLxvp,,,addnewcard,17560
+18303,Charge,ch_3SIQzTLrnBTnlT7b0rtLj1Sj,15/10/2025 09:27,18303:Many Faces Aesthetics,636.24,aud,636.24,0,636.24,aud,18303_for_stripe,cus_OUO6ToWK4UgecQ,,,addnewcard,18303
+18944,Charge,ch_3SIQzYLrnBTnlT7b0Ba8AJPe,15/10/2025 09:27,18944:Hair Management Co,543.71,aud,543.71,0,543.71,aud,18944_for_stripe,cus_G0M264kdcjJdjB,info+18944_95NC7EEL@phorest.com,,addnewcard,18944
+24273,Charge,ch_3SIQzlLrnBTnlT7b1WPlhUXU,15/10/2025 09:27,24273:The Colour Shak,460.76,aud,460.76,0,460.76,aud,24273_for_stripe,cus_QWJwvfnfl34Pg5,,,addnewcard,24273
+24317,Charge,ch_3SIQznLrnBTnlT7b1uleZtiV,15/10/2025 09:27,24317:Balabala Laser Clinic,213.4,aud,213.4,0,213.4,aud,24317_for_stripe,cus_Sve5NW1OdbJOWw,,,addnewcard,24317
+29026,Charge,ch_3SIQzxLrnBTnlT7b0fJgzN2Z,15/10/2025 09:27,29026:Wild Mane,202.99,aud,202.99,0,202.99,aud,29026_for_stripe,cus_IhrB5qEZt5yMYl,info+29026_W6ZH7Y5I@phorest.com,,addnewcard,29026
+31174,Charge,ch_3SIR0LLrnBTnlT7b0m3BacL5,15/10/2025 09:28,31174:Super natural hair and body clinic,467.95,aud,467.95,0,467.95,aud,31174_for_stripe,cus_T5rXsr0Moj8SDA,,,addnewcard,31174
+31869,Charge,ch_3SIR0QLrnBTnlT7b0KuioXZS,15/10/2025 09:28,31869:Manscape Aesthetics,218.86,aud,218.86,0,218.86,aud,31869_for_stripe,cus_I2JiPpcWd6iTbm,info+31869_3G6F4G1Z@phorest.com,,addnewcard,31869
+32005,Charge,ch_3SIR0TLrnBTnlT7b1dzh7civ,15/10/2025 09:28,32005:Serene Hair & Body,444.58,aud,444.58,0,444.58,aud,32005_for_stripe,cus_RyuM1H5QxDASq5,,,addnewcard,32005
+35694,Charge,ch_3SIR0gLrnBTnlT7b1DSCKYKw,15/10/2025 09:28,35694:Tranquil Essence Skin Clinic and Body Sculpting Hobart,328.47,aud,328.47,0,328.47,aud,35694_for_stripe,cus_S17wu7VTaxmuvc,,,addnewcard,35694
+36722,Charge,ch_3SIR0iLrnBTnlT7b0nH1TMiC,15/10/2025 09:28,36722:Same Same But Different Salon,410.65,aud,410.65,0,410.65,aud,36722_for_stripe,cus_PE6CJIhGIOH2Gk,,,addnewcard,36722
+36835,Charge,ch_3SIR0lLrnBTnlT7b0OGzPEew,15/10/2025 09:28,36835:BareWolf Clinics,564.22,aud,564.22,0,564.22,aud,36835_for_stripe,cus_MeCLSivXVcq7o3,,,addnewcard,36835
+38439,Charge,ch_3SIR0qLrnBTnlT7b1sFsFF3T,15/10/2025 09:28,38439:Australian Laser & Skin,383.9,aud,383.9,0,383.9,aud,38439_for_stripe,cus_SAvizMyQ86j5wE,,,addnewcard,38439
+38454,Charge,ch_3SIR0sLrnBTnlT7b1pz9CQB7,15/10/2025 09:28,38454:Australian Laser & Skin,383.9,aud,383.9,0,383.9,aud,38454_for_stripe,cus_SCU6RSp4VImhmf,,,addnewcard,38454
+38462,Charge,ch_3SIR0xLrnBTnlT7b0qvCk1HS,15/10/2025 09:28,38462:Australian Laser & Skin,2357.52,aud,2357.52,0,2357.52,aud,38462_for_stripe,cus_QzOATLcdLgQ0Mi,,,addnewcard,38462
+43956,Charge,ch_3SIR16LrnBTnlT7b01woSISa,15/10/2025 09:29,43956:My Skin Space,125.4,aud,125.4,0,125.4,aud,43956_for_stripe,cus_Qt65wgyxoPWEbV,,,addnewcard,43956
+44901,Charge,ch_3SIR1BLrnBTnlT7b0G9ggsyf,15/10/2025 09:29,44901:Next International Salons,539.9,aud,539.9,0,539.9,aud,44901_for_stripe,cus_PQ2DPD78YnjQkv,,,addnewcard,44901
+44905,Charge,ch_3SIR1DLrnBTnlT7b0E3IEDMK,15/10/2025 09:29,44905:Next International Salons,489.08,aud,489.08,0,489.08,aud,44905_for_stripe,cus_PQ2EoALp6nGu8Y,,,addnewcard,44905
+46524,Charge,ch_3SIR1NLrnBTnlT7b02nF9srb,15/10/2025 09:29,46524:Lash Brow and Co Ballarat,388.12,aud,388.12,0,388.12,aud,46524_for_stripe,cus_PE8iSaBIMhE1Ar,,,addnewcard,46524
+47492,Charge,ch_3SIR1ULrnBTnlT7b0PIYFhR0,15/10/2025 09:29,47492:The Skin Coaches,189.12,aud,189.12,0,189.12,aud,47492_for_stripe,cus_QMV1Mb87xLlLMh,,,addnewcard,47492
+48202,Charge,ch_3SIR1XLrnBTnlT7b1A4hpFVY,15/10/2025 09:29,48202:MJ HAIR STATION,390.46,aud,390.46,0,390.46,aud,48202_for_stripe,cus_PmEkYgndhzalWZ,,,addnewcard,48202
+50681,Charge,ch_3SIR1eLrnBTnlT7b0tHsyLED,15/10/2025 09:29,50681:Beautiful You Hair and Beauty Day Spa,349.26,aud,349.26,0,349.26,aud,50681_for_stripe,cus_SMms8kAW0xsnOi,,,addnewcard,50681
+51843,Charge,ch_3SIR1lLrnBTnlT7b1ftiyZMh,15/10/2025 09:29,51843:Elle Hart Beauty,505.56,aud,505.56,0,505.56,aud,51843_for_stripe,cus_RyuAD241qcyxeV,,,addnewcard,51843
+52506,Charge,ch_3SIR1qLrnBTnlT7b1JAdos9a,15/10/2025 09:29,52506:Beautè Boutique,316.62,aud,316.62,0,316.62,aud,52506_for_stripe,cus_OM7NF1Ya1DreOz,,,paysignupbycard1,52506
+53318,Charge,ch_3SIR1vLrnBTnlT7b0HmoeR2F,15/10/2025 09:29,53318:BLOWBAR LANE,307.12,aud,307.12,0,307.12,aud,53318_for_stripe,cus_QhXC5snXzmuwCj,,,addnewcard,53318
+53881,Charge,ch_3SIR1zLrnBTnlT7b1pw6UBvb,15/10/2025 09:30,53881:LITTLE BIRDIE HAIR CO,312.51,aud,312.51,0,312.51,aud,53881_for_stripe,cus_RoQonfrKIR88Iy,,,addnewcard,53881
+53882,Charge,ch_3SIR21LrnBTnlT7b0vsViH2r,15/10/2025 09:30,53882:LITTLE BIRDIE HAIR CO,351.03,aud,351.03,0,351.03,aud,53882_for_stripe,cus_RoQogkZtMqBD71,,,addnewcard,53882
+56912,Charge,ch_3SIR23LrnBTnlT7b0z94tf5v,15/10/2025 09:30,56912:Luna Moth Eclipse,130.9,aud,130.9,0,130.9,aud,56912_for_stripe,cus_SuFsNqtM7vucpE,,,addnewcard,56912
+57240,Charge,ch_3SIR26LrnBTnlT7b1S3pA9st,15/10/2025 09:30,57240:Anshelle Beauty Salon,142.78,aud,142.78,0,142.78,aud,57240_for_stripe,cus_RcoRCDkUony47U,,,addnewcard,57240
+58126,Charge,ch_3SIR2BLrnBTnlT7b1Pl7wbrJ,15/10/2025 09:30,58126:Eden Spa and Beauty,190.92,aud,190.92,0,190.92,aud,58126_for_stripe,cus_QOir869KBKdQ3A,,,addnewcard,58126
+58355,Charge,ch_3SIR2DLrnBTnlT7b01GTA5cu,15/10/2025 09:30,58355:Amy Clare Hair,204.51,aud,204.51,0,204.51,aud,58355_for_stripe,cus_Pdcvvi2K8Iub0u,,,paysignupbycard1,58355
+60518,Charge,ch_3SIR2MLrnBTnlT7b1tL5ZV3O,15/10/2025 09:30,60518:Harlo and Co,448.32,aud,448.32,0,448.32,aud,60518_for_stripe,cus_QXOB7pyEkeFNjc,,,addnewcard,60518
+62103,Charge,ch_3SIR2ULrnBTnlT7b1H8XiRaH,15/10/2025 09:30,62103:Valley Hair Agency,352.68,aud,352.68,0,352.68,aud,62103_for_stripe,cus_QVzdCcek6ilqZc,,,paysignupbycard1,62103
+63678,Charge,ch_3SIR2bLrnBTnlT7b0dYXmyrg,15/10/2025 09:30,63678:GLOW BEAUTY SPACE,591.5,aud,591.5,0,591.5,aud,63678_for_stripe,cus_RFy3yB8TJlLI4F,,,addnewcard,63678
+70110,Charge,ch_3SIR2jLrnBTnlT7b0DC0IOry,15/10/2025 09:30,70110:KK Hair&Beauty,193.29,aud,193.29,0,193.29,aud,70110_for_stripe,cus_RoihsvXXPMDDrc,,,addnewcard,70110
+71148,Charge,ch_3SIR2lLrnBTnlT7b1BSG3CVm,15/10/2025 09:30,71148:Hair By Sigrid,729.29,aud,729.29,0,729.29,aud,71148_for_stripe,cus_RRBumqoTTf6KaH,,,addnewcard,71148
+72927,Charge,ch_3SIR2uLrnBTnlT7b1OjJqNxD,15/10/2025 09:31,72927:J.Lux Skin & Beauty,559.21,aud,559.21,0,559.21,aud,72927_for_stripe,cus_SuF61leBb7c7Mv,,,addnewcard,72927
+74859,Charge,ch_3SIR2xLrnBTnlT7b1hARnQp3,15/10/2025 09:31,74859:The Beauty Bar Kalamunda,462.92,aud,462.92,0,462.92,aud,74859_for_stripe,cus_RQ2xJVCsnbJPKL,,,paysignupbycard1,74859
+76835,Charge,ch_3SIR32LrnBTnlT7b1fpmEW8i,15/10/2025 09:31,76835:Hedz Up Hair & Beauty,750.79,aud,750.79,0,750.79,aud,76835_for_stripe,cus_RfNSWvNctdM06Y,,,addnewcard,76835
+77662,Charge,ch_3SIR35LrnBTnlT7b0mBoyJbA,15/10/2025 09:31,77662:Savvy Hair Artistry,506.2,aud,506.2,0,506.2,aud,77662_for_stripe,cus_RkfAPpWy0a0tst,,,addnewcard,77662
+80158,Charge,ch_3SIR3CLrnBTnlT7b0spA8JEL,15/10/2025 09:31,80158:Halo Hair & Beauty Salon,338.57,aud,338.57,0,338.57,aud,80158_for_stripe,cus_T6KmlE4MirsIio,,,addnewcard,80158
+83049,Charge,ch_3SIR3OLrnBTnlT7b1zdk3uul,15/10/2025 09:31,83049:Brazilian Butterfly - Geelong West,450.22,aud,450.22,0,450.22,aud,83049_for_stripe,cus_SQxwtK4D4sRpzi,,,addnewcard,83049
+87086,Charge,ch_3SIR3ULrnBTnlT7b1uCP3CpX,15/10/2025 09:31,87086:NBSkin pty ltd,360.8,aud,360.8,0,360.8,aud,87086_for_stripe,cus_SWz0pSb3edkBth,,,addnewcard,87086
+87774,Charge,ch_3SIR3YLrnBTnlT7b1d6WX5kk,15/10/2025 09:31,87774:Skinthesis,446.73,aud,446.73,0,446.73,aud,87774_for_stripe,cus_Sw6cXrnnqQYiN6,,,addnewcard,87774
+90982,Charge,ch_3SIR3eLrnBTnlT7b0YwVtJlA,15/10/2025 09:31,90982:Melissa Jean Skin Therapy,369.09,aud,369.09,0,369.09,aud,90982_for_stripe,cus_SlbBDe6GQIWTBB,,,addnewcard,90982
+90987,Charge,ch_3SIR3hLrnBTnlT7b0eMlT53w,15/10/2025 09:31,90987:Harrington Hair,625.21,aud,625.21,0,625.21,aud,90987_for_stripe,cus_SleMVeUPw8uC20,,,addnewcard,90987
+93581,Charge,ch_3SIR3mLrnBTnlT7b1dBG7E4z,15/10/2025 09:31,93581:BareWolf,819.91,aud,819.91,0,819.91,aud,93581_for_stripe,cus_SttlSsZ6TKoKD1,,,addnewcard,93581
+81922,Charge,ch_3SInJALrnBTnlT7b0zKTR3jH,16/10/2025 09:17,81922:Skora | Skin,243.65,aud,243.65,0,243.65,aud,81922_for_stripe,cus_S8g2ZjxqUQo8Dm,,,addnewcard,81922
+18835,Charge,ch_3SInJFLrnBTnlT7b19xL66el,16/10/2025 09:17,18835:Haus Of Aveda Paddington,382.23,aud,382.23,0,382.23,aud,18835_for_stripe,cus_T7PszLrzNJFooe,,,addnewcard,18835
+26547,Charge,ch_3SInJXLrnBTnlT7b0o023hCM,16/10/2025 09:17,26547:BOSS Hair & Body ,396.17,aud,396.17,0,396.17,aud,26547_for_stripe,cus_Sibo1eeOE31vlA,,,addnewcard,26547
+30510,Charge,ch_3SInJlLrnBTnlT7b0LPiiI8V,16/10/2025 09:17,30510:Maurice Meade Perth,392.07,aud,392.07,0,392.07,aud,30510_for_stripe,cus_O5fdPTTCztG9Y1,,,addnewcard,30510
+38457,Charge,ch_3SInKCLrnBTnlT7b0YSbfRMU,16/10/2025 09:18,38457:Australian Laser & Skin,383.9,aud,383.9,0,383.9,aud,38457_for_stripe,cus_Qn75ptnLALYcag,,,addnewcard,38457
+39475,Charge,ch_3SInKHLrnBTnlT7b0hrNV5Mc,16/10/2025 09:18,39475:Peachy Skin Clinic,411.96,aud,411.96,0,411.96,aud,39475_for_stripe,cus_T6GoMtbqa4xdjj,,,addnewcard,39475
+40173,Charge,ch_3SInKJLrnBTnlT7b1N7Yex3Q,16/10/2025 09:18,40173:Australian Laser & Skin,383.9,aud,383.9,0,383.9,aud,40173_for_stripe,cus_Qn76oq6FSycMML,,,addnewcard,40173
+45796,Charge,ch_3SInKQLrnBTnlT7b0TDgiqPC,16/10/2025 09:18,45796:Soulful Bloom Pty Ltd,540.43,aud,540.43,0,540.43,aud,45796_for_stripe,cus_T3xwU4BVqjlnk5,,,addnewcard,45796
+53038,Charge,ch_3SInKmLrnBTnlT7b0qASGdij,16/10/2025 09:18,53038:Earthside Collective,325.97,aud,325.97,0,325.97,aud,53038_for_stripe,cus_SjG1pIHzRmDhzY,,,addnewcard,53038
+61293,Charge,ch_3SInL0LrnBTnlT7b0iJTPV4d,16/10/2025 09:19,61293:Unikque Beauty Illawarra,293.39,aud,293.39,0,293.39,aud,61293_for_stripe,cus_QJZiQSFuwEYmzt,,,paysignupbycard1,61293
+73770,Charge,ch_3SInLILrnBTnlT7b0BauxcWJ,16/10/2025 09:19,73770:Coast & Crown The Salon ,1192.02,aud,1192.02,0,1192.02,aud,73770_for_stripe,cus_T6z3WOz1u6v0yg,,,addnewcard,73770
+79580,Charge,ch_3SInLOLrnBTnlT7b0gPI7jit,16/10/2025 09:19,79580:Bonnie Aesthetics,401.32,aud,401.32,0,401.32,aud,79580_for_stripe,cus_T6a9RxRTfYNnxJ,,,addnewcard,79580
+80461,Charge,ch_3SInLQLrnBTnlT7b1FNOp5bN,16/10/2025 09:19,80461:Curated Skin Aesthetics,535.81,aud,535.81,0,535.81,aud,80461_for_stripe,cus_SvlH9z5IL2Ma8X,,,addnewcard,80461
+81924,Charge,ch_3SInLVLrnBTnlT7b1bpVT260,16/10/2025 09:19,81924:Skora | Skin,3102.21,aud,3102.21,0,3102.21,aud,81924_for_stripe,cus_S8g8lnCQG3FMbi,,,addnewcard,81924
+94583,Charge,ch_3SInLlLrnBTnlT7b0vBFRw5i,16/10/2025 09:19,94583:Skora Skin,42.9,aud,42.9,0,42.9,aud,94583_for_stripe,cus_SxEOf81mHkEnR4,,,addnewcard,94583
+59313,Charge,ch_3SJ09vLrnBTnlT7b0o0u0tiu,16/10/2025 23:00,59313:Vibe Tribe Hairdressing,503.48,aud,503.48,0,503.48,aud,59313_for_stripe,cus_TFVA73HXuIKG9m,,,addnewcard,59313
+51880,Charge,ch_3SJ0OsLrnBTnlT7b0zVM6y7N,16/10/2025 23:16,51880:H&L Salon,621.39,aud,621.39,0,621.39,aud,,,,,,
+94140,Charge,ch_3SJ0RvLrnBTnlT7b06EtKcxL,16/10/2025 23:19,94140:Hair By I,1094.17,aud,1094.17,0,1094.17,aud,94140_for_stripe,cus_TFVSanwO99fsrO,,,addnewcard,94140
+59313,Charge,ch_3SJ1GiLrnBTnlT7b10wRkVwL,17/10/2025 00:11,59313:Vibe Tribe Hairdressing,503.48,aud,503.48,0,503.48,aud,59313_for_stripe,cus_TFWJZPiWc2m4wi,,,addnewcard,59313
+95984,Charge,ch_3SJ1JcLrnBTnlT7b0SPu8YWS,17/10/2025 00:14,95984:Evolve Beauty & Electrolysis,532.57,aud,532.57,0,532.57,aud,95984_for_stripe,cus_TFWM1FxHYzi4rQ,,,addnewcard,95984
+81236,Charge,ch_3SJ1NFLrnBTnlT7b0skYV0M5,17/10/2025 00:18,81236:U Hair Studio,413,aud,413,0,413,aud,81236_for_stripe,cus_TFWQKr27fvxfZI,,,addnewcard,81236
+86738,Charge,ch_3SJ4V5LrnBTnlT7b0GvjKW6N,17/10/2025 03:38,86738:Advanced Laser Clinic,358.6,aud,358.6,0,358.6,aud,86738_for_stripe,cus_TFZeKjSZU4zdel,,,addnewcard,86738
+101464,Charge,ch_3SJ4clLrnBTnlT7b1dWdFiYS,17/10/2025 03:46,101464:Facial Impressions,382.25,aud,382.25,0,382.25,aud,101464_for_stripe,cus_TFZmOKB1NGhRap,,,addnewcard,101464
+101467,Charge,ch_3SJ7P9LrnBTnlT7b0BhDuSmO,17/10/2025 06:44,101467:Amer hair Artist,217.25,aud,217.25,0,217.25,aud,101467_for_stripe,cus_TFceOTSncFC84r,,,addnewcard,101467
+32202,Charge,ch_3SJ9ceLrnBTnlT7b0kuAsiXg,17/10/2025 09:06,32202:Maurice Meade Academy,82.5,aud,82.5,0,82.5,aud,32202_for_stripe,cus_RFZYocPdyQCNRS,,,addnewcard,32202
+43997,Charge,ch_3SJ9cuLrnBTnlT7b0ZKfdOE8,17/10/2025 09:07,43997:Nicole De Wet Beauty Therapy,211.62,aud,211.62,0,211.62,aud,43997_for_stripe,cus_SizM4p7lTkhrND,,,addnewcard,43997
+51357,Charge,ch_3SJ9dDLrnBTnlT7b0Uj3SEW4,17/10/2025 09:07,51357:East Ivanhoe Skin and Body Therapy,209.53,aud,209.53,0,209.53,aud,51357_for_stripe,cus_SioE5wL3hZ3qpj,,,addnewcard,51357
+62144,Charge,ch_3SJ9dNLrnBTnlT7b1UIeHgZY,17/10/2025 09:07,62144:Hue Colour,930.31,aud,930.31,0,930.31,aud,62144_for_stripe,cus_QXTLLT9LXRMRCj,,,paysignupbycard1,62144
+71437,Charge,ch_3SJ9dXLrnBTnlT7b0UB85IjA,17/10/2025 09:07,71437:Skin & Tonic Gippsland,361.1,aud,361.1,0,361.1,aud,71437_for_stripe,cus_SuXkW6382RRq8d,,,addnewcard,71437
+49605,Refund,ch_3S7fS2LrnBTnlT7b0WJCc63l,23/09/2025 08:07,49605:Pipsqueek in Saigon,-328.56,aud,-328.56,0,-328.56,aud,49605_for_stripe,cus_S6070uoHq9m9yX,,,addnewcard,49605
+90279,Refund,ch_3SANWdLrnBTnlT7b0s5FtjOQ,29/09/2025 05:11,90279:Macquarie Medi Spa,-255.52,aud,-255.52,0,-255.52,aud,90279_for_stripe,cus_T6ain9ukfdbTs2,,,addnewcard,90279
+35450,Refund,ch_3S7fI3LrnBTnlT7b1gUkK2bZ,08/10/2025 13:19,35450:Mani Pedi Nail Salon,-240,aud,-240,0,-240,aud,35450_for_stripe,cus_SueBZQanqAvbXu,,,addnewcard,35450
+35450,Refund,ch_3RyosmLrnBTnlT7b1O6qKHFt,08/10/2025 13:19,35450:Mani Pedi Nail Salon,-160,aud,-160,0,-160,aud,35450_for_stripe,cus_SueBZQanqAvbXu,,,addnewcard,35450
+35450,Refund,ch_3RyosmLrnBTnlT7b1O6qKHFt,08/10/2025 13:21,35450:Mani Pedi Nail Salon,-150,aud,-150,0,-150,aud,35450_for_stripe,cus_SueBZQanqAvbXu,,,addnewcard,35450
+81958,Refund,ch_3SIAL6LrnBTnlT7b1alDFZKi,16/10/2025 07:02,81958:Upper Skin Clinic,-75.9,aud,-75.9,0,-75.9,aud,81958_for_stripe,cus_S8mrKhvlohWNAa,,,addnewcard,81958
+82814,Refund,ch_3SIALKLrnBTnlT7b1vZDW6Nc,16/10/2025 07:08,82814:Dermé Aesthetic Clinic,-108.9,aud,-108.9,0,-108.9,aud,82814_for_stripe,cus_T6ZvKeqx7OYeDG,,,addnewcard,82814
+0,Stripe Fee,finvp_1SA1g1LrnBTnlT7b85PO7Dr5,22/09/2025 04:48,Card Account Updater (CAU) (2025-09-21): Updates,-0.34,aud,-0.34,0.03,-0.37,aud,,,,,,
+0,Stripe Fee,finvp_1SA3yuLrnBTnlT7buB7QcQgk,22/09/2025 07:16,Card payments (2025-09-21): Stripe per-authorization fees,-0.45,aud,-0.45,0.05,-0.5,aud,,,,,,
+0,Stripe Fee,finvp_1SA3yvLrnBTnlT7bcm3mMrhP,22/09/2025 07:16,Card payments (2025-09-21): Stripe volume fees,-1.04,aud,-1.04,0.1,-1.14,aud,,,,,,
+0,Stripe Fee,finvp_1SA3yvLrnBTnlT7bNZs7P4tu,22/09/2025 07:16,Radar (2025-09-21): Standard,-0.84,aud,-0.84,0.08,-0.92,aud,,,,,,
+0,Stripe Fee,finvp_1SA3yvLrnBTnlT7bIyc4gquT,22/09/2025 07:16,3D Secure (2025-09-21): Lookup,-0.03,aud,-0.03,0,-0.03,aud,,,,,,
+0,Network Cost,finvp_1SAAqiLrnBTnlT7bCCV9jrOz,22/09/2025 14:36,Card payments (2025-09-21): Transaction network costs,-14.04,aud,-14.04,1.4,-15.44,aud,,,,,,
+0,Stripe Fee,finvp_1SAQNQLrnBTnlT7bvQVK1Q2U,23/09/2025 07:11,Card payments (2025-09-22): Stripe volume fees,-1.69,aud,-1.69,0.17,-1.86,aud,,,,,,
+0,Stripe Fee,finvp_1SAQNQLrnBTnlT7bzVC460PB,23/09/2025 07:11,Radar (2025-09-22): Standard,-0.9,aud,-0.9,0.09,-0.99,aud,,,,,,
+0,Stripe Fee,finvp_1SAQNRLrnBTnlT7bO2e605cI,23/09/2025 07:11,Card payments (2025-09-22): Stripe per-authorization fees,-0.48,aud,-0.48,0.05,-0.53,aud,,,,,,
+0,Network Cost,finvp_1SAWrhLrnBTnlT7byX5ipLWY,23/09/2025 14:06,Card payments (2025-09-18): adjustment to Transaction network costs,0.19,aud,0.19,-0.02,0.21,aud,,,,,,
+0,Network Cost,finvp_1SAWrhLrnBTnlT7b1rTnA3Og,23/09/2025 14:06,Card payments (2025-09-22): Transaction network costs,-3.12,aud,-3.12,0.31,-3.43,aud,,,,,,
+0,Stripe Fee,finvp_1SAnAXLrnBTnlT7bvPRwCwme,24/09/2025 07:31,Card payments (2025-09-23): Stripe per-authorization fees,-0.39,aud,-0.39,0.04,-0.43,aud,,,,,,
+0,Stripe Fee,finvp_1SAnAYLrnBTnlT7bjVRpiYEY,24/09/2025 07:31,Card payments (2025-09-23): Stripe volume fees,-1.34,aud,-1.34,0.13,-1.47,aud,,,,,,
+0,Stripe Fee,finvp_1SAnAYLrnBTnlT7bPFixnqoq,24/09/2025 07:31,Radar (2025-09-23): Standard,-0.72,aud,-0.72,0.07,-0.79,aud,,,,,,
+0,Network Cost,finvp_1SAtJFLrnBTnlT7bmj5VboGl,24/09/2025 14:04,Card payments (2025-09-23): Transaction network costs,-6.38,aud,-6.38,0.64,-7.02,aud,,,,,,
+0,Stripe Fee,finvp_1SB9shLrnBTnlT7bgh0nLv1t,25/09/2025 07:46,Card payments (2025-09-24): Stripe per-authorization fees,-0.12,aud,-0.12,0.01,-0.13,aud,,,,,,
+0,Stripe Fee,finvp_1SB9shLrnBTnlT7bXWYNdqi4,25/09/2025 07:46,Card payments (2025-09-24): Stripe volume fees,-0.57,aud,-0.57,0.06,-0.63,aud,,,,,,
+0,Stripe Fee,finvp_1SB9shLrnBTnlT7bjmFyBxoc,25/09/2025 07:46,Radar (2025-09-24): Standard,-0.24,aud,-0.24,0.02,-0.26,aud,,,,,,
+0,Network Cost,finvp_1SBFxvLrnBTnlT7bxBrk3CSk,25/09/2025 14:16,Card payments (2025-09-23): adjustment to Transaction network costs,2.22,aud,2.22,-0.22,2.44,aud,,,,,,
+0,Network Cost,finvp_1SBFxxLrnBTnlT7bOr2eN2i1,25/09/2025 14:16,Card payments (2025-09-24): Transaction network costs,-1.04,aud,-1.04,0.1,-1.14,aud,,,,,,
+0,Stripe Fee,finvp_1SBWMZLrnBTnlT7bVcfoeDJa,26/09/2025 07:46,Card payments (2025-09-25): Stripe per-authorization fees,-0.36,aud,-0.36,0.04,-0.4,aud,,,,,,
+0,Stripe Fee,finvp_1SBWMZLrnBTnlT7bHr9R44Yy,26/09/2025 07:46,Card payments (2025-09-25): Stripe volume fees,-6.02,aud,-6.02,0.6,-6.62,aud,,,,,,
+0,Stripe Fee,finvp_1SBWMZLrnBTnlT7bf0vqvjBW,26/09/2025 07:46,Radar (2025-09-25): Standard,-0.72,aud,-0.72,0.07,-0.79,aud,,,,,,
+0,Network Cost,finvp_1SBcS5LrnBTnlT7bGrKIsCE7,26/09/2025 14:16,Card payments (2025-09-25): Transaction network costs,-58.1,aud,-58.1,5.81,-63.91,aud,,,,,,
+0,Stripe Fee,finvp_1SBpqaLrnBTnlT7b9737Lumw,27/09/2025 04:35,Card Account Updater (CAU) (2025-09-26): Updates,-0.17,aud,-0.17,0.02,-0.19,aud,,,,,,
+0,Stripe Fee,finvp_1SBsYTLrnBTnlT7boJ4gCIP2,27/09/2025 07:28,Radar (2025-09-26): Standard,-0.3,aud,-0.3,0.03,-0.33,aud,,,,,,
+0,Stripe Fee,finvp_1SBsYTLrnBTnlT7bgzr7zL3B,27/09/2025 07:28,Card payments (2025-09-26): Stripe per-authorization fees,-0.15,aud,-0.15,0.02,-0.17,aud,,,,,,
+0,Stripe Fee,finvp_1SBsYTLrnBTnlT7bXmeGVGU2,27/09/2025 07:28,Card payments (2025-09-26): Stripe volume fees,-0.46,aud,-0.46,0.05,-0.51,aud,,,,,,
+0,Network Cost,finvp_1SBytnLrnBTnlT7bQf6v6EiZ,27/09/2025 14:14,Card payments (2025-09-26): Transaction network costs,-3.64,aud,-3.64,0.36,-4,aud,,,,,,
+0,Stripe Fee,finvp_1SCFCiLrnBTnlT7brrTZJojZ,28/09/2025 07:39,Card payments (2025-09-27): Stripe per-authorization fees,-0.03,aud,-0.03,0,-0.03,aud,,,,,,
+0,Network Cost,finvp_1SCLUjLrnBTnlT7b4252UdJM,28/09/2025 14:22,Card payments (2025-09-23): adjustment to Transaction network costs,-1.58,aud,-1.58,0.16,-1.74,aud,,,,,,
+0,Network Cost,finvp_1SChtKLrnBTnlT7bj5IjmABm,29/09/2025 14:17,Card payments (2025-09-25): adjustment to Transaction network costs,0.05,aud,0.05,-0.01,0.06,aud,,,,,,
+0,Stripe Fee,finvp_1SCvvtLrnBTnlT7b6GB0KkBq,30/09/2025 05:17,Card Account Updater (CAU) (2025-09-29): Updates,-0.17,aud,-0.17,0.02,-0.19,aud,,,,,,
+0,Stripe Fee,finvp_1SCy9ILrnBTnlT7bMNwasnZ6,30/09/2025 07:39,Card payments (2025-09-29): Stripe per-authorization fees,-0.09,aud,-0.09,0.01,-0.1,aud,,,,,,
+0,Stripe Fee,finvp_1SCy9JLrnBTnlT7bsmBugzgM,30/09/2025 07:39,Card payments (2025-09-29): Stripe volume fees,-0.11,aud,-0.11,0.01,-0.12,aud,,,,,,
+0,Stripe Fee,finvp_1SCy9JLrnBTnlT7bSgjhWqFp,30/09/2025 07:39,Radar (2025-09-29): Standard,-0.06,aud,-0.06,0.01,-0.07,aud,,,,,,
+0,Network Cost,finvp_1SD4qnLrnBTnlT7bB2219SZp,30/09/2025 14:48,Card payments (2025-09-29): Transaction network costs,0.85,aud,0.85,-0.09,0.94,aud,,,,,,
+0,Stripe Fee,finvp_1SDL2mLrnBTnlT7bTO04D2Gm,01/10/2025 08:05,Card payments (2025-09-30): Stripe per-authorization fees,-0.15,aud,-0.15,0.02,-0.17,aud,,,,,,
+0,Stripe Fee,finvp_1SDL2mLrnBTnlT7bYUQmqEAL,01/10/2025 08:05,Card payments (2025-09-30): Stripe volume fees,-0.41,aud,-0.41,0.04,-0.45,aud,,,,,,
+0,Stripe Fee,finvp_1SDL2mLrnBTnlT7bdLkkUrFY,01/10/2025 08:05,Radar (2025-09-30): Standard,-0.12,aud,-0.12,0.01,-0.13,aud,,,,,,
+0,Network Cost,finvp_1SDQwrLrnBTnlT7bUw1xTulH,01/10/2025 14:24,Card payments (2025-09-30): Transaction network costs,-2.24,aud,-2.24,0.22,-2.46,aud,,,,,,
+0,Stripe Fee,finvp_1SDhmhLrnBTnlT7bh5JchcGz,02/10/2025 08:22,Card payments (2025-10-01): Stripe per-authorization fees,-0.4,aud,-0.4,0.04,-0.44,aud,,,,,,
+0,Stripe Fee,finvp_1SDhmhLrnBTnlT7b38OFOjmN,02/10/2025 08:22,Card payments (2025-10-01): Stripe volume fees,-1.38,aud,-1.38,0.14,-1.52,aud,,,,,,
+0,Network Cost,finvp_1SDhmhLrnBTnlT7bds3rPxMr,02/10/2025 08:22,Card payments (2025-09-01 - 2025-09-30): Other network costs,-1.15,aud,-1.15,0.11,-1.26,aud,,,,,,
+0,Stripe Fee,finvp_1SDhmhLrnBTnlT7bOio7pop7,02/10/2025 08:22,Radar (2025-10-01): Standard,-0.24,aud,-0.24,0.02,-0.26,aud,,,,,,
+0,Network Cost,finvp_1SDnS6LrnBTnlT7bDP9pK07b,02/10/2025 14:25,Card payments (2025-10-01): Transaction network costs,-5.42,aud,-5.42,0.54,-5.96,aud,,,,,,
+0,Stripe Fee,finvp_1SEO0CLrnBTnlT7bOrRUB8HG,04/10/2025 05:27,Card payments (2025-10-01 - 2025-10-31): adjustment to Stripe per-authorization fees,0.16,aud,0.16,-0.02,0.18,aud,,,,,,
+0,Stripe Fee,finvp_1SEO0CLrnBTnlT7b4rupzPEs,04/10/2025 05:27,Card payments (2025-10-01 - 2025-10-31): adjustment to Stripe volume fees,1.03,aud,1.03,-0.1,1.13,aud,,,,,,
+0,Stripe Fee,finvp_1SEQD5LrnBTnlT7bQDQdb9Sl,04/10/2025 07:48,Card payments (2025-10-03): Stripe volume fees,-0.11,aud,-0.11,0.01,-0.12,aud,,,,,,
+0,Stripe Fee,finvp_1SEQD5LrnBTnlT7bmPSizePw,04/10/2025 07:48,Card payments (2025-10-03): Stripe per-authorization fees,-0.15,aud,-0.15,0.02,-0.17,aud,,,,,,
+0,Stripe Fee,finvp_1SEQD5LrnBTnlT7bqxEODzeE,04/10/2025 07:48,Radar (2025-10-03): Standard,-0.06,aud,-0.06,0.01,-0.07,aud,,,,,,
+0,Network Cost,finvp_1SEWmuLrnBTnlT7b82JWIJPt,04/10/2025 14:50,Card payments (2025-10-03): Transaction network costs,-0.51,aud,-0.51,0.05,-0.56,aud,,,,,,
+0,Stripe Fee,finvp_1SEkHBLrnBTnlT7bgU8erVvX,05/10/2025 05:14,Card Account Updater (CAU) (2025-10-04): Updates,-0.34,aud,-0.34,0.03,-0.37,aud,,,,,,
+0,Stripe Fee,finvp_1SEmMpLrnBTnlT7bnUqfcCae,05/10/2025 07:28,Card payments (2025-10-04): Stripe per-authorization fees,-0.03,aud,-0.03,0,-0.03,aud,,,,,,
+0,Stripe Fee,finvp_1SF6XLLrnBTnlT7bjd0d1s2L,06/10/2025 05:00,Card Account Updater (CAU) (2025-10-05): Updates,-0.17,aud,-0.17,0.02,-0.19,aud,,,,,,
+0,Network Cost,finvp_1SFFKqLrnBTnlT7bfS5rLMg6,06/10/2025 14:24,Card payments (2025-08-20): adjustment to Transaction network costs,-0.08,aud,-0.08,0.01,-0.09,aud,,,,,,
+0,Stripe Fee,finvp_1SFTAqLrnBTnlT7bMKlqlMcU,07/10/2025 05:10,Card Account Updater (CAU) (2025-10-06): Updates,-0.17,aud,-0.17,0.02,-0.19,aud,,,,,,
+0,Stripe Fee,finvp_1SFVetLrnBTnlT7bjnpb1JHe,07/10/2025 07:50,Card payments (2025-10-06): Stripe per-authorization fees,-0.06,aud,-0.06,0.01,-0.07,aud,,,,,,
+0,Stripe Fee,finvp_1SFVetLrnBTnlT7blTNzPFXt,07/10/2025 07:50,Card payments (2025-10-06): Stripe volume fees,-0.11,aud,-0.11,0.01,-0.12,aud,,,,,,
+0,Stripe Fee,finvp_1SFVeuLrnBTnlT7bGhr01UG2,07/10/2025 07:50,Radar (2025-10-06): Standard,-0.06,aud,-0.06,0.01,-0.07,aud,,,,,,
+0,Network Cost,finvp_1SFbwcLrnBTnlT7bC7X4xAeK,07/10/2025 14:32,Card payments (2025-10-06): Transaction network costs,-4.97,aud,-4.97,0.5,-5.47,aud,,,,,,
+0,Stripe Fee,finvp_1SFpa3LrnBTnlT7bRKIUP8Uo,08/10/2025 05:06,Card Account Updater (CAU) (2025-10-07): Updates,-0.51,aud,-0.51,0.05,-0.56,aud,,,,,,
+0,Stripe Fee,finvp_1SFsdKLrnBTnlT7bJGSISp1W,08/10/2025 08:22,Card payments (2025-10-07): Stripe per-authorization fees,-0.15,aud,-0.15,0.02,-0.17,aud,,,,,,
+0,Stripe Fee,finvp_1SFsdKLrnBTnlT7buClt6hNJ,08/10/2025 08:22,Card payments (2025-10-07): Stripe volume fees,-0.02,aud,-0.02,0,-0.02,aud,,,,,,
+0,Stripe Fee,finvp_1SFsdKLrnBTnlT7brKOAV7ig,08/10/2025 08:22,Radar (2025-10-07): Standard,-0.06,aud,-0.06,0.01,-0.07,aud,,,,,,
+0,Network Cost,finvp_1SFyf7LrnBTnlT7b0CR6ecKQ,08/10/2025 14:48,Card payments (2025-10-07): Transaction network costs,-0.04,aud,-0.04,0,-0.04,aud,,,,,,
+0,Stripe Fee,finvp_1SGEmfLrnBTnlT7b2vDTtJj8,09/10/2025 08:01,Card payments (2025-10-08): Stripe per-authorization fees,-0.21,aud,-0.21,0.02,-0.23,aud,,,,,,
+0,Stripe Fee,finvp_1SGEmfLrnBTnlT7b34XAbAE7,09/10/2025 08:01,Card payments (2025-10-08): Stripe volume fees,-0.1,aud,-0.1,0.01,-0.11,aud,,,,,,
+0,Stripe Fee,finvp_1SGEmfLrnBTnlT7bS0WYlhz3,09/10/2025 08:01,Radar (2025-10-08): Standard,-0.24,aud,-0.24,0.02,-0.26,aud,,,,,,
+0,Network Cost,finvp_1SGKhjLrnBTnlT7bjycPoZZ2,09/10/2025 14:20,Card payments (2025-10-08): Transaction network costs,-0.97,aud,-0.97,0.1,-1.07,aud,,,,,,
+0,Stripe Fee,finvp_1SGbMTLrnBTnlT7bZCa5vG3g,10/10/2025 08:07,Card payments (2025-10-09): Stripe per-authorization fees,-0.03,aud,-0.03,0,-0.03,aud,,,,,,
+0,Stripe Fee,finvp_1SGbMTLrnBTnlT7bl3wSJdIc,10/10/2025 08:07,Card payments (2025-10-09): Stripe volume fees,-0.03,aud,-0.03,0,-0.03,aud,,,,,,
+0,Stripe Fee,finvp_1SGbMTLrnBTnlT7b73SQ9qBb,10/10/2025 08:07,Radar (2025-10-09): Standard,-0.06,aud,-0.06,0.01,-0.07,aud,,,,,,
+0,Network Cost,finvp_1SGhiVLrnBTnlT7btwCd32hq,10/10/2025 14:54,Card payments (2025-10-09): Transaction network costs,-1.42,aud,-1.42,0.14,-1.56,aud,,,,,,
+0,Stripe Fee,finvp_1SGvOoLrnBTnlT7bmBcSllNf,11/10/2025 05:31,Card Account Updater (CAU) (2025-10-10): Updates,-0.34,aud,-0.34,0.03,-0.37,aud,,,,,,
+0,Stripe Fee,finvp_1SHHVmLrnBTnlT7bkS14280O,12/10/2025 05:08,Card Account Updater (CAU) (2025-10-11): Updates,-0.17,aud,-0.17,0.02,-0.19,aud,,,,,,
+0,Stripe Fee,finvp_1SHK4vLrnBTnlT7bjITddKF5,12/10/2025 07:52,Card payments (2025-10-11): Stripe per-authorization fees,-0.12,aud,-0.12,0.01,-0.13,aud,,,,,,
+0,Stripe Fee,finvp_1SHK4wLrnBTnlT7bKnstCglT,12/10/2025 07:52,Card payments (2025-10-11): Stripe volume fees,-0.11,aud,-0.11,0.01,-0.12,aud,,,,,,
+0,Stripe Fee,finvp_1SHK4wLrnBTnlT7bR8vDMbuo,12/10/2025 07:52,Radar (2025-10-11): Standard,-0.06,aud,-0.06,0.01,-0.07,aud,,,,,,
+0,Network Cost,finvp_1SHQfyLrnBTnlT7b0RQOiTDk,12/10/2025 14:55,Card payments (2025-10-11): Transaction network costs,-1.36,aud,-1.36,0.14,-1.5,aud,,,,,,
+0,Stripe Fee,finvp_1SI3RmLrnBTnlT7buaLtBz4h,14/10/2025 08:19,Card payments (2025-10-13): Stripe per-authorization fees,-0.48,aud,-0.48,0.05,-0.53,aud,,,,,,
+0,Stripe Fee,finvp_1SI3RmLrnBTnlT7b3IGwVeuh,14/10/2025 08:19,Card payments (2025-10-13): Stripe volume fees,-0.54,aud,-0.54,0.05,-0.59,aud,,,,,,
+0,Stripe Fee,finvp_1SI3RmLrnBTnlT7b94yQM6PX,14/10/2025 08:19,Radar (2025-10-13): Standard,-0.54,aud,-0.54,0.05,-0.59,aud,,,,,,
+0,Network Cost,finvp_1SI9MnLrnBTnlT7bBlC2ZzgP,14/10/2025 14:38,Card payments (2025-10-13): Transaction network costs,-10.15,aud,-10.15,1.01,-11.16,aud,,,,,,
+0,Stripe Fee,finvp_1SIPYRLrnBTnlT7bU1hO9pwe,15/10/2025 07:55,Card payments (2025-10-14): Stripe per-authorization fees,-27.96,aud,-27.96,2.8,-30.76,aud,,,,,,
+0,Stripe Fee,finvp_1SIPYRLrnBTnlT7bZckrubwp,15/10/2025 07:55,Card payments (2025-10-14): Stripe volume fees,-91.63,aud,-91.63,9.16,-100.79,aud,,,,,,
+0,Stripe Fee,finvp_1SIPYRLrnBTnlT7b3pngrmB3,15/10/2025 07:55,Radar (2025-10-14): Standard,-55.74,aud,-55.74,5.57,-61.31,aud,,,,,,
+0,Stripe Fee,finvp_1SIPYSLrnBTnlT7bNqeRVJwr,15/10/2025 07:55,3D Secure (2025-10-14): Lookup,-0.03,aud,-0.03,0,-0.03,aud,,,,,,
+0,Network Cost,finvp_1SIVyULrnBTnlT7bs2Kada3c,15/10/2025 14:46,Card payments (2025-10-14): Transaction network costs,-960.28,aud,-960.28,96.03,-1056.31,aud,,,,,,
+0,Stripe Fee,finvp_1SIjTxLrnBTnlT7bB1Vyx0nV,16/10/2025 05:12,Card Account Updater (CAU) (2025-10-15): Updates,-0.17,aud,-0.17,0.02,-0.19,aud,,,,,,
+0,Stripe Fee,finvp_1SImGnLrnBTnlT7b1XeIz6t3,16/10/2025 08:10,Card payments (2025-10-15): Stripe per-authorization fees,-3.78,aud,-3.78,0.38,-4.16,aud,,,,,,
+0,Stripe Fee,finvp_1SImGnLrnBTnlT7bjaXDXkwz,16/10/2025 08:10,Card payments (2025-10-15): Stripe volume fees,-7.79,aud,-7.79,0.78,-8.57,aud,,,,,,
+0,Stripe Fee,finvp_1SImGnLrnBTnlT7bee3qK7Ut,16/10/2025 08:10,Radar (2025-10-15): Standard,-7.44,aud,-7.44,0.74,-8.18,aud,,,,,,
+0,Stripe Fee,finvp_1SImGoLrnBTnlT7boeSQXOhN,16/10/2025 08:10,3D Secure (2025-10-15): Lookup,-0.03,aud,-0.03,0,-0.03,aud,,,,,,
+0,Network Cost,finvp_1SIsA8LrnBTnlT7b83BJOfWa,16/10/2025 14:28,Card payments (2025-10-15): Transaction network costs,-40.15,aud,-40.15,4.02,-44.17,aud,,,,,,
+0,Stripe Fee,finvp_1SJ6QJLrnBTnlT7bWuxT38KQ,17/10/2025 05:41,Card Account Updater (CAU) (2025-10-16): Updates,-0.17,aud,-0.17,0.02,-0.19,aud,,,,,,
+0,Stripe Fee,finvp_1SJ8e7LrnBTnlT7bwNIyujjq,17/10/2025 08:04,Card payments (2025-10-16): Stripe per-authorization fees,-2.34,aud,-2.34,0.23,-2.57,aud,,,,,,
+0,Stripe Fee,finvp_1SJ8e7LrnBTnlT7bcreTOmx4,17/10/2025 08:04,Card payments (2025-10-16): Stripe volume fees,-3.37,aud,-3.37,0.34,-3.71,aud,,,,,,
+0,Stripe Fee,finvp_1SJ8e7LrnBTnlT7bfDNTnP1Y,17/10/2025 08:04,Radar (2025-10-16): Standard,-4.56,aud,-4.56,0.46,-5.02,aud,,,,,,
+0,Network Cost,finvp_1SJEZDLrnBTnlT7buODnD2VK,17/10/2025 14:23,Card payments (2025-10-16): Transaction network costs,-66.35,aud,-66.35,6.63,-72.98,aud,,,,,,
+0,Stripe Fee,finvp_1SJSW5LrnBTnlT7bEfqjYBDv,18/10/2025 05:17,Card Account Updater (CAU) (2025-10-17): Updates,-0.17,aud,-0.17,0.02,-0.19,aud,,,,,,
+0,Stripe Fee,finvp_1SJUvFLrnBTnlT7bAl4C3mt8,18/10/2025 07:51,Card payments (2025-10-17): Stripe per-authorization fees,-1.83,aud,-1.83,0.18,-2.01,aud,,,,,,
+0,Stripe Fee,finvp_1SJUvFLrnBTnlT7bKrNDbqiW,18/10/2025 07:51,Card payments (2025-10-17): Stripe volume fees,-1.26,aud,-1.26,0.13,-1.39,aud,,,,,,
+0,Stripe Fee,finvp_1SJUvGLrnBTnlT7b5EPmZ79X,18/10/2025 07:51,Radar (2025-10-17): Standard,-3.6,aud,-3.6,0.36,-3.96,aud,,,,,,
+0,Network Cost,finvp_1SJbGNLrnBTnlT7bG4xf7H0V,18/10/2025 14:37,Card payments (2025-10-17): Transaction network costs,-11.84,aud,-11.84,1.18,-13.02,aud,,,,,,
+0,Stripe Fee,finvp_1SJoprLrnBTnlT7bHT7Ba1DY,19/10/2025 05:07,Card Account Updater (CAU) (2025-10-18): Updates,-0.34,aud,-0.34,0.03,-0.37,aud,,,,,,
+0,Stripe Fee,finvp_1SJrBnLrnBTnlT7bOHkuGdQV,19/10/2025 07:38,Radar (2025-10-18): Standard,-2.76,aud,-2.76,0.28,-3.04,aud,,,,,,
+0,Stripe Fee,finvp_1SJrBnLrnBTnlT7bu69MoMo0,19/10/2025 07:38,Card payments (2025-10-18): Stripe per-authorization fees,-1.32,aud,-1.32,0.13,-1.45,aud,,,,,,
+0,Network Cost,finvp_1SJxpCLrnBTnlT7bBZfG2jJR,19/10/2025 14:43,Card payments (2025-10-14): adjustment to Transaction network costs,0.02,aud,0.02,0,0.02,aud,,,,,,
+0,Network Cost,finvp_1SJxpCLrnBTnlT7b7h56Xf3a,19/10/2025 14:43,Card payments (2025-10-18): Transaction network costs,-0.38,aud,-0.38,0.04,-0.42,aud,,,,,,
+0,,,,,,,,,,,,,,,,

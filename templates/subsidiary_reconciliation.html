@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Subsidiary Reconciliation - Receipts Automation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Receipts Automation</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ url_for('index') }}">Dashboard</a>
+                <a class="nav-link" href="{{ url_for('receipts_page') }}">Reconciliation Jobs</a>
+                <a class="nav-link" href="#" onclick="goBackToJob()">Back to Job</a>
+                <a class="nav-link active" href="#">Subsidiary Reconciliation</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1><i class="fas fa-building text-primary"></i> <span id="subsidiary-name">Loading...</span></h1>
+                        <p class="lead" id="job-info">Debtor receipt reconciliation for <span id="job-name">Loading...</span></p>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary" onclick="goBackToJob()">
+                            <i class="fas fa-arrow-left"></i> Back to Job
+                        </button>
+                        <button class="btn btn-warning" onclick="showStripeUploadModal()">
+                            <i class="fas fa-file-csv"></i> Upload Stripe File
+                        </button>
+                        <button class="btn btn-info" onclick="viewStripeData()" id="view-stripe-btn" disabled>
+                            <i class="fas fa-eye"></i> View Stripe Data
+                        </button>
+                        <button class="btn btn-secondary" onclick="showCashbookUploadModal()">
+                            <i class="fas fa-file-excel"></i> Upload Cashbook
+                        </button>
+                        <button class="btn btn-dark" onclick="viewCashbookData()" id="view-cashbook-btn" disabled>
+                            <i class="fas fa-eye"></i> View Cashbook Data
+                        </button>
+                        <button class="btn btn-success" onclick="showUploadModal()">
+                            <i class="fas fa-upload"></i> Upload Receipts
+                        </button>
+                        <button class="btn btn-primary" onclick="startRecProcess()" id="start-rec-btn">
+                            <i class="fas fa-play"></i> Start Rec Process
+                        </button>
+                        <button class="btn btn-primary" onclick="startReconciliation()">
+                            <i class="fas fa-play"></i> Start Reconciliation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subsidiary Status -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-chart-bar"></i> Reconciliation Status for <span id="subsidiary-status-name">Loading...</span></h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h4 id="total-receipts" class="text-primary">0</h4>
+                                    <small class="text-muted">Total Receipts</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h4 id="matched-receipts" class="text-success">0</h4>
+                                    <small class="text-muted">Matched</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h4 id="unmatched-receipts" class="text-warning">0</h4>
+                                    <small class="text-muted">Unmatched</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h4 id="error-receipts" class="text-danger">0</h4>
+                                    <small class="text-muted">Errors</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reconciliation Progress -->
+        <div class="row mt-4" id="progress-section" style="display: none;">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-chart-line"></i> Reconciliation Progress</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress mb-3">
+                            <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <div class="text-center">
+                            <span id="progress-text">Ready to start reconciliation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Receipts Table -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5><i class="fas fa-receipt"></i> Receipts for <span id="subsidiary-table-name">Loading...</span></h5>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="filterReceipts('all')">All</button>
+                            <button type="button" class="btn btn-outline-success btn-sm" onclick="filterReceipts('matched')">Matched</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="filterReceipts('unmatched')">Unmatched</button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="filterReceipts('error')">Errors</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Filename</th>
+                                        <th>Status</th>
+                                        <th>Debtor</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Match Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="receipts-table-body">
+                                    <tr>
+                                        <td colspan="7" class="text-center text-muted">
+                                            <i class="fas fa-spinner fa-spin"></i> Loading receipts...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reconciliation Results -->
+        <div class="row mt-4" id="results-section" style="display: none;">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-check-circle text-success"></i> Matched Receipts</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="matched-results">
+                            <div class="text-center text-muted">No matched receipts yet</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-exclamation-triangle text-warning"></i> Unmatched Receipts</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="unmatched-results">
+                            <div class="text-center text-muted">No unmatched receipts yet</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export Results -->
+        <div class="row mt-4" id="export-section" style="display: none;">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-download"></i> Export Results for <span id="subsidiary-export-name">Loading...</span></h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="btn-group">
+                            <button class="btn btn-success" onclick="exportMatched()">
+                                <i class="fas fa-file-excel"></i> Export Matched Receipts
+                            </button>
+                            <button class="btn btn-warning" onclick="exportUnmatched()">
+                                <i class="fas fa-file-excel"></i> Export Unmatched Receipts
+                            </button>
+                            <button class="btn btn-primary" onclick="exportSummary()">
+                                <i class="fas fa-file-pdf"></i> Export Summary Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cashbook Upload Modal -->
+    <div class="modal fade" id="cashbookUploadModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload Cashbook Excel File for <span id="cashbook-upload-subsidiary-name">Loading...</span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="cashbook-upload-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="cashbook-file" class="form-label">Select Cashbook Excel File</label>
+                            <input type="file" class="form-control" id="cashbook-file" name="file" accept=".xlsx,.xls">
+                            <div class="form-text">Upload the Cashbook Excel file for this subsidiary</div>
+                        </div>
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>Note:</strong> This will replace any existing Cashbook data for this subsidiary. All 18 columns will be imported.
+                        </div>
+                        <div class="alert alert-warning" id="bank-account-info" style="display: none;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <strong>Bank Account Validation:</strong> The 'account' column must contain exactly: <span id="expected-account"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary" onclick="uploadCashbookFile()">Upload Cashbook File</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stripe Upload Modal -->
+    <div class="modal fade" id="stripeUploadModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload Stripe CSV File for <span id="stripe-upload-subsidiary-name">Loading...</span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="stripe-upload-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="stripe-file" class="form-label">Select Stripe CSV File</label>
+                            <input type="file" class="form-control" id="stripe-file" name="file" accept=".csv">
+                            <div class="form-text">Upload the Stripe transfers CSV file for this subsidiary</div>
+                        </div>
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            <strong>Note:</strong> This will replace any existing Stripe data for this subsidiary. The first column "0" will be renamed to "Client Number".
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-warning" onclick="uploadStripeFile()">Upload Stripe File</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal fade" id="uploadModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload Receipt Files for <span id="upload-subsidiary-name">Loading...</span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="upload-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="files" class="form-label">Select Excel Files</label>
+                            <input type="file" class="form-control" id="files" name="files" multiple accept=".xlsx,.xls,.csv">
+                            <div class="form-text">Select debtor receipt files to upload for this subsidiary reconciliation</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Files</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const jobId = {{ job_id }};
+        const subsidiaryId = {{ subsidiary_id }};
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadJobDetails();
+            loadSubsidiaryDetails();
+            loadSubsidiaryReceipts();
+            checkStripeData();
+            checkCashbookData();
+            
+            // Set up periodic updates
+            setInterval(() => {
+                loadSubsidiaryReceipts();
+            }, 30000);
+        });
+
+        function loadJobDetails() {
+            fetch(`/api/jobs/${jobId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('job-name').textContent = data.job_name;
+                    document.getElementById('job-info').textContent = `Debtor receipt reconciliation for ${data.job_name}`;
+                })
+                .catch(error => {
+                    console.error('Error loading job details:', error);
+                });
+        }
+
+        function loadSubsidiaryDetails() {
+            fetch('/api/subsidiaries')
+                .then(response => response.json())
+                .then(subsidiaries => {
+                    const subsidiary = subsidiaries.find(s => s.id === subsidiaryId);
+                    if (subsidiary) {
+                        document.getElementById('subsidiary-name').textContent = subsidiary.name;
+                        document.getElementById('subsidiary-status-name').textContent = subsidiary.name;
+                        document.getElementById('subsidiary-table-name').textContent = subsidiary.name;
+                        document.getElementById('subsidiary-export-name').textContent = subsidiary.name;
+                        document.getElementById('upload-subsidiary-name').textContent = subsidiary.name;
+                        document.getElementById('page-title').textContent = `${subsidiary.name} Reconciliation - Receipts Automation`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading subsidiary details:', error);
+                });
+        }
+
+        function loadSubsidiaryReceipts() {
+            // This would load receipts associated with this subsidiary reconciliation
+            // For now, we'll show a placeholder
+            const tbody = document.getElementById('receipts-table-body');
+            tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted">No receipts uploaded yet. Click "Upload Receipts" to get started.</td></tr>';
+        }
+
+        function checkStripeData() {
+            // Check if Stripe data exists for this subsidiary
+            fetch(`/api/stripe-transactions/${jobId}/${subsidiaryId}`)
+                .then(response => response.json())
+                .then(transactions => {
+                    if (transactions.length > 0) {
+                        document.getElementById('view-stripe-btn').disabled = false;
+                        document.getElementById('view-stripe-btn').innerHTML = `<i class="fas fa-eye"></i> View Stripe Data (${transactions.length})`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error checking Stripe data:', error);
+                });
+        }
+
+        function showStripeUploadModal() {
+            const modal = new bootstrap.Modal(document.getElementById('stripeUploadModal'));
+            modal.show();
+        }
+
+        function uploadStripeFile() {
+            const fileInput = document.getElementById('stripe-file');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Please select a CSV file to upload');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            // Show loading state
+            const uploadBtn = document.querySelector('#stripeUploadModal .btn-warning');
+            const originalText = uploadBtn.textContent;
+            uploadBtn.textContent = 'Uploading...';
+            uploadBtn.disabled = true;
+            
+            fetch(`/api/stripe-upload/${jobId}/${subsidiaryId}`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(`Error: ${data.error}`);
+                } else {
+                    alert(`Successfully uploaded ${data.transactions_added} Stripe transactions!`);
+                    bootstrap.Modal.getInstance(document.getElementById('stripeUploadModal')).hide();
+                    
+                    // Enable view button and update count
+                    document.getElementById('view-stripe-btn').disabled = false;
+                    document.getElementById('view-stripe-btn').innerHTML = `<i class="fas fa-eye"></i> View Stripe Data (${data.transactions_added})`;
+                    
+                    // Clear file input
+                    fileInput.value = '';
+                }
+            })
+            .catch(error => {
+                console.error('Upload error:', error);
+                alert('Error uploading Stripe file');
+            })
+            .finally(() => {
+                uploadBtn.textContent = originalText;
+                uploadBtn.disabled = false;
+            });
+        }
+
+        function viewStripeData() {
+            // Navigate to Stripe data viewing page
+            window.location.href = `/stripe-data/${jobId}/${subsidiaryId}`;
+        }
+
+        function checkCashbookData() {
+            // Check if Cashbook data exists for this subsidiary
+            fetch(`/api/cashbook-transactions/${jobId}/${subsidiaryId}`)
+                .then(response => response.json())
+                .then(transactions => {
+                    if (transactions.length > 0) {
+                        document.getElementById('view-cashbook-btn').disabled = false;
+                        document.getElementById('view-cashbook-btn').innerHTML = `<i class="fas fa-eye"></i> View Cashbook Data (${transactions.length})`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error checking Cashbook data:', error);
+                });
+        }
+
+        function showCashbookUploadModal() {
+            // Define bank accounts for each subsidiary
+            const BANK_ACCOUNTS = {
+                1: "10130 Bank : CB current a/c AU$ # 411110236694",  // Australia
+                2: "10150 Bank : CIBC Current Account 9066314",      // Canada  
+                3: "10043 Bank : CIBC operating a/c US$ # 2605090",  // USA
+                4: null,  // EU - no validation
+                5: "10020 Bank : BOI current a/c GBP # 62100285"     // UK
+            };
+            
+            const modal = new bootstrap.Modal(document.getElementById('cashbookUploadModal'));
+            
+            // Show/hide bank account validation info
+            const bankInfoDiv = document.getElementById('bank-account-info');
+            const expectedAccountSpan = document.getElementById('expected-account');
+            
+            if (BANK_ACCOUNTS[subsidiaryId]) {
+                expectedAccountSpan.textContent = BANK_ACCOUNTS[subsidiaryId];
+                bankInfoDiv.style.display = 'block';
+            } else {
+                bankInfoDiv.style.display = 'none';
+            }
+            
+            modal.show();
+        }
+
+        function uploadCashbookFile() {
+            const fileInput = document.getElementById('cashbook-file');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Please select an Excel file to upload');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            // Show loading state
+            const uploadBtn = document.querySelector('#cashbookUploadModal .btn-secondary');
+            const originalText = uploadBtn.textContent;
+            uploadBtn.textContent = 'Uploading...';
+            uploadBtn.disabled = true;
+            
+            fetch(`/api/cashbook-upload/${jobId}/${subsidiaryId}`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    // Handle bank account validation errors specially
+                    if (data.error.includes('Invalid bank account')) {
+                        alert(`❌ Bank Account Validation Failed!\n\n${data.error}\n\nPlease ensure the 'account' column contains exactly:\n"${data.expected_account}"\n\nFound invalid accounts:\n${data.invalid_accounts.join('\n')}`);
+                    } else {
+                        alert(`Error: ${data.error}`);
+                    }
+                } else {
+                    let successMessage = `Successfully uploaded ${data.transactions_added} Cashbook transactions!`;
+                    if (data.bank_account_validated) {
+                        successMessage += '\n\n✅ Bank account validation passed!';
+                    }
+                    alert(successMessage);
+                    bootstrap.Modal.getInstance(document.getElementById('cashbookUploadModal')).hide();
+                    
+                    // Enable view button and update count
+                    document.getElementById('view-cashbook-btn').disabled = false;
+                    document.getElementById('view-cashbook-btn').innerHTML = `<i class="fas fa-eye"></i> View Cashbook Data (${data.transactions_added})`;
+                    
+                    // Clear file input
+                    fileInput.value = '';
+                }
+            })
+            .catch(error => {
+                console.error('Upload error:', error);
+                alert('Error uploading Cashbook file');
+            })
+            .finally(() => {
+                uploadBtn.textContent = originalText;
+                uploadBtn.disabled = false;
+            });
+        }
+
+        function viewCashbookData() {
+            // Navigate to Cashbook data viewing page
+            window.location.href = `/cashbook-data/${jobId}/${subsidiaryId}`;
+        }
+
+        function showUploadModal() {
+            const modal = new bootstrap.Modal(document.getElementById('uploadModal'));
+            modal.show();
+        }
+
+        function uploadFiles() {
+            const fileInput = document.getElementById('files');
+            const files = fileInput.files;
+            
+            if (files.length === 0) {
+                alert('Please select files to upload');
+                return;
+            }
+            
+            const formData = new FormData();
+            for (let i = 0; i < files.length; i++) {
+                formData.append('files', files[i]);
+            }
+            
+            // Show loading state
+            const uploadBtn = document.querySelector('#uploadModal .btn-primary');
+            const originalText = uploadBtn.textContent;
+            uploadBtn.textContent = 'Uploading...';
+            uploadBtn.disabled = true;
+            
+            fetch('/api/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(`Successfully uploaded ${data.uploaded_count} files`);
+                bootstrap.Modal.getInstance(document.getElementById('uploadModal')).hide();
+                loadSubsidiaryReceipts(); // Refresh the table
+            })
+            .catch(error => {
+                console.error('Upload error:', error);
+                alert('Error uploading files');
+            })
+            .finally(() => {
+                uploadBtn.textContent = originalText;
+                uploadBtn.disabled = false;
+                fileInput.value = ''; // Clear the file input
+            });
+        }
+
+        function startReconciliation() {
+            if (confirm('Start the reconciliation process for this subsidiary? This will match receipts against debtor records.')) {
+                // Show progress section
+                document.getElementById('progress-section').style.display = 'block';
+                
+                // Simulate reconciliation process
+                simulateReconciliation();
+            }
+        }
+
+        function simulateReconciliation() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = progress + '%';
+                progressText.textContent = `Reconciling receipts... ${progress}%`;
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    progressText.textContent = 'Reconciliation completed!';
+                    
+                    // Show results sections
+                    document.getElementById('results-section').style.display = 'block';
+                    document.getElementById('export-section').style.display = 'block';
+                    
+                    alert('Reconciliation completed successfully!');
+                }
+            }, 500);
+        }
+
+        function goBackToJob() {
+            window.location.href = `/reconciliation/${jobId}`;
+        }
+
+        function startRecProcess() {
+            // Navigate to the reconciliation process page
+            window.location.href = `/reconciliation-process/${jobId}/${subsidiaryId}`;
+        }
+
+        function filterReceipts(filter) {
+            // Implement filtering logic
+            console.log('Filtering receipts by:', filter);
+        }
+
+        function exportMatched() {
+            alert('Exporting matched receipts...');
+        }
+
+        function exportUnmatched() {
+            alert('Exporting unmatched receipts...');
+        }
+
+        function exportSummary() {
+            alert('Exporting summary report...');
+        }
+    </script>
+</body>
+</html>

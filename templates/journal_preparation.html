@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Preparation - Job {{ job_id }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="/">
+                            <i class="fas fa-receipt"></i> Permanent Receipts
+                        </a>
+                        <div class="navbar-nav ms-auto">
+                            <a class="nav-link" href="/receipts">
+                                <i class="fas fa-list"></i> All Jobs
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="container mt-4">
+            <!-- Page Header -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-info text-white">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="mb-0">
+                                    <i class="fas fa-file-invoice"></i> Journal Preparation
+                                </h4>
+                                <div>
+                                    <button class="btn btn-light btn-sm me-2" onclick="goBackToProcess()">
+                                        <i class="fas fa-arrow-left"></i> Back to Process
+                                    </button>
+                                    <button class="btn btn-outline-light btn-sm" onclick="goBackToSubsidiary()">
+                                        <i class="fas fa-home"></i> Back to Subsidiary
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6><strong>Job ID:</strong> {{ job_id }}</h6>
+                                    <h6><strong>Subsidiary ID:</strong> {{ subsidiary_id }}</h6>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6><strong>Status:</strong> <span class="badge bg-success">Ready for Journal Preparation</span></h6>
+                                    <h6><strong>Last Updated:</strong> <span id="last-updated">Loading...</span></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Master Upload File -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card border-primary">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-file-upload"></i> Master Upload File & Split Journals</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center mb-3">
+                                <div class="col-md-8">
+                                    <h6 class="mb-2"><strong>All Matched Transactions (Process 1 + Process 2)</strong></h6>
+                                    <p class="text-muted mb-2">
+                                        This file contains all matched transactions with the correct client numbers from the Cashbook data.
+                                        Use this file for your journal uploads.
+                                    </p>
+                                    <ul class="small text-muted mb-0">
+                                        <li>Uses Cashbook client_id (correct client numbers)</li>
+                                        <li>Includes all matched transactions from Process 1 and Process 2</li>
+                                        <li>Format matches original Cashbook upload structure</li>
+                                        <li>Ready for direct upload to your accounting system</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <button class="btn btn-primary btn-lg mb-2" onclick="downloadMasterUploadFile()">
+                                        <i class="fas fa-download"></i> Download Master File
+                                    </button>
+                                    <p class="small text-muted mb-0" id="master-file-count">Loading...</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h6 class="mb-3"><strong>📂 Split Journals</strong></h6>
+                                    <p class="text-muted mb-3">
+                                        Master file automatically split into separate journal files. Download all as ZIP or individually.
+                                    </p>
+                                    
+                                    <!-- Split files list with individual download buttons -->
+                                    <div class="row" id="split-files-list">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card border-success">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div>
+                                                            <h6 class="mb-1"><i class="fas fa-undo text-danger"></i> Journals For Refunds</h6>
+                                                            <small class="text-muted">Negative amount transactions</small>
+                                                            <p class="mb-0 mt-1" id="refunds-split-count"><small class="text-muted">Loading...</small></p>
+                                                        </div>
+                                                        <button class="btn btn-outline-success btn-sm" onclick="downloadIndividualSplit('refunds')">
+                                                            <i class="fas fa-download"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card border-info">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div>
+                                                            <h6 class="mb-1"><i class="fas fa-hand-holding-usd text-info"></i> POA</h6>
+                                                            <small class="text-muted">Invoice contains "POA"</small>
+                                                            <p class="mb-0 mt-1" id="poa-split-count"><small class="text-muted">Loading...</small></p>
+                                                        </div>
+                                                        <button class="btn btn-outline-info btn-sm" onclick="downloadIndividualSplit('poa')">
+                                                            <i class="fas fa-download"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card border-primary">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div>
+                                                            <h6 class="mb-1"><i class="fas fa-file-invoice text-primary"></i> Journal (Main)</h6>
+                                                            <small class="text-muted">Regular transactions</small>
+                                                            <p class="mb-0 mt-1" id="regular-split-count"><small class="text-muted">Loading...</small></p>
+                                                        </div>
+                                                        <button class="btn btn-outline-primary btn-sm" onclick="downloadIndividualSplit('regular')">
+                                                            <i class="fas fa-download"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6 mb-3" id="cross-sub-card" style="display: none;">
+                                            <div class="card border-warning">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div>
+                                                            <h6 class="mb-1"><i class="fas fa-exchange-alt text-warning"></i> Cross-Subsidiary</h6>
+                                                            <small class="text-muted">Different billing entities</small>
+                                                            <p class="mb-0 mt-1" id="cross-sub-split-count"><small class="text-muted">Loading...</small></p>
+                                                        </div>
+                                                        <button class="btn btn-outline-warning btn-sm" onclick="alert('Cross-subsidiary journals must be downloaded as ZIP')">
+                                                            <i class="fas fa-info-circle"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Amount verification -->
+                                    <div class="alert alert-info mb-3" id="amount-verification">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <strong><i class="fas fa-calculator"></i> Amount Verification:</strong>
+                                            </div>
+                                            <div class="col-md-6 text-end">
+                                                <span id="amount-check-status">Loading...</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-md-6">
+                                                <small>Master Total: <strong id="master-total">$0.00</strong></small>
+                                            </div>
+                                            <div class="col-md-6 text-end">
+                                                <small>Splits Total: <strong id="splits-total">$0.00</strong></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Download all as ZIP -->
+                                    <div class="text-center">
+                                        <button class="btn btn-success btn-lg" onclick="downloadSplitJournals()">
+                                            <i class="fas fa-file-archive"></i> Download All Splits as ZIP
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reconciliation Summary -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0"><i class="fas fa-chart-bar"></i> Reconciliation Summary</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row" id="reconciliation-summary">
+                                <!-- Summary will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summit Journals Processing Link -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card border-primary" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="card-body text-white">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h5 class="mb-2"><i class="fas fa-arrow-right"></i> Summit Installments Processing</h5>
+                                    <p class="mb-0">
+                                        Process salon summit installments with a simplified workflow. Upload summit data, match clients, and generate split journals.
+                                    </p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <a href="/journals/" class="btn btn-light btn-lg">
+                                        <i class="fas fa-external-link-alt"></i> Go to Journals Processing
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Refunds Journal Section -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card border-danger">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="mb-0"><i class="fas fa-undo"></i> Refunds Journal</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h6 class="mb-2"><strong>Unmatched Stripe Refund Transactions</strong></h6>
+                                    <p class="text-muted mb-2">
+                                        These are refund transactions from the Stripe file that were not matched in the reconciliation process.
+                                    </p>
+                                    <ul class="small text-muted mb-0">
+                                        <li>Includes transactions with negative amounts OR type='Refund'</li>
+                                        <li>Only unmatched Stripe transactions (not in Process 1 or 2 matches)</li>
+                                        <li>Full Stripe data for journal entry preparation</li>
+                                        <li>Download as Excel for review and processing</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <button class="btn btn-danger btn-lg" onclick="downloadRefundsJournal()">
+                                        <i class="fas fa-download"></i> Download Refunds
+                                    </button>
+                                    <p class="small text-muted mt-2 mb-0" id="refunds-count">Loading...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Summary Table -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card border-dark">
+                        <div class="card-header bg-dark text-white">
+                            <h5 class="mb-0"><i class="fas fa-calculator"></i> Complete Reconciliation Summary</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th width="50%">Description</th>
+                                            <th width="20%" class="text-center">Count</th>
+                                            <th width="30%" class="text-end">Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Split Journals Breakdown -->
+                                        <tr class="table-info">
+                                            <td colspan="3"><strong><i class="fas fa-folder-open"></i> SPLIT JOURNALS</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4">Refunds (Negative Amounts)</td>
+                                            <td class="text-center" id="summary-refunds-count">-</td>
+                                            <td class="text-end" id="summary-refunds-amount">$0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4">POA Transactions</td>
+                                            <td class="text-center" id="summary-poa-count">-</td>
+                                            <td class="text-end" id="summary-poa-amount">$0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4">Regular Journal</td>
+                                            <td class="text-center" id="summary-regular-count">-</td>
+                                            <td class="text-end" id="summary-regular-amount">$0.00</td>
+                                        </tr>
+                                        <tr id="summary-cross-sub-row" style="display: none;">
+                                            <td class="ps-4">Cross-Subsidiary</td>
+                                            <td class="text-center" id="summary-cross-sub-count">-</td>
+                                            <td class="text-end" id="summary-cross-sub-amount">$0.00</td>
+                                        </tr>
+                                        <tr class="table-primary">
+                                            <td><strong>Split Journals Subtotal</strong></td>
+                                            <td class="text-center" id="summary-splits-total-count">-</td>
+                                            <td class="text-end"><strong id="summary-splits-total-amount">$0.00</strong></td>
+                                        </tr>
+                                        
+                                        <!-- AED Currency Info (EU only) -->
+                                        <tr id="summary-aed-currency-row" style="display: none;" class="table-info">
+                                            <td class="ps-4"><em><i class="fas fa-money-bill-wave"></i> AED Currency Transactions</em></td>
+                                            <td class="text-center" id="summary-aed-count">-</td>
+                                            <td class="text-end"><em id="summary-aed-amounts">€0.00 (AED 0.00)</em></td>
+                                        </tr>
+                                        
+                                        <!-- Add Unmatched Refunds -->
+                                        <tr class="table-warning">
+                                            <td colspan="3"><strong><i class="fas fa-plus-circle"></i> ADD: UNMATCHED REFUNDS</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4">Stripe Unmatched Refunds (Process 2)</td>
+                                            <td class="text-center" id="summary-unmatched-refunds-count">-</td>
+                                            <td class="text-end" id="summary-unmatched-refunds-amount">$0.00</td>
+                                        </tr>
+                                        
+                                        <!-- Subtract Fees -->
+                                        <tr class="table-danger">
+                                            <td colspan="3"><strong><i class="fas fa-minus-circle"></i> LESS: TOTAL FEES</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4">Column I Fees (Stripe File)</td>
+                                            <td class="text-center" id="summary-col-i-fees-count">-</td>
+                                            <td class="text-end" id="summary-col-i-fees-amount">$0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="ps-4">Network Cost + Stripe Fee (Type-based)</td>
+                                            <td class="text-center" id="summary-type-fees-count">-</td>
+                                            <td class="text-end" id="summary-type-fees-amount">$0.00</td>
+                                        </tr>
+                                        <tr class="table-secondary">
+                                            <td><strong>Total Fees Subtotal</strong></td>
+                                            <td class="text-center" id="summary-total-fees-count">-</td>
+                                            <td class="text-end"><strong id="summary-total-fees-amount">$0.00</strong></td>
+                                        </tr>
+                                        
+                                        <!-- Payment Failure Refunds -->
+                                        <tr>
+                                            <td class="ps-4">Payment Failure Refunds</td>
+                                            <td class="text-center" id="summary-pfr-count">-</td>
+                                            <td class="text-end" id="summary-pfr-amount">$0.00</td>
+                                        </tr>
+                                        
+                                        <!-- Other Transactions -->
+                                        <tr id="summary-other-row" style="display: none;">
+                                            <td class="ps-4">Other Transactions (Adjustments, etc.)</td>
+                                            <td class="text-center" id="summary-other-count">-</td>
+                                            <td class="text-end" id="summary-other-amount">$0.00</td>
+                                        </tr>
+                                        
+                                        <!-- Final Calculation -->
+                                        <tr class="table-success" style="font-size: 1.1em;">
+                                            <td><strong><i class="fas fa-equals"></i> FINAL RECONCILIATION TOTAL</strong></td>
+                                            <td class="text-center"><strong id="summary-final-count">-</strong></td>
+                                            <td class="text-end"><strong id="summary-final-amount" style="font-size: 1.2em;">$0.00</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Calculation Formula Display -->
+                            <div class="alert alert-light border mt-3">
+                                <p class="mb-0 text-center">
+                                    <strong>Formula:</strong> 
+                                    <code>Split Journals + Unmatched Refunds - Total Fees = Final Total</code>
+                                </p>
+                                <p class="mb-0 text-center mt-2">
+                                    <span id="calculation-display" class="text-muted">Loading...</span>
+                                </p>
+                            </div>
+                            
+                            <!-- Stripe Net Validation -->
+                            <div class="alert mt-3" id="validation-alert" style="display: none;">
+                                <div class="row align-items-center">
+                                    <div class="col-md-1 text-center">
+                                        <i id="validation-icon" class="fas fa-3x"></i>
+                                    </div>
+                                    <div class="col-md-11">
+                                        <h5 class="alert-heading mb-2" id="validation-heading">Validation Status</h5>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>Total Stripe Net (Received):</strong> <span id="validation-stripe-net">$0.00</span></p>
+                                                <p class="mb-1"><strong>Calculated Total:</strong> <span id="validation-calculated">$0.00</span></p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="mb-1"><strong>Variance:</strong> <span id="validation-variance" class="fw-bold">$0.00</span></p>
+                                                <p class="mb-0"><span id="validation-message"></span></p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Breakdown of Stripe Net -->
+                                        <hr class="my-2">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <p class="mb-1"><small><strong>Stripe Net Breakdown:</strong></small></p>
+                                                <p class="mb-0"><small>
+                                                    Regular Transactions Net (Charges & Refunds): <span id="breakdown-regular">$0.00</span><br>
+                                                    + Type-based Fees Net (Network Cost + Stripe Fee): <span id="breakdown-type-fees">$0.00</span><br>
+                                                    + Payment Failure Refunds Net: <span id="breakdown-pfr">$0.00</span> <em>(<span id="breakdown-pfr-count">0</span> transactions)</em><br>
+                                                    + Other Transactions Net (Adjustments, etc.): <span id="breakdown-other">$0.00</span><br>
+                                                    = <strong>Total Stripe Net: <span id="validation-stripe-net-breakdown">$0.00</span></strong>
+                                                </small></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEW JOURNAL GENERATION SYSTEM -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card border-success">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0"><i class="fas fa-book"></i> Generate Journals</h5>
+                        </div>
+                        <div class="card-body">
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle"></i> <strong>Journal Generation System</strong>
+                                    <p class="mb-0">Generate properly formatted journals for all matched transactions:</p>
+                                    <ul class="mb-0">
+                                        <li><strong>Main Journal:</strong> Regular transactions (simple format)</li>
+                                        <li><strong>POA Journal:</strong> POA transactions (simple format)</li>
+                                        <li><strong>Refunds Journal:</strong> Refunds in double-entry Dr/Cr accounting format</li>
+                                    </ul>
+                                </div>
+                            
+                            <!-- Memo Input - Moved here for easy access -->
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="card border-warning">
+                                        <div class="card-body py-2">
+                                            <div class="row align-items-center">
+                                                <div class="col-md-3">
+                                                    <label for="journal-memo" class="form-label mb-0"><strong>📝 Enter Memo:</strong></label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="journal-memo" placeholder="e.g., ACH CREDIT STRIPE TRANSFER 250922 ST- F3O7A7H3C1Y2" maxlength="255">
+                                                    <small class="form-text text-muted">This memo will be added to all journal downloads</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Generate/Clear Buttons -->
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <button class="btn btn-success btn-lg w-100" onclick="generateJournals()" id="generate-btn" style="display: none;">
+                                        <i class="fas fa-magic"></i> Generate All Journals
+                                    </button>
+                                    <button class="btn btn-warning btn-lg w-100" onclick="clearJournals()" id="clear-btn" style="display: none;">
+                                        <i class="fas fa-trash"></i> Clear Journals & Generate New
+                                    </button>
+                                    <button class="btn btn-secondary btn-lg w-100 mt-2" onclick="syncJournals()" id="sync-btn" style="display: none;">
+                                        <i class="fas fa-sync"></i> Sync Journals
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Journal Status -->
+                            <div id="journal-status" class="alert alert-info" style="display: none;">
+                                <i class="fas fa-info-circle"></i> <span id="status-message"></span>
+                            </div>
+                            
+                            <!-- Journal Preview Section -->
+                            <div id="journal-generation-results" style="display: none;">
+                                <hr>
+                                <h6><strong>📋 Generated Journals:</strong></h6>
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Journal Type</th>
+                                                <th class="text-center">Transactions</th>
+                                                <th class="text-end">Total Amount</th>
+                                                <th class="text-end">Total Amount (EUR)</th>
+                                                <th class="text-center">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="journal-list-tbody">
+                                            <!-- Will be populated dynamically -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <button class="btn btn-primary btn-lg w-100" onclick="downloadAllJournalsZip()">
+                                            <i class="fas fa-file-archive"></i> Download All Journals as ZIP
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Further Processing Section -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card border-secondary">
+                        <div class="card-header bg-secondary text-white">
+                            <h5 class="mb-0"><i class="fas fa-layer-group"></i> Further processing</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="fp-status" class="alert" style="display:none;"></div>
+                            <div class="row g-2 align-items-end">
+                                <div class="col-md-3">
+                                    <label class="form-label">Journal type</label>
+                                    <select class="form-select" id="fp-journal-type">
+                                        <option value="Main">Main</option>
+                                        <option value="POA">POA</option>
+                                        <option value="Cross_Subsidiary">Cross_Subsidiary</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Upload CSV (as downloaded)</label>
+                                    <input type="file" class="form-control" id="fp-file" accept=".csv">
+                                </div>
+                                <div class="col-md-3">
+                                    <button class="btn btn-outline-secondary w-100" onclick="fpUpload()"><i class="fas fa-upload"></i> Upload</button>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-4">
+                                    <button class="btn btn-primary w-100" onclick="fpCommit()"><i class="fas fa-check"></i> Use this data</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-outline-danger w-100" onclick="fpClear()"><i class="fas fa-trash"></i> Clear data</button>
+                                </div>
+                                <div class="col-md-4 d-flex justify-content-end gap-2">
+                                    <a href="#" id="fp-view-link" class="btn btn-outline-secondary" target="_blank" style="display: none;">
+                                        <i class="fas fa-external-link-alt me-1"></i> View data
+                                    </a>
+                                    <span id="fp-summary" class="text-muted align-self-center"></span>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <button class="btn btn-success w-100" id="fp-load-btn" onclick="fpLoadCombined()" disabled>
+                                        <i class="fas fa-database"></i> Load combined dataset (for Salon Summit Split)
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Salon Summit Processing Section -->
+                            <div class="row mt-4" id="summit-section" style="display: none;">
+                                <div class="col-12">
+                                    <div class="card border-warning">
+                                        <div class="card-header bg-warning text-dark">
+                                            <h6 class="mb-0"><i class="fas fa-cut me-2"></i>Salon Summit Installments Processing</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Upload Salon Summit CSV File</label>
+                                                    <input type="file" class="form-control" id="summit-file" accept=".csv" onchange="handleSummitFile()">
+                                                    <small class="text-muted">Expected format: OAK ID, Region, Amount (Instalment)</small>
+                                                </div>
+                                                <div class="col-md-6 d-flex align-items-end">
+                                                    <button class="btn btn-primary me-2" id="summit-upload-btn" onclick="uploadSummitFile()" disabled>
+                                                        <i class="fas fa-upload"></i> Upload Summit File
+                                                    </button>
+                                                    <button class="btn btn-success me-2" id="summit-process-btn" onclick="processSummitSplits()" disabled>
+                                                        <i class="fas fa-cogs"></i> Process Splits
+                                                    </button>
+                                                    <button class="btn btn-outline-danger me-2" id="summit-clear-btn" onclick="clearSummitData()" disabled>
+                                                        <i class="fas fa-trash"></i> Clear
+                                                    </button>
+                                                    <button class="btn btn-outline-info me-2" id="summit-refresh-files-btn" onclick="refreshSummitFiles()" disabled>
+                                                        <i class="fas fa-sync"></i> Refresh Files
+                                                    </button>
+                                                    <button class="btn btn-outline-success" id="summit-details-btn" onclick="viewSummitDetails()" disabled>
+                                                        <i class="fas fa-search"></i> View Details
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-12">
+                                                    <div id="summit-status" class="text-muted"></div>
+                                                    <div id="summit-results" class="mt-2"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive mt-3">
+                                <table class="table table-sm table-bordered">
+                                    <thead class="table-light"><tr><th>Journal</th><th class="text-center">Count</th><th class="text-end">Total</th></tr></thead>
+                                    <tbody id="fp-preview-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Journal Preparation Options -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0"><i class="fas fa-cogs"></i> Other Journal Options (Coming Soon)</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                                            <h5 class="card-title">Perfect Matches</h5>
+                                            <p class="card-text">Generate journal entries for perfectly matched transactions</p>
+                                            <button class="btn btn-success" onclick="preparePerfectMatchesJournal()" disabled>
+                                                <i class="fas fa-download"></i> Prepare Journal
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-search fa-3x text-info mb-3"></i>
+                                            <h5 class="card-title">Date+Amount Matches</h5>
+                                            <p class="card-text">Generate journal entries for date+amount matched transactions</p>
+                                            <button class="btn btn-info" onclick="prepareDateAmountJournal()" disabled>
+                                                <i class="fas fa-download"></i> Prepare Journal
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-dollar-sign fa-3x text-warning mb-3"></i>
+                                            <h5 class="card-title">Fees</h5>
+                                            <p class="card-text">Generate journal entries for fee transactions</p>
+                                            <button class="btn btn-warning" onclick="prepareFeesRefundsJournal()" disabled>
+                                                <i class="fas fa-download"></i> Prepare Journal
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Journal Entries Preview -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-secondary text-white">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-eye"></i> Journal Entries Preview</h5>
+                                <div>
+                                    <button class="btn btn-light btn-sm me-2" onclick="refreshPreview()">
+                                        <i class="fas fa-sync"></i> Refresh
+                                    </button>
+                                    <button class="btn btn-outline-light btn-sm" onclick="downloadAllJournals()">
+                                        <i class="fas fa-download"></i> Download All
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover" id="journal-preview-table">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Account</th>
+                                            <th>Description</th>
+                                            <th>Debit</th>
+                                            <th>Credit</th>
+                                            <th>Reference</th>
+                                            <th>Type</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="journal-preview-body">
+                                        <!-- Journal entries will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Processing Status -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-info-circle"></i> Processing Status</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="processing-status">
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle"></i> Ready to prepare journal entries. Select an option above to begin.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const jobId = {{ job_id }};
+        const subsidiaryId = {{ subsidiary_id }};
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadReconciliationSummary();
+            updateLastUpdated();
+            checkJournalStatus(); // Check if journals already exist
+        });
+
+        function loadReconciliationSummary() {
+            fetch(`/api/matched-transactions-results/${jobId}/${subsidiaryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Update master file count
+                    const totalMatches = data.summary.total_matched;
+                    document.getElementById('master-file-count').textContent = `${totalMatches} matched transactions`;
+                    
+                    // Update refunds count
+                    const refundsCount = data.metadata.process3.refunds_count || 0;
+                    document.getElementById('refunds-count').textContent = `${refundsCount} refund transactions`;
+                    
+                    // Load split summary for individual downloads
+                    loadSplitSummary();
+                    
+                    // Load financial summary table
+                    loadFinancialSummary();
+                    
+                    const summaryHtml = `
+                        <div class="col-md-3">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h4 class="text-success">${data.perfect_matches.count}</h4>
+                                    <p class="mb-0">Perfect Matches</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h4 class="text-info">${data.date_amount_matches.count}</h4>
+                                    <p class="mb-0">Date+Amount Matches</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h4 class="text-warning">${data.metadata.process3.fees_count}</h4>
+                                    <p class="mb-0">Fees</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h4 class="text-danger">${data.metadata.process3.refunds_count}</h4>
+                                    <p class="mb-0">Refunds</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    document.getElementById('reconciliation-summary').innerHTML = summaryHtml;
+                })
+                .catch(error => {
+                    console.error('Error loading reconciliation summary:', error);
+                });
+        }
+
+        function downloadMasterUploadFile() {
+            const memo = document.getElementById('journal-memo').value.trim();
+            const memoParam = memo ? `?memo=${encodeURIComponent(memo)}` : '';
+            window.location.href = `/api/download-master-upload-file/${jobId}/${subsidiaryId}${memoParam}`;
+        }
+
+        function downloadRefundsJournal() {
+            window.location.href = `/api/download-refunds-journal/${jobId}/${subsidiaryId}`;
+        }
+
+        function downloadSplitJournals() {
+            const memo = document.getElementById('journal-memo').value.trim();
+            const memoParam = memo ? `?memo=${encodeURIComponent(memo)}` : '';
+            window.location.href = `/api/download-split-journals/${jobId}/${subsidiaryId}${memoParam}`;
+        }
+
+        function loadSplitSummary() {
+            fetch(`/api/get-split-summary/${jobId}/${subsidiaryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Update split counts
+                    document.getElementById('refunds-split-count').innerHTML = 
+                        `<small class="text-muted">${data.refunds.count} txns | $${data.refunds.total.toFixed(2)}</small>`;
+                    document.getElementById('poa-split-count').innerHTML = 
+                        `<small class="text-muted">${data.poa.count} txns | $${data.poa.total.toFixed(2)}</small>`;
+                    document.getElementById('regular-split-count').innerHTML = 
+                        `<small class="text-muted">${data.regular.count} txns | $${data.regular.total.toFixed(2)}</small>`;
+                    
+                    // Show cross-subsidiary card if there are any
+                    if (data.cross_subsidiary.count > 0) {
+                        document.getElementById('cross-sub-card').style.display = 'block';
+                        document.getElementById('cross-sub-split-count').innerHTML = 
+                            `<small class="text-muted">${data.cross_subsidiary.count} txns | $${data.cross_subsidiary.total.toFixed(2)}</small>`;
+                    }
+                    
+                    // Update amount verification
+                    document.getElementById('master-total').textContent = `$${data.master_total.toFixed(2)}`;
+                    document.getElementById('splits-total').textContent = `$${data.splits_total.toFixed(2)}`;
+                    
+                    if (data.match) {
+                        document.getElementById('amount-check-status').innerHTML = 
+                            '<span class="badge bg-success"><i class="fas fa-check"></i> Amounts Match!</span>';
+                        document.getElementById('amount-verification').classList.remove('alert-info');
+                        document.getElementById('amount-verification').classList.add('alert-success');
+                    } else {
+                        document.getElementById('amount-check-status').innerHTML = 
+                            '<span class="badge bg-danger"><i class="fas fa-times"></i> Amounts DO NOT Match!</span>';
+                        document.getElementById('amount-verification').classList.remove('alert-info');
+                        document.getElementById('amount-verification').classList.add('alert-danger');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading split summary:', error);
+                });
+        }
+
+        function downloadIndividualSplit(splitType) {
+            const memo = document.getElementById('journal-memo').value.trim();
+            const memoParam = memo ? `?memo=${encodeURIComponent(memo)}` : '';
+            window.location.href = `/api/download-individual-split/${jobId}/${subsidiaryId}/${splitType}${memoParam}`;
+        }
+
+        function loadFinancialSummary() {
+            fetch(`/api/get-financial-summary/${jobId}/${subsidiaryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Format currency
+                    const fmt = (num) => {
+                        return new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'USD',
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                        }).format(num);
+                    };
+                    
+                    // Populate split journals
+                    document.getElementById('summary-refunds-count').textContent = data.splits.refunds.count;
+                    document.getElementById('summary-refunds-amount').textContent = fmt(data.splits.refunds.total);
+                    document.getElementById('summary-poa-count').textContent = data.splits.poa.count;
+                    document.getElementById('summary-poa-amount').textContent = fmt(data.splits.poa.total);
+                    document.getElementById('summary-regular-count').textContent = data.splits.regular.count;
+                    document.getElementById('summary-regular-amount').textContent = fmt(data.splits.regular.total);
+                    
+                    // Cross-subsidiary (only if present)
+                    if (data.splits.cross_subsidiary.count > 0) {
+                        document.getElementById('summary-cross-sub-row').style.display = 'table-row';
+                        document.getElementById('summary-cross-sub-count').textContent = data.splits.cross_subsidiary.count;
+                        document.getElementById('summary-cross-sub-amount').textContent = fmt(data.splits.cross_subsidiary.total);
+                    }
+                    
+                    // Splits subtotal
+                    document.getElementById('summary-splits-total-count').textContent = data.splits.subtotal_count;
+                    document.getElementById('summary-splits-total-amount').textContent = fmt(data.splits.subtotal);
+                    
+                    // AED Currency Info (EU only)
+                    if (data.aed_currency) {
+                        const aedRow = document.getElementById('summary-aed-currency-row');
+                        aedRow.style.display = 'table-row';
+                        document.getElementById('summary-aed-count').textContent = data.aed_currency.count;
+                        
+                        // Format: €XXX.XX (AED YYY.YY)
+                        const eurAmount = new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'EUR',
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                        }).format(data.aed_currency.total_eur);
+                        
+                        const aedAmount = new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'AED',
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2
+                        }).format(data.aed_currency.total_aed);
+                        
+                        document.getElementById('summary-aed-amounts').textContent = `${eurAmount} (${aedAmount})`;
+                    }
+                    
+                    // Unmatched refunds
+                    document.getElementById('summary-unmatched-refunds-count').textContent = data.unmatched_refunds.count;
+                    document.getElementById('summary-unmatched-refunds-amount').textContent = fmt(data.unmatched_refunds.total);
+                    
+                    // Fees
+                    document.getElementById('summary-col-i-fees-count').textContent = data.fees.col_i_fees.count;
+                    document.getElementById('summary-col-i-fees-amount').textContent = fmt(data.fees.col_i_fees.total);
+                    document.getElementById('summary-type-fees-count').textContent = data.fees.type_fees.count;
+                    document.getElementById('summary-type-fees-amount').textContent = fmt(data.fees.type_fees.total);
+                    document.getElementById('summary-total-fees-count').textContent = data.fees.total_count;
+                    document.getElementById('summary-total-fees-amount').textContent = fmt(data.fees.total);
+                    
+                    // Payment Failure Refunds
+                    document.getElementById('summary-pfr-count').textContent = data.pfr.count;
+                    document.getElementById('summary-pfr-amount').textContent = fmt(data.pfr.total);
+                    
+                    // Other Transactions (show only if present)
+                    if (data.other && data.other.count > 0) {
+                        document.getElementById('summary-other-row').style.display = 'table-row';
+                        document.getElementById('summary-other-count').textContent = data.other.count;
+                        document.getElementById('summary-other-amount').textContent = fmt(data.other.total);
+                    }
+                    
+                    // Final total
+                    document.getElementById('summary-final-count').textContent = data.final.count;
+                    document.getElementById('summary-final-amount').textContent = fmt(data.final.total);
+                    
+                    // Calculation display
+                    const calcDisplay = `${fmt(data.splits.subtotal)} + ${fmt(data.unmatched_refunds.total)} - ${fmt(data.fees.total)} + ${fmt(data.pfr.total)} + ${fmt(data.other.total)} = ${fmt(data.final.total)}`;
+                    document.getElementById('calculation-display').innerHTML = `<strong>${calcDisplay}</strong>`;
+                    
+                    // Validation display
+                    if (data.validation) {
+                        const validationAlert = document.getElementById('validation-alert');
+                        const validationIcon = document.getElementById('validation-icon');
+                        const validationHeading = document.getElementById('validation-heading');
+                        const validationMessage = document.getElementById('validation-message');
+                        
+                        // Show validation section
+                        validationAlert.style.display = 'block';
+                        
+                        // Populate values
+                        document.getElementById('validation-stripe-net').textContent = fmt(data.validation.total_stripe_net);
+                        document.getElementById('validation-calculated').textContent = fmt(data.validation.calculated_total);
+                        document.getElementById('validation-variance').textContent = fmt(data.validation.variance);
+                        
+                        // Populate breakdown
+                        if (data.validation.breakdown) {
+                            document.getElementById('breakdown-regular').textContent = fmt(data.validation.breakdown.regular_net);
+                            document.getElementById('breakdown-type-fees').textContent = fmt(data.validation.breakdown.type_fees_net);
+                            document.getElementById('breakdown-pfr').textContent = fmt(data.validation.breakdown.pfr_net);
+                            document.getElementById('breakdown-pfr-count').textContent = data.validation.breakdown.pfr_count;
+                            document.getElementById('breakdown-other').textContent = fmt(data.validation.breakdown.other_transactions_net);
+                            document.getElementById('validation-stripe-net-breakdown').textContent = fmt(data.validation.total_stripe_net);
+                        }
+                        
+                        // Set status based on match
+                        if (data.validation.matches) {
+                            // Success - values match
+                            validationAlert.className = 'alert alert-success mt-3';
+                            validationIcon.className = 'fas fa-check-circle fa-3x text-success';
+                            validationHeading.textContent = '✅ Reconciliation Validated';
+                            validationMessage.innerHTML = '<strong class="text-success">Perfect Match!</strong> The calculated total matches the Total Stripe Net.';
+                        } else {
+                            // Warning - values don't match
+                            validationAlert.className = 'alert alert-warning mt-3';
+                            validationIcon.className = 'fas fa-exclamation-triangle fa-3x text-warning';
+                            validationHeading.textContent = '⚠️ Reconciliation Variance Detected';
+                            validationMessage.innerHTML = `<strong class="text-warning">Variance of ${fmt(Math.abs(data.validation.variance))}</strong> detected. Please review the reconciliation process.`;
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading financial summary:', error);
+                });
+        }
+
+        function preparePerfectMatchesJournal() {
+            showProcessingStatus('Preparing journal entries for perfect matches...', 'info');
+            
+            fetch(`/api/prepare-perfect-matches-journal/${jobId}/${subsidiaryId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    showProcessingStatus(`Error: ${data.error}`, 'danger');
+                    return;
+                }
+                
+                showProcessingStatus(`Successfully prepared ${data.count} journal entries for perfect matches`, 'success');
+                refreshPreview();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showProcessingStatus(`Error preparing journal: ${error.message}`, 'danger');
+            });
+        }
+
+        function prepareDateAmountJournal() {
+            showProcessingStatus('Preparing journal entries for date+amount matches...', 'info');
+            
+            fetch(`/api/prepare-date-amount-journal/${jobId}/${subsidiaryId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    showProcessingStatus(`Error: ${data.error}`, 'danger');
+                    return;
+                }
+                
+                showProcessingStatus(`Successfully prepared ${data.count} journal entries for date+amount matches`, 'success');
+                refreshPreview();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showProcessingStatus(`Error preparing journal: ${error.message}`, 'danger');
+            });
+        }
+
+        function prepareFeesRefundsJournal() {
+            showProcessingStatus('Preparing journal entries for fees and refunds...', 'info');
+            
+            fetch(`/api/prepare-fees-refunds-journal/${jobId}/${subsidiaryId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    showProcessingStatus(`Error: ${data.error}`, 'danger');
+                    return;
+                }
+                
+                showProcessingStatus(`Successfully prepared ${data.count} journal entries for fees and refunds`, 'success');
+                refreshPreview();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showProcessingStatus(`Error preparing journal: ${error.message}`, 'danger');
+            });
+        }
+
+        function refreshPreview() {
+            fetch(`/api/journal-preview/${jobId}/${subsidiaryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error('Error loading preview:', data.error);
+                        return;
+                    }
+                    
+                    const tbody = document.getElementById('journal-preview-body');
+                    tbody.innerHTML = '';
+                    
+                    data.entries.forEach(entry => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${entry.date}</td>
+                            <td>${entry.account}</td>
+                            <td>${entry.description}</td>
+                            <td>${entry.debit || '-'}</td>
+                            <td>${entry.credit || '-'}</td>
+                            <td>${entry.reference}</td>
+                            <td><span class="badge bg-${entry.type === 'perfect' ? 'success' : entry.type === 'date_amount' ? 'info' : 'warning'}">${entry.type}</span></td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading preview:', error);
+                });
+        }
+
+        function downloadAllJournals() {
+            window.open(`/api/download-all-journals/${jobId}/${subsidiaryId}`, '_blank');
+        }
+
+        function showProcessingStatus(message, type) {
+            const statusDiv = document.getElementById('processing-status');
+            statusDiv.innerHTML = `
+                <div class="alert alert-${type}">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'danger' ? 'exclamation-circle' : 'info-circle'}"></i> ${message}
+                </div>
+            `;
+        }
+
+        function updateLastUpdated() {
+            const now = new Date();
+            document.getElementById('last-updated').textContent = now.toLocaleString();
+        }
+
+        function goBackToProcess() {
+            window.location.href = `/reconciliation-process/${jobId}/${subsidiaryId}`;
+        }
+
+        function goBackToSubsidiary() {
+            window.location.href = `/reconciliation/${jobId}/${subsidiaryId}`;
+        }
+
+        // Further processing helpers
+        function fpLoadStatus() {
+            fetch(`/api/fp/status/${jobId}/${subsidiaryId}`)
+              .then(r => r.json())
+              .then(d => {
+                const stat = document.getElementById('fp-status');
+                stat.style.display = 'block';
+                if (!d.success) { stat.className='alert alert-danger'; stat.textContent = d.error || 'Error'; return; }
+                const cls = d.status==='committed' ? 'alert-success' : (d.status==='loaded' ? 'alert-info' : 'alert-secondary');
+                stat.className = `alert ${cls}`;
+                stat.textContent = `State: ${d.status}${d.working_loaded ? ' (combined loaded)' : ''}`;
+                // enable load button only when committed
+                const loadBtn = document.getElementById('fp-load-btn');
+                loadBtn.disabled = d.status !== 'committed' || d.working_loaded === true;
+                
+                // Show summit section if combined dataset is loaded
+                if (d.working_loaded === true) {
+                    showSummitSection();
+                }
+                
+                fpPreview();
+              })
+              .catch(err => console.error('fp status err', err));
+        }
+
+        function parseCsv(text) {
+            const lines = text.split('\n').filter(l=>l.trim());
+            if (!lines.length) return [];
+            const headers = lines[0].split(',').map(h=>h.trim());
+            const rows = [];
+            for (let i=1;i<lines.length;i++){
+                const vals = lines[i].split(',');
+                const obj = {};
+                headers.forEach((h,idx)=>obj[h]= (vals[idx]||'').trim());
+                // normalize common fields
+                obj.client_id = obj.client_id || obj['client_id'] || obj['Client'] || obj['client'] || '';
+                obj.invoice_number = obj.invoice_number || obj['invoice_number'] || obj['Invoice'] || obj['invoice'] || '';
+                const amtStr = (obj.amount || obj['amount'] || obj['Amount'] || '').replace(/[,\s]/g,'');
+                obj.amount = parseFloat(amtStr || '0') || 0;
+                rows.push(obj);
+            }
+            return rows;
+        }
+
+        function fpUpload() {
+            const fileInput = document.getElementById('fp-file');
+            const typeSel = document.getElementById('fp-journal-type');
+            if (!fileInput.files.length) { alert('Select a CSV first'); return; }
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e){
+                try {
+                    const rows = parseCsv(e.target.result);
+                    fetch(`/api/fp/upload/${jobId}/${subsidiaryId}`, {
+                        method:'POST', headers:{'Content-Type':'application/json'},
+                        body: JSON.stringify({ journal_type: typeSel.value, filename: file.name, rows })
+                    }).then(r=>r.json()).then(d=>{
+                        if (!d.success) { alert('Upload error: '+(d.error||'Unknown')); return; }
+                        fpLoadStatus();
+                        document.getElementById('fp-file').value='';
+                    }).catch(err=>{ alert('Upload error: '+err.message); });
+                } catch(err){ alert('Parse error: '+err.message); }
+            };
+            reader.readAsText(file);
+        }
+
+        function fpPreview(){
+            fetch(`/api/fp/preview/${jobId}/${subsidiaryId}`)
+              .then(r=>r.json()).then(d=>{
+                const tbody = document.getElementById('fp-preview-body');
+                tbody.innerHTML='';
+                if (!d.success) return;
+                const order = ['Main','POA','Cross_Subsidiary'];
+                order.forEach(k=>{
+                    const info = d.journals[k]||{count:0,total:0};
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td>${k}</td><td class="text-center">${info.count}</td><td class="text-end">$${(info.total||0).toFixed(2)}</td>`;
+                    tbody.appendChild(tr);
+                });
+                const total = (d.journals.Main.total||0)+(d.journals.POA.total||0)+(d.journals.Cross_Subsidiary.total||0);
+                document.getElementById('fp-summary').textContent = `Total rows: ${(d.journals.Main.count||0)+(d.journals.POA.count||0)+(d.journals.Cross_Subsidiary.count||0)} | Total: $${total.toFixed(2)}`;
+                updateFPViewLink();
+              });
+        }
+
+        function updateFPViewLink() {
+            const link = document.getElementById('fp-view-link');
+            if (link) {
+                link.href = `/fp-data/${jobId}/${subsidiaryId}`;
+                link.style.display = 'inline-block';
+            }
+        }
+
+        function fpCommit(){
+            fetch(`/api/fp/commit/${jobId}/${subsidiaryId}`, {method:'POST'})
+              .then(r=>r.json()).then(d=>{
+                if (!d.success) { alert('Commit error: '+(d.error||'Unknown')); return; }
+                fpLoadStatus();
+                updateFPViewLink();
+              });
+        }
+
+        function fpLoadCombined(){
+            const btn = document.getElementById('fp-load-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            fetch(`/api/fp/load-combined/${jobId}/${subsidiaryId}`, {method:'POST'})
+              .then(r=>r.json()).then(d=>{
+                if (!d.success) { alert('Load error: '+(d.error||'Unknown')); return; }
+                btn.innerHTML = '<i class="fas fa-check"></i> Combined dataset loaded';
+                updateFPViewLink();
+                showSummitSection();
+                setTimeout(()=>{ 
+                    btn.innerHTML = '<i class="fas fa-database"></i> Load combined dataset (for Salon Summit Split)'; 
+                    btn.disabled=false; 
+                }, 2000);
+              })
+              .catch(err=>{ alert('Load error: '+err.message); btn.disabled=false; btn.innerHTML = '<i class="fas fa-database"></i> Load combined dataset (for Salon Summit Split)'; });
+        }
+
+        function showSummitSection() {
+            document.getElementById('summit-section').style.display = 'block';
+            document.getElementById('summit-refresh-files-btn').disabled = false;
+            checkSummitProcessingStatus();
+        }
+
+        function checkSummitProcessingStatus() {
+            fetch(`/api/fp/summit-status/${jobId}/${subsidiaryId}`)
+            .then(r => r.json())
+            .then(d => {
+                if (d.success && d.already_processed) {
+                    // Summit processing already done
+                    document.getElementById('summit-process-btn').disabled = true;
+                    document.getElementById('summit-process-btn').innerHTML = '<i class="fas fa-check"></i> Already Processed';
+                    document.getElementById('summit-clear-btn').disabled = false;
+                    document.getElementById('summit-refresh-files-btn').disabled = false;
+                    document.getElementById('summit-details-btn').disabled = false;
+                    document.getElementById('summit-results').innerHTML = `
+                        <div class="alert alert-info">
+                            <h6><i class="fas fa-info-circle"></i> Summit Processing Complete</h6>
+                            <p>Salon Summit processing has already been completed. Use "Clear" to reprocess, "Refresh Files" to view generated files, or "View Details" for detailed matching information.</p>
+                        </div>
+                    `;
+                }
+            })
+            .catch(err => console.log('Could not check summit status:', err));
+        }
+
+        function viewSummitDetails() {
+            // Open summit details in new window
+            const detailsUrl = `/summit-details/${jobId}/${subsidiaryId}`;
+            window.open(detailsUrl, '_blank', 'width=1200,height=800,scrollbars=yes,resizable=yes');
+        }
+
+        let summitFileData = null;
+
+        function handleSummitFile() {
+            const fileInput = document.getElementById('summit-file');
+            const file = fileInput.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const csv = e.target.result;
+                    const lines = csv.split('\n').filter(line => line.trim());
+                    const headers = lines[0].split(',').map(h => h.trim());
+                    
+                    if (!headers.includes('OAK ID') || !headers.includes('Amount (Instalment)')) {
+                        alert('Invalid CSV format. Expected columns: OAK ID, Region, Amount (Instalment)');
+                        return;
+                    }
+                    
+                    summitFileData = [];
+                    for (let i = 1; i < lines.length; i++) {
+                        const values = lines[i].split(',').map(v => v.trim());
+                        if (values.length >= 3) {
+                            summitFileData.push({
+                                oak_id: values[0],
+                                region: values[1],
+                                installment_amount: parseFloat(values[2]) || 0
+                            });
+                        }
+                    }
+                    
+                    document.getElementById('summit-upload-btn').disabled = false;
+                    document.getElementById('summit-status').innerHTML = `<i class="fas fa-check text-success"></i> File ready: ${summitFileData.length} installments loaded`;
+                } catch (error) {
+                    alert('Error reading file: ' + error.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function uploadSummitFile() {
+            if (!summitFileData || summitFileData.length === 0) {
+                alert('No summit data to upload');
+                return;
+            }
+            
+            fetch(`/api/fp/summit-upload/${jobId}/${subsidiaryId}`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({summit_data: summitFileData})
+            })
+            .then(r => r.json())
+            .then(d => {
+                if (!d.success) { alert('Upload error: ' + (d.error || 'Unknown')); return; }
+                document.getElementById('summit-process-btn').disabled = false;
+                document.getElementById('summit-clear-btn').disabled = false;
+                document.getElementById('summit-status').innerHTML = `<i class="fas fa-check text-success"></i> Summit file uploaded: ${d.uploaded_count} installments`;
+            })
+            .catch(err => alert('Upload error: ' + err.message));
+        }
+
+        function processSummitSplits() {
+            const btn = document.getElementById('summit-process-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            
+            fetch(`/api/fp/summit-process/${jobId}/${subsidiaryId}`, {method: 'POST'})
+            .then(r => r.json())
+            .then(d => {
+                if (!d.success) { 
+                    if (r.status === 409) {
+                        // Already processed - show existing results
+                        document.getElementById('summit-results').innerHTML = `
+                            <div class="alert alert-warning">
+                                <h6><i class="fas fa-exclamation-triangle"></i> Already Processed</h6>
+                                <p>Salon Summit processing has already been completed. Clear data to reprocess.</p>
+                                <button class="btn btn-outline-danger btn-sm" onclick="clearSummitData()">
+                                    <i class="fas fa-trash"></i> Clear & Reprocess
+                                </button>
+                            </div>
+                        `;
+                        btn.innerHTML = '<i class="fas fa-check"></i> Already Processed';
+                        btn.disabled = true;
+                        return;
+                    }
+                    alert('Process error: ' + (d.error || 'Unknown')); 
+                    return; 
+                }
+                
+                let filesHtml = '';
+                if (d.generated_files && d.generated_files.length > 0) {
+                    filesHtml = `
+                        <div class="mt-3">
+                            <h6><i class="fas fa-download me-2"></i>Generated Files Ready for Download:</h6>
+                            <div class="list-group">
+                                ${d.generated_files.map(file => `
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>${file.journal_type}</strong>
+                                            <br><small class="text-muted">${file.filename}</small>
+                                            <br><small class="text-muted">${file.row_count} rows | $${file.total_amount.toFixed(2)}</small>
+                                        </div>
+                                        <a href="/api/fp/download/${jobId}/${subsidiaryId}/${file.filename}" 
+                                           class="btn btn-sm btn-outline-primary" download>
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                let journalTotalsHtml = '';
+                if (d.journal_totals) {
+                    journalTotalsHtml = `
+                        <div class="mt-3">
+                            <h6><i class="fas fa-chart-bar me-2"></i>Journal Totals After Processing:</h6>
+                            <div class="row">
+                                ${Object.entries(d.journal_totals).map(([type, info]) => `
+                                    <div class="col-md-3">
+                                        <div class="card">
+                                            <div class="card-body p-2">
+                                                <h6 class="card-title">${type}</h6>
+                                                <p class="card-text mb-0">
+                                                    <small>${info.count} rows</small><br>
+                                                    <strong>$${info.total_amount.toFixed(2)}</strong>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                document.getElementById('summit-results').innerHTML = `
+                    <div class="alert alert-success">
+                        <h6><i class="fas fa-check-circle"></i> Processing Complete!</h6>
+                        <p><strong>Matched:</strong> ${d.matched_count} clients - $${d.total_summit_amount.toFixed(2)}</p>
+                        <p><strong>Unmatched:</strong> ${d.unmatched_count || 0} summit lines - $${(d.unmatched_summit_total || 0).toFixed(2)} (see Unmatched_Summit_Lines CSV)</p>
+                        <p><strong>Remaining Amount:</strong> $${d.total_remaining_amount.toFixed(2)}</p>
+                        <p><strong>Original Total:</strong> $${d.original_total.toFixed(2)}</p>
+                        <p><strong>Final Total:</strong> $${(d.final_total || 0).toFixed(2)}</p>
+                        <p><strong>Duplicates Combined:</strong> ${d.duplicates_combined || 0} client IDs had multiple entries</p>
+                        <p class="mb-0"><strong>Verification:</strong> ${d.verification_passed ? '✅ Totals match' : '❌ Totals do not match'}</p>
+                        ${journalTotalsHtml}
+                        ${filesHtml}
+                    </div>
+                `;
+                
+                btn.innerHTML = '<i class="fas fa-check"></i> Processing Complete';
+                updateFPViewLink(); // Refresh the data viewer
+                document.getElementById('summit-refresh-files-btn').disabled = false;
+                document.getElementById('summit-details-btn').disabled = false;
+            })
+            .catch(err => {
+                alert('Process error: ' + err.message);
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-cogs"></i> Process Splits';
+            });
+        }
+
+        function refreshSummitFiles() {
+            fetch(`/api/fp/list-files/${jobId}/${subsidiaryId}`)
+            .then(r => r.json())
+            .then(d => {
+                if (!d.success) { alert('Error loading files: ' + (d.error || 'Unknown')); return; }
+                
+                let filesHtml = '';
+                if (d.files && d.files.length > 0) {
+                    filesHtml = `
+                        <div class="mt-3">
+                            <h6><i class="fas fa-download me-2"></i>Available Files for Download:</h6>
+                            <div class="list-group">
+                                ${d.files.map(file => `
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>${file.filename.replace(/_/g, ' ').replace('.csv', '')}</strong>
+                                            <br><small class="text-muted">Size: ${(file.size / 1024).toFixed(1)} KB</small>
+                                        </div>
+                                        <a href="${file.download_url}" 
+                                           class="btn btn-sm btn-outline-primary" download>
+                                            <i class="fas fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    filesHtml = '<div class="mt-3"><p class="text-muted">No files available for download.</p></div>';
+                }
+                
+                document.getElementById('summit-results').innerHTML = filesHtml;
+            })
+            .catch(err => alert('Error loading files: ' + err.message));
+        }
+
+        function clearSummitData() {
+            if (!confirm('Clear all Salon Summit data? This will restore original amounts and allow reprocessing.')) return;
+            
+            fetch(`/api/fp/summit-clear/${jobId}/${subsidiaryId}`, {method: 'DELETE'})
+            .then(r => r.json())
+            .then(d => {
+                if (!d.success) { alert('Clear error: ' + (d.error || 'Unknown')); return; }
+                
+                // Reset UI
+                document.getElementById('summit-file').value = '';
+                document.getElementById('summit-upload-btn').disabled = true;
+                document.getElementById('summit-process-btn').disabled = true;
+                document.getElementById('summit-process-btn').innerHTML = '<i class="fas fa-cogs"></i> Process Splits';
+                document.getElementById('summit-clear-btn').disabled = true;
+                document.getElementById('summit-refresh-files-btn').disabled = true;
+                document.getElementById('summit-details-btn').disabled = true;
+                document.getElementById('summit-status').innerHTML = '';
+                document.getElementById('summit-results').innerHTML = '';
+                summitFileData = null;
+                
+                updateFPViewLink(); // Refresh the data viewer
+            })
+            .catch(err => alert('Clear error: ' + err.message));
+        }
+
+        function fpClear(){
+            if (!confirm('Clear Further processing data?')) return;
+            fetch(`/api/fp/clear/${jobId}/${subsidiaryId}`, {method:'DELETE'})
+              .then(r=>r.json()).then(d=>{ if (!d.success){ alert('Clear error: '+(d.error||'Unknown')); } fpLoadStatus(); });
+        }
+
+        // init FP section on load
+        document.addEventListener('DOMContentLoaded', fpLoadStatus);
+
+
+        // NEW JOURNAL GENERATION FUNCTIONS
+        // Check journal status on page load
+        function checkJournalStatus() {
+            fetch(`/api/journals/status/${jobId}/${subsidiaryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        if (data.journals_exist) {
+                            // Journals exist - show them and clear button
+                            showExistingJournals();
+                            document.getElementById('generate-btn').style.display = 'none';
+                            document.getElementById('clear-btn').style.display = 'block';
+                            document.getElementById('sync-btn').style.display = 'none';
+                            document.getElementById('journal-status').style.display = 'block';
+                            document.getElementById('status-message').textContent = 
+                                `Journals have been generated (${data.total_journals} transactions). Use "Clear Journals & Generate New" to regenerate.`;
+                        
+                        } else {
+                            // No journals - show generate button
+                            document.getElementById('generate-btn').style.display = 'none';
+                            document.getElementById('clear-btn').style.display = 'none';
+                            document.getElementById('sync-btn').style.display = 'block';
+                            document.getElementById('journal-status').style.display = 'block';
+                            document.getElementById('status-message').textContent = 'No journals generated yet. You can generate journals now.';
+                        }
+                    } else {
+                        console.error('Error checking journal status:', data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error checking journal status:', error);
+                });
+        }
+
+        function generateJournals() {
+            // Show loading state
+            const button = event.target;
+            button.disabled = true;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+            
+            // Get memo from input
+            const memo = document.getElementById('journal-memo').value.trim();
+            
+            // Call API to generate journals
+            fetch(`/api/journals/preview/${jobId}/${subsidiaryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displayJournalResults(data);
+                        button.innerHTML = '<i class="fas fa-check"></i> Journals Generated!';
+                        // Update UI state
+                        checkJournalStatus();
+                    } else {
+                        if (data.journals_exist) {
+                            // Journals already exist - show them
+                            showExistingJournals();
+                            checkJournalStatus();
+                        } else if (data.needs_sync || (data.error && data.error.includes('No matched transactions'))) {
+                            // Auto-sync then retry
+                            syncJournals(() => {
+                                // retry after sync
+                                fetch(`/api/journals/preview/${jobId}/${subsidiaryId}`)
+                                  .then(r => r.json())
+                                  .then(d2 => {
+                                      if (d2.success) {
+                                          displayJournalResults(d2);
+                                          checkJournalStatus();
+                                          button.innerHTML = '<i class="fas fa-check"></i> Journals Generated!';
+                                      } else {
+                                          alert('Error generating journals: ' + d2.error);
+                                          button.disabled = false;
+                                          button.innerHTML = '<i class="fas fa-magic"></i> Generate All Journals';
+                                      }
+                                  })
+                                  .catch(err => {
+                                      console.error('Error:', err);
+                                      alert('Error generating journals: ' + err.message);
+                                      button.disabled = false;
+                                      button.innerHTML = '<i class="fas fa-magic"></i> Generate All Journals';
+                                  });
+                            });
+                        } else {
+                            alert('Error generating journals: ' + data.error);
+                            button.disabled = false;
+                            button.innerHTML = '<i class="fas fa-magic"></i> Generate All Journals';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error generating journals: ' + error.message);
+                    button.disabled = false;
+                    button.innerHTML = '<i class="fas fa-magic"></i> Generate All Journals';
+                });
+        }
+
+        function syncJournals(callback) {
+            const btn = document.getElementById('sync-btn');
+            if (btn) {
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Syncing...';
+            }
+            const memo = document.getElementById('journal-memo').value.trim() || 'Auto sync';
+            fetch(`/api/journals/sync/${jobId}/${subsidiaryId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ memo })
+            })
+            .then(r => r.json())
+            .then(d => {
+                if (!d.success) {
+                    alert('Error syncing journals: ' + (d.error || 'Unknown error'));
+                } else {
+                    showExistingJournals();
+                    checkJournalStatus();
+                    if (typeof callback === 'function') callback();
+                }
+            })
+            .catch(err => {
+                console.error('Sync error:', err);
+                alert('Error syncing journals: ' + err.message);
+            })
+            .finally(() => {
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-sync"></i> Sync Journals';
+                }
+            });
+        }
+
+        function clearJournals() {
+            if (confirm('Are you sure you want to clear all existing journals? This action cannot be undone.')) {
+                // Show loading state
+                const button = event.target;
+                button.disabled = true;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Clearing...';
+                
+                // Call API to clear journals
+                fetch(`/api/journals/clear/${jobId}/${subsidiaryId}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Clear the journal results display
+                        document.getElementById('journal-generation-results').style.display = 'none';
+                        // Auto-sync immediately after clear
+                        syncJournals();
+                        button.innerHTML = '<i class="fas fa-check"></i> Journals Cleared!';
+                        setTimeout(() => {
+                            button.disabled = false;
+                            button.innerHTML = '<i class="fas fa-trash"></i> Clear Journals & Generate New';
+                        }, 2000);
+                    } else {
+                        alert('Error clearing journals: ' + data.error);
+                        button.disabled = false;
+                        button.innerHTML = '<i class="fas fa-trash"></i> Clear Journals & Generate New';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error clearing journals: ' + error.message);
+                    button.disabled = false;
+                    button.innerHTML = '<i class="fas fa-trash"></i> Clear Journals & Generate New';
+                });
+            }
+        }
+
+        function showExistingJournals() {
+            // Call API to get existing journals
+            fetch(`/api/journals/preview/${jobId}/${subsidiaryId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displayJournalResults(data);
+                    } else {
+                        console.error('Error loading existing journals:', data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading existing journals:', error);
+                });
+        }
+
+
+        function displayJournalResults(data) {
+            // Show results section
+            document.getElementById('journal-generation-results').style.display = 'block';
+            
+            // Populate table
+            const tbody = document.getElementById('journal-list-tbody');
+            tbody.innerHTML = '';
+            
+            const journals = data.summary.journals;
+            const reconciliation = data.summary.reconciliation || {};
+            
+            let totalTransactions = 0;
+            let totalAmountAED = 0;
+            let totalAmountEUR = 0;
+            
+            for (const [journalName, info] of Object.entries(journals)) {
+                const row = document.createElement('tr');
+                
+                // Check if this is an AED journal
+                const isAED = journalName.includes('_AED');
+                
+                // Format journal name for display
+                let displayName = journalName;
+                let badgeClass = 'bg-primary';
+                let currency = isAED ? 'AED' : 'EUR';
+                let currencySymbol = isAED ? '' : '€';
+                
+                if (journalName.includes('Refunds')) {
+                    displayName = '💰 Refunds Journal (Double-Entry)';
+                    badgeClass = 'bg-danger';
+                } else if (journalName.includes('POA')) {
+                    displayName = '📝 POA Journal';
+                    badgeClass = 'bg-info';
+                } else if (journalName.includes('Main')) {
+                    displayName = '📊 Main Journal';
+                    badgeClass = 'bg-success';
+                } else if (journalName.includes('Cross_Subsidiary')) {
+                    displayName = '🔄 Cross-Subsidiary Journal';
+                    badgeClass = 'bg-warning';
+                }
+                
+                // Add currency indicator for AED journals
+                if (isAED) {
+                    displayName += ' <span class="badge bg-secondary ms-2">AED</span>';
+                } else {
+                    displayName += ' <span class="badge bg-secondary ms-2">EUR</span>';
+                }
+                
+                // Calculate EUR equivalent for AED journals
+                let eurEquivalent = '';
+                let eurAmount = 0;
+                if (isAED && reconciliation.aed_journals_total_aed > 0) {
+                    // Calculate individual AED journal's EUR equivalent
+                    // Using the ratio from total AED/EUR conversion
+                    const conversionRate = reconciliation.aed_journals_total_eur / reconciliation.aed_journals_total_aed;
+                    eurAmount = info.total * conversionRate;
+                    eurEquivalent = `€${eurAmount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+                } else {
+                    eurAmount = info.total;
+                    eurEquivalent = `${currencySymbol}${info.total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+                }
+                
+                // Add to totals
+                totalTransactions += info.count;
+                if (isAED) {
+                    totalAmountAED += info.total;
+                }
+                // Refunds should be subtracted (they're positive in Dr/Cr format but represent negative transactions)
+                if (journalName.includes('Refunds')) {
+                    totalAmountEUR -= eurAmount;
+                } else {
+                    totalAmountEUR += eurAmount;
+                }
+                
+                row.innerHTML = `
+                    <td><span class="badge ${badgeClass}">${displayName}</span></td>
+                    <td class="text-center">${info.count}</td>
+                    <td class="text-end">${currencySymbol}${info.total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ${currency}</td>
+                    <td class="text-end">${eurEquivalent}</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary" onclick="downloadIndividualJournal('${journalName}')">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            }
+            
+            // Add totals row
+            const totalsRow = document.createElement('tr');
+            totalsRow.className = 'table-active fw-bold';
+            totalsRow.innerHTML = `
+                <td><strong>📊 TOTAL</strong></td>
+                <td class="text-center">${totalTransactions}</td>
+                <td class="text-end">
+                    €${reconciliation.eur_journals_total.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} EUR<br>
+                    <small>${totalAmountAED.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} AED</small>
+                </td>
+                <td class="text-end">€${totalAmountEUR.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+                <td></td>
+            `;
+            tbody.appendChild(totalsRow);
+            
+            // Add reconciliation summary after table
+            const reconciliationDiv = document.createElement('div');
+            reconciliationDiv.className = 'mt-4 p-3 border rounded bg-light';
+            reconciliationDiv.innerHTML = `
+                <h6 class="mb-3"><strong>🔍 Reconciliation Check</strong></h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-2">
+                            <div class="card-body py-2">
+                                <small class="text-muted">Master Upload File & Split Journals</small>
+                                <div class="d-flex justify-content-between">
+                                    <span>Total (EUR):</span>
+                                    <strong>€${(reconciliation.breakdown?.refunds + reconciliation.breakdown?.poa + reconciliation.breakdown?.main + reconciliation.breakdown?.cross_subsidiary).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-2">
+                            <div class="card-body py-2">
+                                <small class="text-muted">Generated Journals</small>
+                                <div class="d-flex justify-content-between">
+                                    <span>Total (EUR):</span>
+                                    <strong>€${totalAmountEUR.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert ${Math.abs(totalAmountEUR - (reconciliation.breakdown?.refunds + reconciliation.breakdown?.poa + reconciliation.breakdown?.main + reconciliation.breakdown?.cross_subsidiary)) < 1 ? 'alert-success' : 'alert-danger'} mb-0 py-2">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span><strong>Difference:</strong></span>
+                        <span><strong>€${Math.abs(totalAmountEUR - (reconciliation.breakdown?.refunds + reconciliation.breakdown?.poa + reconciliation.breakdown?.main + reconciliation.breakdown?.cross_subsidiary)).toFixed(2)}</strong></span>
+                        <span>${Math.abs(totalAmountEUR - (reconciliation.breakdown?.refunds + reconciliation.breakdown?.poa + reconciliation.breakdown?.main + reconciliation.breakdown?.cross_subsidiary)) < 1 ? '✅ Match!' : '❌ Mismatch'}</span>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <small class="text-muted">
+                        <strong>Note:</strong> All amounts converted to EUR for comparison. AED journals use Stripe conversion rates.
+                    </small>
+                </div>
+            `;
+            
+            // Insert reconciliation summary after the table
+            const tableContainer = tbody.closest('.table-responsive');
+            tableContainer.parentNode.insertBefore(reconciliationDiv, tableContainer.nextSibling);
+        }
+
+        function downloadIndividualJournal(journalName) {
+            const memo = document.getElementById('journal-memo').value.trim();
+            
+            // Call API to download individual journal
+            fetch(`/api/journals/download-split/${jobId}/${subsidiaryId}/${journalName}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ memo: memo })
+            })
+            .then(response => response.blob())
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${journalName}.csv`;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error downloading journal: ' + error.message);
+            });
+        }
+
+        function downloadAllJournalsZip() {
+            const memo = document.getElementById('journal-memo').value.trim();
+            
+            // Call API to download all journals as ZIP
+            fetch(`/api/journals/download-all/${jobId}/${subsidiaryId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ memo: memo })
+            })
+            .then(response => response.blob())
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `All_Journals_${subsidiaryId}.zip`;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error downloading ZIP: ' + error.message);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Reconciliation - Receipts Automation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Receipts Automation</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ url_for('index') }}">Dashboard</a>
+                <a class="nav-link" href="{{ url_for('receipts_page') }}">Reconciliation Jobs</a>
+                <a class="nav-link active" href="#">Current Job</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1><i class="fas fa-balance-scale text-primary"></i> <span id="job-title">Loading...</span></h1>
+                        <p class="lead" id="job-description">Debtor receipt reconciliation</p>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary" onclick="goBack()">
+                            <i class="fas fa-arrow-left"></i> Back to Jobs
+                        </button>
+                        <button class="btn btn-warning" onclick="goToPreparation()">
+                            <i class="fas fa-file-upload"></i> Prepare Files
+                        </button>
+                        <button class="btn btn-success" onclick="showUploadModal()">
+                            <i class="fas fa-upload"></i> Upload Receipts
+                        </button>
+                        <button class="btn btn-primary" onclick="startReconciliation()">
+                            <i class="fas fa-play"></i> Start Reconciliation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subsidiary Selection -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-building"></i> Select Subsidiary for Reconciliation</h5>
+                        <small class="text-muted">Choose which subsidiary to reconcile for this job</small>
+                    </div>
+                    <div class="card-body">
+                        <div class="row" id="subsidiaries-container">
+                            <div class="col-12 text-center">
+                                <i class="fas fa-spinner fa-spin"></i> Loading subsidiaries...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Job Status -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-info-circle"></i> Job Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h4 id="total-receipts" class="text-primary">0</h4>
+                                    <small class="text-muted">Total Receipts</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h4 id="matched-receipts" class="text-success">0</h4>
+                                    <small class="text-muted">Matched</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h4 id="unmatched-receipts" class="text-warning">0</h4>
+                                    <small class="text-muted">Unmatched</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h4 id="error-receipts" class="text-danger">0</h4>
+                                    <small class="text-muted">Errors</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reconciliation Progress -->
+        <div class="row mt-4" id="progress-section" style="display: none;">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-chart-line"></i> Reconciliation Progress</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress mb-3">
+                            <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <div class="text-center">
+                            <span id="progress-text">Ready to start reconciliation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Receipts Table -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5><i class="fas fa-receipt"></i> Receipts in this Reconciliation</h5>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-primary btn-sm" onclick="filterReceipts('all')">All</button>
+                            <button type="button" class="btn btn-outline-success btn-sm" onclick="filterReceipts('matched')">Matched</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="filterReceipts('unmatched')">Unmatched</button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" onclick="filterReceipts('error')">Errors</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Filename</th>
+                                        <th>Status</th>
+                                        <th>Debtor</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Match Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="receipts-table-body">
+                                    <tr>
+                                        <td colspan="7" class="text-center text-muted">
+                                            <i class="fas fa-spinner fa-spin"></i> Loading receipts...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reconciliation Results -->
+        <div class="row mt-4" id="results-section" style="display: none;">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-check-circle text-success"></i> Matched Receipts</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="matched-results">
+                            <div class="text-center text-muted">No matched receipts yet</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-exclamation-triangle text-warning"></i> Unmatched Receipts</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="unmatched-results">
+                            <div class="text-center text-muted">No unmatched receipts yet</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Export Results -->
+        <div class="row mt-4" id="export-section" style="display: none;">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-download"></i> Export Results</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="btn-group">
+                            <button class="btn btn-success" onclick="exportMatched()">
+                                <i class="fas fa-file-excel"></i> Export Matched Receipts
+                            </button>
+                            <button class="btn btn-warning" onclick="exportUnmatched()">
+                                <i class="fas fa-file-excel"></i> Export Unmatched Receipts
+                            </button>
+                            <button class="btn btn-primary" onclick="exportSummary()">
+                                <i class="fas fa-file-pdf"></i> Export Summary Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal fade" id="uploadModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload Receipt Files for Reconciliation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="upload-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="files" class="form-label">Select Excel Files</label>
+                            <input type="file" class="form-control" id="files" name="files" multiple accept=".xlsx,.xls,.csv">
+                            <div class="form-text">Select debtor receipt files to upload for this reconciliation</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="uploadFiles()">Upload Files</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const jobId = {{ job_id }};
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadJobDetails();
+            loadJobReceipts();
+            loadSubsidiaries(); // Load subsidiaries immediately
+            
+            // Set up periodic updates
+            setInterval(() => {
+                loadJobReceipts();
+            }, 30000);
+        });
+
+        function loadJobDetails() {
+            fetch(`/api/jobs/${jobId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('job-title').textContent = data.job_name;
+                    document.getElementById('job-description').textContent = data.job_description || 'Debtor receipt reconciliation';
+                    document.getElementById('page-title').textContent = `${data.job_name} - Receipts Automation`;
+                })
+                .catch(error => {
+                    console.error('Error loading job details:', error);
+                });
+        }
+
+        function loadJobReceipts() {
+            // This would load receipts associated with this reconciliation job
+            // For now, we'll show a placeholder
+            const tbody = document.getElementById('receipts-table-body');
+            tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted">No receipts uploaded yet. Click "Upload Receipts" to get started.</td></tr>';
+        }
+
+        function loadSubsidiaries() {
+            fetch('/api/subsidiaries')
+                .then(response => response.json())
+                .then(subsidiaries => {
+                    const container = document.getElementById('subsidiaries-container');
+                    
+                    if (subsidiaries.length === 0) {
+                        container.innerHTML = `
+                            <div class="col-12 text-center text-muted">
+                                <i class="fas fa-exclamation-triangle"></i> No subsidiaries found. Please contact administrator.
+                            </div>
+                        `;
+                        return;
+                    }
+                    
+                    container.innerHTML = subsidiaries.map(subsidiary => `
+                        <div class="col-md-6 col-lg-4 mb-3">
+                            <div class="card h-100 subsidiary-card" onclick="navigateToSubsidiary(${subsidiary.id})">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-building fa-3x text-primary"></i>
+                                    </div>
+                                    <h5 class="card-title">${subsidiary.name}</h5>
+                                    <p class="card-text text-muted">${subsidiary.region || 'Global'}</p>
+                                    <div class="mt-auto">
+                                        <button class="btn btn-outline-primary" onclick="startRecProcess(${subsidiary.id})">
+                                            <i class="fas fa-play"></i> Start Rec Process
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                })
+                .catch(error => {
+                    console.error('Error loading subsidiaries:', error);
+                    const container = document.getElementById('subsidiaries-container');
+                    container.innerHTML = `
+                        <div class="col-12 text-center text-danger">
+                            <i class="fas fa-exclamation-triangle"></i> Error loading subsidiaries
+                        </div>
+                    `;
+                });
+        }
+
+        function navigateToSubsidiary(subsidiaryId) {
+            // Navigate to the subsidiary-specific reconciliation page
+            window.location.href = `/reconciliation/${jobId}/${subsidiaryId}`;
+        }
+
+        function showUploadModal() {
+            const modal = new bootstrap.Modal(document.getElementById('uploadModal'));
+            modal.show();
+        }
+
+        function uploadFiles() {
+            const fileInput = document.getElementById('files');
+            const files = fileInput.files;
+            
+            if (files.length === 0) {
+                alert('Please select files to upload');
+                return;
+            }
+            
+            const formData = new FormData();
+            for (let i = 0; i < files.length; i++) {
+                formData.append('files', files[i]);
+            }
+            
+            // Show loading state
+            const uploadBtn = document.querySelector('#uploadModal .btn-primary');
+            const originalText = uploadBtn.textContent;
+            uploadBtn.textContent = 'Uploading...';
+            uploadBtn.disabled = true;
+            
+            fetch('/api/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(`Successfully uploaded ${data.uploaded_count} files`);
+                bootstrap.Modal.getInstance(document.getElementById('uploadModal')).hide();
+                
+                // Add files to our list
+                for (let i = 0; i < files.length; i++) {
+                    uploadedFiles.push({
+                        name: files[i].name,
+                        size: files[i].size,
+                        status: 'uploaded',
+                        validation: 'pending'
+                    });
+                }
+                
+                updateUploadedFilesList();
+                enablePreparationButtons();
+                
+            })
+            .catch(error => {
+                console.error('Upload error:', error);
+                alert('Error uploading files');
+            })
+            .finally(() => {
+                uploadBtn.textContent = originalText;
+                uploadBtn.disabled = false;
+                fileInput.value = ''; // Clear the file input
+            });
+        }
+
+        function updateUploadedFilesList() {
+            const section = document.getElementById('uploaded-files-section');
+            const tbody = document.getElementById('uploaded-files-list');
+            
+            if (uploadedFiles.length > 0) {
+                section.style.display = 'block';
+                
+                tbody.innerHTML = uploadedFiles.map(file => `
+                    <tr>
+                        <td>${file.name}</td>
+                        <td>${formatFileSize(file.size)}</td>
+                        <td><span class="badge bg-success">${file.status}</span></td>
+                        <td><span class="badge bg-warning">${file.validation}</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-danger" onclick="removeFile('${file.name}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+            } else {
+                section.style.display = 'none';
+            }
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function removeFile(filename) {
+            uploadedFiles = uploadedFiles.filter(file => file.name !== filename);
+            updateUploadedFilesList();
+            
+            if (uploadedFiles.length === 0) {
+                disablePreparationButtons();
+            }
+        }
+
+        function enablePreparationButtons() {
+            document.getElementById('validate-btn').disabled = false;
+            document.getElementById('organize-btn').disabled = false;
+            document.getElementById('preview-btn').disabled = false;
+        }
+
+        function disablePreparationButtons() {
+            document.getElementById('validate-btn').disabled = true;
+            document.getElementById('organize-btn').disabled = true;
+            document.getElementById('preview-btn').disabled = true;
+        }
+
+        function validateFiles() {
+            if (uploadedFiles.length === 0) {
+                alert('Please upload files first');
+                return;
+            }
+            
+            // Simulate file validation
+            const validateBtn = document.getElementById('validate-btn');
+            const originalText = validateBtn.textContent;
+            validateBtn.textContent = 'Validating...';
+            validateBtn.disabled = true;
+            
+            setTimeout(() => {
+                // Update validation status
+                uploadedFiles.forEach(file => {
+                    file.validation = 'validated';
+                });
+                
+                updateUploadedFilesList();
+                updateValidationStatus('All files validated successfully!');
+                
+                validateBtn.textContent = originalText;
+                validateBtn.disabled = false;
+                
+                // Show preparation status
+                showPreparationStatus();
+                
+            }, 2000);
+        }
+
+        function organizeFiles() {
+            if (uploadedFiles.length === 0) {
+                alert('Please upload files first');
+                return;
+            }
+            
+            // Simulate file organization
+            const organizeBtn = document.getElementById('organize-btn');
+            const originalText = organizeBtn.textContent;
+            organizeBtn.textContent = 'Organizing...';
+            organizeBtn.disabled = true;
+            
+            setTimeout(() => {
+                updateValidationStatus('Files organized by subsidiary successfully!');
+                organizeBtn.textContent = originalText;
+                organizeBtn.disabled = false;
+                
+                showPreparationStatus();
+            }, 1500);
+        }
+
+        function previewFiles() {
+            if (uploadedFiles.length === 0) {
+                alert('Please upload files first');
+                return;
+            }
+            
+            // Simulate file preview
+            const previewBtn = document.getElementById('preview-btn');
+            const originalText = previewBtn.textContent;
+            previewBtn.textContent = 'Loading Preview...';
+            previewBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert(`Preview: Found ${uploadedFiles.length} files ready for reconciliation.\n\nFiles include debtor receipt data that can be processed for each subsidiary.`);
+                previewBtn.textContent = originalText;
+                previewBtn.disabled = false;
+            }, 1000);
+        }
+
+        function updateValidationStatus(message) {
+            const statusDiv = document.getElementById('file-validation-status');
+            statusDiv.innerHTML = `
+                <div class="text-success">
+                    <i class="fas fa-check-circle"></i> ${message}
+                </div>
+            `;
+        }
+
+        function showPreparationStatus() {
+            const statusDiv = document.getElementById('preparation-status');
+            statusDiv.style.display = 'block';
+        }
+
+        function startReconciliation() {
+            if (confirm('Start the reconciliation process? This will calculate fees from Stripe data and begin the matching process.')) {
+                // Show progress section
+                document.getElementById('progress-section').style.display = 'block';
+                
+                // Start actual reconciliation
+                performReconciliation();
+            }
+        }
+
+        function performReconciliation() {
+            const progressDiv = document.getElementById('reconciliation-progress');
+            progressDiv.innerHTML = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div> Starting reconciliation...';
+            
+            // Call the reconciliation API
+            fetch(`/api/start-reconciliation/${jobId}/${subsidiaryId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    progressDiv.innerHTML = `<div class="alert alert-danger">Error: ${data.error}</div>`;
+                    return;
+                }
+                
+                // Display fee calculation results
+                const fees = data.fees_calculation;
+                progressDiv.innerHTML = `
+                    <div class="alert alert-success">
+                        <h5><i class="fas fa-check-circle"></i> Reconciliation Started Successfully!</h5>
+                        <p>Processed ${data.total_transactions} Stripe transactions</p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-calculator"></i> Fee Calculation Results</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6>Column I Fees (Fees Column)</h6>
+                                    <p class="text-muted">${fees.column_i_fees.description}</p>
+                                    <p><strong>Total: $${fees.column_i_fees.total}</strong> (${fees.column_i_fees.count} transactions)</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Network Cost & Stripe Fee</h6>
+                                    <p class="text-muted">Negative amounts converted to positive for fee calculation</p>
+                                    <p><strong>Network Cost: $${fees.network_cost_fees.total}</strong> (${fees.network_cost_fees.count} transactions)</p>
+                                    <p><strong>Stripe Fee: $${fees.stripe_fee_fees.total}</strong> (${fees.stripe_fee_fees.count} transactions)</p>
+                                    <p><strong>Subtotal: $${fees.total_network_stripe_fees}</strong></p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                                <h4><strong>Total All Fees: $${fees.total_all_fees}</strong></h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <button class="btn btn-primary" onclick="proceedToNextStep()">
+                            <i class="fas fa-arrow-right"></i> Proceed to Next Step
+                        </button>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                progressDiv.innerHTML = `<div class="alert alert-danger">Error starting reconciliation: ${error.message}</div>`;
+            });
+        }
+
+        function startRecProcess(subsidiaryId) {
+            // Show loading state
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Calculating Fees...';
+            button.disabled = true;
+            
+            // Call the reconciliation API to calculate fees
+            fetch(`/api/start-reconciliation/${jobId}/${subsidiaryId}`, {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(`Error: ${data.error}`);
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    return;
+                }
+                
+                // Display fee calculation results at the top
+                displayFeeResults(data.fees_calculation, subsidiaryId);
+                
+                // Reset button
+                button.innerHTML = originalText;
+                button.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert(`Error starting reconciliation: ${error.message}`);
+                button.innerHTML = originalText;
+                button.disabled = false;
+            });
+        }
+
+        function displayFeeResults(fees, subsidiaryId) {
+            // Create fee display section at the top of the page
+            const feeSection = document.createElement('div');
+            feeSection.id = 'fee-results-section';
+            feeSection.className = 'alert alert-info mb-4';
+            feeSection.innerHTML = `
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5><i class="fas fa-calculator"></i> Fee Calculation Results</h5>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <strong>Column I Fees:</strong><br>
+                                <span class="text-success">$${fees.column_i_fees.total}</span><br>
+                                <small class="text-muted">${fees.column_i_fees.count} transactions</small>
+                            </div>
+                            <div class="col-md-3">
+                                <strong>Network Cost:</strong><br>
+                                <span class="text-success">$${fees.network_cost_fees.total}</span><br>
+                                <small class="text-muted">${fees.network_cost_fees.count} transactions</small>
+                            </div>
+                            <div class="col-md-3">
+                                <strong>Stripe Fee:</strong><br>
+                                <span class="text-success">$${fees.stripe_fee_fees.total}</span><br>
+                                <small class="text-muted">${fees.stripe_fee_fees.count} transactions</small>
+                            </div>
+                            <div class="col-md-3">
+                                <strong>Total Fees:</strong><br>
+                                <span class="text-primary h5">$${fees.total_all_fees}</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <button class="btn btn-success btn-lg" onclick="startProcess1(${subsidiaryId})">
+                                <i class="fas fa-play"></i> Start Process 1
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Insert at the top of the main content
+            const mainContent = document.querySelector('.container-fluid');
+            const existingFeeSection = document.getElementById('fee-results-section');
+            if (existingFeeSection) {
+                existingFeeSection.remove();
+            }
+            mainContent.insertBefore(feeSection, mainContent.firstChild);
+        }
+
+        function startProcess1(subsidiaryId) {
+            alert(`Starting Process 1 for subsidiary ${subsidiaryId}. This will match Stripe transactions with Cashbook transactions based on client_id and amount.`);
+            // TODO: Implement Process 1 logic
+        }
+
+        function simulateReconciliation() {
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = progress + '%';
+                progressText.textContent = `Reconciling receipts... ${progress}%`;
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    progressText.textContent = 'Reconciliation completed!';
+                    
+                    // Show results sections
+                    document.getElementById('results-section').style.display = 'block';
+                    document.getElementById('export-section').style.display = 'block';
+                    
+                    alert('Reconciliation completed successfully!');
+                }
+            }, 500);
+        }
+
+        function goBack() {
+            window.location.href = '/receipts';
+        }
+
+        function goToPreparation() {
+            window.location.href = `/prepare/${jobId}`;
+        }
+
+        function filterReceipts(filter) {
+            // Implement filtering logic
+            console.log('Filtering receipts by:', filter);
+        }
+
+        function exportMatched() {
+            alert('Exporting matched receipts...');
+        }
+
+        function exportUnmatched() {
+            alert('Exporting unmatched receipts...');
+        }
+
+        function exportSummary() {
+            alert('Exporting summary report...');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details - Receipts Automation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Receipts Automation</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ url_for('index') }}">Dashboard</a>
+                <a class="nav-link" href="{{ url_for('receipts_page') }}">Receipts</a>
+                <a class="nav-link active" href="#">Job Details</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1><i class="fas fa-tasks text-primary"></i> Job Details</h1>
+                        <p class="lead">View and manage processing job details</p>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary" onclick="goBack()">
+                            <i class="fas fa-arrow-left"></i> Back to Receipts
+                        </button>
+                        <button class="btn btn-success" onclick="restartJob()" id="restartBtn" disabled>
+                            <i class="fas fa-play"></i> Restart Job
+                        </button>
+                        <button class="btn btn-danger" onclick="deleteJob()">
+                            <i class="fas fa-trash"></i> Delete Job
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Job Information -->
+        <div class="row mt-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-info-circle"></i> Job Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>Job Name:</strong>
+                                <p id="job-name" class="text-primary">Loading...</p>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Status:</strong>
+                                <p id="job-status">Loading...</p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <strong>Created:</strong>
+                                <p id="job-created">Loading...</p>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Started:</strong>
+                                <p id="job-started">Loading...</p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <strong>Completed:</strong>
+                                <p id="job-completed">Loading...</p>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Processing Time:</strong>
+                                <p id="job-duration">Loading...</p>
+                            </div>
+                        </div>
+                        <div class="row mt-3" id="error-section" style="display: none;">
+                            <div class="col-md-12">
+                                <strong>Error Message:</strong>
+                                <div class="alert alert-danger" id="error-message"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-cog"></i> Processing Options</h5>
+                    </div>
+                    <div class="card-body" id="processing-options">
+                        <div class="text-center text-muted">
+                            <i class="fas fa-spinner fa-spin"></i> Loading...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Job Progress -->
+        <div class="row mt-4" id="progress-section" style="display: none;">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-chart-line"></i> Processing Progress</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress mb-3">
+                            <div class="progress-bar" id="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h4 id="total-files" class="text-primary">0</h4>
+                                    <small class="text-muted">Total Files</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h4 id="processed-files" class="text-success">0</h4>
+                                    <small class="text-muted">Processed</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h4 id="remaining-files" class="text-warning">0</h4>
+                                    <small class="text-muted">Remaining</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center">
+                                    <h4 id="error-files" class="text-danger">0</h4>
+                                    <small class="text-muted">Errors</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Receipts in this Job -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-receipt"></i> Receipts in this Job</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Filename</th>
+                                        <th>Status</th>
+                                        <th>Vendor</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="job-receipts-table">
+                                    <tr>
+                                        <td colspan="6" class="text-center text-muted">
+                                            <i class="fas fa-spinner fa-spin"></i> Loading receipts...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Output Files -->
+        <div class="row mt-4" id="output-section" style="display: none;">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-download"></i> Output Files</h5>
+                    </div>
+                    <div class="card-body" id="output-files">
+                        <div class="text-center text-muted">
+                            No output files generated yet.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const jobId = {{ job_id }};
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadJobDetails();
+            
+            // Set up periodic updates for running jobs
+            setInterval(() => {
+                if (document.getElementById('job-status').textContent === 'running') {
+                    loadJobDetails();
+                }
+            }, 5000);
+        });
+
+        function loadJobDetails() {
+            fetch(`/api/jobs/${jobId}`)
+                .then(response => response.json())
+                .then(data => {
+                    updateJobInfo(data);
+                    updateJobReceipts(data);
+                })
+                .catch(error => {
+                    console.error('Error loading job details:', error);
+                });
+        }
+
+        function updateJobInfo(job) {
+            document.getElementById('job-name').textContent = job.job_name;
+            
+            const statusElement = document.getElementById('job-status');
+            statusElement.innerHTML = `<span class="badge ${getJobStatusClass(job.status)}">${job.status}</span>`;
+            
+            document.getElementById('job-created').textContent = new Date(job.created_at).toLocaleString();
+            document.getElementById('job-started').textContent = job.started_at ? new Date(job.started_at).toLocaleString() : 'Not started';
+            document.getElementById('job-completed').textContent = job.completed_at ? new Date(job.completed_at).toLocaleString() : 'Not completed';
+            
+            // Calculate duration
+            if (job.started_at && job.completed_at) {
+                const start = new Date(job.started_at);
+                const end = new Date(job.completed_at);
+                const duration = Math.round((end - start) / 1000);
+                document.getElementById('job-duration').textContent = `${duration} seconds`;
+            } else if (job.started_at) {
+                const start = new Date(job.started_at);
+                const now = new Date();
+                const duration = Math.round((now - start) / 1000);
+                document.getElementById('job-duration').textContent = `${duration} seconds (running)`;
+            } else {
+                document.getElementById('job-duration').textContent = 'Not started';
+            }
+            
+            // Show error if exists
+            if (job.error_message) {
+                document.getElementById('error-section').style.display = 'block';
+                document.getElementById('error-message').textContent = job.error_message;
+            }
+            
+            // Update restart button
+            const restartBtn = document.getElementById('restartBtn');
+            if (job.status === 'completed' || job.status === 'failed') {
+                restartBtn.disabled = false;
+            } else {
+                restartBtn.disabled = true;
+            }
+            
+            // Update processing options
+            if (job.job_config) {
+                const config = JSON.parse(job.job_config);
+                const optionsHtml = Object.entries(config).map(([key, value]) => `
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" ${value ? 'checked' : ''} disabled>
+                        <label class="form-check-label">${key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</label>
+                    </div>
+                `).join('');
+                document.getElementById('processing-options').innerHTML = optionsHtml;
+            }
+        }
+
+        function updateJobReceipts(job) {
+            if (job.input_files) {
+                const receiptIds = JSON.parse(job.input_files);
+                
+                Promise.all(receiptIds.map(id => fetch(`/api/receipts/${id}`)))
+                    .then(responses => Promise.all(responses.map(r => r.json())))
+                    .then(receipts => {
+                        const tbody = document.getElementById('job-receipts-table');
+                        
+                        if (receipts.length === 0) {
+                            tbody.innerHTML = '<tr><td colspan="6" class="text-center text-muted">No receipts found.</td></tr>';
+                            return;
+                        }
+                        
+                        tbody.innerHTML = receipts.map(receipt => `
+                            <tr>
+                                <td>
+                                    <i class="fas fa-file-excel text-success"></i>
+                                    <strong>${receipt.filename}</strong>
+                                </td>
+                                <td>
+                                    <span class="badge ${getStatusClass(receipt.status)}">${receipt.status}</span>
+                                </td>
+                                <td>${receipt.vendor_name || '-'}</td>
+                                <td>${receipt.total_amount ? '$' + receipt.total_amount.toFixed(2) : '-'}</td>
+                                <td>${receipt.receipt_date ? new Date(receipt.receipt_date).toLocaleDateString() : '-'}</td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-primary btn-sm" onclick="viewReceipt(${receipt.id})">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        `).join('');
+                    })
+                    .catch(error => {
+                        console.error('Error loading job receipts:', error);
+                        document.getElementById('job-receipts-table').innerHTML = 
+                            '<tr><td colspan="6" class="text-center text-danger">Error loading receipts</td></tr>';
+                    });
+            }
+        }
+
+        function getJobStatusClass(status) {
+            const statusClasses = {
+                'pending': 'bg-warning',
+                'running': 'bg-info',
+                'completed': 'bg-success',
+                'failed': 'bg-danger',
+                'error': 'bg-danger'
+            };
+            return statusClasses[status] || 'bg-secondary';
+        }
+
+        function getStatusClass(status) {
+            const statusClasses = {
+                'pending': 'bg-warning',
+                'processing': 'bg-info',
+                'completed': 'bg-success',
+                'error': 'bg-danger',
+                'failed': 'bg-danger'
+            };
+            return statusClasses[status] || 'bg-secondary';
+        }
+
+        function goBack() {
+            window.location.href = '/receipts';
+        }
+
+        function restartJob() {
+            if (confirm('Are you sure you want to restart this job?')) {
+                fetch(`/api/jobs/${jobId}/restart`, {
+                    method: 'POST'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Job restarted successfully');
+                    loadJobDetails();
+                })
+                .catch(error => {
+                    console.error('Error restarting job:', error);
+                    alert('Error restarting job');
+                });
+            }
+        }
+
+        function deleteJob() {
+            if (confirm('Are you sure you want to delete this job? This action cannot be undone.')) {
+                fetch(`/api/jobs/${jobId}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Job deleted successfully');
+                    window.location.href = '/receipts';
+                })
+                .catch(error => {
+                    console.error('Error deleting job:', error);
+                    alert('Error deleting job');
+                });
+            }
+        }
+
+        function viewReceipt(receiptId) {
+            // Navigate to receipt detail view
+            window.location.href = `/receipt/${receiptId}`;
+        }
+    </script>
+</body>
+</html>

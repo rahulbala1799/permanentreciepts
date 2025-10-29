@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summit Matching Results</title>
+    
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .stat-card h3 {
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        
+        .stat-card .value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .section h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        table.dataTable {
+            width: 100% !important;
+            font-size: 13px;
+        }
+        
+        table.dataTable thead th {
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+            padding: 10px 8px;
+        }
+        
+        table.dataTable tbody tr:hover {
+            background-color: #f0f0ff;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .status-matched {
+            background: #d4edda;
+            color: #155724;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .status-insufficient {
+            background: #fff3cd;
+            color: #856404;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .status-unmatched {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Summit Matching Results</h1>
+        <p class="subtitle">Client matching analysis for summit installments</p>
+        
+        <div class="dashboard">
+            <div class="stat-card">
+                <h3>Total Matched</h3>
+                <div class="value" id="matched-count">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Total Received</h3>
+                <div class="value" id="matched-received">$0.00</div>
+            </div>
+            <div class="stat-card">
+                <h3>Installment Total</h3>
+                <div class="value" id="matched-installment">$0.00</div>
+            </div>
+            <div class="stat-card">
+                <h3>Remaining Total</h3>
+                <div class="value" id="matched-remaining">$0.00</div>
+            </div>
+            <div class="stat-card">
+                <h3>Insufficient Funds</h3>
+                <div class="value" id="insufficient-count">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Unmatched</h3>
+                <div class="value" id="unmatched-count">-</div>
+            </div>
+        </div>
+        
+        <div id="loading" class="loading">
+            <p>Loading matching results...</p>
+        </div>
+        
+        <!-- Matched Table -->
+        <div class="section" id="matched-section" style="display: none;">
+            <div class="section-header">
+                <h2>✅ Matched Clients (Sufficient Funds)</h2>
+                <button class="button" onclick="downloadResults('matched')">📥 Download CSV</button>
+            </div>
+            <table id="matched-table" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Client ID</th>
+                        <th>Total Received</th>
+                        <th>Installment Amount</th>
+                        <th>Remaining Amount</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        
+        <!-- Insufficient Table -->
+        <div class="section" id="insufficient-section" style="display: none;">
+            <div class="section-header">
+                <h2>⚠️ Insufficient Funds</h2>
+                <button class="button" onclick="downloadResults('insufficient')">📥 Download CSV</button>
+            </div>
+            <table id="insufficient-table" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Client ID</th>
+                        <th>Total Received</th>
+                        <th>Installment Amount</th>
+                        <th>Shortfall</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        
+        <!-- Unmatched Table -->
+        <div class="section" id="unmatched-section" style="display: none;">
+            <div class="section-header">
+                <h2>❌ Unmatched Clients (Not Found)</h2>
+                <button class="button" onclick="downloadResults('unmatched')">📥 Download CSV</button>
+            </div>
+            <table id="unmatched-table" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Client ID</th>
+                        <th>Installment Amount</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
+    <script>
+        const JOB_ID = {{ job_id }};
+        const SUBSIDIARY_ID = {{ subsidiary_id }};
+        
+        async function loadData() {
+            try {
+                const response = await fetch(`/journals/api/match-results/${JOB_ID}/${SUBSIDIARY_ID}`);
+                const data = await response.json();
+                
+                if (!data.success) {
+                    document.getElementById('loading').innerHTML = '<p style="color: red;">Failed to load results</p>';
+                    return;
+                }
+                
+                // Update dashboard
+                document.getElementById('matched-count').textContent = data.totals.matched_count;
+                document.getElementById('matched-received').textContent = `$${data.totals.matched_total_received.toLocaleString()}`;
+                document.getElementById('matched-installment').textContent = `$${data.totals.matched_installment.toLocaleString()}`;
+                document.getElementById('matched-remaining').textContent = `$${data.totals.matched_remaining.toLocaleString()}`;
+                document.getElementById('insufficient-count').textContent = data.totals.insufficient_count;
+                document.getElementById('unmatched-count').textContent = data.totals.unmatched_count;
+                
+                // Hide loading
+                document.getElementById('loading').style.display = 'none';
+                
+                // Show and populate Matched table
+                if (data.matched.length > 0) {
+                    document.getElementById('matched-section').style.display = 'block';
+                    const matchedData = data.matched.map(m => [
+                        m.client_id,
+                        `$${m.total_received.toLocaleString()}`,
+                        `$${m.installment_amount.toLocaleString()}`,
+                        `$${m.remaining_amount.toLocaleString()}`
+                    ]);
+                    $('#matched-table').DataTable({
+                        data: matchedData,
+                        pageLength: 25,
+                        order: [[0, 'asc']]
+                    });
+                }
+                
+                // Show and populate Insufficient table
+                if (data.insufficient.length > 0) {
+                    document.getElementById('insufficient-section').style.display = 'block';
+                    const insufficientData = data.insufficient.map(m => [
+                        m.client_id,
+                        `$${m.total_received.toLocaleString()}`,
+                        `$${m.installment_amount.toLocaleString()}`,
+                        `$${Math.abs(m.remaining_amount).toLocaleString()}`
+                    ]);
+                    $('#insufficient-table').DataTable({
+                        data: insufficientData,
+                        pageLength: 25,
+                        order: [[0, 'asc']]
+                    });
+                }
+                
+                // Show and populate Unmatched table
+                if (data.unmatched.length > 0) {
+                    document.getElementById('unmatched-section').style.display = 'block';
+                    const unmatchedData = data.unmatched.map(m => [
+                        m.client_id,
+                        `$${m.installment_amount.toLocaleString()}`
+                    ]);
+                    $('#unmatched-table').DataTable({
+                        data: unmatchedData,
+                        pageLength: 25,
+                        order: [[0, 'asc']]
+                    });
+                }
+                
+            } catch (error) {
+                document.getElementById('loading').innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+            }
+        }
+        
+        function downloadResults(matchType) {
+            window.location.href = `/journals/api/download-match-results/${JOB_ID}/${SUBSIDIARY_ID}/${matchType}`;
+        }
+        
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Looker Cashbook Preparation - Receipts Automation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Receipts Automation</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ url_for('index') }}">Dashboard</a>
+                <a class="nav-link" href="{{ url_for('receipts_page') }}">Reconciliation Jobs</a>
+                <a class="nav-link" href="#" onclick="goBackToPrepare()">Back to Prepare Files</a>
+                <a class="nav-link active" href="#">Looker Cashbook</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1><i class="fas fa-chart-line text-primary"></i> Prepare New Cashbook Report from Looker</h1>
+                        <p class="lead" id="job-info">Generating cashbook report for <span id="job-name">Loading...</span></p>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary" onclick="goBackToPrepare()">
+                            <i class="fas fa-arrow-left"></i> Back to Prepare Files
+                        </button>
+                        <button class="btn btn-success" onclick="proceedToReconciliation()" id="proceed-btn" disabled>
+                            <i class="fas fa-arrow-right"></i> Proceed to Reconciliation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Looker File Upload Section -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-cloud-upload-alt"></i> Upload Looker Cashbook File</h5>
+                        <small class="text-muted">Upload the Looker-generated cashbook Excel file for processing</small>
+                    </div>
+                    <div class="card-body">
+                        <div class="upload-area" onclick="showUploadModal()">
+                            <i class="fas fa-file-excel fa-3x text-primary mb-3"></i>
+                            <h5>Upload Looker Cashbook File</h5>
+                            <p class="text-muted">Click to upload the Excel file exported from Looker</p>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-upload"></i> Choose File
+                            </button>
+                        </div>
+                        
+                        <!-- Upload Status -->
+                        <div class="mt-4" id="upload-status-section" style="display: none;">
+                            <div class="alert alert-success">
+                                <h6><i class="fas fa-check-circle"></i> File Uploaded Successfully</h6>
+                                <p class="mb-0" id="upload-status-text">File has been uploaded and processed</p>
+                                <div class="mt-2">
+                                    <button class="btn btn-info btn-sm" onclick="viewLookerData()" id="view-data-btn" style="display: none;">
+                                        <i class="fas fa-eye"></i> View Uploaded Data
+                                    </button>
+                                    <button class="btn btn-warning btn-sm" onclick="fixDataErrors()" id="fix-errors-btn" style="display: none;">
+                                        <i class="fas fa-wrench"></i> Fix Data Errors
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Looker Connection Status -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-database"></i> Looker Connection Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-circle text-success fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Looker API Connection</h6>
+                                        <small class="text-muted">Connected to Looker instance</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-circle text-success fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1">Authentication</h6>
+                                        <small class="text-muted">API credentials validated</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cashbook Report Configuration -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-cogs"></i> Cashbook Report Configuration</h5>
+                        <small class="text-muted">Configure parameters for generating the cashbook report</small>
+                    </div>
+                    <div class="card-body">
+                        <form id="looker-config-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="date-range" class="form-label">Date Range</label>
+                                        <select class="form-select" id="date-range" required>
+                                            <option value="">Select date range...</option>
+                                            <option value="last-30-days">Last 30 Days</option>
+                                            <option value="last-90-days">Last 90 Days</option>
+                                            <option value="last-6-months">Last 6 Months</option>
+                                            <option value="last-year">Last Year</option>
+                                            <option value="custom">Custom Range</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="subsidiary-filter" class="form-label">Subsidiary Filter</label>
+                                        <select class="form-select" id="subsidiary-filter" required>
+                                            <option value="">Select subsidiary...</option>
+                                            <option value="all">All Subsidiaries</option>
+                                            <option value="1">Phorest Australia</option>
+                                            <option value="2">Canada</option>
+                                            <option value="3">USA</option>
+                                            <option value="4">EU</option>
+                                            <option value="5">UK</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row" id="custom-date-range" style="display: none;">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="start-date" class="form-label">Start Date</label>
+                                        <input type="date" class="form-control" id="start-date">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="end-date" class="form-label">End Date</label>
+                                        <input type="date" class="form-control" id="end-date">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="report-format" class="form-label">Report Format</label>
+                                        <select class="form-select" id="report-format" required>
+                                            <option value="excel">Excel (.xlsx)</option>
+                                            <option value="csv">CSV (.csv)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="include-details" class="form-label">Include Additional Details</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="include-details" checked>
+                                            <label class="form-check-label" for="include-details">
+                                                Include transaction details and metadata
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label for="looker-dashboard" class="form-label">Looker Dashboard</label>
+                                        <select class="form-select" id="looker-dashboard" required>
+                                            <option value="">Select dashboard...</option>
+                                            <option value="cashbook-main">Cashbook Main Dashboard</option>
+                                            <option value="cashbook-detailed">Cashbook Detailed View</option>
+                                            <option value="payment-summary">Payment Summary Dashboard</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Report Generation -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-play-circle"></i> Generate Cashbook Report</h5>
+                        <small class="text-muted">Generate the cashbook report from Looker data</small>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center">
+                            <button class="btn btn-primary btn-lg" onclick="generateLookerReport()" id="generate-btn">
+                                <i class="fas fa-play"></i> Generate Cashbook Report
+                            </button>
+                        </div>
+                        
+                        <!-- Generation Progress -->
+                        <div class="mt-4" id="generation-progress" style="display: none;">
+                            <div class="progress mb-3">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" id="generation-progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <div class="text-center">
+                                <span id="generation-progress-text">Initializing report generation...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Generated Report -->
+        <div class="row mt-4" id="generated-report-section" style="display: none;">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-check-circle text-success"></i> Generated Cashbook Report</h5>
+                        <small class="text-muted">Your cashbook report has been successfully generated</small>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><i class="fas fa-file-excel text-success"></i> Report Details</h6>
+                                        <p class="card-text">
+                                            <strong>Filename:</strong> <span id="report-filename">cashbook_report.xlsx</span><br>
+                                            <strong>Generated:</strong> <span id="report-generated-time">Just now</span><br>
+                                            <strong>Records:</strong> <span id="report-record-count">0</span> transactions<br>
+                                            <strong>Size:</strong> <span id="report-file-size">0 KB</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h6 class="card-title"><i class="fas fa-chart-bar text-info"></i> Report Summary</h6>
+                                        <p class="card-text">
+                                            <strong>Date Range:</strong> <span id="report-date-range">-</span><br>
+                                            <strong>Subsidiary:</strong> <span id="report-subsidiary">-</span><br>
+                                            <strong>Total Amount:</strong> <span id="report-total-amount">$0.00</span><br>
+                                            <strong>Format:</strong> <span id="report-format-display">Excel</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-success" onclick="downloadGeneratedReport()">
+                                    <i class="fas fa-download"></i> Download Report
+                                </button>
+                                <button class="btn btn-info" onclick="previewGeneratedReport()">
+                                    <i class="fas fa-eye"></i> Preview Report
+                                </button>
+                                <button class="btn btn-warning" onclick="regenerateReport()">
+                                    <i class="fas fa-redo"></i> Regenerate Report
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <div class="alert alert-success">
+                                <h6><i class="fas fa-check-circle"></i> Report Ready for Reconciliation</h6>
+                                <p class="mb-0">The generated cashbook report is ready to be uploaded to the subsidiary reconciliation pages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upload Modal -->
+        <div class="modal fade" id="uploadModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Upload Looker Cashbook File</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="upload-form" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="file" class="form-label">Select Looker Excel File</label>
+                                <input type="file" class="form-control" id="file" name="file" accept=".xlsx,.xls">
+                                <div class="form-text">Upload the Excel file exported from Looker containing cashbook data</div>
+                            </div>
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle"></i>
+                                <strong>Expected Format:</strong> The file should contain columns: Payment Date, Client ID, Invoice Number, Billing Entity, AR Account, Currency, Exchange Rate, Amount, Account, Location, Transtype, Comment, Reasoncode, SEPA Provider, Stripechargeid
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" onclick="uploadLookerFile()">Upload File</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Report Preview Modal -->
+        <div class="modal fade" id="previewModal" tabindex="-1">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cashbook Report Preview</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Payment Date</th>
+                                        <th>Client ID</th>
+                                        <th>Invoice Number</th>
+                                        <th>Amount</th>
+                                        <th>Currency</th>
+                                        <th>Type</th>
+                                        <th>Location</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="preview-table-body">
+                                    <!-- Preview data will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success" onclick="downloadGeneratedReport()">Download Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const jobId = {{ job_id }};
+        let generatedReport = null;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadJobDetails();
+            setupEventListeners();
+            checkExistingData();
+        });
+
+        function loadJobDetails() {
+            fetch(`/api/jobs/${jobId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('job-name').textContent = data.job_name;
+                    document.getElementById('job-info').textContent = `Generating cashbook report for ${data.job_name}`;
+                    document.getElementById('page-title').textContent = `Looker Cashbook Preparation - ${data.job_name}`;
+                })
+                .catch(error => {
+                    console.error('Error loading job details:', error);
+                });
+        }
+
+        function setupEventListeners() {
+            // Show/hide custom date range
+            document.getElementById('date-range').addEventListener('change', function() {
+                const customRange = document.getElementById('custom-date-range');
+                if (this.value === 'custom') {
+                    customRange.style.display = 'block';
+                } else {
+                    customRange.style.display = 'none';
+                }
+            });
+        }
+
+        function checkExistingData() {
+            // Check if Looker data already exists for this job
+            fetch(`/api/looker-cashbook-transactions/${jobId}`)
+                .then(response => response.json())
+                .then(transactions => {
+                    if (transactions.length > 0) {
+                        showUploadStatus(`File already uploaded: ${transactions[0].filename} (${transactions.length} transactions)`);
+                        document.getElementById('view-data-btn').style.display = 'inline-block';
+                        
+                        // Check if there are data errors to fix
+                        const dataErrors = transactions.filter(t => t.billing_entity === 'DATA ERROR');
+                        if (dataErrors.length > 0) {
+                            document.getElementById('fix-errors-btn').style.display = 'inline-block';
+                            document.getElementById('fix-errors-btn').innerHTML = `<i class="fas fa-wrench"></i> Fix Data Errors (${dataErrors.length})`;
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error checking existing data:', error);
+                });
+        }
+
+        function showUploadModal() {
+            const modal = new bootstrap.Modal(document.getElementById('uploadModal'));
+            modal.show();
+        }
+
+        function uploadLookerFile() {
+            const fileInput = document.getElementById('file');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Please select an Excel file to upload');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            // Show loading state
+            const uploadBtn = document.querySelector('#uploadModal .btn-primary');
+            const originalText = uploadBtn.textContent;
+            uploadBtn.textContent = 'Uploading...';
+            uploadBtn.disabled = true;
+            
+            fetch(`/api/looker-cashbook-upload/${jobId}`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    if (data.error.includes('Missing required columns')) {
+                        alert(`❌ Column Validation Failed!\n\n${data.error}\n\nExpected columns:\n${data.expected_columns.join(', ')}\n\nFound columns:\n${data.found_columns.join(', ')}`);
+                    } else {
+                        alert(`Error: ${data.error}`);
+                    }
+                } else {
+                    alert(`✅ Successfully uploaded ${data.transactions_added} Looker cashbook transactions!\n\nFile: ${data.filename}\nColumns validated: ${data.columns_validated}`);
+                    bootstrap.Modal.getInstance(document.getElementById('uploadModal')).hide();
+                    
+                    // Show upload status
+                    showUploadStatus(`File uploaded successfully: ${data.filename} (${data.transactions_added} transactions)`);
+                    
+                    // Show view data button
+                    document.getElementById('view-data-btn').style.display = 'inline-block';
+                    
+                    // Check for data errors and show fix button
+                    checkForDataErrors();
+                    
+                    // Clear file input
+                    fileInput.value = '';
+                }
+            })
+            .catch(error => {
+                console.error('Upload error:', error);
+                alert('Error uploading Looker file');
+            })
+            .finally(() => {
+                uploadBtn.textContent = originalText;
+                uploadBtn.disabled = false;
+            });
+        }
+
+        function showUploadStatus(message) {
+            document.getElementById('upload-status-text').textContent = message;
+            document.getElementById('upload-status-section').style.display = 'block';
+        }
+
+        function viewLookerData() {
+            // Navigate to Looker data viewing page
+            window.location.href = `/looker-data/${jobId}`;
+        }
+
+        function checkForDataErrors() {
+            // Check if there are data errors to fix
+            fetch(`/api/looker-cashbook-transactions/${jobId}`)
+                .then(response => response.json())
+                .then(transactions => {
+                    const dataErrors = transactions.filter(t => t.billing_entity === 'DATA ERROR');
+                    if (dataErrors.length > 0) {
+                        document.getElementById('fix-errors-btn').style.display = 'inline-block';
+                        document.getElementById('fix-errors-btn').innerHTML = `<i class="fas fa-wrench"></i> Fix Data Errors (${dataErrors.length})`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error checking for data errors:', error);
+                });
+        }
+
+        function fixDataErrors() {
+            if (confirm('This will fix all DATA ERROR entries in the billing entity field:\n\n• CAD currency → Ndevor Systems Ltd : Phorest Canada\n• AED currency → Ndevor Systems Ltd : Phorest Ireland\n\nContinue?')) {
+                // Show loading state
+                const fixBtn = document.getElementById('fix-errors-btn');
+                const originalText = fixBtn.innerHTML;
+                fixBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Fixing...';
+                fixBtn.disabled = true;
+                
+                fetch(`/api/looker-cashbook-fix-errors/${jobId}`, {
+                    method: 'POST'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(`Error: ${data.error}`);
+                    } else {
+                        let message = `✅ Data errors fixed successfully!\n\n`;
+                        message += `• Total errors fixed: ${data.errors_fixed}\n`;
+                        message += `• CAD transactions fixed: ${data.cad_fixed}\n`;
+                        message += `• AED transactions fixed: ${data.aed_fixed}\n`;
+                        message += `• Errors remaining: ${data.errors_remaining}\n`;
+                        message += `• Total transactions: ${data.total_transactions}`;
+                        
+                        alert(message);
+                        
+                        // Update button text
+                        if (data.errors_remaining === 0) {
+                            fixBtn.innerHTML = '<i class="fas fa-check"></i> All Errors Fixed';
+                            fixBtn.disabled = true;
+                            
+                            // Redirect to data viewer to see updated filters
+                            setTimeout(() => {
+                                if (confirm('Data errors have been fixed! Would you like to view the updated data with corrected filters?')) {
+                                    viewLookerData();
+                                }
+                            }, 1000);
+                        } else {
+                            fixBtn.innerHTML = `<i class="fas fa-wrench"></i> Fix Data Errors (${data.errors_remaining})`;
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Fix errors error:', error);
+                    alert('Error fixing data errors');
+                })
+                .finally(() => {
+                    if (data.errors_remaining > 0) {
+                        fixBtn.innerHTML = originalText;
+                        fixBtn.disabled = false;
+                    }
+                });
+            }
+        }
+
+        function generateLookerReport() {
+            // Validate form
+            const form = document.getElementById('looker-config-form');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Get form data
+            const config = {
+                dateRange: document.getElementById('date-range').value,
+                subsidiaryFilter: document.getElementById('subsidiary-filter').value,
+                reportFormat: document.getElementById('report-format').value,
+                includeDetails: document.getElementById('include-details').checked,
+                dashboard: document.getElementById('looker-dashboard').value,
+                startDate: document.getElementById('start-date').value,
+                endDate: document.getElementById('end-date').value
+            };
+
+            // Show progress
+            document.getElementById('generation-progress').style.display = 'block';
+            document.getElementById('generate-btn').disabled = true;
+
+            // Simulate report generation
+            simulateReportGeneration(config);
+        }
+
+        function simulateReportGeneration(config) {
+            const progressBar = document.getElementById('generation-progress-bar');
+            const progressText = document.getElementById('generation-progress-text');
+            
+            const steps = [
+                { progress: 20, text: 'Connecting to Looker API...' },
+                { progress: 40, text: 'Fetching dashboard data...' },
+                { progress: 60, text: 'Processing cashbook transactions...' },
+                { progress: 80, text: 'Formatting report data...' },
+                { progress: 100, text: 'Generating final report...' }
+            ];
+
+            let currentStep = 0;
+            const interval = setInterval(() => {
+                if (currentStep < steps.length) {
+                    const step = steps[currentStep];
+                    progressBar.style.width = step.progress + '%';
+                    progressText.textContent = step.text;
+                    currentStep++;
+                } else {
+                    clearInterval(interval);
+                    progressText.textContent = 'Report generation completed!';
+                    
+                    // Create mock report data
+                    generatedReport = {
+                        filename: `cashbook_report_${new Date().toISOString().split('T')[0]}.${config.reportFormat === 'excel' ? 'xlsx' : 'csv'}`,
+                        generatedTime: new Date().toLocaleString(),
+                        recordCount: Math.floor(Math.random() * 1000) + 100,
+                        fileSize: Math.floor(Math.random() * 500) + 50,
+                        dateRange: config.dateRange,
+                        subsidiary: config.subsidiaryFilter,
+                        totalAmount: (Math.random() * 100000).toFixed(2),
+                        format: config.reportFormat
+                    };
+                    
+                    displayGeneratedReport();
+                    enableProceedButton();
+                }
+            }, 1000);
+        }
+
+        function displayGeneratedReport() {
+            // Hide progress, show report
+            document.getElementById('generation-progress').style.display = 'none';
+            document.getElementById('generated-report-section').style.display = 'block';
+            
+            // Populate report details
+            document.getElementById('report-filename').textContent = generatedReport.filename;
+            document.getElementById('report-generated-time').textContent = generatedReport.generatedTime;
+            document.getElementById('report-record-count').textContent = generatedReport.recordCount;
+            document.getElementById('report-file-size').textContent = generatedReport.fileSize + ' KB';
+            document.getElementById('report-date-range').textContent = generatedReport.dateRange;
+            document.getElementById('report-subsidiary').textContent = getSubsidiaryName(generatedReport.subsidiary);
+            document.getElementById('report-total-amount').textContent = '$' + generatedReport.totalAmount;
+            document.getElementById('report-format-display').textContent = generatedReport.format.toUpperCase();
+            
+            // Reset generate button
+            document.getElementById('generate-btn').disabled = false;
+        }
+
+        function getSubsidiaryName(subsidiaryId) {
+            const subsidiaries = {
+                'all': 'All Subsidiaries',
+                '1': 'Phorest Australia',
+                '2': 'Canada',
+                '3': 'USA',
+                '4': 'EU',
+                '5': 'UK'
+            };
+            return subsidiaries[subsidiaryId] || 'Unknown';
+        }
+
+        function downloadGeneratedReport() {
+            if (!generatedReport) {
+                alert('No report generated yet');
+                return;
+            }
+            
+            alert(`Downloading ${generatedReport.filename}...`);
+            // In a real implementation, this would trigger the actual download
+        }
+
+        function previewGeneratedReport() {
+            if (!generatedReport) {
+                alert('No report generated yet');
+                return;
+            }
+            
+            // Generate mock preview data
+            const previewData = [];
+            for (let i = 0; i < 10; i++) {
+                previewData.push({
+                    paymentDate: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000).toLocaleDateString(),
+                    clientId: Math.floor(Math.random() * 10000) + 1000,
+                    invoiceNumber: `INV${Math.floor(Math.random() * 10000)}`,
+                    amount: (Math.random() * 1000).toFixed(2),
+                    currency: ['AUD', 'USD', 'CAD', 'GBP', 'EUR'][Math.floor(Math.random() * 5)],
+                    type: ['CARDSUCCESS', 'SEPA', 'BANK_TRANSFER'][Math.floor(Math.random() * 3)],
+                    location: ['Sydney', 'Melbourne', 'Toronto', 'New York', 'London'][Math.floor(Math.random() * 5)]
+                });
+            }
+            
+            // Populate preview table
+            const tbody = document.getElementById('preview-table-body');
+            tbody.innerHTML = previewData.map(row => `
+                <tr>
+                    <td>${row.paymentDate}</td>
+                    <td>${row.clientId}</td>
+                    <td>${row.invoiceNumber}</td>
+                    <td>$${row.amount}</td>
+                    <td>${row.currency}</td>
+                    <td><span class="badge bg-success">${row.type}</span></td>
+                    <td>${row.location}</td>
+                </tr>
+            `).join('');
+            
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('previewModal'));
+            modal.show();
+        }
+
+        function regenerateReport() {
+            if (confirm('Are you sure you want to regenerate the report? This will overwrite the current report.')) {
+                document.getElementById('generated-report-section').style.display = 'none';
+                generateLookerReport();
+            }
+        }
+
+        function enableProceedButton() {
+            document.getElementById('proceed-btn').disabled = false;
+        }
+
+        function goBackToPrepare() {
+            window.location.href = `/prepare/${jobId}`;
+        }
+
+        function proceedToReconciliation() {
+            if (!generatedReport) {
+                alert('Please generate a report first');
+                return;
+            }
+            
+            // Navigate back to reconciliation page
+            window.location.href = `/reconciliation/${jobId}`;
+        }
+    </script>
+</body>
+</html>
