@@ -26,7 +26,7 @@ migrate.init_app(app, db)
 
 # Import and create models after db is initialized
 from models import create_models
-Receipt, ProcessingJob, Subsidiary, StripeTransaction, CashbookTransaction, LookerCashbookTransaction, MatchedTransaction, ReconciliationResults, JournalTransaction, FPDataset, FPJournalRow, FPWorkingRow, FPSummitInstallment, FPProcessedJournal, FPMatchResult = create_models(db)
+Receipt, ProcessingJob, Subsidiary, StripeTransaction, CashbookTransaction, LookerCashbookTransaction, MatchedTransaction, ReconciliationResults, JournalTransaction, FPDataset, FPJournalRow, FPWorkingRow, FPSummitInstallment, FPProcessedJournal, FPMatchResult, FPDatasetEU, FPJournalRowEU, FPSummitInstallmentEU, FPMatchResultEU, FPProcessedJournalEU = create_models(db)
 
 # Register Journals Processing Blueprint
 from journals_bp import journals_bp, init_blueprint

@@ -572,6 +572,70 @@ def create_models(db):
         remaining_amount = Column(Float, nullable=True)  # total_received - installment_amount
         created_at = Column(DateTime, default=datetime.utcnow)
 
+    # ==================== EU-SPECIFIC TABLES ====================
+    # Completely separate from USA logic - no subsidiary_id needed, always EU
+    
+    class FPDatasetEU(db.Model):
+        """EU-specific dataset for journal processing"""
+        __tablename__ = 'fp_datasets_eu'
+        id = Column(Integer, primary_key=True)
+        job_id = Column(Integer, nullable=False)
+        status = Column(String(50), default='loaded')  # loaded, committed
+        created_at = Column(DateTime, default=datetime.utcnow)
+        updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
+    class FPJournalRowEU(db.Model):
+        """EU-specific uploaded journal rows - can be any of 8 types"""
+        __tablename__ = 'fp_journal_rows_eu'
+        id = Column(Integer, primary_key=True)
+        dataset_id = Column(Integer, nullable=False)
+        job_id = Column(Integer, nullable=False)
+        journal_type = Column(String(100), nullable=False)  # Main_EU, POA_EU, Cross_Subsidiary_EU, Refunds_EU, Main_AED, POA_AED, Cross_Subsidiary_AED, Refunds_AED
+        client_id = Column(String(100))
+        invoice_number = Column(String(200))
+        amount = Column(Float, default=0)
+        row_json = Column(Text)
+        filename = Column(String(500))
+        created_at = Column(DateTime, default=datetime.utcnow)
+    
+    class FPSummitInstallmentEU(db.Model):
+        """EU-specific summit installments"""
+        __tablename__ = 'fp_summit_installments_eu'
+        id = Column(Integer, primary_key=True)
+        dataset_id = Column(Integer, nullable=False)
+        job_id = Column(Integer, nullable=False)
+        client_id = Column(String(100), nullable=False)
+        region = Column(String(100))
+        installment_amount = Column(Float, nullable=False)
+        created_at = Column(DateTime, default=datetime.utcnow)
+    
+    class FPMatchResultEU(db.Model):
+        """EU-specific summit matching results"""
+        __tablename__ = 'fp_match_results_eu'
+        id = Column(Integer, primary_key=True)
+        dataset_id = Column(Integer, nullable=False)
+        job_id = Column(Integer, nullable=False)
+        client_id = Column(String(100), nullable=False)
+        match_status = Column(String(50), nullable=False)  # matched, insufficient, unmatched
+        total_received = Column(Float, nullable=True)
+        installment_amount = Column(Float, nullable=False)
+        remaining_amount = Column(Float, nullable=True)
+        created_at = Column(DateTime, default=datetime.utcnow)
+    
+    class FPProcessedJournalEU(db.Model):
+        """EU-specific processed journals after summit split"""
+        __tablename__ = 'fp_processed_journals_eu'
+        id = Column(Integer, primary_key=True)
+        dataset_id = Column(Integer, nullable=False)
+        job_id = Column(Integer, nullable=False)
+        journal_type = Column(String(100), nullable=False)
+        client_id = Column(String(100))
+        invoice_number = Column(String(200))
+        amount = Column(Float, default=0)
+        row_json = Column(Text)
+        created_at = Column(DateTime, default=datetime.utcnow)
+
     return (Receipt, ProcessingJob, Subsidiary, StripeTransaction, CashbookTransaction,
             LookerCashbookTransaction, MatchedTransaction, ReconciliationResults, JournalTransaction,
-            FPDataset, FPJournalRow, FPWorkingRow, FPSummitInstallment, FPProcessedJournal, FPMatchResult)
+            FPDataset, FPJournalRow, FPWorkingRow, FPSummitInstallment, FPProcessedJournal, FPMatchResult,
+            FPDatasetEU, FPJournalRowEU, FPSummitInstallmentEU, FPMatchResultEU, FPProcessedJournalEU)
