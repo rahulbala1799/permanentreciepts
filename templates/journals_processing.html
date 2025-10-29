@@ -774,6 +774,7 @@
                         console.error('Missing reconciliation in response:', result);
                         return;
                     }
+                    const hasDetails = Object.keys(recon.original_totals || {}).length > 0;
                     const reconHTML = `
                         <h4 style="margin-bottom: 15px;">📊 Reconciliation</h4>
                         <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
@@ -785,13 +786,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                ${Object.keys(recon.original_totals).map(type => `
+                                ${hasDetails ? Object.keys(recon.original_totals).map(type => `
                                     <tr>
                                         <td style="padding: 8px; border: 1px solid #ddd;">${type}</td>
                                         <td style="padding: 8px; border: 1px solid #ddd; text-align: right;">$${recon.original_totals[type].toLocaleString()}</td>
                                         <td style="padding: 8px; border: 1px solid #ddd; text-align: right;">$${(recon.new_totals[type] || 0).toLocaleString()}</td>
                                     </tr>
-                                `).join('')}
+                                `).join('') : ''}
                                 ${recon.new_totals.Salon_Summit_Installments ? `
                                     <tr style="background: #d4edda;">
                                         <td style="padding: 8px; border: 1px solid #ddd;"><strong>Salon Summit Installments</strong></td>
