@@ -235,7 +235,7 @@
                                     </p>
                                 </div>
                                 <div class="col-md-4 text-center">
-                                    <a href="/journals/" class="btn btn-light btn-lg">
+                                    <a href="/journals/?job_id={{ job_id }}&subsidiary_id={{ subsidiary_id }}" class="btn btn-light btn-lg">
                                         <i class="fas fa-external-link-alt"></i> Go to Journals Processing
                                     </a>
                                 </div>
@@ -1820,7 +1820,7 @@
                                 <small class="text-muted">Master Upload File & Split Journals</small>
                                 <div class="d-flex justify-content-between">
                                     <span>Total (EUR):</span>
-                                    <strong>€${(reconciliation.breakdown?.refunds + reconciliation.breakdown?.poa + reconciliation.breakdown?.main + reconciliation.breakdown?.cross_subsidiary).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</strong>
+                                    <strong>€${(-reconciliation.breakdown?.refunds + reconciliation.breakdown?.poa + reconciliation.breakdown?.main + reconciliation.breakdown?.cross_subsidiary).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</strong>
                                 </div>
                             </div>
                         </div>
@@ -1837,11 +1837,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="alert ${Math.abs(totalAmountEUR - (reconciliation.breakdown?.refunds + reconciliation.breakdown?.poa + reconciliation.breakdown?.main + reconciliation.breakdown?.cross_subsidiary)) < 1 ? 'alert-success' : 'alert-danger'} mb-0 py-2">
+                <div class="alert ${Math.abs(totalAmountEUR - (-reconciliation.breakdown?.refunds + reconciliation.breakdown?.poa + reconciliation.breakdown?.main + reconciliation.breakdown?.cross_subsidiary)) < 1 ? 'alert-success' : 'alert-danger'} mb-0 py-2">
                     <div class="d-flex justify-content-between align-items-center">
                         <span><strong>Difference:</strong></span>
-                        <span><strong>€${Math.abs(totalAmountEUR - (reconciliation.breakdown?.refunds + reconciliation.breakdown?.poa + reconciliation.breakdown?.main + reconciliation.breakdown?.cross_subsidiary)).toFixed(2)}</strong></span>
-                        <span>${Math.abs(totalAmountEUR - (reconciliation.breakdown?.refunds + reconciliation.breakdown?.poa + reconciliation.breakdown?.main + reconciliation.breakdown?.cross_subsidiary)) < 1 ? '✅ Match!' : '❌ Mismatch'}</span>
+                        <span><strong>€${Math.abs(totalAmountEUR - (-reconciliation.breakdown?.refunds + reconciliation.breakdown?.poa + reconciliation.breakdown?.main + reconciliation.breakdown?.cross_subsidiary)).toFixed(2)}</strong></span>
+                        <span>${Math.abs(totalAmountEUR - (-reconciliation.breakdown?.refunds + reconciliation.breakdown?.poa + reconciliation.breakdown?.main + reconciliation.breakdown?.cross_subsidiary)) < 1 ? '✅ Match!' : '❌ Mismatch'}</span>
                     </div>
                 </div>
                 <div class="mt-3">

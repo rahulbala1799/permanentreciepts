@@ -358,4 +358,26 @@ class JournalBuilderEU:
         df.to_csv(output, index=False, encoding='utf-8')
         output.seek(0)
         return output
+    
+    def export_all_journals(self, memo: Optional[str] = None) -> Dict[str, io.BytesIO]:
+        """
+        Export all EU journals as CSV files
+        
+        Returns:
+            Dictionary with journal name as key and BytesIO CSV file as value
+        """
+        master_df = self.generate_master_journal(memo)
+        
+        if master_df.empty:
+            return {}
+        
+        journals = self.split_journals(master_df, memo)
+        
+        # Export each journal as CSV
+        exported_journals = {}
+        for journal_name, journal_df in journals.items():
+            csv_file = self.export_journal_to_csv(journal_df, journal_name)
+            exported_journals[journal_name] = csv_file
+        
+        return exported_journals
 

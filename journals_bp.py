@@ -113,8 +113,13 @@ def upload_summit(job_id, subsidiary_id):
     """Upload summit installments CSV"""
     try:
         dataset = FPDataset.query.filter_by(job_id=job_id, subsidiary_id=subsidiary_id).first()
-        if not dataset or dataset.status != 'committed':
-            return jsonify({'success': False, 'error': 'No committed dataset found'}), 400
+        if not dataset:
+            return jsonify({'success': False, 'error': 'Please upload at least one journal file first'}), 400
+        
+        # Check if at least one journal is uploaded (more flexible)
+        journal_count = FPJournalRow.query.filter_by(dataset_id=dataset.id).count()
+        if journal_count == 0:
+            return jsonify({'success': False, 'error': 'Please upload at least one journal file first'}), 400
         
         # Check if already uploaded
         existing = FPSummitInstallment.query.filter_by(dataset_id=dataset.id).first()
@@ -164,8 +169,13 @@ def match_summit(job_id, subsidiary_id):
     """
     try:
         dataset = FPDataset.query.filter_by(job_id=job_id, subsidiary_id=subsidiary_id).first()
-        if not dataset or dataset.status != 'committed':
-            return jsonify({'success': False, 'error': 'No committed dataset found'}), 400
+        if not dataset:
+            return jsonify({'success': False, 'error': 'Please upload at least one journal file first'}), 400
+        
+        # Check if at least one journal uploaded
+        journal_count = FPJournalRow.query.filter_by(dataset_id=dataset.id).count()
+        if journal_count == 0:
+            return jsonify({'success': False, 'error': 'Please upload at least one journal file first'}), 400
         
         # Check if summit data uploaded
         summit_installments = FPSummitInstallment.query.filter_by(dataset_id=dataset.id).all()
@@ -576,14 +586,34 @@ def process_summit(job_id, subsidiary_id):
     4. Create Salon_Summit_Installments rows
     """
     try:
-        dataset = FPDataset.query.filter_by(job_id=job_id, subsidiary_id=subsidiary_id).first()
-        if not dataset or dataset.status != 'committed':
-            return jsonify({'success': False, 'error': 'No committed dataset found'}), 400
+        print(f"DEBUG: Starting generate_journals for job_id={job_id}, subsidiary_id={subsidiary_id}")
         
-        # Check if summit data uploaded
+        dataset = FPDataset.query.filter_by(job_id=job_id, subsidiary_id=subsidiary_id).first()
+        if not dataset:
+            return jsonify({'success': False, 'error': 'Please upload at least one journal file first'}), 400
+        
+        print(f"DEBUG: Found dataset {dataset.id}")
+        
+        # Check if at least one journal uploaded
+        journal_count = FPJournalRow.query.filter_by(dataset_id=dataset.id).count()
+        if journal_count == 0:
+            return jsonify({'success': False, 'error': 'Please upload at least one journal file first'}), 400
+        
+        print(f"DEBUG: Found {journal_count} journal rows")
+        
+        # Check if summit data matched
+        match_results = FPMatchResult.query.filter_by(dataset_id=dataset.id).all()
+        if not match_results:
+            return jsonify({'success': False, 'error': 'Please match summit data first'}), 400
+        
+        print(f"DEBUG: Found {len(match_results)} match results")
+        
+        # Get summit installments
         summit_installments = FPSummitInstallment.query.filter_by(dataset_id=dataset.id).all()
         if not summit_installments:
             return jsonify({'success': False, 'error': 'No summit data uploaded'}), 400
+        
+        print(f"DEBUG: Found {len(summit_installments)} summit installments")
         
         # Check if already processed
         existing_processed = FPProcessedJournal.query.filter_by(dataset_id=dataset.id).first()
@@ -721,6 +751,47 @@ def process_summit(job_id, subsidiary_id):
         
         unmatched_total = sum(item['installment_amount'] for item in unmatched_clients)
         
+        # Build reconciliation data by journal type
+        original_totals = {}
+        new_totals = {}
+        generated_files = []
+        
+        # Get unique journal types from original
+        for row in original_journal_rows:
+            jtype = row.journal_type if row.journal_type else 'Unknown'
+            if jtype not in original_totals:
+                original_totals[jtype] = 0
+            original_totals[jtype] += (row.amount or 0)
+        
+        # Get new totals from processed journal
+        processed_rows_all = FPProcessedJournal.query.filter_by(dataset_id=dataset.id).all()
+        for row in processed_rows_all:
+            jtype = row.journal_type
+            if jtype not in new_totals:
+                new_totals[jtype] = 0
+                generated_files.append({
+                    'journal_type': jtype,
+                    'row_count': 0,
+                    'total_amount': 0
+                })
+            new_totals[jtype] += row.amount or 0
+        
+        # Update file counts and totals
+        for file_info in generated_files:
+            jtype = file_info['journal_type']
+            rows = [r for r in processed_rows_all if r.journal_type == jtype]
+            file_info['row_count'] = len(rows)
+            file_info['total_amount'] = round(new_totals.get(jtype, 0), 2)
+        
+        reconciliation = {
+            'original_totals': {k: round(v, 2) for k, v in original_totals.items()},
+            'new_totals': {k: round(v, 2) for k, v in new_totals.items()},
+            'original_grand_total': round(original_total, 2),
+            'new_grand_total': round(processed_total, 2),
+            'difference': round(original_total - processed_total, 2),
+            'balanced': verification_passed
+        }
+        
         return jsonify({
             'success': True,
             'matched_count': matched_count,
@@ -730,12 +801,22 @@ def process_summit(job_id, subsidiary_id):
             'original_total': round(original_total, 2),
             'processed_total': round(processed_total, 2),
             'verification_passed': verification_passed,
-            'message': f'✅ Matched {matched_count} clients, {len(unmatched_clients)} unmatched'
+            'message': f'✅ Generated journals for {matched_count} matched clients',
+            'reconciliation': reconciliation,
+            'generated_files': generated_files
         })
     
     except Exception as e:
         db.session.rollback()
-        return jsonify({'success': False, 'error': str(e)}), 500
+        import traceback
+        error_details = traceback.format_exc()
+        print(f"ERROR in generate_journals: {error_details}")
+        return jsonify({
+            'success': False, 
+            'error': str(e), 
+            'traceback': error_details,
+            'error_type': type(e).__name__
+        }), 500
 
 @journals_bp.route('/api/clear/<int:job_id>/<int:subsidiary_id>', methods=['DELETE'])
 def clear_processing(job_id, subsidiary_id):
@@ -863,12 +944,19 @@ def upload_journals(job_id, subsidiary_id):
             db.session.flush()
         
         payload = request.get_json(force=True)
-        journal_type = payload.get('journal_type')  # 'Main' | 'POA' | 'Cross_Subsidiary'
+        journal_type = payload.get('journal_type')  # 'Main' | 'POA' | 'Cross_Subsidiary' | EU variants
         filename = payload.get('filename', 'uploaded.csv')
         rows = payload.get('rows', [])
         
-        if journal_type not in ['Main', 'POA', 'Cross_Subsidiary']:
-            return jsonify({'success': False, 'error': 'Invalid journal_type'}), 400
+        # Valid journal types (includes EU-specific types)
+        valid_types = [
+            'Main', 'POA', 'Cross_Subsidiary',  # Non-EU
+            'Main_EU', 'POA_EU', 'Cross_Subsidiary_EU', 'Refunds_EU',  # EU EUR
+            'Main_AED', 'POA_AED', 'Cross_Subsidiary_AED', 'Refunds_AED'  # EU AED
+        ]
+        
+        if journal_type not in valid_types:
+            return jsonify({'success': False, 'error': f'Invalid journal_type: {journal_type}'}), 400
         
         # Check if this journal type already uploaded
         existing = FPJournalRow.query.filter_by(
@@ -912,7 +1000,8 @@ def upload_journals(job_id, subsidiary_id):
         if journal_type not in uploaded_type_names:
             uploaded_type_names.append(journal_type)
         
-        if all(t in uploaded_type_names for t in ['Main', 'POA', 'Cross_Subsidiary']):
+        # Mark as committed if ANY journals are uploaded (flexible approach)
+        if len(uploaded_type_names) > 0:
             dataset.status = 'committed'
         
         db.session.commit()
@@ -930,21 +1019,27 @@ def upload_journals(job_id, subsidiary_id):
 
 @journals_bp.route('/api/journals-upload-status/<int:job_id>/<int:subsidiary_id>')
 def journals_upload_status(job_id, subsidiary_id):
-    """Get upload status for all 3 journal types"""
+    """Get upload status for all journal types (handles both EU and non-EU)"""
     try:
         dataset = FPDataset.query.filter_by(job_id=job_id, subsidiary_id=subsidiary_id).first()
+        
+        # Determine expected journal types based on subsidiary
+        if subsidiary_id == 4:  # EU
+            journal_types = ['Main_EU', 'POA_EU', 'Cross_Subsidiary_EU', 'Refunds_EU', 
+                           'Main_AED', 'POA_AED', 'Cross_Subsidiary_AED', 'Refunds_AED']
+        else:  # Non-EU
+            journal_types = ['Main', 'POA', 'Cross_Subsidiary']
         
         if not dataset:
             return jsonify({
                 'success': True,
-                'uploaded': {'Main': False, 'POA': False, 'Cross_Subsidiary': False},
+                'uploaded': {jtype: False for jtype in journal_types},
                 'counts': {},
                 'totals': {},
                 'all_uploaded': False
             })
         
         # Get counts and totals for each journal type
-        journal_types = ['Main', 'POA', 'Cross_Subsidiary']
         uploaded = {}
         counts = {}
         totals = {}
@@ -964,7 +1059,10 @@ def journals_upload_status(job_id, subsidiary_id):
             counts[jtype] = count
             totals[jtype] = round(float(total), 2)
         
-        all_uploaded = all(uploaded.values())
+        # Consider "all uploaded" if at least ONE journal is uploaded (flexible)
+        # This allows users to work with partial uploads
+        any_uploaded = any(uploaded.values())
+        all_uploaded = any_uploaded  # Changed logic: don't require ALL, just SOME
         
         return jsonify({
             'success': True,
@@ -972,6 +1070,7 @@ def journals_upload_status(job_id, subsidiary_id):
             'counts': counts,
             'totals': totals,
             'all_uploaded': all_uploaded,
+            'any_uploaded': any_uploaded,
             'dataset_status': dataset.status
         })
     

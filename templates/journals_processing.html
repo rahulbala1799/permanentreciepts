@@ -251,9 +251,10 @@
         <!-- Step 0: Upload Original Journals -->
         <div class="section">
             <h2>Step 0: Upload Original Journals</h2>
-            <p style="margin-bottom: 15px; color: #666;">Upload Main, POA, and Cross-Subsidiary journal files</p>
+            <p style="margin-bottom: 15px; color: #666;" id="upload-description">Upload Main, POA, and Cross-Subsidiary journal files</p>
             
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 15px;">
+            <!-- Non-EU Upload Fields (3 columns) -->
+            <div id="non-eu-upload" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 15px;">
                 <!-- Main Journal -->
                 <div>
                     <label style="font-weight: 600; display: block; margin-bottom: 8px;">
@@ -282,6 +283,99 @@
                     <input type="file" id="cross-file" class="file-input" accept=".csv">
                     <label for="cross-file" class="file-label">Choose File</label>
                     <div id="cross-info" style="margin-top: 5px; font-size: 12px; color: #666;"></div>
+                </div>
+            </div>
+            
+            <!-- EU Upload Fields (8 columns) -->
+            <div id="eu-upload" style="display: none;">
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #333; margin-bottom: 15px;">🇪🇺 EUR Journals</h4>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 20px;">
+                        <!-- Main EUR -->
+                        <div>
+                            <label style="font-weight: 600; display: block; margin-bottom: 8px;">
+                                Main EUR <span id="main-eur-status" class="status-badge status-warning" style="display: none;">✓ Uploaded</span>
+                            </label>
+                            <input type="file" id="main-eur-file" class="file-input" accept=".csv">
+                            <label for="main-eur-file" class="file-label">Choose File</label>
+                            <div id="main-eur-info" style="margin-top: 5px; font-size: 12px; color: #666;"></div>
+                        </div>
+                        
+                        <!-- POA EUR -->
+                        <div>
+                            <label style="font-weight: 600; display: block; margin-bottom: 8px;">
+                                POA EUR <span id="poa-eur-status" class="status-badge status-warning" style="display: none;">✓ Uploaded</span>
+                            </label>
+                            <input type="file" id="poa-eur-file" class="file-input" accept=".csv">
+                            <label for="poa-eur-file" class="file-label">Choose File</label>
+                            <div id="poa-eur-info" style="margin-top: 5px; font-size: 12px; color: #666;"></div>
+                        </div>
+                        
+                        <!-- Cross-Subsidiary EUR -->
+                        <div>
+                            <label style="font-weight: 600; display: block; margin-bottom: 8px;">
+                                Cross-Sub EUR <span id="cross-eur-status" class="status-badge status-warning" style="display: none;">✓ Uploaded</span>
+                            </label>
+                            <input type="file" id="cross-eur-file" class="file-input" accept=".csv">
+                            <label for="cross-eur-file" class="file-label">Choose File</label>
+                            <div id="cross-eur-info" style="margin-top: 5px; font-size: 12px; color: #666;"></div>
+                        </div>
+                        
+                        <!-- Refunds EUR -->
+                        <div>
+                            <label style="font-weight: 600; display: block; margin-bottom: 8px;">
+                                Refunds EUR <span id="refunds-eur-status" class="status-badge status-warning" style="display: none;">✓ Uploaded</span>
+                            </label>
+                            <input type="file" id="refunds-eur-file" class="file-input" accept=".csv">
+                            <label for="refunds-eur-file" class="file-label">Choose File</label>
+                            <div id="refunds-eur-info" style="margin-top: 5px; font-size: 12px; color: #666;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="color: #333; margin-bottom: 15px;">🇦🇪 AED Journals</h4>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                        <!-- Main AED -->
+                        <div>
+                            <label style="font-weight: 600; display: block; margin-bottom: 8px;">
+                                Main AED <span id="main-aed-status" class="status-badge status-warning" style="display: none;">✓ Uploaded</span>
+                            </label>
+                            <input type="file" id="main-aed-file" class="file-input" accept=".csv">
+                            <label for="main-aed-file" class="file-label">Choose File</label>
+                            <div id="main-aed-info" style="margin-top: 5px; font-size: 12px; color: #666;"></div>
+                        </div>
+                        
+                        <!-- POA AED -->
+                        <div>
+                            <label style="font-weight: 600; display: block; margin-bottom: 8px;">
+                                POA AED <span id="poa-aed-status" class="status-badge status-warning" style="display: none;">✓ Uploaded</span>
+                            </label>
+                            <input type="file" id="poa-aed-file" class="file-input" accept=".csv">
+                            <label for="poa-aed-file" class="file-label">Choose File</label>
+                            <div id="poa-aed-info" style="margin-top: 5px; font-size: 12px; color: #666;"></div>
+                        </div>
+                        
+                        <!-- Cross-Subsidiary AED -->
+                        <div>
+                            <label style="font-weight: 600; display: block; margin-bottom: 8px;">
+                                Cross-Sub AED <span id="cross-aed-status" class="status-badge status-warning" style="display: none;">✓ Uploaded</span>
+                            </label>
+                            <input type="file" id="cross-aed-file" class="file-input" accept=".csv">
+                            <label for="cross-aed-file" class="file-label">Choose File</label>
+                            <div id="cross-aed-info" style="margin-top: 5px; font-size: 12px; color: #666;"></div>
+                        </div>
+                        
+                        <!-- Refunds AED -->
+                        <div>
+                            <label style="font-weight: 600; display: block; margin-bottom: 8px;">
+                                Refunds AED <span id="refunds-aed-status" class="status-badge status-warning" style="display: none;">✓ Uploaded</span>
+                            </label>
+                            <input type="file" id="refunds-aed-file" class="file-input" accept=".csv">
+                            <label for="refunds-aed-file" class="file-label">Choose File</label>
+                            <div id="refunds-aed-info" style="margin-top: 5px; font-size: 12px; color: #666;"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
@@ -352,13 +446,11 @@
         
         // Load status on page load
         document.addEventListener('DOMContentLoaded', () => {
+            // Show/hide upload fields based on subsidiary
+            setupUploadFields();
+            
             loadStatus();
             loadJournalsUploadStatus();
-            
-            // Journal file input listeners
-            document.getElementById('main-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'Main'));
-            document.getElementById('poa-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'POA'));
-            document.getElementById('cross-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'Cross_Subsidiary'));
             
             // Summit file input listener
             document.getElementById('summit-file').addEventListener('change', (e) => {
@@ -372,6 +464,34 @@
                 }
             });
         });
+        
+        function setupUploadFields() {
+            // Show appropriate upload fields based on subsidiary
+            if (SUBSIDIARY_ID === 4) { // EU
+                document.getElementById('non-eu-upload').style.display = 'none';
+                document.getElementById('eu-upload').style.display = 'block';
+                document.getElementById('upload-description').textContent = 'Upload EUR and AED journal files (8 total)';
+                
+                // Add event listeners for EU files
+                document.getElementById('main-eur-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'Main_EU'));
+                document.getElementById('poa-eur-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'POA_EU'));
+                document.getElementById('cross-eur-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'Cross_Subsidiary_EU'));
+                document.getElementById('refunds-eur-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'Refunds_EU'));
+                document.getElementById('main-aed-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'Main_AED'));
+                document.getElementById('poa-aed-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'POA_AED'));
+                document.getElementById('cross-aed-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'Cross_Subsidiary_AED'));
+                document.getElementById('refunds-aed-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'Refunds_AED'));
+            } else { // Non-EU
+                document.getElementById('non-eu-upload').style.display = 'grid';
+                document.getElementById('eu-upload').style.display = 'none';
+                document.getElementById('upload-description').textContent = 'Upload Main, POA, and Cross-Subsidiary journal files';
+                
+                // Add event listeners for non-EU files
+                document.getElementById('main-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'Main'));
+                document.getElementById('poa-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'POA'));
+                document.getElementById('cross-file').addEventListener('change', (e) => handleJournalFileSelect(e, 'Cross_Subsidiary'));
+            }
+        }
         
         async function loadStatus() {
             try {
@@ -631,13 +751,29 @@
                     method: 'POST'
                 });
                 
+                if (!response.ok) {
+                    const errorResult = await response.json();
+                    console.error('Server Error Response:', errorResult);
+                    console.error('Full Traceback:', errorResult.traceback);
+                    showAlert('error', `Server error: ${errorResult.error} (${errorResult.error_type}) - Check console for full traceback`);
+                    return;
+                }
+                
                 const result = await response.json();
+                
+                console.log('Generate Journals Response:', result);
                 
                 if (result.success) {
                     showAlert('success', result.message);
                     
                     // Show reconciliation table
                     const recon = result.reconciliation;
+                    
+                    if (!recon) {
+                        showAlert('error', 'No reconciliation data returned from server');
+                        console.error('Missing reconciliation in response:', result);
+                        return;
+                    }
                     const reconHTML = `
                         <h4 style="margin-bottom: 15px;">📊 Reconciliation</h4>
                         <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
@@ -707,7 +843,8 @@
                 }
                 
             } catch (error) {
-                showAlert('error', 'Generation failed: ' + error.message);
+                console.error('Generate Journals Error:', error);
+                showAlert('error', 'Generation failed: ' + error.message + ' (check console for details)');
             }
         }
         
@@ -862,33 +999,72 @@
                 
                 if (!data.success) return;
                 
-                // Update upload status badges
-                ['Main', 'POA', 'Cross_Subsidiary'].forEach(type => {
-                    const key = type === 'Cross_Subsidiary' ? 'cross' : type.toLowerCase();
-                    const statusEl = document.getElementById(`${key}-status`);
-                    const infoEl = document.getElementById(`${key}-info`);
+                if (SUBSIDIARY_ID === 4) { // EU
+                    // Update EU upload status badges
+                    const euTypes = ['Main_EU', 'POA_EU', 'Cross_Subsidiary_EU', 'Refunds_EU', 'Main_AED', 'POA_AED', 'Cross_Subsidiary_AED', 'Refunds_AED'];
+                    euTypes.forEach(type => {
+                        const key = type.toLowerCase().replace('_', '-');
+                        const statusEl = document.getElementById(`${key}-status`);
+                        const infoEl = document.getElementById(`${key}-info`);
+                        
+                        // Check if elements exist (they might not if page is still loading)
+                        if (!statusEl || !infoEl) {
+                            console.warn(`Missing DOM element for ${type}`);
+                            return;
+                        }
+                        
+                        if (data.uploaded[type]) {
+                            statusEl.style.display = 'inline-block';
+                            statusEl.className = 'status-badge status-success';
+                            infoEl.textContent = `${data.counts[type]} rows | $${data.totals[type].toLocaleString()}`;
+                        } else {
+                            statusEl.style.display = 'none';
+                            infoEl.textContent = '';
+                        }
+                    });
                     
-                    if (data.uploaded[type]) {
-                        statusEl.style.display = 'inline-block';
-                        statusEl.className = 'status-badge status-success';
-                        infoEl.textContent = `${data.counts[type]} rows | $${data.totals[type].toLocaleString()}`;
+                    // Update view data button
+                    document.getElementById('view-data-btn').disabled = !data.all_uploaded;
+                    
+                    // Update summary
+                    if (data.all_uploaded) {
+                        const totalCount = euTypes.reduce((sum, type) => sum + (data.counts[type] || 0), 0);
+                        const totalAmount = euTypes.reduce((sum, type) => sum + (data.totals[type] || 0), 0);
+                        document.getElementById('upload-summary').innerHTML = 
+                            `<strong>✅ All 8 journals uploaded</strong> | ${totalCount} total rows | $${totalAmount.toLocaleString()}`;
                     } else {
-                        statusEl.style.display = 'none';
-                        infoEl.textContent = '';
+                        const uploadedCount = euTypes.filter(type => data.uploaded[type]).length;
+                        document.getElementById('upload-summary').textContent = `Upload all 8 journals to continue (${uploadedCount}/8 uploaded)`;
                     }
-                });
-                
-                // Update view data button
-                document.getElementById('view-data-btn').disabled = !data.all_uploaded;
-                
-                // Update summary
-                if (data.all_uploaded) {
-                    const totalCount = data.counts.Main + data.counts.POA + data.counts.Cross_Subsidiary;
-                    const totalAmount = data.totals.Main + data.totals.POA + data.totals.Cross_Subsidiary;
-                    document.getElementById('upload-summary').innerHTML = 
-                        `<strong>✅ All journals uploaded</strong> | ${totalCount} total rows | $${totalAmount.toLocaleString()}`;
-                } else {
-                    document.getElementById('upload-summary').textContent = 'Upload all 3 journals to continue';
+                } else { // Non-EU
+                    // Update non-EU upload status badges
+                    ['Main', 'POA', 'Cross_Subsidiary'].forEach(type => {
+                        const key = type === 'Cross_Subsidiary' ? 'cross' : type.toLowerCase();
+                        const statusEl = document.getElementById(`${key}-status`);
+                        const infoEl = document.getElementById(`${key}-info`);
+                        
+                        if (data.uploaded[type]) {
+                            statusEl.style.display = 'inline-block';
+                            statusEl.className = 'status-badge status-success';
+                            infoEl.textContent = `${data.counts[type]} rows | $${data.totals[type].toLocaleString()}`;
+                        } else {
+                            statusEl.style.display = 'none';
+                            infoEl.textContent = '';
+                        }
+                    });
+                    
+                    // Update view data button
+                    document.getElementById('view-data-btn').disabled = !data.all_uploaded;
+                    
+                    // Update summary
+                    if (data.all_uploaded) {
+                        const totalCount = data.counts.Main + data.counts.POA + data.counts.Cross_Subsidiary;
+                        const totalAmount = data.totals.Main + data.totals.POA + data.totals.Cross_Subsidiary;
+                        document.getElementById('upload-summary').innerHTML = 
+                            `<strong>✅ All journals uploaded</strong> | ${totalCount} total rows | $${totalAmount.toLocaleString()}`;
+                    } else {
+                        document.getElementById('upload-summary').textContent = 'Upload all 3 journals to continue';
+                    }
                 }
                 
             } catch (error) {

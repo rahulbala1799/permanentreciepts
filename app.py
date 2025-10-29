@@ -5134,8 +5134,15 @@ def download_master_journal(job_id, subsidiary_id):
 def download_split_journal(job_id, subsidiary_id, journal_type):
     """Download a specific split journal"""
     try:
-        from journal_generation.journal_builder import JournalBuilder
         from flask import send_file
+        
+        # Use EU-specific builder for subsidiary 4
+        if subsidiary_id == 4:
+            from journal_generation.journal_builder_eu import JournalBuilderEU
+            builder_class = JournalBuilderEU
+        else:
+            from journal_generation.journal_builder import JournalBuilder
+            builder_class = JournalBuilder
         
         data = request.get_json() or {}
         memo = data.get('memo', '')
@@ -5147,7 +5154,7 @@ def download_split_journal(job_id, subsidiary_id, journal_type):
             'CashbookTransaction': CashbookTransaction,
             'JournalTransaction': JournalTransaction
         }
-        builder = JournalBuilder(db, job_id, subsidiary_id, models)
+        builder = builder_class(db, job_id, subsidiary_id, models)
         master_df = builder.generate_master_journal(memo)
         
         if master_df.empty:
@@ -5156,10 +5163,11 @@ def download_split_journal(job_id, subsidiary_id, journal_type):
         # Get split journals (pass memo for refunds journal)
         journals = builder.split_journals(master_df, memo)
         
-        # Add Salon Summit Installments from database
-        salon_summit_df = builder._get_salon_summit_installments()
-        if not salon_summit_df.empty:
-            journals[f'Salon_Summit_Installments_{builder.subsidiary_name}'] = salon_summit_df
+        # Add Salon Summit Installments from database (only for non-EU builder)
+        if hasattr(builder, '_get_salon_summit_installments'):
+            salon_summit_df = builder._get_salon_summit_installments()
+            if not salon_summit_df.empty:
+                journals[f'Salon_Summit_Installments_{builder.subsidiary_name}'] = salon_summit_df
         
         # Find the requested journal
         journal_df = None
@@ -5359,10 +5367,17 @@ def process_installments(job_id, subsidiary_id):
 def download_all_journals_new(job_id, subsidiary_id):
     """Download all journals as a ZIP file"""
     try:
-        from journal_generation.journal_builder import JournalBuilder
         from flask import send_file
         import zipfile
         import io
+        
+        # Use EU-specific builder for subsidiary 4
+        if subsidiary_id == 4:
+            from journal_generation.journal_builder_eu import JournalBuilderEU
+            builder_class = JournalBuilderEU
+        else:
+            from journal_generation.journal_builder import JournalBuilder
+            builder_class = JournalBuilder
         
         data = request.get_json() or {}
         memo = data.get('memo', '')
@@ -5374,7 +5389,7 @@ def download_all_journals_new(job_id, subsidiary_id):
             'CashbookTransaction': CashbookTransaction,
             'JournalTransaction': JournalTransaction
         }
-        builder = JournalBuilder(db, job_id, subsidiary_id, models)
+        builder = builder_class(db, job_id, subsidiary_id, models)
         all_journals = builder.export_all_journals(memo)
         
         if not all_journals:
